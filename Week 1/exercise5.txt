@@ -1,0 +1,26 @@
+// Programming in C/C++
+// Week 1: Assignment 5
+// Tjalling Otter &  Emiel Krol
+// Source: "De Programeertaal C, Frank B. Brokken, page 516"
+
+\a     	Adds an audible bell sound.
+\b     	backspace: moves the cursor back one space and removes the input of that space.
+\f     	form feed - new page: moves the cursor to the next page.
+\n     	line feed - new line: moves the cursor to the next line.
+\r     	carriage return: moves the cursor to the start of the current line or to the next line, which depending on the OS.
+\t     	horizontal tab moves the cursor to the right by one tab length.
+\v     	vertical tab moves the cursor down by one tab.
+\0ddd   Ascii sign 'ddd': Returns an Ascii sign indicated by octal numeration.
+\xdd    Ascii sign 'dd' : Returns an Ascii sign indicated by hexadecimal numeration.
+
+If another character is written as an escape sequence, for example ' \\ ', ' \ ' is returned after execution.
+
+Example:
+
+#include <iostream>
+
+int main()
+{
+    std::cout << "Example text" << '\n' << '\\';                  //Printing text and adding a "\" on the next line
+                                                                  //Since it follows " '\n' "
+}
