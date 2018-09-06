@@ -1,7 +1,18 @@
+Programming in C/C++
+Week 1: Assignment 1
+Tjalling Otter & Emiel Krol
+
+------- Begin code -------
 // Programming in C/C++
 // Week 1: Assignment 1
 // Tjalling Otter & Emiel Krol
 
+#include <iostream>
+int main()
+{
+  std::cout << "Hello World" << '\n'; // Printing 'Hello World' to the console
+}
+------- End   code -------
 
 Commands for compiling and linking
   Compiling
@@ -11,5 +22,16 @@ Commands for compiling and linking
 
 Short descriptions of object file and executable
   Object file
-    Compiled version of the source code (contained in hello.cc). In some sense it can be
-    considered to be an intermediate file
+    Compiled version of the source code (contained in hello.cc). In some sense
+    it can be considered to be an intermediate file, as it cannot run yet but is
+  Executable
+    Compiled and linked version of the source code, and is executable.
+
+The output of the programme is as follows
+  Hello World
+
+File sizes
+  hello.cc (source file)  153 bytes
+  hello.o (object file)   2696 bytes
+  hello (executable)      6208 bytes
+  iostream (library)      2695 bytes
