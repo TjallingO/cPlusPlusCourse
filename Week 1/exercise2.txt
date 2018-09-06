@@ -1,0 +1,9 @@
+Programming in C/C++
+Week 1: Assignment 2
+Tjalling Otter & Emiel Krol
+
+Difference between a declaration and a definition
+  A declaration is merely the announcement of the existence of a symbol, like a
+  function, variable, etc, and the type thereof (e.g. int). A definition actually
+  assigns meaning to those symbols, such as what the function does or which
+  value a variable contains.
