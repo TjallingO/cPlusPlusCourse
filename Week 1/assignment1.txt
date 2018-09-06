@@ -1,0 +1,15 @@
+// Programming in C/C++
+// Week 1: Assignment 1
+// Tjalling Otter & Emiel Krol
+
+
+Commands for compiling and linking
+  Compiling
+    g++ -Wall --std=c++17 -c hello.cc
+  Linking
+    g++ -Wall --std=c++17 -o hello hello.o
+
+Short descriptions of object file and executable
+  Object file
+    Compiled version of the source code (contained in hello.cc). In some sense it can be
+    considered to be an intermediate file
