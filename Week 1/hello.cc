@@ -5,5 +5,5 @@
 #include <iostream>
 int main()
 {
-  std::cout << "Hello Wo0rld" << '\n'; // Printing 'Hello World' to the console
+  std::cout << "Hello World" << '\n'; // Printing 'Hello World' to the console
 }
