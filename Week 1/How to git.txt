@@ -1,0 +1,15 @@
+
+local -> github
+Make changes -> (stage) -> commit -> push
+
+git commit .
+git push --set-upstream TjallingO EmielBranch                voor Branch
+
+github -> local
+fetch -> pull
+
+git pull TjallingO EmielBranch
+git fetch
+
+Dan master syncen door branch toe te voegen
+Daara andersom mergen
