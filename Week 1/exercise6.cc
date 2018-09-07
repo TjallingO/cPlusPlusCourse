@@ -14,7 +14,7 @@ int main()
 
   // The popcount function counts the number of set bits (i.e. the number of ones in a binary number).
   // If it is exactly one, that means it is a power of 2.
-  cout << (builtin_popcount(value) == 1 ? "even" : "odd") << '\n';
+  cout << (__builtin_popcount(value) == 1 ? "even" : "odd") << '\n';
 
   // The modulo operator, using the number 2, checks whether a value is fully divisble
   // (i.e. no remainder) by 2, and if so, returns 1 (true), else 0 (false).
