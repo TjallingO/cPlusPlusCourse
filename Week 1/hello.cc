@@ -1,6 +1,6 @@
 // Programming in C/C++
 // Week 1: Assignment 1
-// Tjalling Otter & Emiel Krol
+// Tjalling Otter &  Emiel K
 
 #include <iostream>
 int main()
