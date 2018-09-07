@@ -1,0 +1,39 @@
+Programming in C/C++
+Week 1: Assignment 3
+Tjalling Otter & Emiel Krol
+
+1. Empty program
+  Yes, it is valid. It produces no visible result.
+
+2. Nonstandard main function
+  Yes, it is valid, however it is nonstandard and the third parameter should
+  be avoided.
+
+3. Empty return value
+  No, it is not valid. The snippet says to return something, but not what. Hence,
+  the program can be fixed by adding either a 0 or a 1. However, the line can also
+  be removed entirely, as the program will already return a 0 by default.
+
+4. Comparing
+  Yes, when adding a semicolon to the end, the snippet is valid. However, it does
+  'do' anything. Yes, the size of the character c is 1, but no function is dependent
+  on this fact. It could, for example, be used in an if-statement.
+
+5. Argument array
+  No, however the program will run. The value of argc (i.e. 1), representing
+  the number of arguments passed to the main function, is used as the array position
+  in the array argv[]. Since there is only one argument, and the array starts
+  at position zero, this should be invalid or undefined.
+
+6. End program
+  It will work, however using such a function is not recommended. Instead,
+  reordering one's code to lead to a natural ending (i.e. the end of the main
+  function) is preferred.
+
+7. enum definition
+  Yes, that is valid. It would work either way, but it is not required to preface
+  an enum with typedef.
+
+8. Index evaluation sequence
+  Yes, this refers to the fourth position within the third position of the array
+  argv. It is evaluated starting from the variable itself, moving outward.
