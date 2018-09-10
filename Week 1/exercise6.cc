@@ -36,5 +36,9 @@ int main()
   // by two will equal the initial value when multiplied by two again, others won´t.
   cout << ((value / 2) * 2 == value ? "even" : "odd") << '\n';
 
-
+  // The right shift operator will truncate the right-most digit of a binary number.
+  // Shifting the whole number to the left and adding a zero at the end (i.e. left shift)
+  // will return the same value once more only if the last digit was a zero to begin with;
+  // hence, it was uneven.
+  cout << (((value >> 1) << 1) == value ? "odd" : "even") << '\n';
 }
