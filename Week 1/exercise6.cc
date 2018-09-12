@@ -22,8 +22,6 @@ int main()
   // only output one if the last binary digit of 'a' is a one, making it uneven.
   cout << (value & 1 ? "odd" : "even") << '\n';
 
-
-
   // Bitwise XOR outputs a binary number that represents the bits that are set in
   // only one of the two numbers. Hence, performing this operation on a number 'a'
   // and '1' will increment the number only if 'a' is even (i.e. its binary value

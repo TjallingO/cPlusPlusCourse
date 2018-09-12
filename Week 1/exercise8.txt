@@ -11,7 +11,7 @@ In the code " program <in> out " the executable "program" uses "in" as input fil
 and produces file "out" as output file.
 
 Piping:
-Piping passes information from one program to another. One program can passes
+Piping passes information from one program to another. One program can pass
 a parameter such as the output into the pipe, where it is stored. The other
 program can then use the information in the pipe as, for example, input. Pipes
 can be one way or two way.

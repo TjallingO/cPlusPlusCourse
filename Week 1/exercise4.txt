@@ -1,3 +1,9 @@
+Programming in C/C++
+Week 1: Assignment 4
+Tjalling Otter &  Emiel Krol
+
+**************** Begin Code ********************
+
 // Programming in C/C++
 // Week 1: Assignment 4
 // Tjalling Otter &  Emiel Krol
@@ -21,6 +27,7 @@ int main()
 {
     std::cout << NTBs << '\n';
 }
+**************** End   Code ********************
 
 Output:
 
