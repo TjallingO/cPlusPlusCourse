@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
     size_t offsetNibble = replacement << (4 * nibble);  // Shift the new nibble to its desired spot
     size_t offsetMask = 15 << (4 * nibble);             // Create a mask to zero the nibble to be replaced
-    value = (value & ~shiftMask) | shiftNibble;         // First, zero the nibble to be replaced, then replace it with the new nibble
+    value = (value & ~offsetMask) | offsetNibble;       // First, zero the nibble to be replaced, then replace it with the new nibble
 
     cout << hex << value << '\n';                       // show the new value
 }
