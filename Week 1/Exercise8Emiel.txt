@@ -1,8 +1,21 @@
-
+Programming in C/C++
+Week 1: Assignment 8
+Tjalling Otter & Emiel Krol
 
 Redirection:
 When changing code in a program to write a file, one can use redirection in
 order to append the code in the already existing file, rather than erasing and
 rewriting the entire file. This saves time.
 
-Piping
+In the code " program <in> out " the executable "program" uses "in" as input file
+and produces file "out" as output file.
+
+Piping:
+Piping passes information from one program to another. One program can passes
+a parameter such as the output into the pipe, where it is stored. The other
+program can then use the information in the pipe as, for example, input. Pipes
+can be one way or two way.
+
+In the code " code | less" the output of the program "code" is piped to the
+program "less". less allows one to view the output of program "code" one
+screen-full at a time.

@@ -23,8 +23,8 @@ Commands for compiling and linking
 Short descriptions of object file and executable
   Object file
     Compiled version of the source code (contained in hello.cc). In some sense
-    it can be considered to be an intermediate file, as it cannot run yet but is
-    machine code.
+    it can be considered to be an intermediate file, as it cannot run yet but
+    is machine code.
   Executable
     Compiled and linked version of the source code, and is executable.
 
