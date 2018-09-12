@@ -17,4 +17,7 @@ int main()
   // bits with that number minus one, thus returning zero (i.e. false). For example,
   // 8 (1000) & 7 (0111) = 0.
   cout << "the value " << value << " is " << ((value &(value - 1)) ? "not " : "") << "an exact power of two" << '\n';
+
+  double value2 = (value &(value - 1));
+  cout << value2;
 }

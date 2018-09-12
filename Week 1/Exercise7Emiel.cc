@@ -4,9 +4,9 @@
 using namespace std;
 
 int main() {
-  int value;
+  unsigned int value;
 
-  count << "Enter a value\n";
+  cout << "Enter a value\n";
   cin >> value;                            // Asking for input
 
   int i=0;                                 // Defining i for the while loop

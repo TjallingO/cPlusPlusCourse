@@ -15,11 +15,14 @@ int main()
   // The modulo operator, using the number 2, checks whether a value is fully divisble
   // (i.e. no remainder) by 2, and if so, returns 1 as the remainder (true), else 0 (false).
   cout << (value % 2 ? "odd" : "even") << '\n';
+  //
 
   // Bitwise AND outputs a binary number equivalent to wherever both a and b have
   // the same bits set. Hence, performing bitwise AND on a number 'a' and '1' will
   // only output one if the last binary digit of 'a' is a one, making it uneven.
   cout << (value & 1 ? "odd" : "even") << '\n';
+
+
 
   // Bitwise XOR outputs a binary number that represents the bits that are set in
   // only one of the two numbers. Hence, performing this operation on a number 'a'
