@@ -16,7 +16,7 @@ R"R(
 ^\\s+ssid=\"([[:print:]]+)\"
 )R";
 
-/* Defining the text that needs to be printed. */
+// Defining the text that needs to be printed.
 
 
 //Printing the previously defined text in the console
