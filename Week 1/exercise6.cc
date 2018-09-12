@@ -13,7 +13,7 @@ int main()
   cin >> value;
 
   // The modulo operator, using the number 2, checks whether a value is fully divisble
-  // (i.e. no remainder) by 2, and if so, returns 1 (true), else 0 (false).
+  // (i.e. no remainder) by 2, and if so, returns 1 as the remainder (true), else 0 (false).
   cout << (value % 2 ? "odd" : "even") << '\n';
   //
 
