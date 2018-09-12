@@ -15,7 +15,7 @@ R"R(
   *********************************
 )R";
 
-/* Defining the text that needs to be printed. */
+// Defining the text that needs to be printed
 
 int main()
 {

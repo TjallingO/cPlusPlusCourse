@@ -23,7 +23,6 @@ If another character is written as an escape sequence,
 Example:
 
 **************** Begin Code ********************
-
 #include <iostream>
 
  //Printing text and adding a "\" on the next line Since it follows " '\n' "
