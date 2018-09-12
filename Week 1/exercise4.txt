@@ -15,9 +15,11 @@ R"R(
 
 /* Defining the text that needs to be printed. */
 
+
+//Printing the previously defined text in the console
 int main()
 {
-    std::cout << NTBs << '\n';                  //Printing the previously defined text in the console
+    std::cout << NTBs << '\n';
 }
 
 Output:
