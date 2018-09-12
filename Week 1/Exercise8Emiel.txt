@@ -1,0 +1,8 @@
+
+
+Redirection:
+When changing code in a program to write a file, one can use redirection in
+order to append the code in the already existing file, rather than erasing and
+rewriting the entire file. This saves time.
+
+Piping

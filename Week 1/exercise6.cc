@@ -19,10 +19,14 @@ int main()
   // The modulo operator, using the number 2, checks whether a value is fully divisble
   // (i.e. no remainder) by 2, and if so, returns 1 (true), else 0 (false).
   cout << (value % 2 ? "odd" : "even") << '\n';
+  //
 
   //
   cout << (value & 1 ? "odd" : "even") << '\n';
 
+  cout << "xor " << ((value ^ 1) != (value+1) ? "odd" : "even") << (value ^ 1) <<'\n';
+
+  cout << "incl or " << ((value | 1) == (value) ? "odd" : "even") << (value | 1) <<'\n';
   // For integral divisions, any fractional part is discarded. Hence, any number divisible
   // by two will equal the initial value when multiplied by two again, others won´t.
   cout << ((value / 2) * 2 == value ? "even" : "odd") << '\n';

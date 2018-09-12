@@ -13,4 +13,7 @@ int main()
   cin >> value;
 
   cout << "the value " << value << " is " << ((value &(value - 1)) ? "not " : "") << "an exact power of two" << '\n';
+
+  double value2 = (value &(value - 1));
+  cout << value2;
 }
