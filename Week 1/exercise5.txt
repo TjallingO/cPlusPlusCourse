@@ -1,7 +1,7 @@
-// Programming in C/C++
-// Week 1: Assignment 5
-// Tjalling Otter &  Emiel Krol
-// Source: "De Programeertaal C, Frank B. Brokken, page 516"
+Programming in C/C++
+Week 1: Assignment 5
+Tjalling Otter &  Emiel Krol
+Source: "De Programeertaal C, Frank B. Brokken, page 516"
 
 \a     	Adds an audible bell sound.
 \b     	backspace: moves the cursor back one space and removes the input of
@@ -22,6 +22,8 @@ If another character is written as an escape sequence,
 
 Example:
 
+**************** Begin Code ********************
+
 #include <iostream>
 
  //Printing text and adding a "\" on the next line Since it follows " '\n' "
@@ -32,3 +34,4 @@ int main()
     std::cout << "Example text" << '\n' << '\\';
 
 }
+**************** End   Code ********************
