@@ -19,12 +19,12 @@ Header files and libraries
   the moment of compilation. Libraries, however, are included at the linking
   phase, i.e. when the executable is generated.
 
-Libraries **rough
+Libraries
   A library is not an object module since the object module is created by
   the compiler. The object module contains the code including calls to functions
   but it does not know what to do with the functions yet. This information
   is in the libraries. In the linking phase the compiler links the object
-  module to the library such the functions can be used.
+  module to the library such so that functions can be used.
 
 Why is an object module obtained after compiling a source containing
 int main() not an executable program?

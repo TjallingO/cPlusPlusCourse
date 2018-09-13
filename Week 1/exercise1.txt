@@ -2,7 +2,7 @@ Programming in C/C++
 Week 1: Assignment 1
 Tjalling Otter & Emiel Krol
 
-------- Begin code -------
+**************** Begin Code ********************
 // Programming in C/C++
 // Week 1: Assignment 1
 // Tjalling Otter & Emiel Krol
@@ -12,7 +12,7 @@ int main()
 {
   std::cout << "Hello World" << '\n'; // Printing 'Hello World' to the console
 }
-------- End   code -------
+**************** End   Code ********************
 
 Commands for compiling and linking
   Compiling
