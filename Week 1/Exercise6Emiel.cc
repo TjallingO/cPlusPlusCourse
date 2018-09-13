@@ -30,9 +30,8 @@ int main()
   string str = strs.str();
 
   cout << '\n' << str.length() << '\n';
-  cout << (str[str.length()-1] == 1 || 3 || 5 || 7 || 9  ? "odd" : "even") << '\n'; //4 maar met extra variable
+  cout << (str[str.length()-1] == 1 || 3 || 5 || 7 || 9  ? "odd" : "even") << '\n'; //4 maar met extra variable 
 
-  cout << value.to_string() << '\t' 
   cout << bitset<16>(value).to_string() << '\t' << bitset<16>(value).to_string()[15] << '\t';
   cout << (bitset<16>(value).to_string()[15] == '1' ? "odd" : "even") << '\n';  //5 binary
   cout << (bitset<16>(value).to_string()[15] != '0' ? "odd" : "even") << '\n';  //6 binary
