@@ -10,5 +10,6 @@ int main(int argc, char *argv[])
   size_t number = stoul(argv[1]);
 
   for(size_t index = 1; index != 11; index++)
-    cout << index << " * " << number << " = " << (index * number) << '\n';
+    cout << index << " * " << number << " = "
+         << (index * number) << '\n';
 }
