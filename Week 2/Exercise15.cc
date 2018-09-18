@@ -17,9 +17,9 @@ int main()
   unsigned int emptylines =0;
   unsigned int lastlinewithtext =0;
 
-  unsigned int islastline = 0;              //If a line without text is read this value becomes 1,
+  bool islastline = false;                  //If a line without text is read this value becomes 1,
                                             //if a line with text is read afterwards it becomes 0 again.
-  unsigned int isfirstline = 0;             //simular for first line with text.
+  bool isfirstline = false;             //simular for first line with text.
 
   ifstream text;
   text.open("textEx15.txt");
@@ -28,22 +28,22 @@ int main()
   while (getline(text,line))                  //while to find first and last line with text
   {
     totallines++;
-    if(line.empty()&(islastline==0))          //finding last line with text
+    if(line.empty()&(islastline==false))          //finding last line with text
     {
       lastlinewithtext = totallines;
-      islastline=1;
+      islastline=true;
     }
     if(!line.empty())
     {
-      islastline=0;
+      islastline=false;
     }
-    if(line.empty()&(isfirstline==0))         //finding first line with text
+    if(line.empty()&(isfirstline==false))         //finding first line with text
     {
       emptylines++;
     }
-    if(!line.empty()&(isfirstline==0))
+    if(!line.empty()&(isfirstline==false))
     {
-      isfirstline=1;
+      isfirstline=true;
     }
   }
 
