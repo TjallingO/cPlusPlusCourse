@@ -23,13 +23,9 @@ int main(int argc, char const *argv[]) {
   string stringRorOrRol = argv[2];       //Saving argv[2] in a string to test whether it is rol or ror
 
   if(stringRorOrRol=="ror")              //Checking whether argv[2] is ror
-  {
     caseint=0;
-  }
   if(stringRorOrRol=="rol")              //Checking whether argv[2] is rol
-  {
     caseint=1;
-  }
 
   switch (caseint) {
     case 0:                       //so if ror
@@ -48,14 +44,14 @@ int main(int argc, char const *argv[]) {
         break;
       }
     case 1:                       //so if rol
-      if((input[0])=='1')         //if most significant digit 1
+      if(input[0]=='1')         //if most significant digit 1
       {
         // 1000 -> 0001 lol
         input.erase(0,1);
         input.append("1");
         break;
       }
-      if((input[0])=='0')         //if most significant digit 0
+      if(input[0]=='0')         //if most significant digit 0
       {
         // 0101 -> 1010 lol
         input.erase(0,1);
