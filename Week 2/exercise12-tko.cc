@@ -9,13 +9,14 @@ using namespace std;
 
 int main()
 {
-  string asciiSet;
-  for (size_t forIndex = 0; forIndex < 254; forIndex++)
+  string asciiSet;                             // Initialise the ascii string
+
+  for (size_t index = 0; index < 254; index++) // Loop through all ascii characters
   {
-    if (isalpha(forIndex))
+    if (isalpha(index))                        // If they are alphabetical ...
     {
-      asciiSet += (char) forIndex;
+      asciiSet += (char) index;                // ... add them to the string
     }
   }
-  cout << asciiSet << '\n';
+  cout << asciiSet << '\n'                     // Pring the alphabetical ascii set
 }
