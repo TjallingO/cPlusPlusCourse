@@ -18,5 +18,5 @@ int main()
       asciiSet += (char) index;                // ... add them to the string
     }
   }
-  cout << asciiSet << '\n'                     // Pring the alphabetical ascii set
+  cout << asciiSet << '\n'                     // Print the alphabetical ascii set
 }
