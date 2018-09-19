@@ -7,27 +7,27 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-  size_t numberOfLines = 0;
-  string extractedLine;
+  size_t numberOfLines = 0;						// Initialise integer
+  string extractedLine;							// Initialise string
 
-  if (argc == 2 && string(argv[1]) == "ok")
+  if (argc == 2 && string(argv[1]) == "ok")		// If optional ok is given
   {
-    while (true)
+    while (true)								// Infinite loop
     {
-      if (!getline(cin, extractedLine))
+      if (!getline(cin, extractedLine))			// Until no more lines 
         break;
-      numberOfLines++;
+      numberOfLines++;							// Increment integer
     }
   }
   else
   {
-    while (!cin.eof())
+    while (!cin.eof())							// If there is a line (also enter it)
     {
-      getline(cin, extractedLine);
-      numberOfLines++;
+      getline(cin, extractedLine);				// Get line (again)
+      numberOfLines++;							// Increment int
     }
   }
-  cout << numberOfLines << '\n';
+  cout << numberOfLines << '\n';				// Output the int
 }
 
-// Run with ./exercise13 [ok] < ./fileForExercise13.txt
+// Run with ./exercise13 [ok] < ./fileForExercise13.txt, which has five lines
