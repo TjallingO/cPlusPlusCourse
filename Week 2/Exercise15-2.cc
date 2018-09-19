@@ -1,5 +1,5 @@
 // Programming in C/C++
-// Week 1: Assignment 15
+// Week 2: Assignment 15
 // Tjalling Otter &  Emiel Krol
 
 #include <iostream>
