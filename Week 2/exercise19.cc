@@ -15,31 +15,32 @@ int main(int argc, char *argv[])
     return(0);
   }
 
-  size_t base = stoul(argv[1]); // First argument, radix
-  size_t inputValue = stoul(argv[2]); // Second argument, number to convert
-  size_t intermediaryValue = inputValue;  // Initialise intermediary value
-  string outputValue; // Initialise output string
+  size_t base = stoul(argv[1];            // First argument, radix
+  size_t inputValue = stoul(argv[2]);	    // Second argument, number to convert
+  size_t intermediaryValue = inputValue;	// Initialise intermediary value
+  string outputValue;						          // Initialise output string
 
-  if (inputValue == 0)  // Quick exit for when 0 will stay 0 in any base.
+  if (inputValue == 0)  // Quick exit for when 0 will stay 0 in any base
   {
     outputValue = "0";
   }
 
   while (intermediaryValue != 0)  // Continuous loop while initial put is decremented
   {
-    size_t prependValue;  // Initialising the number to prepend to the string
+    size_t prependValue;  // Initialising the digit to prepend to the string
 
-    prependValue = (intermediaryValue % base);  // Finding out the remainder
+    prependValue = (intermediaryValue % base);  			       // Finding out the remainder
 
-    if (prependValue > 9) // If this remainder is larger than 9, ...
+    if (prependValue > 9) 									                 // If remainder > 9, ...
     {
-      outputValue.insert(0, 1, (char) (prependValue += 87)); // ... it must be a alphabetical character instead
+      outputValue.insert(0, 1, (char) (prependValue += 87)); // ... it must be an
+															                               // alphabetical character
     }
-    else  // If not, ...
+    else  													                         // If not, ...
     {
       outputValue.insert(0, 1, (char) (prependValue += 48)); // .. it is just a number
     }
-    intermediaryValue /= base;  // Integer division to decrement value
+    intermediaryValue /= base;  // Decrementing the value to move to the next digit
   }
   cout << inputValue << ", displayed using raxix " << base << " is: " //Output
        << outputValue << '\n';

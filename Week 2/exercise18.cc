@@ -11,7 +11,7 @@ int main()
 
   cout << "Welcome to fake assembly \n";
 
-  while(1)
+  while(true)
   {
     string command;
     size_t parameter;
@@ -32,16 +32,17 @@ int main()
     switch (command[0])
     {
       case 's':
-        switch(command[1])
-        {
-          case 't':
-            programVariable = parameter;
-            break;
-          case 'u':
-            programVariable -= parameter;
-            break;
-          }
+		if (command[1] == 't')
+		{
+		  programVariable = parameter;
           break;
+		}
+        else
+        {
+		  programVariable -= parameter;
+          break;
+        }
+		break;
       case 'a':
         programVariable += parameter;
         break;
