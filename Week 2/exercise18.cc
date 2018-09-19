@@ -2,12 +2,14 @@
 // Week 2: Assignment 18
 // Tjalling Otter & Emiel Krol
 
+// Needs C++17
+
 #include <iostream>
 using namespace std;
 
 enum commandOptions                             // enum representations of
 {                                               // command options
-  store, add, subtract, multiply, divide, ret
+  store, add, subtract, multiply, divide, ret, invalid
 };
 
 commandOptions matchEnum(string const& command) // enums for the commands
@@ -17,6 +19,7 @@ commandOptions matchEnum(string const& command) // enums for the commands
   if (command == "sub") return subtract;        // really wants integers
   if (command == "mul") return multiply;
   if (command == "div") return divide;
+  return invalid;
 };
 
 int main()
@@ -69,6 +72,8 @@ int main()
           programVariable /= parameter;
           break;
         }
+      case invalid:
+        [[fallthrough]];
       default:                          // Invalid input
         cout << "Invalid input. \n";
         cin.clear();                    // Clearing unread input, otherwise
