@@ -72,7 +72,7 @@ int main(int argc, char const *argv[]) {
     if(bitV-pow(2,digits-1)>=0)
     {
       newBit.append("1");
-      bitV = bitV - pow(2,digits-1);
+      bitV -=  pow(2,digits-1);
     }
   }
 
