@@ -15,32 +15,32 @@ int main(int argc, char *argv[])
     return(0);
   }
 
-  size_t inputValue = stoul(argv[2]);
-  size_t intermediaryValue = inputValue;
-  size_t base = stoul(argv[1]);
-  string outputValue;
+  size_t base = stoul(argv[1]); // First argument, radix
+  size_t inputValue = stoul(argv[2]); // Second argument, number to convert
+  size_t intermediaryValue = inputValue;  // Initialise intermediary value
+  string outputValue; // Initialise output string
 
-  if (inputValue == 0)
+  if (inputValue == 0)  // Quick exit for when 0 will stay 0 in any base.
   {
     outputValue = "0";
   }
 
-  while (intermediaryValue != 0)
+  while (intermediaryValue != 0)  // Continuous loop while initial put is decremented
   {
-    size_t prependValue;
+    size_t prependValue;  // Initialising the number to prepend to the string
 
-    prependValue = (intermediaryValue % base);
+    prependValue = (intermediaryValue % base);  // Finding out the remainder
 
-    if (prependValue > 9)
+    if (prependValue > 9) // If this remainder is larger than 9, ...
     {
-      outputValue.insert(0, 1, (char) (prependValue += 87));
+      outputValue.insert(0, 1, (char) (prependValue += 87)); // ... it must be a alphabetical character instead
     }
-    else
+    else  // If not, ...
     {
-      outputValue.insert(0, 1, prependValue);
+      outputValue.insert(0, 1, (char) (prependValue += 48)); // .. it is just a number
     }
-
-    intermediaryValue /= base;
+    intermediaryValue /= base;  // Integer division to decrement value
   }
-  cout << inputValue << ", displayed using raxix " << base << " is: " << outputValue << '\n';
+  cout << inputValue << ", displayed using raxix " << base << " is: " //Output
+       << outputValue << '\n';
 }
