@@ -4,9 +4,7 @@
 
 #include <iostream>
 #include <string>
-#include <bitset>
 #include <cmath>
-#include <sstream>
 
 using namespace std;
 
@@ -33,42 +31,38 @@ int main(int argc, char const *argv[]) {
 
 
   switch (caseint) {
-    case 0:                       //if ror
-      if(((value>>1)<<1)==value)  //if even
+    case 0:                                      //if ror
+      if(((value>>1)<<1)==value)                 //if even
       {
-        //example 1000 -> 0100 ror
-        newValue = (value>>1);
+        newValue = (value>>1);                   //example 1000 -> 0100 ror
         break;
       }
-      if(((value>>1)<<1)!=value) //if uneven
+      if(((value>>1)<<1)!=value)                //if uneven
       {
-        //example 1001 -> 1100 ror
-        newValue = (value>>1)+pow(2,digits-1);
+        newValue = (value>>1)+pow(2,digits-1);  //example 1001 -> 1100 ror
         break;
       }
-    case 1:               //if rol
-      if((value-pow(2,digits-1))>= 0) //if most significant digit 1
+    case 1:                                     //if rol
+      if((value-pow(2,digits-1))>= 0)           //if most significant digit 1
       {
-        // example 1000 -> 0001 rol
-        newValue = (value<<1)+1-pow(2,digits);
+        newValue = (value<<1)+1-pow(2,digits);  // example 1000 -> 0001 rol
         break;
       }
       else //if most significant digit 0
       {
-        // example 0101 -> 1010 rol
-        newValue = (value<<1);
+        newValue = (value<<1);                  // example 0101 -> 1010 rol
         break;
       }
     break;
     }
 
-  string newBit;
-  size_t bitV = newValue;
+  string newBit;                 //new string to store our new bit value
+  size_t bitV = newValue;        //variable that we can alter to find the binary number
 
-  for (digits; 0 < digits; digits--) {
-    if(bitV-pow(2,digits-1)<0)
-    {
-      newBit.append("0");
+  for (digits; 0 < digits; digits--) { //Checking if most significant bit should
+    if(bitV-pow(2,digits-1)<0)         //be a 1 or a 0. And adding it to the string.
+    {                                  //then the same for the most significant bit
+      newBit.append("0");              //after that...until there are no more bits.
     }
     if(bitV-pow(2,digits-1)>=0)
     {

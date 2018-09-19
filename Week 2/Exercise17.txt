@@ -3,76 +3,82 @@
 // Tjalling Otter & Emiel Krol
 
 *******************************begin code*******************************
-
 #include <iostream>
 #include <string>
-#include <bitset>
 #include <cmath>
-#include <sstream>
 
 using namespace std;
 
 int main(int argc, char const *argv[]) {
 
-  string input = argv[1];                //The first argument provided is the
-                                         //binary number.
+  string input = argv[1];                // the first argument is the binary number
+                                         //supplied
+
   size_t value = stoi(input,nullptr,2);  //Turning the string into an integer so
-                                         //that we can use it for calculations.
+                                         //we can do calculations.
                                          //Where the 2 indicates that the string
                                          //is a binary number.
+  size_t newValue;
 
-  size_t digits = input.length();        //Number of digits in the provided
-                                         //binary number.
+  size_t digits = input.length();        //Number of digits in the supplied binary number
 
   size_t caseint;                        //For checking if argv[2] is rol or ror
 
-  string stringRorOrRol = argv[2];       //Saving argv[2] in a string to test
+  string stringrorofrol = argv[2];       //Saving argv[2] in a string to test
                                          //whether it is rol or ror
 
-  if(stringRorOrRol=="ror")              //Checking whether argv[2] is ror
+  if(stringrorofrol=="ror")              //Checking whether argv[2] is ror
     caseint=0;
-  if(stringRorOrRol=="rol")              //Checking whether argv[2] is rol
+
+  if(stringrorofrol=="rol")              //Checking whether argv[2] is rol
     caseint=1;
 
+
+
   switch (caseint) {
-    case 0:                              //so if ror
-      if(((value>>1)<<1)==value)         //if even
-      {                                  //example: 1000 -> 0100 ror
-        input.pop_back();
-        input.insert(0,"0");
+    case 0:                                      //if ror
+      if(((value>>1)<<1)==value)                 //if even
+      {
+        newValue = (value>>1);                   //example 1000 -> 0100 ror
         break;
       }
-      if(((value>>1)<<1)!=value)         //if uneven
-      {                                  //example: 1001 -> 1100 ror
-        input.pop_back();
-        input.insert(0,"1");
+      if(((value>>1)<<1)!=value)                //if uneven
+      {
+        newValue = (value>>1)+pow(2,digits-1);  //example 1001 -> 1100 ror
         break;
       }
-    case 1:                             //so if rol
-      if(input[0]=='1')               //if most significant digit 1
-      {                                 //example: 1000 -> 0001 lol
-        input.erase(0,1);
-        input.append("1");
+    case 1:                                     //if rol
+      if((value-pow(2,digits-1))>= 0)           //if most significant digit 1
+      {
+        newValue = (value<<1)+1-pow(2,digits);  // example 1000 -> 0001 rol
         break;
       }
-      if(input[0]=='0')               //if most significant digit 0
-      {                                 //example: 0101 -> 1010 lol
-        input.erase(0,1);
-        input.append("0");
+      else //if most significant digit 0
+      {
+        newValue = (value<<1);                  // example 0101 -> 1010 rol
         break;
       }
     break;
     }
 
-  //Turning the value into a string, the 2 indicating that the string is binary.
-  size_t newValue = stoi(input,nullptr,2);
+  string newBit;                 //new string to store our new bit value
+  size_t bitV = newValue;        //variable that we can alter to find the binary number
 
-  stringstream hexStream;
-  hexStream << hex << newValue;                 //Getting the hexadecimal form.
-  string hexString (hexStream.str() );          //Turning it into a string
+  for (digits; 0 < digits; digits--) { //Checking if most significant bit should
+    if(bitV-pow(2,digits-1)<0)         //be a 1 or a 0. And adding it to the string.
+    {                                  //then the same for the most significant bit
+      newBit.append("0");              //after that...until there are no more bits.
+    }
+    if(bitV-pow(2,digits-1)>=0)
+    {
+      newBit.append("1");
+      bitV = bitV - pow(2,digits-1);
+    }
+  }
 
   //Printing the value in binary - decimal and hexadecimal
-  cout << input << ' ' << newValue << ' ' << hexString << '\n';
+  cout << newBit << ' ' << newValue << ' ' << hex << newValue << '\n';
+}
 
 *******************************End code*******************************
 
