@@ -10,27 +10,40 @@ using namespace std;
 
 int main()
  {
-  //manier 2
+  string line;
   string text;
   string letter;
+  string lastword;
 
-  cout << "Enter text\n";
-  getline(cin,text);                        //input
-  text.insert(0, " ");                      //Adding a space to begging of string.
-
-  unsigned int count = text.length()-1;     //Setting the counter to the
-                                            //last index of the string.
-
-  while (isspace(text[count]) == false)     //Each iteration pushes the entire
-                                            //line to the right by one until a
-                                            //space is reached
+  cout << "Enter line, type ^C after your last line.\n";
+  while(getline(cin,line))                  //input for multiple lines
   {
-    letter = text[count];
-    text.insert(0,letter);
-    text.pop_back();
-  }
+    if(line=="^C")
+    break;
 
-  text.pop_back();                                //Removing the last entry
-                                                  //which is a space.
-  cout << "Rewritten line\n" << text << '\n';     //Printing output.
+    size_t count = line.length()-1;         //Setting the counter to the
+                                            //last index of the string.
+    lastword.clear();
+    while (!isspace(line[count]))           //Finds the last word of the line
+    {
+      letter = line[count];
+
+      if(letter.compare(".") != 0)          //Keeping the period at the end of the line
+        lastword.insert(0,letter);          //Saving the last word of the line
+
+      count--;
+    }
+
+    count = 0;                                //resetting the index counter to 0
+    while (!isspace(line[count])&&line.find(" ")!= string::npos)             //deleting the first word
+    {                                                                        //if there is more than one word
+      line.erase(0,1);
+    }
+
+    if(line.find(" ")!= string::npos)         //Testing whether line is empty
+      line = lastword + line;                 //Adding the last word to the start of the line if it is not
+
+    text = text + line + '\n';                //Adding the line to the rest of the text
+  }
+  cout << text;                               //Printing output.
 }
