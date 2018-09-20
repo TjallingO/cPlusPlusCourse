@@ -1,0 +1,13 @@
+// Programming in C/C++
+// Week 3: Assignment 20
+// Tjalling Otter &  Emiel Krol
+// Main function: internal header
+
+#include <iostream>
+#include <string>
+#include <initializer_list>
+
+using namespace std;
+
+size_t sum(initializer_list<size_t> integerInputs, size_t called);
+double sum(initializer_list<double> doubleInputs);
