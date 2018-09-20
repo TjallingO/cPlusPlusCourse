@@ -5,9 +5,20 @@
 
 #include "main.ih"
 
+#include <string>
+#include <vector>
+
 int main(int argc, char *argv[])
 {
-  if (find(argv.begin(), argv.end(), '.' != argv[argc-1])
+  bool isDouble;
+  for (size_t index = 1; index != argc; index++)
   {
-    cout << sum({argv[]});
-  }}
+    string tempString = argv[index];
+    if (tempString.find('.') != string::npos)
+    {
+      isDouble = 1;
+      cout << isDouble;
+      break;
+    }
+  }
+}
