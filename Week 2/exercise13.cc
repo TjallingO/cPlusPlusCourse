@@ -7,24 +7,24 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-  size_t numberOfLines = 0;						// Initialise integer
-  string extractedLine;							// Initialise string
+  size_t numberOfLines = 0;						  // Initialise integer
+  string extractedLine;							    // Initialise string
 
-  if (argc == 2 && string(argv[1]) == "ok")		// If optional ok is given
+  if (argc == 2 && argv[1] == "ok"s)	  // If optional ok is given
   {
-    while (true)								// Infinite loop
+    while (true)								        // Infinite loop
     {
-      if (!getline(cin, extractedLine))			// Until no more lines 
+      if (!getline(cin, extractedLine))	// Until no more lines
         break;
-      numberOfLines++;							// Increment integer
+      ++numberOfLines;							    // Increment integer
     }
   }
   else
   {
-    while (!cin.eof())							// If there is a line (also enter it)
+    while (!cin.eof())							    // If there is a line (also enter it)
     {
-      getline(cin, extractedLine);				// Get line (again)
-      numberOfLines++;							// Increment int
+      getline(cin, extractedLine);			// Get line (again)
+      ++numberOfLines;							    // Increment int
     }
   }
   cout << numberOfLines << '\n';				// Output the int

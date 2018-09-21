@@ -12,38 +12,37 @@ int main(int argc, char *argv[])
   if (argc != 3)
   {
     cout << "This program expects two command-line arguments. Exiting. \n";
-    return(0);
+    return 0;
   }
 
-  size_t base = stoul(argv[1];            // First argument, radix
-  size_t inputValue = stoul(argv[2]);	  // Second argument, number to convert
+  size_t base = stoul(argv[1]);           // First argument, radix
+  size_t inputValue = stoul(argv[2]);	    // Second argument, number to convert
   size_t intermediaryValue = inputValue;  // Initialise intermediary value
-  string outputValue;					  // Initialise output string
+  string outputValue;					            // Initialise output string
 
-  if (inputValue == 0)  // Quick exit for when 0 will stay 0 in any base
+  size_t const startAlphabetical = 87;    // Start of alphabeticals in ascii set
+  size_t const startNumerical = 48;       // Start of numericals in ascii set
+
+  do  // Continuous loop while initial put is decremented
   {
-    outputValue = "0";
-  }
+    size_t prependValue = intermediaryValue % base;
+    // Finding out the remainder of a division to prepend to the string
 
-  while (intermediaryValue != 0)  // Continuous loop while initial put is decremented
-  {
-    size_t prependValue;  // Initialising the digit to prepend to the string
+    if (prependValue > 9)
+      outputValue.insert(0, 1, prependValue += startAlphabetical);
+    // If remainder > 9, it must be an alphabetical character, thus return
+    // the corresponding one from the ascii set.
 
-    prependValue = (intermediaryValue % base);  			 // Finding out the remainder
-															 // of a division
-															 // to prepend to the string
+    else
+      outputValue.insert(0, 1, prependValue += startNumerical);
+    // If not, it is just a number, and it is returned from the ascii set.
 
-    if (prependValue > 9) 									 // If remainder > 9, ...
-    {
-      outputValue.insert(0, 1, (char) (prependValue += 87)); // ... it must be an
-															 // alphabetical character
-    }
-    else  													 // If not, ...
-    {
-      outputValue.insert(0, 1, (char) (prependValue += 48)); // .. it is just a number
-    }
     intermediaryValue /= base;  // Decrementing the value to move to the next digit
   }
+  while (intermediaryValue != 0);
+  // A do-while is used here to handle the case wherein the inputValue == 0, as
+  // otherwise the loop will not even run once, and outputValue remains empty.
+
   cout << inputValue << ", displayed using raxix " << base << " is: " //Output
        << outputValue << '\n';
 }
