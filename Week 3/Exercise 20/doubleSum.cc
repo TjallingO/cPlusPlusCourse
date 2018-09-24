@@ -7,13 +7,13 @@
 
 using namespace std;
 
-double doubleSum(initializer_list<double> doubleInputs)
+double sum(char const *inputArray[], size_t length)
 {
 
-  double totalSum = 0;
+  double totalSum = 0;  // Initialise the sum variable
 
-  for (double value: doubleInputs)
-    totalSum += value;
+  for (size_t index = 1; index != length; ++index)  // For the entire argv array
+    totalSum += stod(inputArray[index]);  // Sum that member with the sum var
 
-  return totalSum;
+  return totalSum;  // At the end, return it
 }

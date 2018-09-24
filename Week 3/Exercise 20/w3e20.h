@@ -6,10 +6,11 @@
 #ifndef SUMFUNCTIONS
 #define SUMFUNCTIONS
 
-#include <cstddef>
-#include <initializer_list>
+#include <iostream>
+#include <string>
 
-size_t integerSum(std::initializer_list<size_t> integerInputs, size_t integer);
-double doubleSum(std::initializer_list<double> doubleInputs);
+bool isDouble(char const *inputArray[], size_t length);
+size_t sum(char const *inputArray[], size_t length, bool isDouble);
+double sum(char const *inputArray[], size_t length);
 
 #endif

@@ -5,20 +5,14 @@
 
 #include "main.ih"
 
-#include <string>
-#include <vector>
-
-int main(int argc, char *argv[])
+int main(int argc, const char *argv[])
 {
-  bool isDouble;
-  for (size_t index = 1; index != argc; index++)
-  {
-    string tempString = argv[index];
-    if (tempString.find('.') != string::npos)
-    {
-      isDouble = 1;
-      cout << isDouble;
-      break;
-    }
-  }
+  size_t length = argc; // Number of arguments from argc
+  bool doubleInput = isDouble(argv, length);  // Determine if inputs are doubles
+
+  auto summedValue = (doubleInput ? sum(argv, length) : sum(argv, length, doubleInput));
+  cout << summedValue << "\n";
+  // If input are doubles, call the function to sum doubles. Otherwise, call
+  // the one for integers. The return thereof is assigned to summedValue,
+  // and then printed.
 }
