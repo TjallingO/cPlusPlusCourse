@@ -1,0 +1,5 @@
+#include <iostream>
+
+size_t charcount(std::string text); //character counter function
+size_t linecount(std::string text); //line counter function
+size_t wordcount(std::string text); //word counter function
