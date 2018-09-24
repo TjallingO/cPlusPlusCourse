@@ -2,84 +2,90 @@
 // Week 2: Assignment 18
 // Tjalling Otter & Emiel Krol
 
-// Needs C++17
-
 #include <iostream>
 using namespace std;
 
-enum commandOptions                             // enum representations of
-{                                               // command options
-  store, add, subtract, multiply, divide, ret, invalid
-};
-
-commandOptions matchEnum(string const& command) // enums for the commands
+enum commandOptions
 {
-  if (command == "sto") return store;           // It is not very pretty,
-  if (command == "add") return add;             // but the switch statement
-  if (command == "sub") return subtract;        // really wants integers
-  if (command == "mul") return multiply;
-  if (command == "div") return divide;
-  return invalid;
+  store, add, subtract, multiply, divide, ret, invalid
 };
 
 int main()
 {
-
-  size_t programVariable = 0; // Initialise the program's variable
+  size_t programVariable = 0; // Define and initialise program's variable
 
   cout << "Welcome to fake assembly \n";  // Welcome message
 
-  while(true) // Infinite loop to create interactive prompt
+  while (true)
   {
-    string command; // Initialise the command string
-    size_t parameter; // Initialise the numerical parameter
+    string inputString;         // Define the user's input string
+    string command;             // Define the part of input that is the command
+    size_t parameter;           // Define the part that is the parameter
 
-    cout << "> "; // Input prompt
+    commandOptions enumCommand; // Define the command in enum form
 
-    cin >> command; // First input is the command (string)
-    if(command == "ret")  // Quick check if the user wants to exit
+    cout << "> ";               // User prompt
+
+    getline(cin, inputString);  // Get user input
+    size_t spacePosition = inputString.find(' '); // Find space, if any
+
+    if (spacePosition != string::npos)
     {
-      cout << "Program has ended. The variable ended with the value " << programVariable << '\n';
-      break;
+      command = inputString.substr(0,spacePosition);
+      parameter = stoul(inputString.substr(spacePosition,inputString.length()));
     }
-    else  // If not, the second word is the parameter
-    {
-      cin >> parameter;
-    }
+    else
+      command = inputString;
+    // If there is a space, the first word is the command, the second is the
+    // parameter. Otherwise, the command is just the input string.
 
-    switch (matchEnum(command))       // Switch statement for the commands
+    if (command == "ret")       // Matching string to enum command
+      enumCommand = ret;        // Again, not very pretty,
+    else if (command == "sto")  // but I could not think of
+      enumCommand = store;      // another way to return
+    else if (command == "add")  // integers for the switch
+      enumCommand = add;
+    else if (command == "sub")
+      enumCommand = subtract;
+    else if (command == "mul")
+      enumCommand =  multiply;
+    else if (command == "div")
+      enumCommand = divide;
+    else
+      enumCommand = invalid;
+
+    switch (enumCommand)              // Switch statement for the commands
     {
+      case ret:                       // Return command. Ends program.
+        cout << "Program ended. The variable ended as having value "
+             << programVariable << "\n";
+        return 0;
       case store:                     // Store (sto) command
-  		  programVariable = parameter;
+        programVariable = parameter;
         break;
-      case add:                        // Add (add) command
+      case add:                       // Add (add) command
         programVariable += parameter;
         break;
-      case subtract:                   // Subtract (sub) command
-  		  programVariable -= parameter;
+      case subtract:                  // Subtract (sub) command
+        programVariable -= parameter;
         break;
-      case multiply:                   // Multiply (mul) command
+      case multiply:                  // Multiply (mul) command
         programVariable *= parameter;
         break;
-      case divide:                     // Divide (div) command
-        if(parameter == 0)             // With check for /0
-        {
-          cout << "No instruction 'store' \n";
-          break;
-        }
+      case divide:                    // Divide (div) command
+        if(parameter == 0)            // With check for /0
+          cout << "Division by zero is undefined. \n";
         else
-        {
           programVariable /= parameter;
-          break;
-        }
+        break;
       case invalid:
         [[fallthrough]];
-      default:                          // Invalid input
-        cout << "Invalid input. \n";
-        cin.clear();                    // Clearing unread input, otherwise
-        cin.sync();                     // there will be an infinite loop
+      default:                        // Invalid input
+        cout << "No instruction '" << command << "' \n";
+        cin.clear();                  // Clearing unread input, otherwise
+        cin.sync();                   // there will be an infinite loop
         break;
     }
-  cout << programVariable << '\n';      // Output of variable
+    cout << programVariable << "\n";   // After each loop, print the variable
   }
 }
