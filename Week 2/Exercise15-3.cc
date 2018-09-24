@@ -2,11 +2,6 @@
 // Week 1: Assignment 15
 // Tjalling Otter &  Emiel Krol
 
-******************************Begin Code******************************
-// Programming in C/C++
-// Week 1: Assignment 15
-// Tjalling Otter &  Emiel Krol
-
 #include <iostream>
 #include <string>
 
@@ -40,4 +35,5 @@ int main() {
 
   cout << text << "\n";                         //printing output
 
-******************************End Code******************************
+
+}
