@@ -4,8 +4,8 @@
 
 
 #include "w3e21.h"
-#include "main.ih" //nodig?
-#include <iostream>
+//#include "main.ih" //nodig?
+//#include <iostream>
 
 using namespace std;
 

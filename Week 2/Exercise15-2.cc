@@ -13,10 +13,10 @@ using namespace std;
 int main()
 {
   //string text;
-  unsigned int totallines =0;
-  unsigned int linenumber =0;
-  unsigned int emptylines =0;
-  unsigned int lastlinewithtext =0;
+  size_t totallines =0;
+  size_t linenumber =0;
+  size_t emptylines =0;
+  size_t lastlinewithtext =0;
 
   unsigned int i = 0;
 
