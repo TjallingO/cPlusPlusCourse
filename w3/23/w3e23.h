@@ -1,12 +1,13 @@
 // Programming in C/C++
-// Week XX: Assignment XX
-// Tjalling Otter & Emiel Krol
-// Main file: internal header
+// Week 3: Assignment 20
+// Tjalling Otter &  Emiel Krol
+// Header file
+
+#ifndef SUMFUNCTIONS
+#define SUMFUNCTIONS
 
 #include <iostream>
 #include <string>
-
-using namespace std;
-
 size_t partition(std::string* inputString, size_t left, size_t right);
 void quicksort(std::string* inputString, size_t left, size_t right);
+#endif
