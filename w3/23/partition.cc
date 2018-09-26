@@ -1,5 +1,5 @@
 // Programming in C/C++
-// Week XX: Assignment XX
+// Week 3: Assignment 23
 // Tjalling Otter & Emiel Krol
 // Pivot function
 
@@ -7,28 +7,21 @@
 
 using namespace std;
 
-void exchange(char& a, char& b)
+size_t partition(std::string &inputString, size_t left, size_t right)
 {
-    char value_of_a = a;
-    char value_of_b = b;
+  char pivot = inputString[left]; // Input left is start substring
+  size_t pivotPosition = left;    // as well as its associated position
 
-    a = value_of_b;
-    b = value_of_a;
-};
-
-size_t partition(std::string& inputString, size_t left, size_t right)
-{
-  char pivot = inputString[right];
-  size_t valueLeft = left - 1;
-
-  for (size_t valueRight = left; valueRight <= (right - 1); ++valueRight)
-  {
-    if (inputString[valueRight] <= pivot)
-    {
-      ++valueLeft;
-      exchange(inputString[valueLeft], inputString[valueRight]);
+                          // Starting from start substring until end substring
+  for (size_t position = left; position <= right; ++position)
+  {                       // If current char at position is smaller than pivot
+    if (tolower(inputString[position]) < tolower(pivot))
+    {                     // Swap current char with one ahead of pivot element
+                          // And swap first two in substring around
+      swap(inputString[pivotPosition + 1], inputString[position]);
+      swap(inputString[pivotPosition], inputString[pivotPosition + 1]);
+      ++pivotPosition;  // Move on to next character as pivot element
     }
   }
-  exchange(inputString[valueLeft + 1], inputString[right]);
-  return (valueLeft + 1);
+  return (pivotPosition); // Return the pivot position
 };
