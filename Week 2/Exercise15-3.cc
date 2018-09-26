@@ -18,11 +18,11 @@ int main() {
     if (line == "STOP")                         //Typing STOP tells the program to
       break;                                    //stop asking for new lines
 
-    if(!line.empty())
+    if (!line.empty())
       text += line + '\n';                      //Adding current line to the text
                                                 //if it is nonempty.
 
-    if(line.empty() && !text.empty())           //Adding current line if its empty
+    if (line.empty() && !text.empty())           //Adding current line if its empty
     text += line + '\n';                        //only after there has been a line
   }                                             //with text.
 

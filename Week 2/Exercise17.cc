@@ -4,9 +4,13 @@
 
 #include <iostream>
 #include <string>
-#include <cmath>
 
 using namespace std;
+
+enum commandOptions
+{
+  ror, rol
+};
 
 int main(int argc, char const *argv[]) {
 
@@ -18,10 +22,30 @@ int main(int argc, char const *argv[]) {
 
   size_t digits = input.length();        //Number of digits in the supplied binary number
 
-  size_t caseint = (argv[2] == "ror" ? 0 : 1);
+  commandOptions enumCommand;
 
-  switch (caseint) {
-    case 0:                                 //if ror is entered
+  string command = argv[2];   //The second argument is the rotate command.
+
+  if(command == "ror")    //finding what command to use in the case list below
+    enumCommand = ror;
+  if (command == "rol")
+    enumCommand = rol;
+  if (command != "ror" && command != "rol")
+    {
+      cout << "Please enter rol or ror after the binary number\n";
+      return 0;     //ending the program
+    }
+
+  size_t power = 1;
+  size_t powerminusone = 1;
+
+  for (size_t count = 0; count < digits; ++count) //2 to the power of nr of digits
+    power = power * 2;
+  for (size_t count = 0; count < digits-1; ++count)
+    powerminusone = powerminusone * 2; //2 to the power of nr of digits - 1
+
+  switch (enumCommand) {
+    case ror:
       if (((value >> 1) << 1 ) == value )   //if it is even since then the first
       {                                     //digit in the new value must be 0
         newValue = (value >> 1);            //example 1000 -> 0100 ror
@@ -29,14 +53,14 @@ int main(int argc, char const *argv[]) {
       }
       if (((value >> 1) << 1) != value)     //if uneven, then first digit in the
       {                                     //new value must be 1
-        newValue = (value >> 1) + pow(2, digits-1);  //example 1001 -> 1100 ror
+        newValue = (value >> 1) + powerminusone;  //example 1001 -> 1100 ror
         break;
       }
-    case 1:                                     //if rol is entered
-      if ((value - pow(2, digits - 1)) >= 0)    //if most significant digit 1, since
-      {                                         //then the last value in the new values
-                                                //must be 1
-        newValue = (value << 1) + 1 - pow(2, digits);  // example 1000 -> 0001 rol
+    case rol:
+      if ((value - powerminusone) >= 0)    //if most significant digit 1, since
+      {                                    //then the last value in the new values
+                                           //must be 1
+        newValue = (value << 1) + 1 - power;  // example 1000 -> 0001 rol
         break;
       }
       else                          //if most significant digit 0, since then the
@@ -47,21 +71,19 @@ int main(int argc, char const *argv[]) {
     break;
     }
 
-  string newBit;                 //new string to store our new bit value
   size_t bitV = newValue;        //variable that we can alter to find the binary number
 
-  for (digits; 0 < digits; --digits) { //Checking if most significant bit should
-    if(bitV-pow(2, digits-1) < 0)      //be a 1 or a 0. And adding it to the string.
-    {                                  //then the same for the most significant bit
-      newBit.append("0");              //after that...until there are no more bits.
-    }
-    if(bitV-pow(2, digits-1) >= 0)
-    {
-      newBit.append("1");
-      bitV -=  pow(2, digits - 1);
-    }
-  }
-
-  //Printing the value in binary - decimal and hexadecimal
-  cout << newBit << ' ' << newValue << ' ' << hex << newValue << '\n';
+  for (size_t count = digits; count > 0; --count) { //Printing the value in binary
+    if (bitV >= powerminusone)                      //by printing 1 or 0 one at a time
+      {                                             //starting at the most significant
+        cout << 1;                                  //digit. If the value to be
+        bitV = bitV - powerminusone;                //converted is larger than the
+      }                                             //value of the most significant bit
+    else                                            //a 1 is printed, otherwise a 0.
+        cout << 0;                                  //if a 1 is printed the new value
+                                                    //is the old value minus the most
+      powerminusone = powerminusone/2;              //significant bit. Then we do the
+    }                                               //with one bit to the right ect.
+  //Printing the value in decimal and hexadecimal
+  cout << ' ' << newValue << ' ' << hex << newValue << '\n';
 }

@@ -3,12 +3,6 @@
 // Tjalling Otter &  Emiel Krol
 
 ****************************Begin Code****************************
-
-// Programming in C/C++
-// Week 2: Assignment 14
-// Tjalling Otter &  Emiel Krol
-
-
 #include <iostream>
 #include <string>
 
@@ -19,37 +13,30 @@ int main()
  {
   string line;
   string text;
-  string letter;
 
   cout << "Enter line, type STOP after your last line.\n";
-  while (getline(cin, line))          //input for multiple lines
+  while (getline(cin, line))                  //input for multiple lines
   {
-    if (line=="STOP")                 //Typing STOP tells the program to
-    break;                            //stop asking for new lines
+    if (line == "STOP")                       //Typing STOP tells the program to
+    break;                                    //stop asking for new lines
 
-    size_t count = line.length() - 1; //Setting the counter to the last index of
-                                      //the string so that we can find the last word
-    string lastword;                  //of the line.
-    while (line[count] != ' ')        //Finds the last word of the line by
-    {                                 //going through the letters of the last word
-      letter = line[count];           //until it finds a space.
+    string lastword;
+    string linewithoutfirstword;
 
-      if (letter.compare(".") != 0)   //Keeping the period at the end of the line
-        lastword.insert(0,letter);    //Saving the last word of the line
+    if (!line.empty() && line.find(' ') != string::npos)
+    {                               //checking that line is nonempty
+                                    //and contains more than one word
+    lastword = line.substr(line.find_last_of(' ') + 1, line.length() - 1);
+                                    //finding the last word, adding
+                                    //+1 so it doesnt print the space itself
+    linewithoutfirstword = line.substr(line.find_first_of(' '), line.length() - 1);
+                                    //finding the string without the first word.
+    line = lastword + linewithoutfirstword;
+    }                               //together they form the new line
 
-      --count;
-    }
-
-    count = 0;                                //resetting the index counter to 0
-    while (!isspace(line[count])&&line.find(" ")!= string::npos)
-      line.erase(0,1);                        //Deleting the first word if there
-                                              //is more than one.
-    if (line.find(" ") != string::npos)       //Testing whether line is empty
-      line = lastword + line;                 //Adding the last word to the
-                                              //start of the line if it is not.
-    text = text + line + '\n';                //Adding the line to the rest of the text
+    text = text + line + '\n';      //adding the line to the rest of the text
   }
-  cout << text;                               //Printing output.
-}
 
+  cout << text;                     //Printing output.
+}
 ****************************End Code****************************
