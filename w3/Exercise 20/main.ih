@@ -1,0 +1,13 @@
+// Programming in C/C++
+// Week 3: Assignment 20
+// Tjalling Otter &  Emiel Krol
+// Main function: internal header
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+bool isDouble(char const *inputArray[], size_t length);
+size_t sum(char const *inputArray[], size_t length, bool isDouble);
+double sum(char const *inputArray[], size_t length);
