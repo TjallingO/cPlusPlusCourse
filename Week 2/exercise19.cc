@@ -16,9 +16,9 @@ int main(int argc, char *argv[])
   }
 
   size_t base = stoul(argv[1]);           // First argument, radix
-  size_t inputValue = stoul(argv[2]);	    // Second argument, number to convert
+  size_t inputValue = stoul(argv[2]);	  // Second argument, number to convert
   size_t intermediaryValue = inputValue;  // Initialise intermediary value
-  string outputValue;					            // Initialise output string
+  string outputValue;					  // Initialise output string
 
   size_t const startAlphabetical = 87;    // Start of alphabeticals in ascii set
   size_t const startNumerical = 48;       // Start of numericals in ascii set

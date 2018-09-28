@@ -17,7 +17,7 @@ int main(int argc, char const *argv[]) {
 
   string input = argv[1];                //The first argument is the binary number supplied
 
-  size_t value = stoul(input, nullptr,2);  //Turning the string into an integer so
+  size_t value = stoul(input, nullptr, 2);  //Turning the string into an integer so
                                            //that we can use it for calculations
   size_t newValue;                         //Here the 2 indicates that the string
                                            //is a binary number.
@@ -42,12 +42,12 @@ int main(int argc, char const *argv[]) {
 
   for (size_t count = 0; count < digits; ++count) //2 to the power of nr of digits
     power = power * 2;
-  for (size_t count = 0; count < digits-1; ++count)
+  for (size_t count = 0; count < digits - 1; ++count)
     powerminusone = powerminusone * 2; //2 to the power of nr of digits - 1
 
   switch (enumCommand) {
     case ror:
-      if (((value >> 1) << 1 ) == value )   //if it is even since then the first
+      if (((value >> 1) << 1) == value)   //if it is even since then the first
       {                                     //digit in the new value must be 0
         newValue = (value >> 1);            //example 1000 -> 0100 ror
         break;
@@ -83,7 +83,7 @@ int main(int argc, char const *argv[]) {
     else                                            //a 1 is printed, otherwise a 0.
         cout << 0;                                  //if a 1 is printed the new value
                                                     //is the old value minus the most
-      powerminusone = powerminusone/2;              //significant bit. Then we do the
+      powerminusone = powerminusone / 2;              //significant bit. Then we do the
     }                                               //with one bit to the right ect.
   //Printing the value in decimal and hexadecimal
   cout << ' ' << newValue << ' ' << hex << newValue << '\n';
