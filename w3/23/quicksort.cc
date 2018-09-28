@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void quicksort(std::string &inputString, size_t left, size_t right)
+void quicksort(std::string inputString, size_t left, size_t right)
 {
   if (left >= right)  // Quick return if left >= right
     return;
