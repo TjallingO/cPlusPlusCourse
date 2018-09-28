@@ -22,11 +22,11 @@ int main() {
       text += line + '\n';                      //Adding current line to the text
                                                 //if it is nonempty.
 
-    if (line.empty() && !text.empty())           //Adding current line if its empty
+    if (line.empty() && !text.empty())          //Adding current line if its empty
     text += line + '\n';                        //only after there has been a line
   }                                             //with text.
 
-  size_t count = text.length()-1;               //Setting a counter for accessing
+  size_t count = text.length() - 1;             //Setting a counter for accessing
   while (!text[count] || text[count] == '\n')   //the index of text
   {
     text.pop_back();                            //removing all empty space at

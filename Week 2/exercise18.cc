@@ -31,8 +31,8 @@ int main()
 
     if (spacePosition != string::npos)
     {
-      command = inputString.substr(0,spacePosition);
-      parameter = stoul(inputString.substr(spacePosition,inputString.length()));
+      command = inputString.substr(0, spacePosition);
+      parameter = stoul(inputString.substr(spacePosition, inputString.length()));
     }
     else
       command = inputString;

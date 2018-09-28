@@ -25,12 +25,12 @@ int main()
     if (!line.empty() && line.find(' ') != string::npos)
     {                               //checking that line is nonempty
                                     //and contains more than one word
-    lastword = line.substr(line.find_last_of(' ') + 1, line.length() - 1);
+     lastword = line.substr(line.find_last_of(' ') + 1, line.length() - 1);
                                     //finding the last word, adding
                                     //+1 so it doesnt print the space itself
-    linewithoutfirstword = line.substr(line.find_first_of(' '), line.length() - 1);
+     linewithoutfirstword = line.substr(line.find_first_of(' '), line.length() - 1);
                                     //finding the string without the first word.
-    line = lastword + linewithoutfirstword;
+     line = lastword + linewithoutfirstword;
     }                               //together they form the new line
 
     text = text + line + '\n';      //adding the line to the rest of the text
