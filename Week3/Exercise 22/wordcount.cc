@@ -1,5 +1,5 @@
 #include "w3e22.h"
-//eigenlijk telt ie spaces niet words.
+
 using namespace std;
 
 size_t wordcount(string text)
