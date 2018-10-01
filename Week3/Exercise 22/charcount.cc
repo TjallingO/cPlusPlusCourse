@@ -1,6 +1,5 @@
 #include "w3e22.h"
 
-
 using namespace std;
 
 size_t charcount(string text)
