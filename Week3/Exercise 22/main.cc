@@ -1,5 +1,5 @@
 // Programming in C/C++
-// Week 3: Assignment 21
+// Week 3: Assignment 22
 // Tjalling Otter &  Emiel Krol
 
 #include "main.ih"
