@@ -7,14 +7,16 @@
 
 bool lcIsSmaller(std::string inputStringA, std::string inputStringB)
 {
-  for(auto& c : inputStringA)
-    c = tolower(c);
+  for(auto& character : inputStringA)
+    character = tolower(character);
 
-  for(auto& c : inputStringB)
-    c = tolower(c);
+  for(auto& character : inputStringB)
+    character = tolower(character);
+  // For both input strings, convert them to lower case
 
   if (inputStringA < inputStringB)
     return 1;
+  // Then compare them as one would otherwise
 
   return 0;
 };
