@@ -1,0 +1,13 @@
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+struct native
+{
+  std::string eyecolour;
+};
+
+void personBoards(size_t count);
+void checkEyes(size_t count);
