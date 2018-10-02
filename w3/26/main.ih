@@ -1,0 +1,16 @@
+// Programming in C/C++
+// Week 3: Assignment 26
+// Tjalling Otter & Emiel Krol
+// Main file: internal header
+
+#include <iostream>
+#include <string>
+#include <cstdint>
+#include <fstream>
+
+using namespace std;
+
+size_t arraySize (size_t numOperations);
+size_t numOps (const std::string fileAsString);
+void setBits (uint8_t *byteArray, size_t numOps, const std::string fileAsString);
+void show (const uint8_t *byteArray, size_t numOperations);
