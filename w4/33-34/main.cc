@@ -1,5 +1,9 @@
+// Programming in C/C++
+// Week 4: Assignment 34
+// Tjalling Otter & Emiel Krol
+// Main file
+
 #include "main.ih"
-using namespace std;
 
 int main()
 {

@@ -1,13 +1,12 @@
-// Programming in C/C++
-// Week 4: Assignment 31
-// Tjalling Otter & Emiel Krol
-// Main file
+Programming in C/C++
+Week 4: Assignment 31
+Tjalling Otter & Emiel Krol
 
-//- Data hiding and encapsulation
-// Data hiding and encapsulation are similar but not equivalent concepts. Data hiding is a form of encapsulation. Encapsulation, in general, is the concept that classes and their instantiations (objects) are responsible for the integrity of their own data, and not the user (implementer) of said classes. In other words, it limits the user in what it can do with the object's data, and as such, hopefully ensuring that it stays correct and verified, or in the very least valid, standardised and within bounds. Data hiding takes this concept a little further, by shielding off access to said data altogether, and thus the burden of responsibility for maintaining the validity of the data falls entirely on the object.
+- Data hiding and encapsulation
+Data hiding and encapsulation are similar but not equivalent concepts. Data hiding is a form of encapsulation. Encapsulation, in general, is the concept that classes and their instantiations (objects) are responsible for the integrity of their own data, and not the user (implementer) of said classes. In other words, it limits the user in what it can do with the object's data, and as such, hopefully ensuring that it stays correct and verified, or in the very least valid, standardised and within bounds. Data hiding takes this concept a little further, by shielding off access to said data altogether, and thus the burden of responsibility for maintaining the validity of the data falls entirely on the object.
 
-//- An example of a class
-//-----------------------------------
+- An example of a class
+-----------------------------------
 student.h
 
 #ifndef INCLUDED_STUDENT_H_
@@ -25,12 +24,14 @@ class Student
 
     void setStudentNumber(std::string const &studentNumber);
     void setCourseGrade(size_t const courseGrade);
+    // Setters
 
     std::string const &studentNumber()  const;
     size_t const courseGrade()          const;
+    // Getters
 };
 
 #endif
-//-----------------------------------
+-----------------------------------
 
-// As can be seen, the object is entirely responsible for settings its own variables, and cannot be set directly (i.e. tjalling.d_courseGrade = 10 is not possible), and can only be retrieved as constant values, thereby again making them tamper-proof. As such, input can be sanitised, verified and protected from outside interference, be it intentional or not. The implementation of this class is irrelevant to the exercise, because it is clear from this example that data is encapsulated in the class/object. Actually implementing/using the class is up to the user of this class, and would not change anything about the core principles already demonstrated here.
+As can be seen, the object is entirely responsible for settings its own variables, and cannot be set directly (i.e. tjalling.d_courseGrade = 10 is not possible), and can only be retrieved as constant values, thereby again making them tamper-proof. As such, input can be sanitised, verified and protected from outside interference, be it intentional or not. The implementation of this class is irrelevant to the exercise, because it is clear from this example that data is encapsulated in the class/object. Actually implementing/using the class is up to the user of this class, and would not change anything about the core principles already demonstrated here.

@@ -1,12 +1,15 @@
-#include "person.ih"
+// Programming in C/C++
+// Week 4: Assignment 33
+// Tjalling Otter & Emiel Krol
+// Person member function: extract person data from istream
 
-using namespace std;
+#include "person.ih"
 
 void Person::extract(istream &inputStream)
 {
   string inputString;
   getline(inputStream, inputString);    // Get full line
-  std::istringstream ss(inputString);   // Transfer line to istringstream
+  istringstream ss(inputString);        // Transfer line to istringstream
   size_t index = 0;                     // Initialise counter for switch
 
   while (getline(ss, inputString, ',')) // While an element can still be extracted

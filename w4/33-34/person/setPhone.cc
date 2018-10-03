@@ -1,6 +1,11 @@
+// Programming in C/C++
+// Week 4: Assignment 33
+// Tjalling Otter & Emiel Krol
+// Person member function: set phone number after verification
+
 #include "person.ih"
 
-void Person::setPhone(std::string const &phone)
+void Person::setPhone(string const &phone)
 {
   if (phone.empty())
     d_phone = " - not available -";

@@ -1,3 +1,8 @@
+// Programming in C/C++
+// Week 4: Assignment 33
+// Tjalling Otter & Emiel Krol
+// Person class: implementation internal header
+
 #include "person.h"
 
 #define CERR std::cerr << __FILE__": "

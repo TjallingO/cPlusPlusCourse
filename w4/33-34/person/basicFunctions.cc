@@ -1,28 +1,33 @@
+// Programming in C/C++
+// Week 4: Assignment 33
+// Tjalling Otter & Emiel Krol
+// Person member functions: basic setters and getters
+
 #include "person.ih"
 
-void Person::setName(std::string const &name)
+void Person::setName(string const &name)
 {
   d_name = name;
 }
 
-std::string const &Person::name() const
+string const &Person::name() const
 {
   return d_name;
 }
 
-void Person::setAddress(std::string const &address)
+void Person::setAddress(string const &address)
 {
   d_address = address;
 }
 
-std::string const &Person::address() const
+string const &Person::address() const
 {
   return d_address;
 }
 
-// Setter defined seperately
+// Phone number setter defined seperately
 
-std::string const &Person::phone() const
+string const &Person::phone() const
 {
   return d_phone;
 }

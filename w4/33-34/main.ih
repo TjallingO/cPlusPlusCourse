@@ -1,12 +1,10 @@
 // Programming in C/C++
-// Week XX: Assignment XX
+// Week 4: Assignment 34
 // Tjalling Otter & Emiel Krol
 // Main file: internal header
 
 #include <iostream>
 #include <string>
-
-#include "person/person.h"
 
 using namespace std;
 
