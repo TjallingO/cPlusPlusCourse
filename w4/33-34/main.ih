@@ -1,0 +1,14 @@
+// Programming in C/C++
+// Week XX: Assignment XX
+// Tjalling Otter & Emiel Krol
+// Main file: internal header
+
+#include <iostream>
+#include <string>
+
+#include "person/person.h"
+
+using namespace std;
+
+void populateArray(Person array[], size_t sizeArray);
+void printArray(Person array[], size_t sizeArray);
