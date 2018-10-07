@@ -1,0 +1,9 @@
+// Programming in C/C++
+// Week 4: Assignment 41
+// Tjalling Otter & Emiel Krol
+// Main file: internal header
+
+#include <iostream>
+#include <string>
+
+using namespace std;
