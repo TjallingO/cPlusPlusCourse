@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string>
+#include <array>
+
+using namespace std;
+
+struct native
+{
+  std::string eyecolour;
+};
+
+void firstBoards(native *boarded[], native *person, size_t count);
+void personBoards(native *boarded[], size_t number);
+void checkEyes(native *boarded[], size_t number);

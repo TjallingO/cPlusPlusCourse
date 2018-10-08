@@ -1,0 +1,123 @@
+// Programming in C/C++
+// Week 3: Assignment 21
+// Tjalling Otter &  Emiel Krol
+
+Question: Create a program that as input takes a number as its first arguments
+and any number of extra arguments. The first argument must be an integer. The
+output of the program must be the n-th argument where n is the first arguments
+given. The output is given twice, one by function structCall, which also stores
+the values in a struct, and another time by a function names boundCall.
+
+****************************main.ih****************************
+#include <iostream>
+
+bool structCall(int argc, char const *arguments[]);
+bool structCall();
+void boundCall(int argc, char const *arguments[]);
+
+****************************w3e21.h****************************
+#ifndef SUMFUNCTIONS
+#define SUMFUNCTIONS
+
+#include <cstddef>
+#include <iostream>
+#include <string>
+
+std::string combine(size_t number, char const *arguments[]);
+
+#endif
+
+****************************main.cc****************************
+
+#include "main.ih"
+
+using namespace std;
+
+
+int main(int argc, char const *argv[])
+{
+  if (argv[1] !=  NULL)                //checking whether input is given
+  {
+  if (structCall(argc, argv) == false) //ending the program if the requested
+    return 0;                          //argument does not exist and running
+                                       //structCall
+  boundCall(argc, argv);               //running boundCall
+  }
+  if (argv[1] == NULL)                 //if no input is given call structCall
+    structCall();                      //that prints error.
+  return 0;
+}
+
+**************************boundCall.cc**************************
+
+#include "w3e21.h"
+
+using namespace std;
+
+
+void boundCall(int argc, char const *arguments[])
+{
+  size_t nr = stoul(arguments[1]);
+
+  cout << "boundCall does not store the return values\n";
+  cout << "The requested argument number is " << nr << '\n';
+  cout << "The requested argument is " << combine(nr, arguments) << '\n';
+}
+
+**************************combine.cc**************************
+#include "w3e21.h"
+
+using namespace std;
+
+string combine(size_t nr, char const *requestedarg[])
+{
+  return requestedarg[nr - 1];
+}
+
+**************************structCall.cc**************************
+
+#include "w3e21.h"
+
+using namespace std;
+
+struct ReturnValues
+{
+  bool TrueOrFalse;
+  size_t argumentNumber;
+  std::string argument;
+};
+
+bool structCall(int argc, char const *arguments[])
+{
+  size_t nr = stoul(arguments[1]);
+
+  ReturnValues input;                //initialising local struct named "input"
+
+  input.argumentNumber = nr;                  //Assigning the number to input.
+
+  if(argc < nr){ //Checking whether requested argument exists, if not returns
+    cout << "Requested argument does not exist.\n";                   //false
+    input.TrueOrFalse = false;
+    return false;
+  }
+
+  input.argument = combine(nr, arguments);  //Assigning the requested argument
+  input.TrueOrFalse = true;                                    //to the struct
+
+  cout << "structCall stores the return values\n";//printing input's variables
+
+  cout << "The requested argument number is " << input.argumentNumber << '\n';
+  cout << "The requested argument is " << input.argument << '\n';
+
+  return true;
+}
+**************************structCall2.cc**************************
+#include "w3e21.h"
+
+using namespace std;
+
+bool structCall()
+{
+  cout << "Error no arguments\n";
+  return false;
+}

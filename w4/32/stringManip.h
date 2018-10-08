@@ -19,3 +19,5 @@ class StringManip
 
 // Changes
 // - Safer to input string as constants, to prevent changes
+
+//include guards?

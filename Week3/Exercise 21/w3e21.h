@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 #ifndef SUMFUNCTIONS
 #define SUMFUNCTIONS
 
@@ -20,9 +12,10 @@ struct ReturnValues
   std::string argument;
 };
 
-void structCall(int nr, char const *arguments[]);
-void structCall();
-void boundCall(int nr, char const *arguments[]);
+void combine(ReturnValues *input, size_t number, std::string requestedarg);
+bool structCall(int argc, char const *arguments[]);
+bool structCall();
+void boundCall(int argc, char const *arguments[]);
 void boundCall();
 
 #endif

@@ -1,0 +1,160 @@
+// Programming in C/C++
+// Week 4: Assignment 35
+// Tjalling Otter & Emiel Krol
+
+*******************************main.ih**********************************
+
+#include <iostream>
+#include <string>
+#include "user/user.h"
+
+using namespace std;
+
+*******************************main.cc**********************************
+#include "main.ih"
+
+
+int main(int argc, char **argv)
+{
+
+  user me ; //constructing object me
+
+  cout << "name\t\t" << me.name() << '\n';
+  cout << "groupId\t\t" << me.groupId() << '\n';
+  cout << "homeDir\t\t" << me.homeDir() << '\n';
+  cout << "realName\t" << me.realName() << '\n';
+  cout << "shell\t\t" << me.shell() << '\n';
+  cout << "userId\t\t" << me.userId() << '\n';
+
+  cout << "valid\t\t" << (me.valid() ? "true" : "false") << '\n';
+}
+*******************************user Class********************************
+
+*********************************user.h**********************************
+#ifndef INCLUDED_USER_
+#define INCLUDED_USER_
+
+#include <string>
+#include <iostream>
+#include <sys/types.h>
+#include <pwd.h>
+#include <sstream>
+
+class user
+{
+    std::string   pw_name;       // username
+    std::string   pw_passwd;     // user password
+    uid_t         pw_uid;        // user ID
+    gid_t         pw_gid;        // group ID
+    std::string   pw_gecos;      // user information
+    std::string   pw_dir;        // home directory
+    std::string   pw_shell;      // shell program
+
+    public:
+      user();
+      bool valid()                           const;
+      size_t groupId()                       const;
+      bool inGroup(size_t gid)               const;
+      std::string name()                     const;
+      std::string homeDir()                  const;
+      std::string realName()                 const;
+      std::string shell()                    const;
+      size_t userId()                        const;
+    private:
+
+};
+
+#endif
+
+*******************************user.ih***********************************
+#include "user.h"
+//#include <iostream>
+//#define CERR std::cerr << __FILE__": "
+
+using namespace std;
+*******************************basicFunctions.cc*************************
+
+#include "user.ih"
+
+string user::name() const
+{
+  return pw_name;
+}
+
+size_t user::groupId() const
+{
+  return pw_gid;
+}
+
+string user::homeDir() const
+{
+  return pw_dir + '/';
+}
+
+string user::realName() const
+{
+  return pw_gecos;
+}
+
+string user::shell() const
+{
+  return pw_shell;
+}
+
+size_t user::userId() const
+{
+  return pw_uid;
+}
+
+*********************************constructor.cc*************************
+
+#include "user.ih"
+
+user::user()
+{
+  struct passwd *pwd;
+
+  pwd = getpwuid(1000); //Putting the user data in the struct
+
+  string strname((*pwd).pw_name);   //converting char arrays to strings.
+  string strpass((*pwd).pw_passwd);
+  string strgecos((*pwd).pw_gecos);
+  string strdir((*pwd).pw_dir);
+  string strshell((*pwd).pw_shell);
+
+  pw_name = strname;        //Setting the values of the newly constructed object.
+  pw_passwd = strpass;
+  pw_uid = (*pwd).pw_uid;
+  pw_gid = (*pwd).pw_gid;
+  pw_gecos =  strgecos;
+  pw_dir =  strdir;
+  pw_shell = strshell;
+};
+
+***********************************inGroup.cc****************************
+
+#include "user.ih"
+
+bool user::inGroup(size_t gid) const
+{
+  if (gid == pw_gid) //checking whether gid is equal to the pw_gid field
+    return true;    //of the constructed object.
+  else
+    return false;
+}
+
+***********************************valid.cc****************************
+
+#include "user.ih"
+
+bool user::valid() const
+{
+  if ( !user::name().empty()  && user::groupId() != 0  && !user::homeDir().empty() &&
+   !user::realName().empty() && !user::shell().empty()  && user::userId() != 0 )
+  return true;
+  else
+  return false;
+}
+
+//Checks whether the object is properly constructed and all the fields
+//are filled in.

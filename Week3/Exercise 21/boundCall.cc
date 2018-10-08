@@ -1,19 +1,11 @@
-
-
-
-
-
 #include "w3e21.h"
-//#include <iostream>
 
 using namespace std;
 
 
-void boundCall(int nr, char const *arguments[])
+void boundCall(int argc, char const *arguments[])
 {
-
-  //also calls combine?
-  //ReturnValues *input2 = &input;
+  size_t nr = stoul(arguments[1]) - 1;
   cout << "boundCall does not store the return values\n";
   if (arguments[nr])
   {
@@ -21,9 +13,4 @@ void boundCall(int nr, char const *arguments[])
     cout << "The requested argument is " << arguments[nr] << '\n';
   }else
     cout << "The requested argument does not exist.\n";
-}
-
-void boundCall()
-{
-  cout << "Error no arguments\n";
 }
