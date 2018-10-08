@@ -1,0 +1,76 @@
+\documentclass[a4paper]{article}
+\usepackage{fancyhdr}
+\usepackage[margin=2.5cm]{geometry}
+\pagestyle{fancy}
+\fancyhead[CO,CE]{
+                  Programming in C/C++ \\
+                  Tjalling Otter \& Emiel Krol
+                 }
+
+\usepackage{etoolbox}
+\usepackage{placeins}
+
+\usepackage[usenames,dvipsnames]{color}  %% Allow color names
+
+% New page for every section
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+
+% New page for every subsection
+%\let\stdsubsection\subsection
+%\renewcommand\subsection{\newpage\stdsubsection}
+
+%% The listings package will format your source code
+\usepackage{listings}
+\lstdefinestyle{customasm}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  language=C++,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{Gray},
+  stringstyle=\color{Black},
+  keywordstyle=\bfseries\color{OliveGreen},
+  identifierstyle=\color{blue},
+  numbers=left,
+  showstringspaces=false,
+  %xleftmargin=-2.5cm,
+  %xrightmargin=-2.5cm,
+  %float
+}
+
+\newtoggle{aftersection}
+\preto{\lstinputlisting}{\filbreak\global\toggletrue{aftersection}}
+\preto{\subsection}{\iftoggle{aftersection}{\global\togglefalse{aftersection}}{\filbreak}}
+\newcommand{\clearpageafterfirst}{%
+  \gdef\clearpageafterfirst{\clearpage}%
+}
+
+\begin{document}
+
+\section*{Week 4}
+
+%\subsection*{Exercise 31}
+%\lstinputlisting[style=customasm]{../31/31.txt}
+
+%\newpage
+%\subsection*{Exercise 32}
+%\lstinputlisting[style=customasm]{../32/stringManip.h}
+
+%\newpage
+\subsection*{Exercise 33}
+\lstinputlisting[style=customasm]{../33-34/person/person.h}
+\lstinputlisting[style=customasm]{../33-34/person/person.ih}
+\lstinputlisting[style=customasm]{../33-34/person/basicFunctions.cc}
+\lstinputlisting[style=customasm]{../33-34/person/extract.cc}
+\lstinputlisting[style=customasm]{../33-34/person/insert.cc}
+\lstinputlisting[style=customasm]{../33-34/person/setPhone.cc}
+
+\newpage
+\subsection*{Exercise 34}
+\lstinputlisting[style=customasm]{../33-34/main.ih}
+\lstinputlisting[style=customasm]{../33-34/main.cc}
+\lstinputlisting[style=customasm]{../33-34/populateArray.cc}
+\lstinputlisting[style=customasm]{../33-34/printArray.cc}
+
+\end{document}

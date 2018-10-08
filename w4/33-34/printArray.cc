@@ -1,9 +1,6 @@
-// Programming in C/C++
-// Week 4: Assignment 34
-// Tjalling Otter & Emiel Krol
 // Function: print object array
 
-#include "person/person.h"
+#include "person/person.ih"
 using namespace std;
 
 void printArray(Person array[], size_t sizeArray)

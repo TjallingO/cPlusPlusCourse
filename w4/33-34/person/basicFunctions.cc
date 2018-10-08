@@ -1,6 +1,3 @@
-// Programming in C/C++
-// Week 4: Assignment 33
-// Tjalling Otter & Emiel Krol
 // Person member functions: basic setters and getters
 
 #include "person.ih"

@@ -1,6 +1,3 @@
-// Programming in C/C++
-// Week 4: Assignment 33
-// Tjalling Otter & Emiel Krol
 // Person class: interface header
 
 #ifndef INCLUDED_PERSON_
@@ -24,6 +21,9 @@ class Person
     size_t mass()                 const;
     // Getters
 
+    void insert(std::ostream &outputStream); // Storing data
+    void extract(std::istream &inputStream);  // Extracting data
+
   private:
     void setName(std::string const &name);
     void setAddress(std::string const &address);
@@ -31,8 +31,6 @@ class Person
     void setMass(size_t mass);
     // Setters
 
-    void insert (std::ostream &outputStream); // Storing data
-    void extract(std::istream &inputStream);  // Extracting data
 };
 
 #endif

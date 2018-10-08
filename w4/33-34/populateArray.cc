@@ -1,9 +1,6 @@
-// Programming in C/C++
-// Week 4: Assignment 34
-// Tjalling Otter & Emiel Krol
 // Function: populate array using user input
 
-#include "person/person.h"
+#include "person/person.ih"
 using namespace std;
 
 void populateArray(Person array[], size_t sizeArray)
