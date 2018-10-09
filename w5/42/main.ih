@@ -1,13 +1,8 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+#include "charcount/charcount.h"
 
-namespace Icmbuild
-{
-    extern char version[];
-    extern char years[];
-    extern char author[];
-};
 
-void usage(std::string const &progname);
 
 using namespace std;
