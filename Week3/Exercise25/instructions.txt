@@ -1,0 +1,26 @@
+The following implementation solves the puzzle:
+
+    1. Define a queue of subjects as an array of nSubject elements. The
+elements contain the eye color and optionally the order number of the
+generated subject.
+
+    2. When a new subject is added to the queue, visit all the queue's
+elements from the first to the last.
+
+    3. The first subject to insert into the queue is inserted at the queue's
+front.
+
+    4. If there are subjects in the queue, visit all subjects from the first
+to the last, and insert the new subject at the position of the first subject
+having blue eyes, moving all remaining existing subjects one position farther
+in the queue.
+
+    5. If the end of the (used) queue is reached insert the new subject at the
+end, beyond the last subject in the queue.
+
+    6. When inserting a subject, determine its eye color using a random number
+generator (e.q., if an odd value is generator the eye color is blue, otherwise
+brown), and optionally store its order number.
+
+At the end, display the contents of the queue from front to back, showing eye
+colors and optionally order numbers.
