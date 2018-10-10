@@ -1,21 +1,12 @@
 #include "main.ih"
 
-//using namespace std;
-
 int main(int argc, char **argv)
 {
-  /*
-  string fileName;      // Initialise string for name input file
-  cin >> fileName;      // Populate filename string
-  ifstream inputFile(fileName.c_str()); // Convert filename to cstring and input it
-  */
 
-  CharCount charobject;
-
+  CharCount charobject(std::cin);
 
   charobject.CharCounter(std::cin);
   charobject.count(std::cin);
+  showChar(charobject);
 
-
-  //charobject.count();
 }

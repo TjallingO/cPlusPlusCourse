@@ -3,8 +3,6 @@
 void CharCount::count(std::istream& stream)
 //void CharCount::count(void)
 {
-
-  //CharInfoObject.nChar = stream.right - stream.left;
   stream.clear();
   stream.seekg(0); //reset to beginning
   size_t count = 0;
@@ -12,6 +10,6 @@ void CharCount::count(std::istream& stream)
   {
     ++count;
   }
-  CharInfoObject.nChar = count;
-  cout << "Total Chars " << CharInfoObject.nChar << '\n';
+  charInfoObject.nChar = count;
+  cout << "Total Chars " << charInfoObject.nChar << '\n';
 }
