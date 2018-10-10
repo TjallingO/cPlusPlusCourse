@@ -5,7 +5,6 @@
 
 #include <string>
 #include <iostream>
-#include <sstream>
 
 class Person
 {
@@ -21,7 +20,7 @@ class Person
     size_t mass()                 const;
     // Getters
 
-    void insert(std::ostream &outputStream); // Storing data
+    void insert(std::ostream &outputStream);  // Storing data
     void extract(std::istream &inputStream);  // Extracting data
 
   private:
@@ -30,7 +29,45 @@ class Person
     void setPhone(std::string const &phone);
     void setMass(size_t mass);
     // Setters
-
 };
+
+// Basic inline functions
+
+inline void Person::setName(std::string const &name)
+{
+  d_name = name;
+}
+
+inline std::string const &Person::name() const
+{
+  return d_name;
+}
+
+inline void Person::setAddress(std::string const &address)
+{
+  d_address = address;
+}
+
+inline std::string const &Person::address() const
+{
+  return d_address;
+}
+
+// Phone number setter defined seperately
+
+inline std::string const &Person::phone() const
+{
+  return d_phone;
+}
+
+inline void Person::setMass(size_t mass)
+{
+  d_mass = mass;
+}
+
+inline size_t Person::mass() const
+{
+  return d_mass;
+}
 
 #endif
