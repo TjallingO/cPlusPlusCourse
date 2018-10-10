@@ -5,20 +5,21 @@
 #include "charcount/charcount.h"
 using namespace std;
 
-void charDisplay(CharCount *input)
+void showChar(CharCount input)
 {
-  for (size_t index = 0; index < 255; ++index) {
-    cout << CharCount::getChar(&input, index) << '\n';
-    cout << CharCount::getCount(&input, index) << '\n';
-    /*
-    if  (input.CharObject[index].ch == ' ' && input.CharObject[index].count != 0)
-      cout << " " << ":" << '\t' << input.CharObject[index].count << '\t' << index << '\n';
-    if  (input.CharObject[index].ch == '\t' && input.CharObject[index].count != 0)
-      cout << "\\t" << ":" << '\t' << input.CharObject[index].count << '\t' << index << '\n';
-    if (input.CharObject[index].ch == '\n' && input.CharObject[index].count != 0)
-      cout << "\\n" << ":" << '\t' << input.CharObject[index].count << '\t' << index << '\n';
-    if (input.CharObject[index].ch != ' ' && input.CharObject[index].ch != '\n' && input.CharObject[index].ch != '\t' && CharObject[index].count != 0)
-    cout << input.CharObject[index].ch << '\t' << input.CharObject[index].count << '\t' << index << '\n';
-    */
+  for (size_t index = 0; index < input.getNrChars(); ++index) {
+    if (input.getCount(index) != 0)
+    {
+      if (input.getChar(index) == ' ')
+        cout << ' ' << ':' << '\t';
+      else if(input.getChar(index) == '\t')
+        cout << "\\t" << ':' << '\t';
+      else if(input.getChar(index) == '\n')
+        cout << "\\n" << ':' << '\t';
+      else
+        cout << input.getChar(index) << ':' << '\t';
+
+      cout << input.getCount(index) << '\n';
+    }
   }
 }

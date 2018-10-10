@@ -3,7 +3,7 @@
 void CharCount::CharCounter(std::istream& stream)
 {
 
-  size_t n = 255;
+  size_t n = charInfoObject.nSepChar;
   for  (size_t index = 0; index < n; ++index)
   {
     stream.clear();
@@ -18,8 +18,8 @@ void CharCount::CharCounter(std::istream& stream)
         ++count;
       }
     }
-    CharObject[index].ch = ascII;
-    CharObject[index].count = count;
+    d_charObject[index].ch = ascII;
+    d_charObject[index].count = count;
 
     //string stringOutput = string(CharObject[index].ch);
 /*
