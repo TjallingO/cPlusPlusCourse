@@ -4,7 +4,6 @@
 #include <string>
 #include <sys/types.h>
 #include <pwd.h>
-#include <sstream>
 
 class User
 {

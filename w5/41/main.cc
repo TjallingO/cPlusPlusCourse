@@ -1,7 +1,4 @@
-// Programming in C/C++
-// Week 5: Assignment 41
-// Tjalling Otter & Emiel Krol
-// Main file
+// Iterating over environ and argv: main file
 
 #include "main.ih"
 
