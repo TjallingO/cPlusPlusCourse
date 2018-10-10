@@ -5,11 +5,11 @@
 #include "charcount/charcount.h"
 using namespace std;
 
-void charDisplay(CharCount input)
+void charDisplay(CharCount *input)
 {
   for (size_t index = 0; index < 255; ++index) {
-    cout << CharCount::getChar(input, index) << '\n';
-    cout << CharCount::getCount(input, index) << '\n';
+    cout << CharCount::getChar(&input, index) << '\n';
+    cout << CharCount::getCount(&input, index) << '\n';
     /*
     if  (input.CharObject[index].ch == ' ' && input.CharObject[index].count != 0)
       cout << " " << ":" << '\t' << input.CharObject[index].count << '\t' << index << '\n';

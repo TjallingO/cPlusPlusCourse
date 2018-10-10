@@ -8,12 +8,12 @@ CharCount::CharCount()
 
 }
 
-char CharCount::getChar(CharCount input, size_t index)
+char CharCount::getChar(CharCount *input, size_t index)
 {
-  return input.CharObject[index].ch;
+  return (*input).CharObject[index].ch;
 }
 
-size_t CharCount::getCount(CharCount input, size_t index)
+size_t CharCount::getCount(CharCount *input, size_t index)
 {
-  return input.CharObject[index].count;
+  return (*input).CharObject[index].count;
 }

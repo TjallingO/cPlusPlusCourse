@@ -30,8 +30,8 @@ class CharCount
         void count(std::istream& stream);
         void CharCounter(std::istream& stream);
       //  char getChar(Char input);
-        char getChar(CharCount input, size_t index);
-        size_t getCount(CharCount input, size_t index);
+        char getChar(CharCount *input, size_t index);
+        size_t getCount(CharCount *input, size_t index);
         //size_t getCount(Char input);
         //void count(void);
         //info(); //reference to immutable charcount object

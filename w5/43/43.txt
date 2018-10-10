@@ -30,7 +30,7 @@ pointer notation:     &*(x+10)-&*(x+3)
 pointer notation:     *argv = *argv + 1;
        semantics:     *argv then points to the start of the programs name.
                       Then by adding 1 to it, it still points to the programs
-                      name. But now it points to 1 bit beyond the start of the
+                      name. But now it points to 1 byte beyond the start of the
                       programs name. Such that the programs name would be
                       /45 instead of the initial ./45 if it were passed to cout.
 ----------------------------------------------------------------------------
@@ -45,7 +45,7 @@ pointer notation:     *(argv + 1)
 pointer notation:     1 + *(argv)
        semantics:     1 + *(argv) then points to the start of the programs name.
                       Then by adding 1 to it, it still points to the programs
-                      name. But now it points to 1 bit beyond the start of the
+                      name. But now it points to 1 byte beyond the start of the
                       programs name. Such that the programs name would be
                       /45 instead of the initial ./45 if it were passed to cout.
 ----------------------------------------------------------------------------
