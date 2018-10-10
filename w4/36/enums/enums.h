@@ -1,28 +1,34 @@
-// Programming in C/C++
-// Week 4: Assignment 36
-// Tjalling Otter & Emiel Krol
 // ENUMS class: header file
 
 #ifndef INCLUDED_ENUMS_
 #define INCLUDED_ENUMS_
 
-#include <string>
-#include <iostream>
-#include <sstream>
+#include <cstddef>
 
-enum class RAM
+enum class RAM: size_t
 {
   SIZE = 20
 };
 
-enum class Opcode
+enum class Opcode: size_t
 {
-
+  ERR,
+  MOV,
+  ADD,
+  SUB,
+  MUL,
+  DIV,
+  NEG,
+  DSP,
+  STOP
 };
 
-enum class OperandType
+enum class OperandType: size_t
 {
-
+  SYNTAX,
+  VALUE,
+  REGISTER,
+  MEMORY
 };
 
 #endif

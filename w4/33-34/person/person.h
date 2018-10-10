@@ -11,7 +11,7 @@ class Person
   std::string d_name;     // name of person
   std::string d_address;  // address field
   std::string d_phone;    // telephone number
-  size_t      d_mass; // the mass in kg.
+  size_t      d_mass;     // the mass in kg.
 
   public:
     std::string const &name()     const;
@@ -20,7 +20,7 @@ class Person
     size_t mass()                 const;
     // Getters
 
-    void insert(std::ostream &outputStream); // Storing data
+    void insert(std::ostream &outputStream);  // Storing data
     void extract(std::istream &inputStream);  // Extracting data
 
   private:
