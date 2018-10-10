@@ -1,0 +1,45 @@
+Programming in C/C++
+Week 3: Assignment 29
+Tjalling Otter & Emiel Krol
+
+- How to create a library and link it with main
+
+Taking exercise 23 as an example, a number of functions and associated source
+files were created alongside and for use in main, stored in a /functions folder.
+These are:
+getEnvLength.cc
+lcIsSmaller.cc
+partition.cc
+quicksort.cc
+storeEnvStrings.cc
+
+First, these are all compiled into object files using:
+g++ -c *.cc -Wall -std=c++17
+
+Thereafter, they are added to (or replaced in) a library libfun.a as follows:
+ar rvs libfun.a *.o
+
+The object files can then be deleted. Thereafter, the main program can be
+compiled and linked with any functions that are not defined in its own
+source file, by using those in the library:
+g++ -o main main.cc functions/libfun.a -Wall -std=c++17
+
+- Why use a library?
+
+In this case, the advantages of using a static library are limited. The
+functions were written especially for the exercise, and have not yet found
+use outside of said assignment. However, if we ever come across another
+situation wherein knowing the number of environmental variables is necessary,
+I can simply use the getEnvLength function that is now easily linked from the
+library that I have created here. This already hints at the use that a static
+library can have. The object file for this function does not ever have to be 
+compiled again, and over time a library of useful self-designed functions can
+be slowly established. By doing so, it keeps projects far more manageable and
+organised by keeping individual project (or assignment) folders free of
+superfluous files. In other words, a library can be useful to create if there
+would otherwise be a need to keep many source and object files around. It is
+not very useful if there are few files, the program is simple, and the source
+files are single-purpose. Personally, I also feel that embedding functions
+into a library provides us with some indication that these functions are
+'done', as it were, or that they can be trusted upon to work as intended
+(and called).

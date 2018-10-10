@@ -1,32 +1,29 @@
-
-
-
-
-
 #include "w3e21.h"
-//#include "main.ih" //nodig?
-//#include <iostream>
 
 using namespace std;
 
-void structCall(int nr, char const *arguments[])
+bool structCall(int argc, char const *arguments[])
 {
-  //storing combines return value?
+  size_t nr = stoul(arguments[1]);
+
+  if(argc < nr){
+    cout << "Requested argument does not exist.\n";
+    return false;
+  }
+
+  string requestedarg = arguments[nr - 1];
+
+  ReturnValues input;
+  combine(&input, nr, requestedarg);
+
   cout << "structCall stores the return values\n";
-  if (!arguments[nr])
-  cout << "Requested argument does not exist.\n";
-  if (arguments[nr])
+  if (requestedarg.empty()){
+    cout << "Requested argument does not exist.\n";
+  }
+  else
   {
-    ReturnValues input;
-    input.TrueOrFalse = true;
-    input.argumentNumber = nr;
-    input.argument = arguments[nr];
     cout << "The requested argument number is " << input.argumentNumber << '\n';
     cout << "The requested argument is " << input.argument << '\n';
   }
-}
-
-void structCall()
-{
-  cout << "Error no arguments\n";
+  return true;
 }
