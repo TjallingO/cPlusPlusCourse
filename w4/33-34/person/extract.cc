@@ -4,11 +4,11 @@
 
 void Person::extract(istream &inputStream)
 {
-  for (size_t index = 0; index != 4; ++index)
+  string inputString;
+  for (size_t index = 0; index != 3; ++index)
   {
-    string inputString;
     if (!getline(inputStream, inputString, ','))
-      getline(inputStream, inputString);
+      break;
     switch (index)                      // Assign the object variables in order
     {
       case 0:
@@ -20,9 +20,9 @@ void Person::extract(istream &inputStream)
       case 2:
         setPhone(inputString);
         break;
-      case 3:
-        setMass(stoi(inputString));
-        break;
     }
   }
+  if (!getline(inputStream, inputString, '\n'))
+    return;
+  setMass(stoi(inputString));
 }
