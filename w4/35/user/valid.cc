@@ -1,12 +1,10 @@
 #include "user.ih"
 
-bool user::valid() const
+bool User::valid() const
 {
-  if ( !user::name().empty()  && user::groupId() != 0  && !user::homeDir().empty() &&
-   !user::realName().empty() && !user::shell().empty()  && user::userId() != 0 )
-  return true;
-  else
-  return false;
+  return  !User::name().empty()  && User::groupId() != 0  &&
+   !User::homeDir().empty() &&  !User::realName().empty() &&
+   !User::shell().empty()  && User::userId() != 0 ;
 }
 
 //Checks whether the object is properly constructed and all the fields

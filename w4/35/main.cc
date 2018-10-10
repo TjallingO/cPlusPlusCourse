@@ -4,16 +4,17 @@
 int main(int argc, char **argv)
 {
 
-  user me ; //constructing object me
-
-  cout << "name\t\t" << me.name() << '\n';
-  cout << "groupId\t\t" << me.groupId() << '\n';
-  cout << "homeDir\t\t" << me.homeDir() << '\n';
-  cout << "realName\t" << me.realName() << '\n';
-  cout << "shell\t\t" << me.shell() << '\n';
-  cout << "userId\t\t" << me.userId() << '\n';
+  User me ; //constructing object me
 
   cout << "valid\t\t" << (me.valid() ? "true" : "false") << '\n';
+
+  if (me.valid())
+    cout << "name\t\t" << me.name() << '\n'
+     << "groupId\t\t" << me.groupId() << '\n'
+     << "homeDir\t\t" << me.homeDir() << "/\n"
+     << "realName\t" << me.realName() << '\n'
+     << "shell\t\t" << me.shell() << '\n'
+     << "userId\t\t" << me.userId() << '\n';
 
 
 }

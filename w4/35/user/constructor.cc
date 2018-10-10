@@ -5,23 +5,18 @@
 
 #include "user.ih"
 
-user::user()
+User::User()
 {
-  struct passwd *pwd;
+  struct passwd *pwd = getpwuid(1000); //Putting the user data in the struct
 
-  pwd = getpwuid(1000); //Putting the user data in the struct
+  if  ((*pwd).pw_name == 0)  //checking if this user exists and we dont have a null deref
+    return;
 
-  string strname((*pwd).pw_name);   //converting char arrays to strings.
-  string strpass((*pwd).pw_passwd);
-  string strgecos((*pwd).pw_gecos);
-  string strdir((*pwd).pw_dir);
-  string strshell((*pwd).pw_shell);
-
-  pw_name = strname;        //Setting the values of the newly constructed object.
-  pw_passwd = strpass;
-  pw_uid = (*pwd).pw_uid;
-  pw_gid = (*pwd).pw_gid;
-  pw_gecos =  strgecos;
-  pw_dir =  strdir;
-  pw_shell = strshell;
+  d_pw_name = (*pwd).pw_name;        //Setting the values of the newly constructed object.
+  d_pw_passwd = (*pwd).pw_passwd;
+  d_pw_uid = (*pwd).pw_uid;
+  d_pw_gid = (*pwd).pw_gid;
+  d_pw_gecos =  (*pwd).pw_gecos;
+  d_pw_dir =  (*pwd).pw_dir;
+  d_pw_shell = (*pwd).pw_shell;
 };
