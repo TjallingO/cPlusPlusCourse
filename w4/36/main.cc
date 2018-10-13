@@ -1,6 +1,3 @@
-// Programming in C/C++
-// Week XX: Assignment XX
-// Tjalling Otter & Emiel Krol
 // Main file
 
 #include "main.ih"

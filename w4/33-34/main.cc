@@ -4,7 +4,7 @@
 
 int main()
 {
-  Person personArray[5];  // Define an array of five Person objects
+  Person personArray[2];  // Define an array of five Person objects
 
   size_t arraySize = sizeof(personArray) / sizeof(personArray[0]);  // Determine length array
 

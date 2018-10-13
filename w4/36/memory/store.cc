@@ -1,8 +1,4 @@
-// Programming in C/C++
-// Week 4: Assignment 36
-// Tjalling Otter & Emiel Krol
 // Memory function: store
-
 
 #include "memory.ih"
 

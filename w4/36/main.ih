@@ -1,9 +1,6 @@
-// Programming in C/C++
-// Week XX: Assignment XX
-// Tjalling Otter & Emiel Krol
 // Main file: internal header
 
-#include "memory/memory.h"
+#include "memory/memory.ih"
 #include <iostream>
 #include <string>
 
