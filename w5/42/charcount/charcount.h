@@ -21,7 +21,7 @@ class CharCount
   };
 
   //Char d_charObject[255];
-  Char *d_charObject = new Char[charInfoObject.nSepChar];
+  //Char *d_charObject = new Char[charInfoObject.nSepChar];
 
   //Char CharObject;
 
