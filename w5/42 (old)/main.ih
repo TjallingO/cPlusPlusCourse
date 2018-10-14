@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 #include "charcount/charcount.h"
+
+
 
 using namespace std;
 

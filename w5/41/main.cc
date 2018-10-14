@@ -1,14 +1,17 @@
-// Iterating over environ and argv: main file
+// Main file
 
 #include "main.ih"
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
-  extern char **environ;
+  size_t distanceEnvArgv = *environ - *argv;  // Determine distance env and environ
 
-  for (size_t index = 0; index != argc; ++index)  // For elements of argv (0-argc)
-    cout << environ[index] << '\n';               // print associated env var
+  *argv += distanceEnvArgv;     // Move argv to position environ
+  *environ -= distanceEnvArgv;  // Move environ to position argv
 
-  for (size_t index = 0; environ[index] != nullptr; ++index)  // For all elements
-    cout << argv[index] << '\n';                              // of environ[] print
-}                                                             // associated argv
+  for (size_t index = 0; argv[index] != 0; ++index) // Loop through "argv"
+    cout << argv[index] << '\n';                    // And print elements
+
+  for (size_t index = 0; environ[index] != 0; ++index)  // Loop through "environ"
+    cout << environ[index] << '\n';                     // And print elements
+}

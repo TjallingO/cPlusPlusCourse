@@ -23,6 +23,6 @@ namespace Icmbuild
 {
     char version[]  = VERSION;
     char years[]     = YEARS;
-    
+
     char author[] = AUTHOR;
 }

@@ -7,19 +7,23 @@ using namespace std;
 
 void showChar(CharCount input)
 {
-  for (size_t index = 0; index < input.getNrChars(); ++index) {
+  for (size_t index = 0; index < input.d_charObject.nChar; ++index)
+  {
     if (input.getCount(index) != 0)
     {
       if (input.getChar(index) == ' ')
-        cout << ' ' << ':' << '\t';
+        cout << ' ' << "  :" << '\t';
       else if(input.getChar(index) == '\t')
         cout << "\\t" << ':' << '\t';
       else if(input.getChar(index) == '\n')
         cout << "\\n" << ':' << '\t';
+      else if(isprint(input.getChar(index)))
+        cout << "\"" << input.getChar(index) << "\"" << ':' << '\t';
       else
-        cout << input.getChar(index) << ':' << '\t';
-
-      cout << input.getCount(index) << '\n';
+        cout << (int)input.getChar(index) + 128 << ':' << '\t';
     }
+    cout << input.getCount(index) << '\n';
   }
 }
+
+//printing output
