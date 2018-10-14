@@ -4,22 +4,40 @@
 
 using namespace std;
 
-void inv_identity(int *row){
-  for (size_t rownr = 0; rownr < 10; ++rownr)
+void printArray(int square[][10], size_t dimension)
+{
+  for (size_t column = 0; column != dimension; ++column)
+  {
+    for (size_t row = 0; row != dimension; ++row)
     {
-      for (size_t colnr = 0; colnr < 10; ++colnr)
-      {
-        row[rownr][colnr] = 1;
-      }
+      cout << square[column][row] << " ";
     }
-}
+    cout << '\n';
+  }
+};
+
+void inv_identity(int* passedRow[][10])
+{
+  for (int *left = passedRow; column != 10; ++column)
+  {
+    for (size_t row = 0; row != 10; ++row)
+    {
+      if (row == column)
+        passedRow[row][column] = 0;
+      else
+        passedRow[row][column] = 1;
+    }
+    cout << '\n';
+  }
+};
 
 int main(int argc, char **argv)
 {
   int square[10][10];
 
-  int *row = square[10];
+  int (*row)[10] = square ;
 
   inv_identity(row);
-  cout << row[5] << '\n';
+  printArray(square, 10);
+  cout << "HELLO: " << (row[3][1]) << '\n';
 }
