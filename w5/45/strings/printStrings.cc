@@ -2,5 +2,6 @@
 
 void Strings::printStrings()
 {
-  std::cout << d_str[1];
+  for (size_t index = 0; index != d_size; ++index)
+    std::cout << d_str[index] << ", ";
 };

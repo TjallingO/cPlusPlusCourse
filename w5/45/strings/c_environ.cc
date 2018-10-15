@@ -2,9 +2,8 @@
 
 Strings::Strings(char **strings)
 {
+  std::cout << "environ constructor called. \n"
+
   for (size_t index = 0; strings[index] != 0; ++index)
-  {
-    std::cout << strings[index] << '\n';
-    add(strings[index], d_str);
-  }
+    add(strings[index]);
 };

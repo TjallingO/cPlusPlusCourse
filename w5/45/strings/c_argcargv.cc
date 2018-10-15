@@ -2,10 +2,8 @@
 
 Strings::Strings(size_t numStrings, char **strings)
 {
-  std::string stringArray[numStrings];
+  std::cout << "Argc / argv constructor called. \n"
+  
   for (size_t index = 0; index != numStrings; ++index)
-    {
-      stringArray[index] = strings[index];
-      std::copy(stringArray, stringArray + numStrings, d_str);
-    }
+    add(strings[index]);
 }

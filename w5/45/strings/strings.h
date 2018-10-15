@@ -6,14 +6,20 @@
 
 class Strings
 {
-  size_t d_size;
-  std::string d_str[2];
+  size_t d_size = 0;
+  std::string *d_str = 0;
+  size_t d_cap = 10;
 
   public:
     Strings(size_t numStrings, char **strings);
     Strings(char **strings);
-    void add(char *novelString, std::string *currentStrings);
+    Strings(std::istream &input);
+    Strings();
+    
+    void add(char *novelString);
+    void add(std::string &novelString);
     void printStrings();
+    void destroy();
 
   private:
 };
