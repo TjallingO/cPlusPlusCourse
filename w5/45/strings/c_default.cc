@@ -2,5 +2,5 @@
 
 Strings::Strings()
 {
-  std::cout << "Default constructor called. \n"
+  std::cout << "Default constructor called. \n";
 };
