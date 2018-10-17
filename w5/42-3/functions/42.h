@@ -2,7 +2,7 @@
 #ifndef INCLUDED_42FUNCTIONS_
 #define INCLUDED_42FUNCTIONS_
 
-//#include <iostream>
+#include <iostream>
 
 void showChar(CharCount charobject);
 

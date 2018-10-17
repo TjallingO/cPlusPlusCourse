@@ -18,7 +18,7 @@ pointer notation:     cout << *(argv + 2);
 ----------------------------------------------------------------------------
   int x[8];           &x[10] - &x[3];
 
-pointer notation:     &*(x+10)-&*(x+3)
+pointer notation:     &*(x+10)-&*(x+3) = 7
        semantics:     *(x+10) points to the the 10th int beyond x. Then
                       the reference & makes it instead return its location.
                       The same happens for &*(x+3). Since one points to the
@@ -27,31 +27,36 @@ pointer notation:     &*(x+10)-&*(x+3)
 ----------------------------------------------------------------------------
   char *argv[8];      argv[0]++;
 
-pointer notation:     *argv = *argv + 1;
-       semantics:     *argv then points to the start of the programs name.
-                      Then by adding 1 to it, it still points to the programs
-                      name. But now it points to 1 byte beyond the start of the
-                      programs name. Such that the programs name would be
-                      /45 instead of the initial ./45 if it were passed to cout.
+pointer notation:     (*argv)++;
+       semantics:     (*argv)++ points to the start of the programs name. Which
+                      is a null terminated byte string. Which is dereferenced to
+                      char values. Then by adding 1 to it, it still points to
+                      the programs name. But now it points to 1 byte beyond the
+                      start of the programs name. Such that the programs name
+                      would be /45 instead of the initial ./45 if it were passed
+                      to cout.
 ----------------------------------------------------------------------------
   char *argv[8];      argv++[0];
 
-pointer notation:     *(argv + 1)
-       semantics:     *(argv + 1) points to the first argument beyond the
-                      programs name.
+pointer notation:     *(argv++)
+       semantics:     *(argv++) points to the first argument beyond the
+                      programs name. Which is a null terminated byte string that
+                      is dereferenced to a char.
 ----------------------------------------------------------------------------
   char *argv[8];      ++argv[0];
 
-pointer notation:     1 + *(argv)
-       semantics:     1 + *(argv) then points to the start of the programs name.
-                      Then by adding 1 to it, it still points to the programs
-                      name. But now it points to 1 byte beyond the start of the
-                      programs name. Such that the programs name would be
-                      /45 instead of the initial ./45 if it were passed to cout.
+pointer notation:     ++(*argv)
+       semantics:     ++(*argv) points to the start of the programs name. Which
+                      is a null terminated byte string. Which is dereferenced to
+                      char values. Then by adding 1 to it, it still points to
+                      the programs name. But now it points to 1 byte beyond the
+                      start of the programs name. Such that the programs name
+                      would be /45 instead of the initial ./45 if it were passed
+                      to cout.
 ----------------------------------------------------------------------------
   char **argv;        ++argv[0][2];
 
-pointer notation:     ++*(*(argv) + 2)
+pointer notation:     ++*(*argv + 2)
        semantics:     First the outer pointer (the 2) points to the 2nd
                       column. Then the inner pointer
                       points the the 0th element in the 2nd row. Then 1 is

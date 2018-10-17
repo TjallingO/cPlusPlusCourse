@@ -3,7 +3,7 @@
 // Tjalling Otter & Emiel Krol
 
 #include "../charcount/charcount.h"
-//#include "42.h"
+#include "42.h"
 
 using namespace std;
 
