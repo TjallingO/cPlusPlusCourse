@@ -3,7 +3,7 @@
 void Strings::add(char const *novelString)
 {
   std::string *temporary = new string[d_size + 1];
-  // Create a pointer temporary that points towards a newly
+  // Create a pointer temporary that points towards a newly allocated
   // piece of memory in which an array of
   // d_size + 1 initialised strings are held
 

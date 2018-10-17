@@ -1,12 +1,12 @@
 // Matrix function: make 2D array into matrix of ones
 
-#include "matrixFunctions.h"
+#include "main.ih"
 
-void allOnes(int entryRow[][DIM])
+void allOnes(int (*entryRow)[DIM])
 {
   for (int (*row)[DIM] = entryRow; row != entryRow + DIM; ++row)
   {
-    for (int *column = *row, *end = *row + DIM; column != end; ++column)
+    for (int *column = *row, *end = column + DIM; column != end; ++column)
       (*column) = 1;
   }
 };

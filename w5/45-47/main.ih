@@ -2,7 +2,9 @@
 
 #include "strings/strings.h"
 
-#include <iostream>
 #include <string>
+#include <iostream>
+
+extern const char **environ;
 
 using namespace std;
