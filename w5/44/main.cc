@@ -1,43 +1,13 @@
+// Main file
+
 #include "main.ih"
 
-#include <iostream>
-
-using namespace std;
-
-void printArray(int square[][10], size_t dimension)
+int main()
 {
-  for (size_t column = 0; column != dimension; ++column)
-  {
-    for (size_t row = 0; row != dimension; ++row)
-    {
-      cout << square[column][row] << " ";
-    }
-    cout << '\n';
-  }
-};
+  int square[DIM][DIM]; // Declare square 2D array
 
-void inv_identity(int* passedRow[][10])
-{
-  for (int *left = passedRow; column != 10; ++column)
-  {
-    for (size_t row = 0; row != 10; ++row)
-    {
-      if (row == column)
-        passedRow[row][column] = 0;
-      else
-        passedRow[row][column] = 1;
-    }
-    cout << '\n';
-  }
-};
+  int (*row)[DIM] = square;  // Initialise row as pointing to rows of 2D array
 
-int main(int argc, char **argv)
-{
-  int square[10][10];
-
-  int (*row)[10] = square ;
-
-  inv_identity(row);
-  printArray(square, 10);
-  cout << "HELLO: " << (row[3][1]) << '\n';
+  inv_identity(row);  // Pass row to function
+  // printArray(square, DIM); // Only for testing purposes
 }

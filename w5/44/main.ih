@@ -1,13 +1,5 @@
-#include <iostream>
-#include <string>
+// Main: internal header file
 
-namespace Icmbuild
-{
-    extern char version[];
-    extern char years[];
-    extern char author[];
-};
-
-void usage(std::string const &progname);
+#include "matrixFunctions.h"
 
 using namespace std;

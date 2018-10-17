@@ -1,16 +1,4 @@
 #include "charcount.h"
-#include <string>
+
 
 using namespace std;
-
-struct CharInfo
-{
-  //field ptr pointing to struct char objects
-  size_t nChar; //nr char objects stored
-};
-
-struct Char
-{
-  char ch; //the character
-  size_t count; //number of occurences
-};
