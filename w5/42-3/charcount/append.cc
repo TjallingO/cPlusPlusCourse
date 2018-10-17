@@ -16,19 +16,3 @@ void CharCount::append(char character, size_t index)
     ++Obj_nChar;
   }
 }
-
-/*
-if  (index == d_charObject.nChar)
-{
-  if  (d_charObject.nChar > 0)
-  {
-    d_charObject.ptr = enlarge(d_charObject.ptr, d_charObject.nChar,
-    d_charObject.nChar + 1);
-  }
-
-  d_charObject.ptr[index].ch = character;
-  d_charObject.ptr[index].count = 1;
-  ++d_charObject.nChar;
-}
-}
-*/

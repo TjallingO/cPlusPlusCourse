@@ -13,22 +13,27 @@ int main(int argc, char const *argv[]) {
   //argv++[0];
 
   //cout << *(1+argv)[2] << '\n';
-  /*
+
+
+/*
   char var[2][2];
-  var[0][2] = w;
+  var[0][2] = 'w';
+
   char a = ++var[0][2];
   //int b = *(++var[0]+3);
   //int c = *(*(++var)+3);
-  char d = ++(*(*(var)+2));
+  char d = ++(*(*var+2));
   cout << a << '\n';
   //cout << b << '\n';
   //cout << c << '\n';
   cout << d << '\n';
-  */
-
-
+*/
+  char myword[] = "hello";
+  cout << *myword;
+  //cout << *(myword++);
+  /*
   cout << 1 + *argv << '\n';
   cout << *(argv + 1) << '\n';
   cout << *argv + 1 << '\n';
-
+*/
 }

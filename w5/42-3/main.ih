@@ -1,10 +1,7 @@
 #include <iostream>
 
 #include "charcount/charcount.h"
-#include "functions/42.h"
 
 using namespace std;
 
-//#include "functions/showChar.cc"
-
-//void showChar(CharCount charobject);
+void showChar(CharCount input);
