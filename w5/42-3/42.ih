@@ -3,5 +3,3 @@
 #include "charcount/charcount.h"
 
 using namespace std;
-
-void showChar(CharCount input);
