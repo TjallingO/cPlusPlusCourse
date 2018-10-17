@@ -1,9 +1,0 @@
-main.ih
-main.cc
-
-matrixFunctions.h
-
-inv_identity.cc
-
-allOnes.cc
-diagZeroes.cc

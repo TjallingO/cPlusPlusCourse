@@ -1,10 +1,10 @@
 // Matrix function: print for testing purposes
 
-#include "matrixFunctions.h"
+#include "main.ih"
 
 #include <iostream>
 
-void printArray(int const square[][DIM])
+void printArray(int const (*square)[DIM])
 {
   for (size_t column = 0; column != DIM; ++column)
   {

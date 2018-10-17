@@ -1,5 +1,20 @@
 // Main: internal header file
 
-#include "matrixFunctions.h"
-
 using namespace std;
+
+#include <cstddef>
+
+enum FIXEDVARS
+{
+  DIM = 10
+};
+
+void inv_identity(int (*entryRow)[DIM]);
+void allOnes(int (*entryRow)[DIM]);
+void diagZeroes(int (*entryRow)[DIM]);
+
+void printArray(int const (*square)[DIM]);  // Testing purposes
+
+// It does seem nicer to write a separate header file for these functions.
+// Would it suffice to move them to a subdirectory and include a /matrixF/matrixF.h
+// or /matrixF/matrixF.ih in main.ih?
