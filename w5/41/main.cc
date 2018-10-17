@@ -2,12 +2,12 @@
 
 #include "main.ih"
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-  size_t distanceEnvArgv = *environ - *argv;  // Determine distance env and environ
-
-  *argv += distanceEnvArgv;     // Move argv to position environ
-  *environ -= distanceEnvArgv;  // Move environ to position argv
+  char **temporary = argv;  // Create a new pointer to the memory that argv points to
+  argv = environ;           // Point argv to the memory that environ points to
+  environ = temporary;      // Point environ to where temporary points
+                            // (previously where argv was pointing)
 
   for (size_t index = 0; argv[index] != 0; ++index) // Loop through "argv"
     cout << argv[index] << '\n';                    // And print elements
