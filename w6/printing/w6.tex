@@ -1,0 +1,94 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[CO,CE]{
+                  Programming in C/C++ \\
+                  Tjalling Otter \& Emiel Krol
+                 }
+
+\usepackage{etoolbox}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{graphicx}
+
+\usepackage[usenames,dvipsnames]{color}  %% Allow color names
+
+% New page for every section
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+
+% New page for every subsection
+%\let\stdsubsection\subsection
+%\renewcommand\subsection{\newpage\stdsubsection}
+
+%% The listings package will format your source code
+\usepackage{listings}
+\lstdefinestyle{customasm}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  language=C++,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{Gray},
+  stringstyle=\color{Black},
+  keywordstyle=\bfseries\color{OliveGreen},
+  identifierstyle=\color{blue},
+  numbers=left,
+  showstringspaces=false
+}
+
+% The listings package will format your source code
+\usepackage{listings}
+\lstdefinestyle{inline}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  language=C++,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{Gray},
+  stringstyle=\color{Black},
+  keywordstyle=\bfseries\color{OliveGreen},
+  identifierstyle=\color{blue},
+  numbers=left,
+  showstringspaces=false,
+  aboveskip=-0.5cm
+}
+
+\lstdefinestyle{text}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  showstringspaces=false,
+  breakautoindent=true
+}
+
+%\newtoggle{aftersection}
+%\preto{\lstinputlisting}{\filbreak\global\toggletrue{aftersection}}
+%\preto{\subsection}{\iftoggle{aftersection}{\global\togglefalse{aftersection}}{\filbreak}}
+%\newcommand{\clearpageafterfirst}{%
+%  \gdef\clearpageafterfirst{\clearpage}%
+%}
+
+\begin{document}
+
+\section*{Week 6}
+
+\subsection*{Exercise 50}
+% Emilio
+
+\newpage
+\subsection*{Exercise 51}
+\input{../51/51.tex}
+
+\newpage
+\subsection*{Exercise 52}
+As can be seen, the new addition consists of a destructor $~Strings()$ defined in the header and implemented in $dtor.cc$. In turn, this destructor calls the previously-defined $destroy()$ (see $destoy.cc$). The destructor is automatically called when the object goes out of scope, so this ensures that the memory allocated by the objects is deleted in such a situation (as it would be before enlarging it).
+\lstinputlisting[style=customasm]{../52/strings/strings.h}
+\lstinputlisting[style=customasm]{../52/strings/dtor.cc}
+\lstinputlisting[style=customasm]{../52/strings/destroy.cc}
+
+
+
+\end{document}
