@@ -1,0 +1,4 @@
+also included so the program compiles:
+CLASSES
+icmconf
+VERSION

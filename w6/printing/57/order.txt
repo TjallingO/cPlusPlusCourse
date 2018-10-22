@@ -1,4 +1,4 @@
-cpu/cpu.h
-cpu/deref.cc
-cpu/store.cc
-enums/enums.h
+cpu.h
+dereference.cc
+store.cc
+enums.h
