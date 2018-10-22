@@ -27,6 +27,7 @@ class Strings
     size_t size() const;
     std::string const *data() const;
     POD release();
+    POD d_POD();
 
     std::string const &at(size_t idx) const;    // for const-objects
     std::string &at(size_t idx);                // for non-const objects

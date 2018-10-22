@@ -1,0 +1,12 @@
+printf "\033c"
+printf "========================== \n"
+printf "Cleaning and building \n"
+printf "========================== \n"
+printf "Cleaning \n"
+printf "========================== \n"
+icmbuild clean
+printf "========================== \n"
+printf "Building \n"
+printf "========================== \n"
+icmbuild program
+printf "========================== \n"
