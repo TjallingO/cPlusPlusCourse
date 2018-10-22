@@ -12,3 +12,9 @@ charount/insert.cc
 charount/locate.cc
 charount/process.cc
 charount/transfer.cc
+
+also included so the program compiles:
+CLASSES
+icmconf
+VERSION
+
