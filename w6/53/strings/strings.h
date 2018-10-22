@@ -7,7 +7,7 @@ class Strings
 {
   size_t d_size;
   size_t d_capacity = 1;
-  std::string *d_str;
+  std::string **d_str;
 
   public:
     struct POD
@@ -26,7 +26,8 @@ class Strings
     void swap(Strings &other);
 
     size_t size() const;
-    std::string const *data() const;
+    size_t capacity() const;
+    std::string* const *data() const;
     POD release();
     POD d_POD();
 
@@ -37,6 +38,9 @@ class Strings
 
   private:
     void fill(char *ntbs[]);                    // fill prepared d_str
+    void resize(size_t newLength);
+    std::string* rawPointers(size_t nNewPointers);
+    void reserve();
 
     std::string &safeAt(size_t idx) const;      // private backdoor
     std::string *enlarge();
@@ -55,10 +59,10 @@ inline size_t Strings::capacity() const
   return d_capacity;
 }
 
-inline std::string const *Strings::data() const
-{
-  return d_str;
-}
+// inline std::string* const **Strings::data() const
+// {
+//   return d_str;
+// }
 
 inline std::string const &Strings::at(size_t idx) const
 {
