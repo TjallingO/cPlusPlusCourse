@@ -1,12 +1,17 @@
 printf "\033c"
-printf "========================== \n"
-printf "Cleaning and building \n"
-printf "========================== \n"
-printf "Cleaning \n"
-printf "========================== \n"
+COLUMNS=$(tput cols)
+
+printf -v row "%${COLUMNS}s"; echo ${row// /#}
+title="Cleaning and building"
+printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
+printf -v row "%${COLUMNS}s"; echo ${row// /#}
+title="Cleaning"
+printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
+printf -v row "%${COLUMNS}s"; echo ${row// /#}
 icmbuild clean
-printf "========================== \n"
-printf "Building \n"
-printf "========================== \n"
+printf -v row "%${COLUMNS}s"; echo ${row// /#}
+title="Building"
+printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
+printf -v row "%${COLUMNS}s"; echo ${row// /#}
 icmbuild program
-printf "========================== \n"
+printf -v row "%${COLUMNS}s"; echo ${row// /#}

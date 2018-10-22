@@ -1,6 +1,10 @@
 printf "\033c"
-printf "========================== \n"
-printf "Running ./tmp/bin/binary \n"
-printf "========================== \n"
+COLUMNS=$(tput cols)
+
+title="Running ./tmp/bin/binary"
+printf -v row "%${COLUMNS}s"; echo ${row// /#}
+printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
+printf -v row "%${COLUMNS}s"; echo ${row// /#}
 ./tmp/bin/binary
-printf "========================== \n"
+printf "\n"
+printf -v row "%${COLUMNS}s"; echo ${row// /#}
