@@ -3,7 +3,7 @@
 void CharCount::insert(char ch, size_t idx)
 {
     if  (d_size == d_info.nChar + 1)
-      enlarge();
+      enlarge();                    //increase size of memory if needed
 
     Char *&ptr = d_info.ptr;
                                     // transfer the rest
