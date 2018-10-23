@@ -15,3 +15,10 @@ printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
 printf -v row "%${COLUMNS}s"; echo ${row// /#}
 icmbuild program
 printf -v row "%${COLUMNS}s"; echo ${row// /#}
+
+title="Running ./tmp/bin/binary"
+printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
+printf -v row "%${COLUMNS}s"; echo ${row// /#}
+./tmp/bin/binary
+printf "\n"
+printf -v row "%${COLUMNS}s"; echo ${row// /#}

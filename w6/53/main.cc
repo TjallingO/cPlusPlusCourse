@@ -1,9 +1,17 @@
 #include "main.ih"
 
+extern char **environ;
+
 int main()
 {
-    Filter filter(cin);                 // filters out initial and final
-                                        // empty lines
+    for (size_t iter = 0; iter != 1000; ++iter)
+    {
+        Strings env(environ);
 
-    filter.display();                   // show the remaining lines to cout
+        for (size_t rept = 0; rept != 100; ++rept)
+        {
+            for (char **ptr = environ; *ptr; ++ptr)
+                env.add(*ptr);
+        }
+    }
 }
