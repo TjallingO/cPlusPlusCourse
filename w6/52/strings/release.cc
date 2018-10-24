@@ -8,4 +8,4 @@ Strings::POD Strings::release()
     d_str = 0;
 
     return ret;
-};
+}

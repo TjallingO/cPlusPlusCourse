@@ -5,7 +5,7 @@
 
 class Strings
 {
-  size_t d_capacity = 0;
+  size_t d_capacity = 1;
   size_t d_size = 0;
   std::string **d_pPstrings = 0;
 
@@ -13,7 +13,7 @@ class Strings
     struct POD
     {
       size_t      size;
-      std::string *str;
+      std::string **str;
     };
 
     Strings();

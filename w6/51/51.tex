@@ -1,4 +1,5 @@
 \subsubsection*{New / delete variants}
+
 \textit{New variable or array} \\
 Allocates new memory sized appropriately to the type and dimensions specified. Thereafter it will attempt to construct and initialise these objects. Finally, it will return a pointer to the start of the memory allocated to these objects. The advantage and consideration of constructing an object (array) is that one has control over when it is deleted (if at all).
 
@@ -15,7 +16,7 @@ int main()
 \end{lstlisting}
 
 Without the use of new (i.e. Class newClass), the scope of the newly constructed class would simply be limited to within the if statement, and thereafter destroyed. However, now the object persists until manually deleted. As such, the creation and destruction do not take place unless necessary. Another example would be in the creation of arrays with dimensions that are not previously established. \\
-
+\\
 \textit{Placement new} \\
 Allows for 'filling' an already allocated piece of memory, possibly with another object or objects than the one one / those that it was originally allocated for. In other words, it allows us to simply construct objects in memory previously allocated. This could be useful when imagining a shared or transient storage location in memory that can be easily located, whether it contains characters, integers, or whatever else.
 
@@ -40,7 +41,7 @@ int main()
 \end{lstlisting}
 
 In this example, we know that a block of memory sized to fit ten 'ExClass's is required, but not yet which constructor will be used to fill it. Hence, it can already be allocated, but left empty until that decision is made. In the end, \\
-
+\\
 \textit{Operator new} \\
 This allocates raw memory sized to fit a specified number of specified objects.
 \begin{lstlisting}[style=inline]

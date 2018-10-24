@@ -2,11 +2,12 @@
 
 Strings::Strings(istream &in)
 {
-    string line;
-    while (getline(in, line))
-    {
+  d_pPstrings = rawPointers(1); // Create first memory
+  string line;
+  while (getline(in, line))
+  {
     add(line);
     if (line.empty())
       break;
-    }
+  }
 };
