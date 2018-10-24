@@ -1,0 +1,9 @@
+printf "\033c"
+COLUMNS=$(tput cols)
+
+printf -v row "%${COLUMNS}s"; echo ${row// /#}
+title="Checking for leaks"
+printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
+printf -v row "%${COLUMNS}s"; echo ${row// /#}
+valgrind ./tmp/bin/binary
+printf -v row "%${COLUMNS}s"; echo ${row// /#}

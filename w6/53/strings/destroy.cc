@@ -2,5 +2,5 @@
 
 void Strings::destroy()
 {
-  delete[] d_str;
+  delete[] d_pPstrings;
 }
