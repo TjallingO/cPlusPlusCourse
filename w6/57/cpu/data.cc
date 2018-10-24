@@ -1,6 +1,6 @@
 #include "cpu.ih"
 
-void (CPU::*CPU::s_deref[])(int input_number) =
+int (CPU::*CPU::s_deref[])(int input_number) =
 {
   &CPU::get_register,
   &Memory::load,
@@ -9,6 +9,6 @@ void (CPU::*CPU::s_deref[])(int input_number) =
 
 void (CPU::*CPU::s_lhstype[])(int lhsvalue, int value) =
 {
-  &CPU::regstore,
+  &CPU::regStore,
   &Memory::store,
 };

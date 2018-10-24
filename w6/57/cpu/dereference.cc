@@ -6,5 +6,7 @@
  {
      OperandType loc_type = value.type;
 
-     (this->* s_deref[loc_type])(value.value);
+     return (this->* s_deref[static_cast<size_t>(loc_type)])(value.value);
+     //using static cast to get the index from the Operandtype since its
+     //an Enum Class
  }

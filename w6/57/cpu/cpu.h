@@ -7,7 +7,7 @@
  #include "../memory/memory.h"
 // class Memory;                           // Memory only needs to be a declared
                                          // term
- #include "../enums/enums.h"
+
  class CPU
  {
      enum
@@ -30,7 +30,7 @@
      private:
        static void (CPU::*s_lhstype[])(int lhsvalue, int value);
        //replaces the switch in store
-       static void (CPU::*s_deref[])(int input_number);
+       static int (CPU::*s_deref[])(int input_number);
        //replaces the switch in dereference
 
      public:
