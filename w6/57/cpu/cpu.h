@@ -26,6 +26,12 @@
 
      int d_register[NREGISTERS];
 
+     private:
+       static void (CPU::*s_lhstype[])(int lhs.value, int value);
+       //replaces the switch in store
+       static void (CPU::*s_deref[])(int input_number);
+       //replaces the switch in dereference
+
      public:
          CPU(Memory &memory);
          void run();
@@ -67,10 +73,7 @@
          int value(Operand value); //returns value
          int get_register(Operand value); //register reserved returns reg value
 
-         static void (CPU::*s_lhstype[])(int lhs.value, int value);
-         //replaces the switch in store
-         static void (CPU::*s_deref[])(int input_number);
-         //replaces the switch in dereference
+
  };
 
  inline void CPU::regStore(int lhs.value, int value)

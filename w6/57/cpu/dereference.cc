@@ -1,11 +1,6 @@
 #include "cpu.ih"
 
-void (CPU::*CPU::s_deref[])(int input_number)
-{
-  &CPU::get_register,
-  &Memory::load,
-  &CPU::value,
-};
+
 
  int CPU::dereference(Operand const &value)
  {
