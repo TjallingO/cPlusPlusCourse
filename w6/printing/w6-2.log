@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.14)  25 OCT 2018 00:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.14)  25 OCT 2018 01:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -257,15 +257,6 @@ e
 ))
 \c@lstlisting=\count106
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 23.10004pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-] (../51/51.tex
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -274,53 +265,66 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-)
+) (../50-3/main.ih
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 7.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1.
+) (../50-3/main.cc) (../50-3/showChar.cc) (../50-3/charcount/charcount.h
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--22
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 23.10004pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+] [2])
+(../50-3/charcount/charcount.ih) (../50-3/charcount/add.cc)
+(../50-3/charcount/append.cc [3]) (../50-3/charcount/count.cc)
+(../50-3/charcount/data.cc) (../50-3/charcount/destroy.cc)
+(../50-3/charcount/destructor.cc) (../50-3/charcount/enlarge.cc [4])
+(../50-3/charcount/insert.cc) (../50-3/charcount/locate.cc)
+(../50-3/charcount/process.cc [5]) (../50-3/charcount/transfer.cc) [6]
+(../51/51.tex
+Underfull \hbox (badness 10000) in paragraph at lines 22--26
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--47
-
- []
-
-[2]) [3] (../53/strings/strings.h [4]) (../53/strings/add.cc)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 58.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 58.
+) [7] [8] (../53/strings/strings.h [9]) (../53/strings/add.cc)
 (../53/strings/c_argcargv.cc) (../53/strings/c_environlike.cc)
-(../53/strings/c_istream.cc) (../53/strings/d_tor.cc [5])
+(../53/strings/c_istream.cc) (../53/strings/d_tor.cc [10])
 (../53/strings/destroy.cc) (../53/strings/rawPointers.cc)
-(../53/strings/reserve.cc) (../53/strings/resize.cc) [6]
-(../55/strings/strings.h [7]) (../55/strings/add.cc)
+(../53/strings/reserve.cc) (../53/strings/resize.cc) [11] [12]
+(../55/strings/strings.h [13]) (../55/strings/add.cc)
 (../55/strings/c_argcargv.cc) (../55/strings/c_environlike.cc)
-(../55/strings/c_istream.cc) (../55/strings/destroy.cc [8])
+(../55/strings/c_istream.cc) (../55/strings/destroy.cc [14])
 (../55/strings/d_tor.cc) (../55/strings/rawMemory.cc) (../55/strings/reserve.cc
-) (../55/strings/resize.cc) [9] (../56/56.tex
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 12.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 12.
-) [10] (./w6-2.aux) ) 
+) (../55/strings/resize.cc) [15] (../56/56.tex) [16] (../57/cpu/cpu.h [17])
+(../57/cpu/data.cc) (../57/cpu/dereference.cc [18]) (../57/cpu/store.cc)
+(../57/enums/enums.h) [19] (./w6-2.aux) ) 
 Here is how much of TeX's memory you used:
- 4240 strings out of 494923
- 60496 string characters out of 6180741
- 291921 words of memory out of 5000000
- 7451 multiletter control sequences out of 15000+600000
+ 4497 strings out of 494923
+ 63850 string characters out of 6180741
+ 352666 words of memory out of 5000000
+ 7647 multiletter control sequences out of 15000+600000
  6682 words of font info for 24 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,12n,67p,790b,1630s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-bx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on w6-2.pdf (10 pages, 113817 bytes).
+ 41i,12n,68p,790b,1645s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on w6-2.pdf (19 pages, 148149 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 98 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
