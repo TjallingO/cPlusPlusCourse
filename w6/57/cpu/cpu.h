@@ -7,6 +7,7 @@
  #include "../memory/memory.h"
 // class Memory;                           // Memory only needs to be a declared
                                          // term
+
  class CPU
  {
      enum
@@ -25,6 +26,12 @@
      Tokenizer d_tokenizer;
 
      int d_register[NREGISTERS];
+
+     private:
+       static void (CPU::*s_lhstype[])(int lhsvalue, int value);
+       //replaces the switch in store
+       static int (CPU::*s_deref[])(int input_number);
+       //replaces the switch in dereference
 
      public:
          CPU(Memory &memory);
@@ -63,19 +70,16 @@
 
   //added for 57
 
-         void regStore(int lhs.value, int value); //stores value in reg
+         void regStore(int lhsvalue, int value); //stores value in reg
          int value(Operand value); //returns value
          int get_register(Operand value); //register reserved returns reg value
 
-         static void (CPU::*s_lhstype[])(int lhs.value, int value);
-         //replaces the switch in store
-         static void (CPU::*s_deref[])(int input_number);
-         //replaces the switch in dereference
+
  };
 
- inline void CPU::regStore(int lhs.value, int value)
+ inline void CPU::regStore(int lhsvalue, int value)
  {
-   d_register[lhs.value] = value;
+   d_register[lhsvalue] = value;
  }
 
  inline int CPU::value(Operand value)

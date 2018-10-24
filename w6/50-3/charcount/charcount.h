@@ -5,6 +5,12 @@
 
 class CharCount
 {
+  enum capacities
+  {
+    MAXSIZE = 255, //maximum size since no more ASCII values possible
+    STARTSIZE = 8, //a very small file might only contain one word
+  };               //in which case 8 seperate ASCII values might be enough
+
   enum Action
     {
         APPEND = 0,
@@ -28,8 +34,8 @@ class CharCount
 
     private:
 
-        size_t d_cap = 255; //maximum size since no more ASCII values possible
-        size_t d_size = 8;  //starting size
+        size_t d_cap = MAXSIZE;
+        size_t d_size = STARTSIZE;
 
         CharInfo d_info =
         {
@@ -40,12 +46,17 @@ class CharCount
 
         //allocating raw memory block for the array of Char Objects
 
+        static void (CharCount::*s_action[])(char ch, size_t idx);
+
+        //declares the array of pointers so it can reach private member
+        //functions (add, insert, append)
 
     public:
-        size_t count(std::istream &in);
-        CharInfo const &info() const;
         ~CharCount(); //defining destructor so that the used memory is
                       //freed at the end of main.
+        size_t count(std::istream &in);
+        CharInfo const &info() const;
+        size_t const capacity() const;
 
     private:
         void process(char ch);
@@ -74,10 +85,6 @@ class CharCount
 
         //returns the current raw capacity
 
-        static void (CharCount::*s_action[])(char ch, size_t idx);
-
-        //declares the array of pointers so it can reach private member
-        //functions (add, insert, append)
 };
 
 inline CharCount::CharInfo const &CharCount::info() const
@@ -89,10 +96,9 @@ inline CharCount::Char CharCount::rawCapacity() const
 {
     return *(d_info).ptr; //returns current raw capacity
 }
-
-inline CharCount::~CharCount()
+inline size_t const CharCount::capacity() const
 {
-  destroy();  //destructor
+    return d_size;
 }
 
 

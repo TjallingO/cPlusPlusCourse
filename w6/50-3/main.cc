@@ -13,4 +13,5 @@ int main()
         showChar(info.ptr[idx].ch);
         cout << ": " << info.ptr[idx].count << " times\n";
     }
+    cout << "capacity is " << cc.capacity() << '\n';
 }
