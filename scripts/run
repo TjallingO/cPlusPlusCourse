@@ -5,6 +5,6 @@ title="Running ./tmp/bin/binary"
 printf -v row "%${COLUMNS}s"; echo ${row// /#}
 printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
 printf -v row "%${COLUMNS}s"; echo ${row// /#}
-./tmp/bin/binary
+./tmp/bin/binary "$@"
 printf "\n"
 printf -v row "%${COLUMNS}s"; echo ${row// /#}
