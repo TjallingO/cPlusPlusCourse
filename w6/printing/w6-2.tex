@@ -1,0 +1,141 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[CO,CE]{
+                  Programming in C/C++ \\
+                  Tjalling Otter \& Emiel Krol
+                 }
+
+\usepackage{etoolbox}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{graphicx}
+
+\usepackage[usenames,dvipsnames]{color}  %% Allow color names
+
+% New page for every section
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+
+% New page for every subsection
+%\let\stdsubsection\subsection
+%\renewcommand\subsection{\newpage\stdsubsection}
+
+%% The listings package will format your source code
+\usepackage{listings}
+\lstdefinestyle{customasm}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  language=C++,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{Gray},
+  stringstyle=\color{Black},
+  keywordstyle=\bfseries\color{OliveGreen},
+  identifierstyle=\color{blue},
+  numbers=left,
+  showstringspaces=false
+}
+
+% The listings package will format your source code
+\usepackage{listings}
+\lstdefinestyle{inline}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  language=C++,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{Gray},
+  stringstyle=\color{Black},
+  keywordstyle=\bfseries\color{OliveGreen},
+  identifierstyle=\color{blue},
+  numbers=left,
+  showstringspaces=false,
+  aboveskip=-0.5cm
+}
+
+\lstdefinestyle{text}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  showstringspaces=false,
+  breakautoindent=true
+}
+
+%\newtoggle{aftersection}
+%\preto{\lstinputlisting}{\filbreak\global\toggletrue{aftersection}}
+%\preto{\subsection}{\iftoggle{aftersection}{\global\togglefalse{aftersection}}{\filbreak}}
+%\newcommand{\clearpageafterfirst}{%
+%  \gdef\clearpageafterfirst{\clearpage}%
+%}
+
+\begin{document}
+
+\section*{Week 6}
+\subsection*{Exercise 50}
+\lstinputlisting[style=customasm]{../50-3/main.ih}
+\lstinputlisting[style=customasm]{../50-3/main.cc}
+\lstinputlisting[style=customasm]{../50-3/showChar.cc}
+\lstinputlisting[style=customasm]{../50-3/charcount/charcount.h}
+\lstinputlisting[style=customasm]{../50-3/charcount/charcount.ih}
+\lstinputlisting[style=customasm]{../50-3/charcount/add.cc}
+\lstinputlisting[style=customasm]{../50-3/charcount/append.cc}
+\lstinputlisting[style=customasm]{../50-3/charcount/count.cc}
+\lstinputlisting[style=customasm]{../50-3/charcount/data.cc}
+\lstinputlisting[style=customasm]{../50-3/charcount/destroy.cc}
+\lstinputlisting[style=customasm]{../50-3/charcount/destructor.cc}
+\lstinputlisting[style=customasm]{../50-3/charcount/enlarge.cc}
+\lstinputlisting[style=customasm]{../50-3/charcount/insert.cc}
+\lstinputlisting[style=customasm]{../50-3/charcount/locate.cc}
+\lstinputlisting[style=customasm]{../50-3/charcount/process.cc}
+\lstinputlisting[style=customasm]{../50-3/charcount/transfer.cc}
+
+\newpage
+\subsection*{Exercise 51}
+\input{../51/51.tex}
+
+% Start new section (not yet handed in)
+\newpage
+\section*{Week 6}
+\subsection*{Exercise 53}
+\lstinputlisting[style=customasm]{../53/strings/strings.h}
+\lstinputlisting[style=customasm]{../53/strings/add.cc}
+\lstinputlisting[style=customasm]{../53/strings/c_argcargv.cc}
+\lstinputlisting[style=customasm]{../53/strings/c_environlike.cc}
+\lstinputlisting[style=customasm]{../53/strings/c_istream.cc}
+\lstinputlisting[style=customasm]{../53/strings/d_tor.cc}
+The destroy(); function is unchanged from ex. 52 (already checked), but included for convenience.
+\lstinputlisting[style=customasm]{../53/strings/destroy.cc}
+\lstinputlisting[style=customasm]{../53/strings/rawPointers.cc}
+\lstinputlisting[style=customasm]{../53/strings/reserve.cc}
+\lstinputlisting[style=customasm]{../53/strings/resize.cc}
+
+\newpage
+\subsection*{Exercise 55}
+\lstinputlisting[style=customasm]{../55/strings/strings.h}
+\lstinputlisting[style=customasm]{../55/strings/add.cc}
+\lstinputlisting[style=customasm]{../55/strings/c_argcargv.cc}
+\lstinputlisting[style=customasm]{../55/strings/c_environlike.cc}
+\lstinputlisting[style=customasm]{../55/strings/c_istream.cc}
+\lstinputlisting[style=customasm]{../55/strings/destroy.cc}
+\lstinputlisting[style=customasm]{../55/strings/d_tor.cc}
+\lstinputlisting[style=customasm]{../55/strings/rawMemory.cc}
+\lstinputlisting[style=customasm]{../55/strings/reserve.cc}
+\lstinputlisting[style=customasm]{../55/strings/resize.cc}
+
+\newpage
+\subsection*{Exercise 56}
+\input{../56/56.tex}
+
+\newpage
+\section*{Week 6}
+\subsection*{Exercise 57}
+\lstinputlisting[style=customasm]{../57/cpu/cpu.h}
+\lstinputlisting[style=customasm]{../57/cpu/data.cc}
+\lstinputlisting[style=customasm]{../57/cpu/dereference.cc}
+\lstinputlisting[style=customasm]{../57/cpu/store.cc}
+\lstinputlisting[style=customasm]{../57/enums/enums.h}
+
+\end{document}

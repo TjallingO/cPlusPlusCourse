@@ -1,0 +1,39 @@
+\begin{table}[H]
+\parbox{0.33\linewidth}
+{
+\centering
+\begin{tabular}{l|c}
+\textit{\textbf{Type}} & \textit{\textbf{Time}} \\ \hline
+\textbf{real}          & 25m36,605s             \\
+\textbf{user}          & 25m25,435s             \\
+\textbf{sys}           & 0m11,168s              \\ \hline
+\end{tabular}
+\caption{Original}
+}
+\parbox{0.33\linewidth}
+{
+\centering
+\begin{tabular}{l|c}
+\textit{\textbf{Type}} & \textit{\textbf{Time}} \\ \hline
+\textbf{real}          & 0m1,519s               \\
+\textbf{user}          & 0m1,381s               \\
+\textbf{sys}           & 0m0,137s               \\ \hline
+\end{tabular}
+\caption{Double pointers}
+}
+\parbox{0.33\linewidth}
+{
+\centering
+\begin{tabular}{l|c}
+\textit{\textbf{Type}} & \textit{\textbf{Time}} \\ \hline
+\textbf{real}          & 0m17,604s              \\
+\textbf{user}          & 0m17,485s              \\
+\textbf{sys}           & 0m0,112s               \\ \hline
+\end{tabular}
+\caption{Placement new}
+}
+\end{table}
+
+Tables 1 through 3 display the time it took to run the respective programs. Note that the original implementation was timed on another machine than the others, because it was taking so long.
+
+It is clear that using double pointers makes the program run fastest. Intuitively, this also makes sense. For both the original implementation as well as the one using placement new one, when creating room for new strings, the extant strings have to be copied entirely. The latter implementation at least uses a doubling algorithm, but still, copying strings is just not very efficient. Simply copying over pointers to already existing objects seems like a much better idea, because depending on the length of said strings, they could be very large - at least much larger than a mere pointer.

@@ -1,6 +1,6 @@
 #include "strings.ih"
 
-namespace  first {
+namespace first {
     string empty;
 }
 

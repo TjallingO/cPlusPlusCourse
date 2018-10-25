@@ -28,9 +28,9 @@
      int d_register[NREGISTERS];
 
      private:
-       static void (CPU::*s_lhstype[])(int lhsvalue, int value);
+       static void (CPU::*s_lhstype[])(int lhsvalue, int value) ;
        //replaces the switch in store
-       static int (CPU::*s_deref[])(int input_number);
+       static int (CPU::*s_deref[])(int input_number) ;
        //replaces the switch in dereference
 
      public:
@@ -70,26 +70,30 @@
 
   //added for 57
 
-         void regStore(int lhsvalue, int value); //stores value in reg
-         int value(Operand value); //returns value
-         int get_register(Operand value); //register reserved returns reg value
+         void regStore(int lhsvalue, int input); //stores value in reg
+         int value(int input); //returns value
+         int get_register(int input); //register reserved returns reg value
 
+         void store(int address, int value);
+         int load(int address);
+         //declaring the functions founc in memory here so they can be used
+         //in the arrays of pointers to functions.
 
  };
 
- inline void CPU::regStore(int lhsvalue, int value)
+ inline void CPU::regStore(int lhsvalue, int input)
  {
-   d_register[lhsvalue] = value;
+   d_register[lhsvalue] = input;
  }
 
- inline int CPU::value(Operand value)
+ inline int CPU::value(int input)
  {
-   return value.value;
+   return input;
  }
 
- inline int CPU::get_register(Operand value)
+ inline int CPU::get_register(int input)
  {
-   return d_register[value.value];
+   return d_register[input];
  }
 
  #endif

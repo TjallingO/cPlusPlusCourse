@@ -1,57 +1,78 @@
 #include <iostream>
 #include <string>
-#include <algorithm>  //for std::generate_n
-#include <random>
-
 
 using namespace std;
 
-std::string random_string(std::string::size_type length)
+size_t d_capacity = 0;
+size_t d_size = 0;
+string **pPstrings = 0;
+
+void destroy()
 {
-    static auto& chrs = "0123456789"
-        "abcdefghijklmnopqrstuvwxyz"
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  delete[] pPstrings;
+};
 
-    thread_local static std::mt19937 rg{std::random_device{}()};
-    thread_local static std::uniform_int_distribution<std::string::size_type> pick(0, sizeof(chrs) - 2);
-
-    std::string s;
-
-    s.reserve(length);
-
-    while(length--)
-        s += chrs[pick(rg)];
-
-    return s;
+void d_tor()
+{
+  for (size_t index = 0; index != d_size; ++index)
+    delete pPstrings[index];
+  destroy();
 }
 
-
-int main(int argc, char *argv[])
+string** rawPointers(size_t nPointers)
 {
-  size_t d_capacity = 1;
-  size_t d_size = 2;
-  size_t d_blocks = 0;
-  string **pointerStringArray;
+  return (new string*[nPointers]);
+};
 
-  {string *temp = static_cast<string *>(operator new(100000 * sizeof(string)));
-  for (size_t idx = 100000; idx--; )
-    new (temp + idx) string{random_string(10)};
+void reserve(size_t newCapacity)
+{
+  while (d_capacity < newCapacity)
+  {
+    size_t oldcapacity = d_capacity;
+    if (d_capacity == 0)
+      d_capacity = 1;
+    else
+      d_capacity *= 2;
 
-  pointerStringArray[d_blocks] = temp;}
-  ++d_blocks;
+    string **tmp = rawPointers(d_capacity);
+    for (size_t idx = 0; idx != oldcapacity; ++idx)
+      tmp[idx] = pPstrings[idx];
 
-  {string *temp2 = static_cast<string *>(operator new(100000 * sizeof(string)));
-  for (size_t idx = 100000; idx--; )
-    new (temp2 + idx) string{random_string(10)};
-  pointerStringArray[d_blocks] = temp2;}
-  ++d_blocks;
+    destroy();
+    pPstrings = tmp;
+  }
+};
 
+void add(string &newString)
+{
+  if(d_size + 1 > d_capacity)
+    reserve(d_size + 1);
+  pPstrings[d_size] = new std::string{ newString };
+  ++d_size;
+};
 
-  std::cerr << pointerStringArray[0][9] << '\n';
-  std::cerr << pointerStringArray[1][0] << '\n';
-  for (size_t index = 0; index != 11; ++index)
-    std::cerr << *(*(pointerStringArray) + index) << '\n';
-  //
-  // for (size_t index = 0; index != d_blocks * 10; ++index)
-  //   (*)*(pointerStringArray)) + index).~string();
+void resize(size_t newSize, string newAddition = "")
+{
+  if (newSize > d_size)
+    for (size_t index = 0; index != newSize - d_capacity; ++index)
+      add(newAddition);
+
+  if (newSize < d_size)
+    for (size_t index = d_size; index != newSize - 1; index--)
+      delete pPstrings[index];
+
+  d_size = newSize;
+}
+
+int main()
+{
+  for (size_t idx = 0; idx != 1000; ++idx)
+  {
+    string newString = "hello";
+    add(newString);
+  }
+  string newString = "hello";
+  //resize(100, newString);
+  cerr << d_size;
+  d_tor();
 }

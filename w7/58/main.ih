@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <iostream>
 
 namespace Icmbuild
@@ -9,4 +10,6 @@ namespace Icmbuild
 
 void usage(std::string const &progname);
 
+=======
+>>>>>>> 0b02bec2aaa9f7cc2a195852f900e9f215b905e8
 using namespace std;

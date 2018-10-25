@@ -1,6 +1,7 @@
 \subsubsection*{New / delete variants}
+
 \textit{New variable or array} \\
-Allocates new memory sized appropriately to the type and dimensions specified. Thereafter it will attempt to construct and initialise these objects. Finally, it will return a pointer to the start of the memory allocated to these objects. The advantage and consideration of constructing an object (array) is that one has control over when it is deleted (if at all).
+Allocates new memory sized appropriately to the type and dimensions specified. Thereafter it will attempt to construct and initialise these objects. Finally, it will return a pointer to the start of the memory allocated to these objects. The advantage and consideration of constructing an object (array) is that one has control over when it is deleted (if at all...).
 
 \begin{lstlisting}[style=inline]
 int main()
@@ -8,52 +9,50 @@ int main()
   Class *pointer;
   if (boolAppropriate)
     pointer = new Class;
+    // or
+    pointer = new Class[5];
 
   if (boolNoLongerNecessary)
     delete pointer;
+    // or
+    delete[] pointer;
 }
 \end{lstlisting}
 
-Without the use of new (i.e. Class newClass), the scope of the newly constructed class would simply be limited to within the if statement, and thereafter destroyed. However, now the object persists until manually deleted. As such, the creation and destruction do not take place unless necessary. Another example would be in the creation of arrays with dimensions that are not previously established. \\
-
-\textit{Placement new} \\
-Allows for 'filling' an already allocated piece of memory, possibly with another object or objects than the one one / those that it was originally allocated for. In other words, it allows us to simply construct objects in memory previously allocated. This could be useful when imagining a shared or transient storage location in memory that can be easily located, whether it contains characters, integers, or whatever else.
+Without the use of new (i.e. Class newClass), the scope of the newly constructed class would simply be limited to within the if statement, and thereafter destroyed. However, now the object persists until manually deleted. As such, the creation and destruction do not take place unless necessary. Another example would be in the creation of arrays with dimensions that are not previously established, and re-pointing a pointer to the new array. \\
+\\
+\textit{Operator and placement new} \\
+Allows for the allocation of raw memory that can be cast to fit a certain amount of a specific type. It is useful if one already has a reasonable idea of how much memory is needed for a specific application. Thereafter, a pointer to these memory locations is returned.
 
 \begin{lstlisting}[style=inline]
+#include <memory>
+
+void destroy()
+{
+  for (string *end = d_storage + d_size; end-- != d_memory)
+    end->~string();
+  operator delete(d_memory);
+}
+
 int main()
 {
-  char block[10 * sizeof(ExClass)]; // Block of memory necessary later
+  string *tmp = static_cast<string *>(operator new(d_capacity * sizeof(string *)));
+  // Raw memory is allocated, tmp points there
 
-  if (boolNeedsTypeA)
-    for (size_t idx = 0; index != 10; ++index)  // Create ten 'ExClass's in the
-      ExClass *sEC = new(block + idx * sizeof(ExClass)) // space, using constructor
-                         ExClass(typeA);                // A.
+  for(size_t idx = d_size; idx--; )
+    new(tmp + idx) string{ d_storage[idx] }
+  // Old strings copied into newly allocated memory
 
-  if (boolNeedsTypeB)
-    for (size_t idx = 0; index != 10; ++index)  // Create ten 'ExClass's in the
-      ExClass *sEC = new(block + idx * sizeof(ExClass)) // space, using constructor
-                         ExClass(typeB);                // B.
-
-  sEC->~ExClass();       // Destruct the data
-  delete[] block;        // Deallocate the memory
+  destroy();
+  // Old memory deleted
+  d_memory = tmp;
+  // d_memory now points to new memory, which contains the initial strings
+  new (d_memory + d_size) std::string{ newString };
+  ++d_size;
+  // Placement new adds a new string to the memory
+  // ...
+  destroy(); // one last time
 }
 \end{lstlisting}
 
-In this example, we know that a block of memory sized to fit ten 'ExClass's is required, but not yet which constructor will be used to fill it. Hence, it can already be allocated, but left empty until that decision is made. In the end, \\
-
-\textit{Operator new} \\
-This allocates raw memory sized to fit a specified number of specified objects.
-\begin{lstlisting}[style=inline]
-int main()
-{
-  string *block = static_cast<string *>(operator new(8 * sizeof(std::string)));
-
-  string *pNames = new(block + 5) std::string("John");
-
-  pNames->~string();
-
-  operator delete(block);
-}
-\end{lstlisting}
-
-Without actually filling this memory, it is rather useless on its own. Instead, it can be viewed as a preferable alternative to placement new discussed previously. Even without repeating/rewriting the loop, it is already obvious that the notation is simpler: there is no continuous evaluation of sizeof throughout the loop. Instead, just the offset index is used.
+In this example, we know that a block of memory sized to fit $d\_capacity$ strings is required, but not yet which constructor will be used to fill it (which comes later). Hence, it can already be allocated, but left empty until that decision is made (or even if it is not made at all).

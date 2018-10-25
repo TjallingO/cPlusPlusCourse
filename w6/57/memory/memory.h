@@ -11,7 +11,8 @@
 
       public:
           int load(size_t address) const;         // return mem[address]'s value
-          void store(size_t address, int value);  // store value at mem[address]
+          void store(size_t address, int value);
+          // store value at mem[address]
   };
 
   #endif

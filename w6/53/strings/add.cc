@@ -2,13 +2,9 @@
 
 void Strings::add(string const &next)
 {
-    string *tmp = enlarge();            // make room for the next string,
-                                        // tmp is the new string *
-
-    tmp[d_size] = next;                 // store next
-
-    destroy();                          // return old memory
-
-    d_str = tmp;                        // update d_str and d_size
-    ++d_size;
+  if(d_size + 1 > d_capacity) // If there is no room for the new addition
+    reserve(d_size + 1);      // Create new room
+    
+  d_pPstrings[d_size] = new std::string{ next };  // Add the new string
+  ++d_size; // Increase size
 }
