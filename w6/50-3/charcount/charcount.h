@@ -34,13 +34,13 @@ class CharCount
 
     private:
 
-        size_t d_cap = MAXSIZE;
-        size_t d_size = STARTSIZE;
+        size_t d_max = MAXSIZE;
+        size_t d_cap = STARTSIZE;
 
         CharInfo d_info =
         {
           static_cast<CharCount::Char *>(
-          operator new(d_size * sizeof(CharCount::Char)))
+          operator new(d_cap * sizeof(CharCount::Char)))
           , 0
         };
 
@@ -57,6 +57,7 @@ class CharCount
         size_t count(std::istream &in);
         CharInfo const &info() const;
         size_t const capacity() const;
+
 
     private:
         void process(char ch);
@@ -81,9 +82,11 @@ class CharCount
                         //frees the memory of the Char objects and afterwards
                         //the memory used by the pointer itself.
 
-        CharCount::Char rawCapacity() const;
+        CharCount::Char *rawCapacity() const;
+        //returns a pointer to newly created Char Objects which is actually a
+        //pointer to a raw block of memory
 
-        //returns the current raw capacity
+
 
 };
 
@@ -92,13 +95,17 @@ inline CharCount::CharInfo const &CharCount::info() const
     return d_info; //returns a reference to charinfo object
 }
 
-inline CharCount::Char CharCount::rawCapacity() const
+inline CharCount::Char *CharCount::rawCapacity() const
 {
-    return *(d_info).ptr; //returns current raw capacity
+    return static_cast<CharCount::Char *>(
+    operator new(d_cap * sizeof(CharCount::Char)));
 }
+//returns a pointer to newly created Char objects which is actually a pointer
+//to raw memory
+
 inline size_t const CharCount::capacity() const
 {
-    return d_size;
+    return d_cap;
 }
 
 
