@@ -1,10 +1,13 @@
 #include "main.ih"
 
-int main(int argc, char **argv)
-try
+#include <iostream>
+
+int main(int argc, char **const argv)
 {
-}
-catch (...)
-{
-    return 1;
+  ostream out(cout.rdbuf());
+  out.setstate(ios::failbit);
+
+  for (size_t index = 0; index != stoi(argv[1]); ++index)
+    //if (out.good())
+      out << "Nr. of command line arguments " << argc << '\n';
 }
