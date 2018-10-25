@@ -1,23 +1,14 @@
 #include "main.ih"
-#include <iostream>
-
-using namespace std;
 
 int main(int argc, char **argv)
 {
+  ostream out(cout.rdbuf()); // Initialise ostream out using buffer cout
 
-  ostream out(std::cout.rdbuf());
+  out.setstate(ios::failbit);     // Set the failbit of out
 
+  size_t its = atoi(argv[1]);  // Convert command line argument to its
 
-  out.setstate(ios::failbit);
-  size_t nrtime = atoi(argv[1]);
-
-
-  for (size_t index = 0; index != nrtime; ++index) {
-    if (out.good())
-      out << "Nr. of command line arguments " << argc << '\n';
-  }
-
-
-
+  for (size_t index = 0; index != its; ++index) // Loop through its
+    if (out.good()) // If failbit is not set, comment out for other version
+      out << "Nr. of command line arguments " << argc << '\n';  // Output
 }
