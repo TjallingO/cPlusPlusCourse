@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.18)  25 OCT 2018 13:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.18)  25 OCT 2018 14:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -297,16 +297,16 @@ LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
 (Font)              for symbol `textbraceleft' on input line 3.
 
-) [2] (./w7.aux)
+) [2] (../60/60.tex) [3] (./w7.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 4095 strings out of 494923
- 58241 string characters out of 6180741
+ 4111 strings out of 494923
+ 58372 string characters out of 6180741
  199115 words of memory out of 5000000
- 7351 multiletter control sequences out of 15000+600000
+ 7363 multiletter control sequences out of 15000+600000
  6850 words of font info for 25 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,11n,68p,788b,1146s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -318,10 +318,10 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmtt9.pfb>
-Output written on w7.pdf (2 pages, 95060 bytes).
+Output written on w7.pdf (3 pages, 98378 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 46 PDF objects out of 1000 (max. 8388607)
+ 32 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
