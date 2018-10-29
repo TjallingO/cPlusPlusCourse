@@ -1,8 +1,4 @@
-#include <cstdarg>
-
-using namespace std;
-
-#define fun(...);
+void fun(...){};
 
 int main()
 {
