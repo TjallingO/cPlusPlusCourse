@@ -1,6 +1,8 @@
-using namespace std;
 
-void fun(...);
+
+void fun(...)
+{
+}
 
 int main()
 {
