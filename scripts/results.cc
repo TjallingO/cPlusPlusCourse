@@ -19,7 +19,7 @@ size_t min(size_t a, size_t b)
 int main (int argc, char **argv)
 {
   char part = '1';
-  string email = "tjalling@taikie.com";
+  string email = "emielkrol@hotmail.com";
   string curlCommand  = string("curl --fail -s -S -m 2 -u ")
                       + string(email.substr(0, email.find('@')))
                       + string(" https://www.icce.rug.nl/edu/")
