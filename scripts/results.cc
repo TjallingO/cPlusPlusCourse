@@ -4,6 +4,14 @@
 
 using namespace std;
 
+void usage()
+{
+  cout  << "results for Programming in C/C++ \n"
+        << "Usage: results [e/t] [avg] \n"
+        << "\t e/t \t Specify e for Emiel or t for Tjalling \n"
+        << "\t avg \t Specify int to display average of first n sets (optional) \n";
+}
+
 size_t find_nth(const string& haystack, size_t pos, const char needle, size_t nth)
 {
     size_t found_pos = haystack.find(needle, pos);
@@ -19,7 +27,16 @@ size_t min(size_t a, size_t b)
 int main (int argc, char **argv)
 {
   char part = '1';
-  string email = "emielkrol@hotmail.com";
+  string emiel = "emielkrol@hotmail.com";
+  string tjalling = "tjalling@taikie.com";
+  if (argc <= 1)
+    {
+      usage();
+      return 0;
+    }
+    
+  string email = (string(argv[1]) == "e") ? emiel : tjalling;
+
   string curlCommand  = string("curl --fail -s -S -m 2 -u ")
                       + string(email.substr(0, email.find('@')))
                       + string(" https://www.icce.rug.nl/edu/")
@@ -34,7 +51,7 @@ int main (int argc, char **argv)
 
   if (dFile.peek() == ifstream::traits_type::eof())
   {
-    cerr << "Something went wrong downloading the file.\n";
+    cerr << "\nSomething went wrong downloading the file.\n";
     system("rm ./NNKscz9GvF.txt");
     return 0;
   }
@@ -96,8 +113,8 @@ int main (int argc, char **argv)
   size_t exerciseEl = 0;
   //size_t avgOfSets = 0;
   size_t setCounter = 0;
-  if (argc > 1)
-    setCounter = stoi(argv[1]);
+  if (argc > 2)
+    setCounter = stoi(argv[2]);
 
   for (size_t set = 1; set != numSets + 1; ++set, setCounter--)
   {
@@ -117,11 +134,11 @@ int main (int argc, char **argv)
     if (setCounter != 0)
       avg += score;
   }
-  if (argc > 1)
+  if (argc > 2)
     cout  << "Overall average of the first "
-          << argv[1]
+          << argv[2]
           << " sets: "
-          << avg / stoi(argv[1])
+          << avg / stoi(argv[2])
           << "% \n";
 
   cout << "==================== \n";
