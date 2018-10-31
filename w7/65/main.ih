@@ -1,9 +1,14 @@
-// Programming in C/C++
-// Week XX: Assignment XX
-// Tjalling Otter & Emiel Krol
-// Main file: internal header
-
 #include <iostream>
-#include <string>
+#include <asm/types.h>
+#include <sys/acct.h>
+#include <fstream>
+#include <csignal>
+#include <iomanip>
+#include <cstring>
 
 using namespace std;
+
+string exitcode(__u32 exitcode);
+bool allVars(int argc, char const** argv);
+size_t numStructs(const char *filePath);
+void populateAcct(acct_v3 &acct, ifstream &stream);

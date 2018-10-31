@@ -1,54 +1,31 @@
-// Main file
-
-#include <iostream>
-
 #include "main.ih"
-#include <csignal>
-#include <cstddef>
-#include <asm/types.h>
 
-int main(int argc, char const *argv[])
+int main(int argc, char const **argv)
 {
-  struct acct_v3
+
+  bool dispAll = allVars(argc, argv);
+
+  for (int idx = 1; idx != argc; ++idx)
   {
-          char            ac_flag;                /* Flags */
-          char            ac_version;             /* Always set to ACCT_VERSION */
-          __u16           ac_tty;                 /* Control Terminal */
-          __u32           ac_exitcode;            /* Exitcode */
-          __u32           ac_uid;                 /* Real User ID */
-          __u32           ac_gid;                 /* Real Group ID */
-          __u32           ac_pid;                 /* Process ID */
-          __u32           ac_ppid;                /* Parent Process ID */
-          __u32           ac_btime;               /* Process Creation Time */
-          float           ac_etime;               /* Elapsed Time */
-          comp_t          ac_utime;               /* User Time */
-          comp_t          ac_stime;               /* System Time */
-          comp_t          ac_mem;                 /* Average Memory Usage */
-          comp_t          ac_io;                  /* Chars Transferred */
-          comp_t          ac_rw;                  /* Blocks Read or Written */
-          comp_t          ac_minflt;              /* Minor Pagefaults */
-          comp_t          ac_majflt;              /* Major Pagefaults */
-          comp_t          ac_swaps;               /* Number of Swaps */
-          char            ac_comm[ACCT_COMM];     /* Command Name */
-  };
+    if (strcmp(argv[idx], "-a") != 0)
+      {
+        cout << '\n' << argv[idx] << '\n';
 
-  // Header h = <csingal>;
-  //
-  // std::fstream fh;
-  // fh.open("pacct.bin", std::fstream::out | std::fstream::binary);
-  // fh.write((char*)&h, sizeof(Header));
-  // fh.close();
-  //
-  // fh.open("pacct.bin", std::fstream::in | std::fstream::binary);
-  //
-  // fh.read((char*)&h.id, sizeof(h.id));
-  // fh.read((char*)&h.length, sizeof(h.length));
-  // fh.read((char*)&h.count, sizeof(h.count));
-  //
-  // fh.close();
-  //
-  // std::cout << h.id << " " << h.length << " " << h.count << std::endl;
+        std::ifstream dFile(argv[idx], std::ios::binary);
 
-// fh.read((char*)&h, sizeof(h));
+        for (size_t index = 0; index != numStructs(argv[idx]); ++index)
+        {
+          struct acct_v3 acct;
+          populateAcct(acct, dFile);
+          if (dispAll || acct.ac_exitcode != 0)
+          {
+            string accom = string("'") + acct.ac_comm + "'";  // Not pretty, but the output
+            cout  << setw(20) << left << accom                // won't align otherwise
+                  << setw(10) << left << exitcode(acct.ac_exitcode) << '\n';
+          }
+        }
+
+      }
+  }
 
 }
