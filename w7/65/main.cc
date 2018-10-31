@@ -29,3 +29,9 @@ int main(int argc, char const **argv)
   }
 
 }
+//functie voor argumenten of zelfs class
+//die kan relatief simepl zijn, moet kijken of er opties zijn zoals -a
+//alles wat geen optie is is file die die moet lezen
+//zijn er uberhaubt files
+//als die er zijn die afwerken zoniet default
+//in main niet veel meer dan 4 5 regels
