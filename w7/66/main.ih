@@ -13,4 +13,4 @@ void usage(std::string const &progname);
 
 using namespace std;
 
-void chartochar( ifstream &input, ofstream &output );
+void chartochar( ifstream &input, string outputLoc );

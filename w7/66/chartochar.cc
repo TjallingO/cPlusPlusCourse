@@ -1,7 +1,10 @@
 #include "main.ih"
 
-void chartochar( ifstream &input, ofstream &output )
+void chartochar( ifstream &input, string outputLoc )
 {
+  ofstream output{ outputLoc };
+  //ofstream output{ outputLoc, ios::trunc | ios::out };
+  //ofstream output{ outputLoc, ios::binary };
   char inputchar;
   while ( input.get(inputchar))
   {
@@ -11,7 +14,7 @@ void chartochar( ifstream &input, ofstream &output )
     else
     {
       output << inputchar;
-  //    cout << inputchar;
+    //  cout << inputchar;
     }
   }
   output.close();
