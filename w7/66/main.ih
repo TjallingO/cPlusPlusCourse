@@ -13,4 +13,10 @@ void usage(std::string const &progname);
 
 using namespace std;
 
-void chartochar( ifstream &input, string outputLoc );
+int chartochar( string const &inputLoc, string const &outputLoc );
+
+int chartobin( string const &inputLoc, string const &outputLoc );
+
+ifstream::pos_type filesize(const string filename);
+
+string filetypecheck(string const &inputLoc);

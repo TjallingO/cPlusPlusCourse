@@ -1,27 +1,36 @@
 #include "main.ih"
 
-void chartochar( ifstream &input, string outputLoc ) //stream //string ref to const stream
+int chartochar( string const &inputLoc, string const &outputLoc ) //stream //string ref to const stream
 {
-  ofstream output{ outputLoc };
+  cerr << "chartochar\n";
+  ofstream output{ outputLoc, ios::trunc };
   //ofstream output{ outputLoc, ios::trunc | ios::out };
   //ofstream output{ outputLoc, ios::binary };
   char inputchar;
+  size_t nrcharsfile = filesize( inputLoc );
+  size_t counter = 0;
+
+  ifstream input{ inputLoc };
+
   while ( input.get(inputchar))
   {
+      ++counter;
+
     if ( inputchar != 'A' && inputchar != 'C' && inputchar != 'G' &&
-     inputchar != 'T')
+     inputchar != 'T' && !(counter == nrcharsfile && inputchar == '\n'))
      {
-      cout << "error2 " << inputchar << '\n' ;
-      //exit (EXIT_FAILURE); //return 0 succes 1 failure
+      cout << "error2 " << nrcharsfile << ' ' << counter << ' ' << inputchar << '\n' ;
+      return 1;
     }
     else
     {
       output << inputchar;
       if (not output)
         cout << "error";
-    //  cout << inputchar;
     }
+
+
   }
   output.close();
-
+  return 0;
 }
