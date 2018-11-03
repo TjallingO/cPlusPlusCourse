@@ -20,6 +20,7 @@ int main(int argc, char **argv)
         chartobin( inputLoc, outputLoc );
       else
         chartochar( inputLoc, outputLoc );
+      break;
     }
     case BINARY :
     {
@@ -27,7 +28,10 @@ int main(int argc, char **argv)
         bintobin(inputLoc, outputLoc);
       else
         bintochar(inputLoc, outputLoc);
+      break;
     }
+    break;
+
   }
 
 
