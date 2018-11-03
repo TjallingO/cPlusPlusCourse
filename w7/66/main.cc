@@ -19,14 +19,14 @@ int main(int argc, char **argv)
       if (optionb == "-b")
         chartobin( inputLoc, outputLoc );
       else
-      chartochar( inputLoc, outputLoc );
+        chartochar( inputLoc, outputLoc );
     }
     case BINARY :
     {
       if (optionb == "-b")
         bintobin(inputLoc, outputLoc);
       else
-      bintochar(inputLoc, outputLoc);
+        bintochar(inputLoc, outputLoc);
     }
   }
 
