@@ -9,6 +9,12 @@ namespace Icmbuild
     extern char author[];
 };
 
+enum typecheck
+{
+  CHARACTER = 0,
+  BINARY = 1,
+};
+
 void usage(std::string const &progname);
 
 using namespace std;
@@ -19,4 +25,8 @@ int chartobin( string const &inputLoc, string const &outputLoc );
 
 ifstream::pos_type filesize(const string filename);
 
-string filetypecheck(string const &inputLoc);
+typecheck filetypecheck(string const &inputLoc);
+
+void bintochar( string const &inputLoc, string const &outputLoc );
+
+void bintobin( string const &inputLoc, string const &outputLoc );

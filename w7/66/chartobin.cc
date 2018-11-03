@@ -30,33 +30,33 @@ int chartobin( string const &inputLoc, string const &outputLoc ) //stream //stri
       {
         //output << 00;
         x = 0;
-        output.write(reinterpret_cast<uint8_t const *>(&x), sizeof(x));
+        //output.write(reinterpret_cast<uint8_t const *>(&x), sizeof(x));
         //x = 0;
-        //output.write(reinterpret_cast<char const *>(&x), sizeof(x));
+        output.write(reinterpret_cast<char const *>(&x), sizeof(x));
       }
       if (inputchar == 'C')
       {
         //output << 01;
         x = 1;
-        output.write(reinterpret_cast<uint8_t const *>(&x), sizeof(x));
+        //output.write(reinterpret_cast<uint8_t const *>(&x), sizeof(x));
         //x = 0;
-        //output.write(reinterpret_cast<char const *>(&x), sizeof(x));
+        output.write(reinterpret_cast<char const *>(&x), sizeof(x));
       }
       if (inputchar == 'G')
       {
         //output << 10;
         x = 2;
-        output.write(reinterpret_cast<uint8_t const *>(&x), sizeof(x));
+        //output.write(reinterpret_cast<uint8_t const *>(&x), sizeof(x));
         //x = 0;
-        //output.write(reinterpret_cast<char const *>(&x), sizeof(x));
+        output.write(reinterpret_cast<char const *>(&x), sizeof(x));
       }
       if (inputchar == 'T')
       {
         //output << 11;
         x = 3;
-        output.write(reinterpret_cast<uint8_t const *>(&x), sizeof(x));
+        //output.write(reinterpret_cast<uint8_t const *>(&x), sizeof(x));
         //x = 1;
-        //output.write(reinterpret_cast<char const *>(&x), sizeof(x));
+        output.write(reinterpret_cast<char const *>(&x), sizeof(x));
       }
       if (not output)
         cout << "error";

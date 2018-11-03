@@ -1,13 +1,19 @@
 #include "main.ih"
 
-string filetypecheck(string const &inputLoc)
+typecheck filetypecheck(string const &inputLoc)
 {
 
   ifstream input{ inputLoc };
 
   char character;
 
-  ;
+  input.get(character);
+
+    //cout << (int)character << '\n';
+  if (character < 4)
+    return BINARY;
+  return CHARACTER;
+
 /*
   char d;
   char e;
@@ -36,7 +42,7 @@ string filetypecheck(string const &inputLoc)
 
   input.close();
 
-  return "test";
+
   //cout << character << ' ' << sizeof(character) << ' ' << sizeof(char) << '\n';
   /*
   if (sizeof(character) == sizeof(char))

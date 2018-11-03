@@ -2,6 +2,8 @@
 
 using namespace std;
 
+
+
 int main(int argc, char **argv)
 {
   string inputLoc = argv[1];
@@ -12,7 +14,39 @@ int main(int argc, char **argv)
   //argv[1] input
   //argv[2] output
   //argv[3] = -b of niet
-  filetypecheck( inputLoc );
+  //cout << filetypecheck( inputLoc ) << '\n';
+  switch( filetypecheck( inputLoc ) )
+  {
+    case CHARACTER :
+    {
+      if (optionb == "-b")
+        chartobin( inputLoc, outputLoc );
+      else
+      chartochar( inputLoc, outputLoc );
+    }
+    case BINARY :
+    {
+      if (optionb == "-b")
+        bintobin(inputLoc, outputLoc);
+      else
+      bintochar(inputLoc, outputLoc);
+    }
+  }
+  /*
+  if (filetypecheck == CHARACTER)
+  {
+    if (optionb == "-b")
+      chartobin( inputLoc, outputLoc );
+    chartochar( inputLoc, outputLoc );
+  }
+  if (filetypecheck == BINARY)
+  {
+    if (optionb == "-b")
+      bintobin(inputLoc, outputLoc);
+    bintochar(inputLoc, outputLoc);
+  }
+  */
+
 
   //input chars of convert naar chars
 
@@ -27,11 +61,7 @@ int main(int argc, char **argv)
 
   //cout << filesize( inputLoc ) << '\n';
 
-  if (optionb == "-b")
-    chartobin( inputLoc, outputLoc );
 
-  else if (chartochar( inputLoc, outputLoc ))
-    return 1;
 
 
 
