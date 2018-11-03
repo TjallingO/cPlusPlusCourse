@@ -1,0 +1,49 @@
+outfile="outputfile.txt";
+rm -f "$outfile";
+
+function center()
+{
+  termwidth="$(tput cols)"
+  padding="$(printf '%0.1s' ={1..500})"
+  printf '%*.*s %s %*.*s\n' 0 "$(((termwidth-2-${#1})/2))" "$padding" "$1" 0 "$(((termwidth-1-${#1})/2))" "$padding"
+}
+
+function compile()
+{
+  local file="$1"
+  local fileout="$file.out"
+  trimmed=${file//.cc/.o};
+  echo "$file" >"$fileout";
+  trimmed=${trimmed##*\/};
+  g++ -fdiagnostics-color=always --std=c++17 -Wall -O2 -c -o ./tmp/o/0$trimmed $1 2>>"$fileout";
+}
+
+center "Cleaning"
+rm -r ./tmp
+mkdir -p ./tmp/o/
+
+center "Compiling"
+mapfile -t my_array < <(find . -iname "*.cc" )
+declare -p my_array >/dev/null
+
+for element in "${my_array[@]}"
+do
+compile "$element" &
+done
+wait
+
+for element in "${my_array[@]}"
+do
+  fileout="$element.out"
+  cat "$fileout"
+  rm -f "$fileout"
+done >"$outfile"
+
+center "Linking" >> "$outfile"
+echo "g++ -o ./tmp/bin/binary ./tmp/o/*.o" >> "$outfile"
+mkdir ./tmp/bin/
+g++ -o ./tmp/bin/binary ./tmp/o/*.o
+wait
+
+cat "$outfile"
+rm -f "$outfile"

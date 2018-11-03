@@ -8,7 +8,15 @@
 
 using namespace std;
 
+struct clOptions
+{
+  char const **filePaths = 0;
+  bool dispAllVars = 0;
+};
+
+void printAccts(size_t idx, clOptions runOptions);
+void destroy(struct clOptions);
 string exitcode(__u32 exitcode);
-bool allVars(int argc, char const** argv);
+struct clOptions processArgv(int argc, char **argv);
 size_t numStructs(const char *filePath);
 void populateAcct(acct_v3 &acct, ifstream &stream);

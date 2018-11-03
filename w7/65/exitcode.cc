@@ -1,11 +1,11 @@
 #include "main.ih"
 
-string exitcode(__u32 exitcode)
+string exitcode(__u32 exitcode) // Formats the exitcode print statements
 {
   switch (exitcode)
   {
-    case SIGTERM:
-      return "TERM";
+    case SIGTERM:               // Since these are already defined as ints,
+      return "TERM";            // they can be used in this switch as-is
       break;
     case SIGKILL:
       return "KILL";
