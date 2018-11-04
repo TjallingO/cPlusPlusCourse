@@ -2,3 +2,19 @@
 #include <string>
 
 using namespace std;
+
+struct nucleobase
+{
+  unsigned char nb1 : 2;
+  unsigned char nb2 : 2;
+  unsigned char nb3 : 2;
+  unsigned char nb4 : 2;
+};
+
+enum nucleoInts
+{
+  A = 0,
+  C,
+  T,
+  G
+};

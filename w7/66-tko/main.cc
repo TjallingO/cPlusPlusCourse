@@ -3,22 +3,15 @@
 #include <ostream>
 #include <fstream>
 
+char enumToChar(int nucEnum);
+enum nucleoInts enumChar(char c);
+void printStruct(nucleobase &nB, size_t n);
+void popStruct(nucleobase &nB, char c, size_t n);
+
 int main(int argc, char const *argv[])
 {
-  struct nucleobase
-  {
-    unsigned char nb : 2;
-  };
 
-  enum nucleoInts
-  {
-    A = 0,
-    C,
-    T,
-    G
-  };
-
-  ifstream txtF("./humanG.txt");
+  ifstream txtF("./hChr1.txt");
   ofstream oF("./nB.bin", ios::binary);
   oF.open("./nB.bin", std::ofstream::out | std::ofstream::trunc);
   oF.close();
@@ -26,27 +19,15 @@ int main(int argc, char const *argv[])
   oF.open("./nB.bin", ios::binary | fstream::app);
 
   char c;
-  while (txtF.get(c))
+  while (true)
   {
+    if (txtF.eof())
+      break;
     nucleobase nB;
-    switch (c)
+    for (size_t idx = 0; idx != 4; ++idx)
     {
-      case 'A':
-        nB.nb = A;
-        break;
-      case 'C':
-        nB.nb = C;
-        break;
-      case 'T':
-        nB.nb = T;
-        break;
-      case 'G':
-        nB.nb = G;
-        break;
-      case '\n':
-        break;
-      default:
-        break;
+      txtF.get(c);
+      popStruct(nB, c, idx);
     }
     oF.write(reinterpret_cast<char*>(&nB), sizeof(nucleobase));
   }
@@ -54,27 +35,97 @@ int main(int argc, char const *argv[])
 
   ifstream iF("./nB.bin", ios::binary);
   nucleobase oNB;
-  while(true)
+  bool print = 0;
+  while(true && print)
   {
     if (iF.eof())
       break;
     iF.read(reinterpret_cast<char*>(&oNB), sizeof(nucleobase));
-    switch (oNB.nb)
+    for (size_t idx = 0; idx != 4; ++idx)
+      printStruct(oNB, idx);
+  }
+}
+
+char enumToChar(int nucEnum)
+{
+  switch (nucEnum)
     {
       case A:
-        cout << 'A';
+        return 'A';
         break;
       case C:
-        cout << 'C';
+        return 'C';
         break;
       case T:
-        cout << 'T';
+        return 'T';
         break;
       case G:
-        cout << 'G';
+        return 'G';
         break;
       default:
         break;
     }
+}
+
+enum nucleoInts enumChar(char c)
+{
+  switch (c)
+    {
+      case 'A':
+        return A;
+        break;
+      case 'C':
+        return C;
+        break;
+      case 'T':
+        return T;
+        break;
+      case 'G':
+        return G;
+        break;
+      default:
+        break;
+    }
+}
+
+void printStruct(nucleobase &nB, size_t n)
+{
+  switch(n)
+  {
+    case 0:
+      cout << enumToChar(nB.nb1);
+      break;
+    case 1:
+      cout << enumToChar(nB.nb2);
+      break;
+    case 2:
+      cout << enumToChar(nB.nb3);
+      break;
+    case 3:
+      cout << enumToChar(nB.nb4);
+      break;
+    default:
+      break;
   }
 }
+
+void popStruct(nucleobase &nB, char c, size_t n)
+{
+  switch(n)
+  {
+    case 0:
+      nB.nb1 = enumChar(c);
+      break;
+    case 1:
+      nB.nb2 = enumChar(c);
+      break;
+    case 2:
+      nB.nb3 = enumChar(c);
+      break;
+    case 3:
+      nB.nb4 = enumChar(c);
+      break;
+    default:
+      break;
+  }
+};
