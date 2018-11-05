@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+#include <ostream>
+#include <fstream>
+
+
+using namespace std;
+
+struct nucleobase
+{
+  unsigned char nb1 : 2;
+  unsigned char nb2 : 2;
+  unsigned char nb3 : 2;
+  unsigned char nb4 : 2;
+};
+
+enum nucleoInts
+{
+  A = 0,
+  C,
+  T,
+  G
+};
+
+char enumToChar(int nucEnum);
+
+enum nucleoInts enumChar(char c);
+
+char printStruct(nucleobase &nB, size_t n);
+
+void popStruct(nucleobase &nB, char c, size_t n);
+
+ifstream::pos_type filesize(const string filename); //gebruik ik niet
