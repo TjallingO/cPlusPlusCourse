@@ -31,3 +31,13 @@ char printStruct(nucleobase &nB, size_t n);
 void popStruct(nucleobase &nB, char c, size_t n);
 
 ifstream::pos_type filesize(const string filename); //gebruik ik niet
+
+bool isitabinaryfile( string inputlocation );
+
+int chartobin( string inputlocation, string outputlocation);
+
+int bintochar( string inputLoc, string outputLoc);
+
+int bintobin( string inputLoc, string outputLoc);
+
+int chartochar( string inputLoc, string outputLoc);
