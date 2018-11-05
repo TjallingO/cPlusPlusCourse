@@ -8,12 +8,9 @@ int bintochar( string inputLoc, string outputLoc)
 
   nucleobase oNB;
 
-  while (!iF.eof())
-  {
-    iF.read(reinterpret_cast<char*>(&oNB), sizeof(nucleobase));
-      //if (oNB)
-      //  break;
 
+  while (iF.read(reinterpret_cast<char*>(&oNB), sizeof(nucleobase)))
+  {
     for (size_t idx = 0; idx != 4; ++idx)
       oF << printStruct(oNB, idx);
   }

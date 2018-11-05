@@ -6,14 +6,18 @@ int chartobin( string inputLoc, string outputLoc)
     ofstream oF( outputLoc, ios::binary | std::ofstream::out | std::ofstream::trunc);
 
     char c;
-    while (iF.get(c))
+
+    while (!iF.eof())
     {
       nucleobase nB;
       for (size_t idx = 0; idx != 4; ++idx)
       {
-        popStruct(nB, c, idx);
-          if (idx != 3)
-            iF.get(c);
+        iF.get(c);
+        if (c != '\n' && c != ' ')
+        {
+          cout << "printing: " << c << '\n';
+          popStruct(nB, c, idx);
+        }
       }
       oF.write(reinterpret_cast<char*>(&nB), sizeof(nucleobase));
     }
