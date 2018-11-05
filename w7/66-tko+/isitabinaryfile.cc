@@ -15,5 +15,5 @@ bool isitabinaryfile( string inputLoc )
   else
     return true;
 
-  iF.seekg(0, ios::beg); //liever niet seek dus wschijnlijk meer functies
+  iF.close();
 }
