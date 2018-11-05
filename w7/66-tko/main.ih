@@ -16,5 +16,6 @@ enum nucleoInts
   A = 0,
   C,
   T,
-  G
+  G,
+  X = 9
 };

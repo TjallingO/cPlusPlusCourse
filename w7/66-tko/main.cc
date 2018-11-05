@@ -11,16 +11,16 @@ void popStruct(nucleobase &nB, char c, size_t n);
 int main(int argc, char const *argv[])
 {
 
-  ifstream txtF("./hChr1.txt");
+  ifstream txtF("./humanG.txt");
   ofstream oF("./nB.bin", ios::binary);
   oF.open("./nB.bin", std::ofstream::out | std::ofstream::trunc);
   oF.close();
 
   oF.open("./nB.bin", ios::binary | fstream::app);
 
-  char c;
   while (true)
   {
+    char c;
     if (txtF.eof())
       break;
     nucleobase nB;
@@ -29,20 +29,23 @@ int main(int argc, char const *argv[])
       txtF.get(c);
       popStruct(nB, c, idx);
     }
-    oF.write(reinterpret_cast<char*>(&nB), sizeof(nucleobase));
+    oF.write(reinterpret_cast<char*>(&nB), sizeof(nB));
   }
   oF.close();
 
   ifstream iF("./nB.bin", ios::binary);
   nucleobase oNB;
-  bool print = 0;
+  bool print = 1;
+  cout << "GATCAATGAGGTA \n";
   while(true && print)
   {
     if (iF.eof())
       break;
-    iF.read(reinterpret_cast<char*>(&oNB), sizeof(nucleobase));
+    iF.read(reinterpret_cast<char*>(&oNB), sizeof(oNB));
     for (size_t idx = 0; idx != 4; ++idx)
+    {
       printStruct(oNB, idx);
+    }
   }
 }
 
@@ -84,6 +87,7 @@ enum nucleoInts enumChar(char c)
         return G;
         break;
       default:
+        return X;
         break;
     }
 }

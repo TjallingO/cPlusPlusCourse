@@ -26,7 +26,5 @@
 \end{table}
 
 
-Without the if check in every iteration the string has to be stored in the buffer. Afterwards when it tries to pass it to out, it wont be printed since the state is set to failbit.
-With the if check there is no need to store things in the buffer, which makes it much faster.
-So a general rule should be to perform checks before storing things in a buffer
-when possible.
+Without the if check in every iteration the string has to be stored in the buffer. Afterwards when it tries to pass it to out, it wont be printed since the state is set to failbit. With the if check there is no need to store things in the buffer, which makes it much faster.
+So a general rule should be to perform checks before storing things in a buffer when possible.
