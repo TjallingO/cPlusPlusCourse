@@ -12,6 +12,7 @@ int main(int argc, char const *argv[])
     optionb = argv[3];
 
   bool binfile = isitabinaryfile( inputLoc );
+  int status;
 
   if (binfile)
   {
@@ -23,10 +24,13 @@ int main(int argc, char const *argv[])
   else
   {
     if (optionb == "-b")
-      chartobin(inputLoc, outputLoc);
+      status = chartobin(inputLoc, outputLoc);
     else
-      chartochar(inputLoc, outputLoc);
+      status = chartochar(inputLoc, outputLoc);
   }
+
+  if (status == 1) //if a char in the char file is not A, C, G or T return
+    return 1;      //nonzero
 
   return 0;
 }

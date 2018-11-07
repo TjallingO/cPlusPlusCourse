@@ -1,6 +1,6 @@
 #include "main.ih"
 
-int bintochar( string inputLoc, string outputLoc)
+void bintochar( string inputLoc, string outputLoc)
 {
   ifstream iF( inputLoc );
   ofstream oF( outputLoc, std::ofstream::out | std::ofstream::trunc);
@@ -29,5 +29,4 @@ int bintochar( string inputLoc, string outputLoc)
   //Since every byte contains 4 characters except the last one we need to do
   //this 4 times the nr of bytes minus the number of empty missing values
   //that are contained in the last byte.
-  return 0;
 }

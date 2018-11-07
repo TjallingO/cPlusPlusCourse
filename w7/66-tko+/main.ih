@@ -36,8 +36,8 @@ bool isitabinaryfile( string inputlocation );
 
 int chartobin( string inputlocation, string outputlocation);
 
-int bintochar( string inputLoc, string outputLoc);
+void bintochar( string inputLoc, string outputLoc);
 
-int bintobin( string inputLoc, string outputLoc);
+void bintobin( string inputLoc, string outputLoc);
 
 int chartochar( string inputLoc, string outputLoc);

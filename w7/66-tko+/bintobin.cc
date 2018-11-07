@@ -1,6 +1,6 @@
 #include "main.ih"
 
-int bintobin( string inputLoc, string outputLoc)
+void bintobin( string inputLoc, string outputLoc)
 {
   ifstream iF( inputLoc );
   ofstream oF( outputLoc, std::ofstream::out | std::ofstream::trunc);
@@ -20,5 +20,5 @@ int bintobin( string inputLoc, string outputLoc)
     oF.write(reinterpret_cast<char*>(&oNB), sizeof(nucleobase));
   }
   //reading the other bytes and writing them to the new binary file.
-  return 0;
+
 }
