@@ -1,8 +1,8 @@
 #include "main.ih"
 
-void popStruct(nucleobase &nB, char c, size_t n)
-{
-  switch(n)
+void popStruct(nucleobase &nB, char c, size_t n)  // Populate element n within
+{                                                 // struct nB, calling enumChar
+  switch(n)                                       // on the passed char first
   {
     case 0:
       nB.nb1 = enumChar(c);

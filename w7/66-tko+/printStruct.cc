@@ -1,8 +1,8 @@
 #include "main.ih"
 
-char printStruct(nucleobase &nB, size_t n)
-{
-  switch(n)
+char printStruct(nucleobase &nB, size_t n)  // From nB, take element n and have
+{                                           // enumToChar convert them to char
+  switch(n)                                 // and return that char
   {
     case 0:
       return enumToChar(nB.nb1);

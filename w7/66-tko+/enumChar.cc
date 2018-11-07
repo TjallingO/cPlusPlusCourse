@@ -1,7 +1,7 @@
 #include "main.ih"
 
-enum nucleoInts enumChar(char c)
-{
+enum nucleoInts enumChar(char c)  // Returns the enum representation of
+{                                 // the four nucleobase options
   switch (c)
     {
       case 'A':
