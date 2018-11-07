@@ -1,7 +1,7 @@
 #include "main.ih"
 
-char enumToChar(int nucEnum)
-{
+char enumToChar(int nucEnum)  // Take the passed enum (int), and return its
+{                             // associated character
   switch (nucEnum)
     {
       case A:
