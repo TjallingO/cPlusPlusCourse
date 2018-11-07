@@ -5,7 +5,11 @@ int main(int argc, char *argv[]) {
   //cout << argv[1] << '\n';
   Strings stringtwo(argc, argv);
   //Strings stringthree(**environlike);
+  Strings stringthree(stringtwo);
+
+
   cout << stringone.size() << ' ' << stringone.capacity() << '\n';
   cout << stringtwo.size() << ' ' << stringtwo.capacity() << '\n';
+  cout << stringthree.size() << ' ' << stringthree.capacity() << '\n';
 
 }
