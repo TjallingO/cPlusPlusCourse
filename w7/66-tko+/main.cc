@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
     optionb = argv[3];
 
   bool binfile = isitabinaryfile( inputLoc );
-  int status;
+  int status = 0;
 
   if (binfile)
   {

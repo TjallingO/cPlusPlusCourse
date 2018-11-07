@@ -11,7 +11,7 @@ int chartochar( string inputLoc, string outputLoc)
       if (c != 'A' && c != 'C' && c != 'G' && c != 'T')
         return 1;
 
-        oF << c;
+      oF << c;
     }
 
     oF.close();
