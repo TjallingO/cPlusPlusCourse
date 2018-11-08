@@ -1,7 +1,5 @@
 #include "main.ih"
 
-
-
 bool isitabinaryfile( string inputLoc )
 {
   char ch;

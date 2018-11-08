@@ -1,4 +1,4 @@
-#include "main.ih" //gebruik ik niet
+#include "main.ih" 
 
 std::ifstream::pos_type filesize(const string filename)
 {
