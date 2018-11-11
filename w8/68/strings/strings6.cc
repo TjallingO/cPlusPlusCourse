@@ -12,7 +12,7 @@ Strings::Strings(size_t nIterate, bool copy)
     */
   for (size_t idx = 0; idx < nIterate; ++idx)
   {
-    iterate(**environ, copy);
+    iterate(**environ);
   }
 
 }

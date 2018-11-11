@@ -4,10 +4,17 @@
 
 class test
 {
+  int d_things = 0;
+
     public:
-       test(test const &other); //copy
+      //test(int things); //constructor
+      test(test const &other); // copy constructor
+
+      int rthings() const;
 
     private:
+
+      void things(int number);
 };
 
 #endif

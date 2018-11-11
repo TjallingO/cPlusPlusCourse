@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 #include <iostream>
 #include <string>
 
@@ -11,6 +11,6 @@ namespace Icmbuild
 
 void usage(std::string const &progname);
 
-=======
->>>>>>> 73bdf1275094339bd2203dcb195ecbfb697795cc
+
+
 using namespace std;

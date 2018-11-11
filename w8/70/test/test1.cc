@@ -1,6 +1,8 @@
 #include "test.ih"
-
-test::test(test const &tmp)
+//constructor
+/*
+test::test(int nr)
 {
-
+  things(nr);
 }
+*/

@@ -4,10 +4,10 @@
                      ------------------     ---------------
 define:              default copy move        copy    move
 -----------------------------------------------------------
-no constructor:                -     -                  
-default cons:
-copy cons (CC):
-move cons (MC):
+no constructor:        +?     -     -
+default cons:          -      +     +
+copy cons (CC):               -
+move cons (MC):                     -
 other cons:
 
 no assignment:
