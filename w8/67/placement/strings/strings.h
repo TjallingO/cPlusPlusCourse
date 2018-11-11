@@ -18,10 +18,10 @@ class Strings
 
         ~Strings();
 
-        Strings operator=(Strings const &other); //overloaded operator
-        void swap(Strings &other);  //swap function
+        Strings operator=(Strings const &other);     //overloaded operator
+        void swap(Strings &other);                   //swap function
 
-        std::string printstring(size_t idx); //printing strings
+        std::string printstring(size_t idx);         //printing strings
         size_t size() const;
         size_t capacity() const;
         std::string const &at(size_t idx) const;    // for const-objects
