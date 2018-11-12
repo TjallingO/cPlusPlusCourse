@@ -1,6 +1,6 @@
 #include "main.ih"
 
-enum nucleoInts enumChar(char c)  // Returns the enum representation of
+enum nucleoInts charToEnum(char c)  // Returns the enum representation of
 {                                 // the four nucleobase options
   switch (c)
     {

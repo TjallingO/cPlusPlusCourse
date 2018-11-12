@@ -20,7 +20,7 @@ void bintochar( string inputLoc, string outputLoc)
     for (size_t idx = 0; idx != 4; ++idx)
       if (charcounter < 4 * nrbytes - (4 - nrinlastbase))
       {
-          oF << printStruct(oNB, idx);
+          oF << interpretStruct(oNB, idx);
           ++charcounter;
       }
   }

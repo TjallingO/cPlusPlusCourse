@@ -30,7 +30,7 @@ int chartobin( string inputLoc, string outputLoc)
           return 1;
      //not for the new line which often occurs at the end of
      //files. and must be a valid base character
-     
+
           popStruct(nB, c, idx); //putting the characters in the struct
       }                          //so that we only have to use 1 byte for
                                  // 4 chars.
