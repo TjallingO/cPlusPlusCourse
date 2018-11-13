@@ -1,6 +1,6 @@
-#include "main.ih"
+#include "data.ih"
 
-char interpretStruct(nucleobase &nB, size_t n)  // From nB, take element n and have
+char data::interpretStruct(nucleobase &nB, size_t n)  // From nB, take element n and have
 {                                           // enumToChar convert them to char
   switch(n)                                 // and return that char
   {

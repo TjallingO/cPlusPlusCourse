@@ -16,12 +16,13 @@ int chartobin( string inputLoc, string outputLoc)
 
     while (!iF.eof())
     {
-      nucleobase nB; //initialising nB and its values
+      class data d_data; //initialising nB and its values
+      /*
       nB.nb1 = 0;
       nB.nb2 = 0;
       nB.nb3 = 0;
       nB.nb4 = 0;
-
+      */
 
       for (size_t idx = 0; idx != 4; ++idx)
       {
@@ -31,11 +32,11 @@ int chartobin( string inputLoc, string outputLoc)
      //not for the new line which often occurs at the end of
      //files. and must be a valid base character
 
-          popStruct(nB, c, idx); //putting the characters in the struct
+          d_data.popStruct(c, idx); //putting the characters in the struct
       }                          //so that we only have to use 1 byte for
                                  // 4 chars.
 
-      oF.write(reinterpret_cast<char*>(&nB), sizeof(nucleobase));
+      oF.write(reinterpret_cast<char>(d_data.getNucleoBase()), sizeof(data::nucleobase));
     }
     oF.close();
   return 0;

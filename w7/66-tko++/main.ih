@@ -3,10 +3,10 @@
 #include <ostream>
 #include <fstream>
 //#include <experimental/filesystem> //for copy
-
+#include "data/data.ih"
 
 using namespace std;
-
+/*
 struct nucleobase         // Struct that can hold four ints of 2 bits each.
 {                         // Hence, they can hold the numbers 0 through 3, or
   unsigned char nb1 : 2;  // 00, 01, 10, 11 in binary, i.e. the four nucleobase
@@ -23,14 +23,15 @@ enum nucleoInts           // enums that represent the nucleobase options.
   G
 };
 
+
 char enumToChar(int nucEnum);
 
-enum nucleoInts charToEnum(char c);
+enum data::nucleoInts charToEnum(char c);
 
-char interpretStruct(nucleobase &nB, size_t n);
+char interpretStruct(data::nucleobase &nB, size_t n);
 
-void popStruct(nucleobase &nB, char c, size_t n);
-
+void popStruct(data::nucleobase &nB, char c, size_t n);
+*/
 ifstream::pos_type filesize(const string filename);
 
 bool isItaBinaryFile( string inputlocation );

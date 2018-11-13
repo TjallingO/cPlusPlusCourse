@@ -6,7 +6,7 @@ void bintobin( string inputLoc, string outputLoc)
   ofstream oF( outputLoc, std::ofstream::out | std::ofstream::trunc);
 
 
-  nucleobase oNB;
+  data::nucleobase oNB;
 
   while (!iF.eof())
   {

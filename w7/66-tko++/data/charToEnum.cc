@@ -1,6 +1,6 @@
-#include "main.ih"
+#include "data.ih"
 
-enum nucleoInts charToEnum(char c)  // Returns the enum representation of
+enum nucleoInts data::charToEnum(char c)  // Returns the enum representation of
 {                                 // the four nucleobase options
   switch (c)
     {

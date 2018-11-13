@@ -5,7 +5,7 @@ void bintochar( string inputLoc, string outputLoc)
   ifstream iF( inputLoc );
   ofstream oF( outputLoc, std::ofstream::out | std::ofstream::trunc);
 
-  nucleobase oNB;
+  data::nucleobase oNB;
   int8_t nrinlastbase;
 
   iF.read(reinterpret_cast<char*>(&nrinlastbase), sizeof(char));

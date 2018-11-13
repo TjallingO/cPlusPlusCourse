@@ -1,6 +1,6 @@
-#include "main.ih"
+#include "data.ih"
 
-char enumToChar(int nucEnum)  // Take the passed enum (int), and return its
+char data::enumToChar(int nucEnum)  // Take the passed enum (int), and return its
 {                             // associated character
   switch (nucEnum)
     {
