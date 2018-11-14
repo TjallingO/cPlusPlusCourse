@@ -4,7 +4,6 @@
 #include <iosfwd>
 #include <string>
 #include <fstream>
-#include <istream>
 
 
 class Data
