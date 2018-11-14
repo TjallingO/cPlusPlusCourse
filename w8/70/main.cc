@@ -5,10 +5,12 @@ int main(int argc, char **argv)
 {
   int x = 5;
   //test testone(x);
-  test *testone = new test;
-  cout << testone.rthings() << '\n';
+  test testone;
+  //test *testone = new test;
+  //cout << testone.rthings() << '\n';
+
+  //test testtwo(testone);
   /*
-  test testtwo(testone);
   cout << testtwo.rthings() << '\n';
   test testthree = std::move(testtwo);
   cout << testthree.rthings() << '\n';

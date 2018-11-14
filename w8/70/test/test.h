@@ -8,7 +8,7 @@ class test
 
     public:
       //test(int things); //constructor
-      test(test const &other); // copy constructor
+      //test(test const &other); // copy constructor
 
       int rthings() const;
 
