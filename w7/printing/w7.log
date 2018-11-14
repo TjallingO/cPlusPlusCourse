@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.14)  5 NOV 2018 21:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.8)  8 NOV 2018 14:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **w7.tex
 (./w7.tex
 LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 3 language(s) loaded.
+Babel <3.18> and hyphenation patterns for 5 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -301,21 +301,21 @@ LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 ) [6] (../65/65.tex) (../65/main.ih) (../65/main.cc) (../65/destroy.cc)
 (../65/exitcode.cc [7]) (../65/numStructs.cc) (../65/populateAcct.cc)
 (../65/printAcct.cc) (../65/processArgv.cc [8]) [9] (../66-tko+/main.ih)
-(../66-tko+/main.cc [10]) (../66-tko+/bintobin.cc) (../66-tko+/bintochar.cc)
-(../66-tko+/enumChar.cc [11]) (../66-tko+/enumtochar.cc)
-(../66-tko+/filesize.cc) (../66-tko+/isitabinaryfile.cc [12])
-(../66-tko+/popstruct.cc) (../66-tko+/printstruct.cc) [13] (./w7.aux)
+(../66-tko+/main.cc [10]) (../66-tko+/bintobin.cc) (../66-tko+/bintochar.cc
+[11]) (../66-tko+/enumChar.cc) (../66-tko+/enumToChar.cc [12])
+(../66-tko+/filesize.cc) (../66-tko+/isitabinaryfile.cc)
+(../66-tko+/popStruct.cc) (../66-tko+/printStruct.cc [13]) [14] (./w7.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 4409 strings out of 494923
- 62015 string characters out of 6180741
- 307115 words of memory out of 5000000
- 7597 multiletter control sequences out of 15000+600000
+ 4419 strings out of 494880
+ 62167 string characters out of 6179601
+ 307265 words of memory out of 5000000
+ 7614 multiletter control sequences out of 15000+600000
  6850 words of font info for 25 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
+ 36 hyphenation exceptions out of 8191
  41i,12n,68p,788b,1630s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
@@ -325,10 +325,10 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmtt9.pfb>
-Output written on w7.pdf (13 pages, 122736 bytes).
+Output written on w7.pdf (14 pages, 126639 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 82 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
