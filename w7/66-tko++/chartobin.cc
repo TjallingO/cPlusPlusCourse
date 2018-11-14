@@ -36,7 +36,7 @@ int chartobin( string inputLoc, string outputLoc)
       }                          //so that we only have to use 1 byte for
                                  // 4 chars.
 
-      oF.write(reinterpret_cast<char>(d_data.getNucleoBase()), sizeof(data::nucleobase));
+      oF.write(reinterpret_cast<char*>(&d_data.getNucleoBase()), sizeof(data::nucleobase));
     }
     oF.close();
   return 0;

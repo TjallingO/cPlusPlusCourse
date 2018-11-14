@@ -5,16 +5,16 @@ char data::interpretStruct(nucleobase &nB, size_t n)  // From nB, take element n
   switch(n)                                 // and return that char
   {
     case 0:
-      return enumToChar(nB.nb1);
+      return enumToChar(d_nB.nb1);
       break;
     case 1:
-      return enumToChar(nB.nb2);
+      return enumToChar(d_nB.nb2);
       break;
     case 2:
-      return enumToChar(nB.nb3);
+      return enumToChar(d_nB.nb3);
       break;
     case 3:
-      return enumToChar(nB.nb4);
+      return enumToChar(d_nB.nb4);
       break;
     default:
       break;

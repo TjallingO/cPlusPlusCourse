@@ -34,7 +34,9 @@ class data
 
     char enumToChar(int nucEnum);
 
-    nucleobase getNucleoBase();
+    nucleobase &getNucleoBase();
+
+    void setNucleoBase(char ch);
 
 };
 

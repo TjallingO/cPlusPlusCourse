@@ -5,7 +5,8 @@ void bintochar( string inputLoc, string outputLoc)
   ifstream iF( inputLoc );
   ofstream oF( outputLoc, std::ofstream::out | std::ofstream::trunc);
 
-  data::nucleobase oNB;
+  //data::nucleobase oNB;
+  class data d_data;
   int8_t nrinlastbase;
 
   iF.read(reinterpret_cast<char*>(&nrinlastbase), sizeof(char));
@@ -15,12 +16,12 @@ void bintochar( string inputLoc, string outputLoc)
 
   size_t charcounter = 0;
 
-  while (iF.read(reinterpret_cast<char*>(&oNB), sizeof(nucleobase)))
+  while (iF.read(reinterpret_cast<char*>(&d_data.d_nB), sizeof(data::nucleobase)))
   {
     for (size_t idx = 0; idx != 4; ++idx)
       if (charcounter < 4 * nrbytes - (4 - nrinlastbase))
       {
-          oF << interpretStruct(oNB, idx);
+          oF << d_data.interpretStruct(idx);
           ++charcounter;
       }
   }
