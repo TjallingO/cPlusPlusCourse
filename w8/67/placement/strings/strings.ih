@@ -1,7 +1,0 @@
-#include "strings.h"
-#include <string>
-#include <memory>
-#include <iostream>
-#include <algorithm>
-
-using namespace std;
