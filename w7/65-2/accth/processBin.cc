@@ -1,8 +1,8 @@
 #include "accth.ih"
 
-void acctH::processBin(ifstream &stream)
+void AcctH::processBin(ifstream &stream)
 {
   struct acct_v3 acct;  // Define new struct
-  while( popAcct(acct, stream) )  // Populate that struct from the ifstream file
-    printAcct(acct);
+  while( popAcct(acct, stream) )  // While structs can still be populated
+    printAcct(acct);  // Print populated acct struct
 }

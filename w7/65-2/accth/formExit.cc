@@ -1,6 +1,6 @@
 #include "accth.ih"
 
-string acctH::exitcode(__u32 exitcode) // Formats the exitcode print statements
+string AcctH::formExit(__u32 exitcode) // Formats the exitcode print statements
 {
   switch (exitcode)
   {

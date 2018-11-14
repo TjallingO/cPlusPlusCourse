@@ -1,6 +1,6 @@
 void fun(...);
- // This is a variadic function declaration. It does not 'do' anything, per se,
-  // but it does allow the program to compile.
+// This is a variadic function declaration. It does not 'do' anything, per se,
+// but it does allow the program to compile.
 
 int main()
 {

@@ -1,3 +1,10 @@
 #include "accth.h"
 
+#include <csignal>  // Exit code definitions
+#include <cstddef>  // size_t
+#include <cstring>  // strcmp
+#include <iostream>
+#include <fstream>  // Streams
+#include <iomanip>  // Output formatting
+
 using namespace std;

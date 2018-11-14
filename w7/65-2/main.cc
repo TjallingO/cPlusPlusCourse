@@ -2,6 +2,6 @@
 
 int main(int argc, char const *argv[])
 {
-  acctH defaultAcct(argc, argv);
-  defaultAcct.processFiles();
+  AcctH defaultAcct(argc, argv);  // Pass argc/argv to constructor
+  defaultAcct.processFiles();     // Process the accounting files
 }
