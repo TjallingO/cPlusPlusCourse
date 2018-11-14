@@ -1,0 +1,7 @@
+#include <iostream>
+#include <string>
+#include <ostream>
+#include <fstream>
+#include "data/data.h"
+
+using namespace std;
