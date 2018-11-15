@@ -2,6 +2,8 @@
 #include <string>
 #include "filter/filter.h"
 
+extern char **environ;
+
 namespace Icmbuild
 {
     extern char version[];

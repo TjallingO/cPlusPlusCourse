@@ -5,23 +5,24 @@
 
 class Strings
 {
-    size_t d_size = 0;          // initial size ( = #strings)
-    size_t d_capacity = 1;      // initial capacity (in raw memory)
-    std::string *d_str;         // pointer to the string objects.
+    size_t d_size = 0;
+    size_t d_capacity = 1;
+    std::string **d_str;            // now a double *
 
     public:
         Strings();
+
         Strings(int argc, char *argv[]);
         Strings(char **environLike);
 
-        Strings(Strings const &other);  //copy constructor
-
         ~Strings();
 
-        Strings operator=(Strings const &other);     //overloaded operator
+        Strings(Strings const &other);  //copy constructor
+
         void swap(Strings &other);                   //swap function
 
-        std::string printstring(size_t idx);         //printing strings
+        Strings operator=(Strings const &other);     //overloaded operator
+
         size_t size() const;
         size_t capacity() const;
         std::string const &at(size_t idx) const;    // for const-objects
@@ -32,15 +33,14 @@ class Strings
         void resize(size_t newSize);
         void reserve(size_t newCapacity);
 
-    private:
-        void fill(char *ntbs[]);                    // fill prepared d_str
-        std::string &safeAt(size_t idx) const;      // private backdoor
-        std::string *storageArea();                 // to store the next str.
-        void destroy();
-        std::string *enlarged();                    // to d_capacity
-        std::string *rawStrings(size_t nStrings);
+        std::string printstring(size_t idx);         //printing strings
 
-        static size_t count(char *environLike[]);   // # elements in env.like
+    private:
+        std::string &safeAt(size_t idx) const;      // private backdoor
+        std::string **storageArea();                // to store the next str.
+        void destroy();
+        std::string **enlarged();                   // to d_capacity
+        std::string **rawPointers(size_t nPointers);
 };
 
 inline size_t Strings::size() const         // potentially dangerous practice:
