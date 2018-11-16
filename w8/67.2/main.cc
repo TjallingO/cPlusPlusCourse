@@ -5,7 +5,7 @@
 int main(int argc, char *argv[]) {
 
   Strings stringone;
-  /*
+/*
   //cout << argv[1] << '\n';
   cerr << __FUNCTION__ << __LINE__ << '\n';
   Strings stringtwo(argc, argv);
@@ -17,7 +17,10 @@ int main(int argc, char *argv[]) {
 */
   Strings stringfour(environ);
 
-  stringone.swap(stringfour);
+  //stringone.swap(stringfour);
+  for (size_t idx = 0; idx < stringfour.size(); idx++) {
+    cout << stringfour.printstring(idx) << '\n';
+  }
 
   /*
 

@@ -7,6 +7,7 @@ Strings Strings::operator=(Strings const &other)
         d_str[idx].~string();
     delete[] d_str;
 */
+
     for (; d_size--; )
         delete d_str[d_size];
 
