@@ -2,19 +2,18 @@
 
 int main(int argc, char *argv[])
 {
-  /*
-    Filter filter(cin);                 // filters out initial and final
-                                        // empty lines
 
-    filter.display();                   // show the remaining lines to cout
-    */
+  size_t nrIterations = strtol(argv[1], NULL, 10);
 
-  size_t nrIterations = (int)*argv[1]; //cast
   bool copy = true;
-  if (argv[2] == "move")
+  string copyinput = argv[2];
+
+  if (copyinput == "move")
     copy = false;
 
-  //Strings teststring(nrIterations, copy);
+  Strings teststring(nrIterations, copy);
 
-  Strings stringfour(environ);
+  teststring.iterate(environ);
+  teststring.printstring();
+
 }

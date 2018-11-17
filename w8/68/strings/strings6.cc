@@ -2,17 +2,10 @@
 
 Strings::Strings(size_t nIterate, bool copy)
 {
+    d_copy = copy;
+    d_nIterate = nIterate;
 
-  //pointer naar functies ipv if ladder
-  /*
-  if (copy)
-    enlargebycopy();
-  else
-    enlargebymove();
-    */
-  for (size_t idx = 0; idx < nIterate; ++idx)
-  {
-    iterate(environ);
-  }
+    d_size = 0;
+    d_str = 0;
 
 }

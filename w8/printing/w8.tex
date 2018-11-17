@@ -1,0 +1,93 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[CO,CE]{
+                  Programming in C/C++ \\
+                  Tjalling Otter \& Emiel Krol
+                 }
+
+\usepackage{etoolbox}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{graphicx}
+
+\usepackage[usenames,dvipsnames]{color}  %% Allow color names
+
+% New page for every section
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+
+% New page for every subsection
+%\let\stdsubsection\subsection
+%\renewcommand\subsection{\newpage\stdsubsection}
+
+%% The listings package will format your source code
+\usepackage{listings}
+\lstdefinestyle{customasm}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  language=C++,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{Gray},
+  stringstyle=\color{Black},
+  keywordstyle=\bfseries\color{OliveGreen},
+  identifierstyle=\color{blue},
+  numbers=left,
+  showstringspaces=false
+}
+
+% The listings package will format your source code
+\usepackage{listings}
+\lstdefinestyle{inline}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  language=C++,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{Gray},
+  stringstyle=\color{Black},
+  keywordstyle=\bfseries\color{OliveGreen},
+  identifierstyle=\color{blue},
+  numbers=left,
+  showstringspaces=false,
+  aboveskip=-0.5cm
+}
+
+\lstdefinestyle{text}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  showstringspaces=false,
+  breakautoindent=true
+}
+
+%\newtoggle{aftersection}
+%\preto{\lstinputlisting}{\filbreak\global\toggletrue{aftersection}}
+%\preto{\subsection}{\iftoggle{aftersection}{\global\togglefalse{aftersection}}{\filbreak}}
+%\newcommand{\clearpageafterfirst}{%
+%  \gdef\clearpageafterfirst{\clearpage}%
+%}
+
+\begin{document}
+
+\section*{Week 8}
+
+\subsection*{Exercise 68}
+\lstinputlisting[style=customasm]{../68/strings/strings.h}
+\lstinputlisting[style=customasm]{../68/strings/strings.ih}
+\lstinputlisting[style=customasm]{../68/strings/add.cc}
+\lstinputlisting[style=customasm]{../68/strings/destructor.cc}
+\lstinputlisting[style=customasm]{../68/strings/enlargeByCopy.cc}
+\lstinputlisting[style=customasm]{../68/strings/enlargeByMove.cc}
+\lstinputlisting[style=customasm]{../68/strings/iterate.cc}
+\lstinputlisting[style=customasm]{../68/strings/printstring.cc}
+\lstinputlisting[style=customasm]{../68/strings/strings6.cc}
+\lstinputlisting[style=customasm]{../68/output.txt}
+
+\newpage
+
+
+\end{document}

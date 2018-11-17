@@ -1,0 +1,18 @@
+output:
+
+time tmp/bin/binary 100 copy
+CLUTTER_IM_MODULE=xim
+_=tmp/bin/binary
+
+real	0m1,706s
+user	0m1,693s
+sys	0m0,012s
+
+
+time tmp/bin/binary 100 move
+CLUTTER_IM_MODULE=xim
+_=tmp/bin/binary
+
+real	0m0,241s
+user	0m0,150s
+sys	0m0,091s
