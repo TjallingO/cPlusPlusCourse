@@ -1,8 +1,7 @@
 #include "test.ih"
 //constructor
-/*
-test::test(int nr)
+
+test::test(int things)
 {
-  things(nr);
+  d_things = things;
 }
-*/

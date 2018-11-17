@@ -7,10 +7,16 @@ class test
   int d_things = 0;
 
     public:
-      //test(int things); //constructor
+      //test(); //constructor
       //test(test const &other); // copy constructor
 
       int rthings() const;
+
+      test(int things);
+
+      //test &operator=(test &&tmp);
+
+      //test(test &&tmp);
 
     private:
 

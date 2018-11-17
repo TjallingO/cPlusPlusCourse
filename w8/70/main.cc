@@ -4,10 +4,13 @@
 int main(int argc, char **argv)
 {
   int x = 5;
-  //test testone(x);
-  test testone;
-  //test *testone = new test;
-  //cout << testone.rthings() << '\n';
+  test testone(x);
+  //test testone;
+  //test testtwo = testone;
+  //test testtwo = move(testone);
+  //test testtwo(testone);
+  test testtwo(move(testone));
+  cout << testtwo.rthings() << '\n';
 
   //test testtwo(testone);
   /*
