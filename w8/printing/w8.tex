@@ -22,9 +22,9 @@
 %\let\stdsubsection\subsection
 %\renewcommand\subsection{\newpage\stdsubsection}
 
-%% The listings package will format your source code
+% Use for source files
 \usepackage{listings}
-\lstdefinestyle{customasm}{
+\lstdefinestyle{cc}{
   title=\lstname,
   belowcaptionskip=1\baselineskip,
   language=C++,
@@ -38,9 +38,9 @@
   showstringspaces=false
 }
 
-% The listings package will format your source code
+% Use for inline code display in tex
 \usepackage{listings}
-\lstdefinestyle{inline}{
+\lstdefinestyle{in}{
   title=\lstname,
   belowcaptionskip=1\baselineskip,
   language=C++,
@@ -55,13 +55,16 @@
   aboveskip=-0.5cm
 }
 
+% Use for inline display of output/code without highlighting
+
 \lstdefinestyle{text}{
   title=\lstname,
   belowcaptionskip=1\baselineskip,
   breaklines=true, %% Wrap long lines
   basicstyle=\small\ttfamily,
   showstringspaces=false,
-  breakautoindent=true
+  breakautoindent=true,
+  numbers=left
 }
 
 %\newtoggle{aftersection}
@@ -76,20 +79,28 @@
 \section*{Week 8}
 
 \subsection*{Exercise 68}
-\lstinputlisting[style=customasm]{../68/strings/strings.h}
-\lstinputlisting[style=customasm]{../68/strings/strings.ih}
-\lstinputlisting[style=customasm]{../68/strings/add.cc}
-\lstinputlisting[style=customasm]{../68/strings/destructor.cc}
-\lstinputlisting[style=customasm]{../68/strings/enlargeByCopy.cc}
-\lstinputlisting[style=customasm]{../68/strings/enlargeByMove.cc}
-\lstinputlisting[style=customasm]{../68/strings/iterate.cc}
-\lstinputlisting[style=customasm]{../68/strings/printstring.cc}
-\lstinputlisting[style=customasm]{../68/strings/strings6.cc}
-\lstinputlisting[style=customasm]{../68/output.txt}
+\lstinputlisting[style=cc]{../68/strings/strings.h}
+\lstinputlisting[style=cc]{../68/strings/strings.ih}
+\lstinputlisting[style=cc]{../68/strings/add.cc}
+\lstinputlisting[style=cc]{../68/strings/destructor.cc}
+\lstinputlisting[style=cc]{../68/strings/enlargeByCopy.cc}
+\lstinputlisting[style=cc]{../68/strings/enlargeByMove.cc}
+\lstinputlisting[style=cc]{../68/strings/iterate.cc}
+\lstinputlisting[style=cc]{../68/strings/printstring.cc}
+\lstinputlisting[style=cc]{../68/strings/strings6.cc}
+\lstinputlisting[style=cc]{../68/output.txt}
 
 \newpage
+\subsection*{Exercise 69}
+\input{../69/69.tex}
+\lstinputlisting[style=cc]{../69/main.ih}
+\lstinputlisting[style=cc]{../69/main.cc}
+\lstinputlisting[style=cc]{../69/demo/demo.h}
+\lstinputlisting[style=cc]{../69/demo/demo.ih}
+\lstinputlisting[style=cc]{../69/demo/factory.cc}
 
+\newpage
 \subsection*{Exercise 70}
-\lstinputlisting[style=customasm]{../68/strings/70.txt}
+\lstinputlisting[style=cc]{../68/strings/70.txt}
 
 \end{document}

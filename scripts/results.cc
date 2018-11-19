@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
+#include <math.h>
 
 using namespace std;
 
@@ -34,7 +35,7 @@ int main (int argc, char **argv)
       usage();
       return 0;
     }
-    
+
   string email = (string(argv[1]) == "e") ? emiel : tjalling;
 
   string curlCommand  = string("curl --fail -s -S -m 2 -u ")
@@ -138,7 +139,7 @@ int main (int argc, char **argv)
     cout  << "Overall average of the first "
           << argv[2]
           << " sets: "
-          << avg / stoi(argv[2])
+          << round(avg / stoi(argv[2]))
           << "% \n";
 
   cout << "==================== \n";
