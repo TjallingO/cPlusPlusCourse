@@ -1,0 +1,7 @@
+#include "strings.h"
+#include <string>
+#include <cstring>
+
+#include <iostream>
+
+using namespace std;
