@@ -1,4 +1,4 @@
-outfile="outputfile.txt";
+outfile="outputfile";
 rm -f "$outfile";
 
 function center()
@@ -47,3 +47,4 @@ wait
 
 cat "$outfile"
 rm -f "$outfile"
+rm -rf "./tmp/o" % Delete .o files
