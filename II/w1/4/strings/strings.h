@@ -2,6 +2,7 @@
 #define INCLUDED_STRINGS_
 
 #include <iosfwd>
+#include <string>
 
 class Strings
 {
@@ -29,12 +30,10 @@ class Strings
 
         void swap(Strings &other);
 
-        namespace std
-        {
+
       //  std::istream &operator>>(std::istream &out);
-        ostream &operator<<(ostream &lvalue,
-                            string const &rvalue);
-        };
+
+        std::ostream &insertInto(std::ostream &out) const;//performing the insertion
 
     private:
         std::string &safeAt(size_t idx) const;      // private backdoor
@@ -43,10 +42,13 @@ class Strings
         std::string **enlarged();                   // to d_capacity
         static std::string **rawPointers(size_t nPointers);
 
+      
 
         std::istream &extractFrom(std::istream &in);//performing the extraction
-        std::ostream &insertInto(std::ostream &out);//performing the insertion
+    //    std::ostream &insertInto(std::ostream &out);//performing the insertion
 };
+
+//std::ostream &operator<<(std::ostream &out, Strings const &rvalue);
 
 inline size_t Strings::size() const         // potentially dangerous practice:
 {                                           // inline accessors
@@ -63,24 +65,26 @@ inline std::string const &Strings::at(size_t idx) const
     return safeAt(idx);
 }
 
-namespace std
+
+
+inline std::string &Strings::at(size_t idx)
 {
-  inline std::string &Strings::at(size_t idx)
-  {
-      return safeAt(idx);
-  }
-};
+    return safeAt(idx);
+}
+
 /*
 inline std::istream &Strings::operator>>(std::istream &in)
 {
   return extractFrom(in);
 }
 */
-inline std::ostream &operator<<(std::ostream &lvalue,
-                                std::string const &rvalue)
+namespace std
 {
-  return rvalue.insertInto(lvalue);
+  inline std::ostream &operator<<(std::ostream &out,
+                                           Strings const &rvalue)
+  {
+    return rvalue.insertInto(out);
+  }
 }
-
 
 #endif
