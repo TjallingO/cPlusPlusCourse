@@ -6,6 +6,9 @@
 
 class Strings
 {
+    friend std::ostream &operator<<(std::ostream &out, Strings const &rvalue);
+    friend std::istream &operator>>(std::istream &in, Strings &rvalue);
+
     size_t d_size = 0;
     size_t d_capacity = 1;
     std::string **d_str;            // now a double *
@@ -31,24 +34,18 @@ class Strings
         void swap(Strings &other);
 
 
-      //  std::istream &operator>>(std::istream &out);
-
-        std::ostream &insertInto(std::ostream &out) const;//performing the insertion
-
     private:
+        std::ostream &insertInto(std::ostream &out) const;//performing the insertion
+        std::istream &extractFrom(std::istream &in);//performing the extraction
+
         std::string &safeAt(size_t idx) const;      // private backdoor
         std::string **storageArea();                // to store the next str.
         void destroy();
         std::string **enlarged();                   // to d_capacity
         static std::string **rawPointers(size_t nPointers);
 
-      
-
-        std::istream &extractFrom(std::istream &in);//performing the extraction
-    //    std::ostream &insertInto(std::ostream &out);//performing the insertion
 };
 
-//std::ostream &operator<<(std::ostream &out, Strings const &rvalue);
 
 inline size_t Strings::size() const         // potentially dangerous practice:
 {                                           // inline accessors
@@ -65,26 +62,21 @@ inline std::string const &Strings::at(size_t idx) const
     return safeAt(idx);
 }
 
-
-
 inline std::string &Strings::at(size_t idx)
 {
     return safeAt(idx);
 }
 
-/*
-inline std::istream &Strings::operator>>(std::istream &in)
+
+inline std::ostream &operator<<(std::ostream &out, Strings const &rvalue)
 {
-  return extractFrom(in);
+  return rvalue.insertInto(out);
 }
-*/
-namespace std
+
+inline std::istream &operator>>(std::istream &in, Strings &rvalue)
 {
-  inline std::ostream &operator<<(std::ostream &out,
-                                           Strings const &rvalue)
-  {
-    return rvalue.insertInto(out);
-  }
+  return rvalue.extractFrom(in);
 }
+
 
 #endif
