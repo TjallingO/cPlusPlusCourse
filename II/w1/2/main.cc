@@ -1,6 +1,11 @@
 #include "main.ih"
 
-bool promptGet(istream &in, string &str)
+void process (string &str)
+{
+  cout << str << '\n';
+}
+
+istream& promptGet(istream &in, string &str)
 {
   cout << "Enter a line or ^D\n";     // ^D signals end-of-input
 
@@ -9,6 +14,7 @@ bool promptGet(istream &in, string &str)
 
 int main(int argc, char const **argv)
 {
+  string str;
   while (promptGet(cin, str))
     process(str);
 }

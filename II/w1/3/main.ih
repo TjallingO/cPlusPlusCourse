@@ -2,15 +2,6 @@
 #include <string>
 #include "strings/stringshandin.h"
 
-namespace Icmbuild
-{
-    extern char version[];
-    extern char years[];
-    extern char author[];
-};
-
-void usage(std::string const &progname);
-
 using namespace std;
 
 extern char **environ;
