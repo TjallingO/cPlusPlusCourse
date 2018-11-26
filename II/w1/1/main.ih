@@ -2,7 +2,7 @@
 
 namespace First
 {
-  enum Enum {  };
+  enum Enum { FIRST };
   void fun(First::Enum symbol)
   {
     std::cout << "First::fun called" << '\n';

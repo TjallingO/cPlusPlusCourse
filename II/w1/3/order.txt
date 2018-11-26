@@ -1,0 +1,14 @@
+strings/stringshandin.h
+strings/strings1.cc
+strings/strings2.cc
+strings/strings3.cc
+strings/add.cc
+strings/indexoperator1.cc
+strings/indexoperator2.cc
+strings/storagearea.cc
+strings/destroy.cc
+strings/enlarged.cc
+strings/rawpointers.cc
+
+main.ih
+main.cc
