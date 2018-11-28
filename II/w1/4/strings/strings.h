@@ -35,7 +35,8 @@ class Strings
 
 
     private:
-        std::ostream &insertInto(std::ostream &out) const;//performing the insertion
+        std::ostream &insertInto(std::ostream &out) const;//performing the
+                                                          //insertion
         std::istream &extractFrom(std::istream &in);//performing the extraction
 
         std::string &safeAt(size_t idx) const;      // private backdoor

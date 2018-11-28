@@ -2,5 +2,5 @@
 
 string const &Strings::operator[](size_t idx) const
 {
-  return element(idx);
+  return operatorIndex(idx);
 }

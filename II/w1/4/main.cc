@@ -2,15 +2,10 @@
 
 int main(int argc, char **argv)
 {
-
-    //Strings str{ environ };
-
-    //cout << str;
-
     Strings str2;
-    cin >> str2;
 
-    cout << str2;
+    cin >> str2; //insert lines ast string objects, each line being a sepate
+                 //string.
 
-
+    cout << '\n' << str2;
 }

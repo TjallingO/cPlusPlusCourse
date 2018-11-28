@@ -3,7 +3,6 @@
 void show(Strings const &str, size_t from, size_t to)
 {
     for (; from != to; ++from)
-  //    if (from < str.size())
         cout << str[from] << '\n';
 }
 

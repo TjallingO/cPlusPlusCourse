@@ -5,3 +5,10 @@
 using namespace std;
 
 extern char **environ;
+
+namespace Icmbuild
+{
+    extern char version[];
+    extern char years[];
+    extern char author[];
+};

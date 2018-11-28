@@ -27,8 +27,6 @@ class Strings
         void resize(size_t newSize);
         void reserve(size_t newCapacity);
 
-        void swap(Strings &other);
-
         std::string &operator[](size_t idx);    //index operators
         std::string const &operator[](size_t idx) const;
 
@@ -39,7 +37,7 @@ class Strings
         std::string **enlarged();                   // to d_capacity
         static std::string **rawPointers(size_t nPointers);
 
-        std::string &element(size_t idx) const;
+        std::string &operatorIndex(size_t idx) const;
 };
 
 inline size_t Strings::size() const         // potentially dangerous practice:
