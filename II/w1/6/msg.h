@@ -1,5 +1,5 @@
-#ifndef _MSGH
-#define _MSGH
+#ifndef INCLUDED_MSGH
+#define INCLUDED_MSGH
 
 enum class Msg
 {
@@ -17,7 +17,53 @@ enum class Msg
 
 #endif
 
-inline Msg operator|(Msg a, Msg b)
+inline int valueOf(Msg message)           // Return int representation of enum
 {
-  return static_cast<Msg>(static_cast<int>(a) | static_cast<int>(b));
+  return static_cast<int>(message);
+};
+inline Msg enumOf(int enumInt)            // Return enum representation of int
+{
+  return static_cast<Msg>(enumInt);
+};
+
+inline Msg operator&(Msg a, Msg b)        // AND
+{
+  return enumOf(valueOf(a) & valueOf(b));
+};
+inline Msg operator~(Msg a)               // NOT
+{
+  return enumOf(~valueOf(a));
+};
+inline Msg operator|(Msg a, Msg b)        // OR
+{
+  return enumOf(valueOf(a) | valueOf(b));
+};
+inline Msg operator^(Msg a, Msg b)        // XOR
+{
+  return enumOf(valueOf(a) ^ valueOf(b));
+};
+
+inline Msg operator==(Msg a, Msg b)        // Equal to
+{
+  return enumOf(valueOf(a) == valueOf(b));
+};
+inline Msg operator!=(Msg a, Msg b)        // Not equal to
+{
+  return enumOf(valueOf(a) != valueOf(b));
+};
+inline Msg operator<(Msg a, Msg b)        // Smaller than
+{
+  return enumOf(valueOf(a) < valueOf(b));
+};
+inline Msg operator>(Msg a, Msg b)        // Larger than
+{
+  return enumOf(valueOf(a) > valueOf(b));
+};
+inline Msg operator<=(Msg a, Msg b)        // Smaller or equal to
+{
+  return enumOf(valueOf(a) <= valueOf(b));
+};
+inline Msg operator>=(Msg a, Msg b)        // Larger or equal to
+{
+  return enumOf(valueOf(a) >= valueOf(b));
 };

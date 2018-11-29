@@ -1,0 +1,31 @@
+\textit{Why doesn't this work?} \\
+First of all, str is not yet defined, so it cannot be passed to promptGet. Secondly, and more to the point, the function promptGet is to return a boolean variable, but the getline function returns a pointer, not a boolean value. Up to now, we have seen getline used in such loops directly (i.e. while(getline()), but this only works because it is converted to fit a boolean comparison. \\
+
+\textit{Change promptGet's body so that the code does compile.} \\
+One option would be to alter the return function to make use of a simple if-statement:
+
+\begin{lstlisting}[style=in]
+bool promptGet(istream &in, string &str)
+{
+  cout << "Enter a line or ^D\n";     // ^D signals end-of-input
+
+  if (getline(in, str))
+    return true;
+
+  return false;
+}
+\end{lstlisting}
+
+\textit{Without changing promptGet's body, change promptGet so that the code does compile.} \\
+As the return type of getline is \&istream (in this case), we can change the header of promtGet to accord, as follows:
+
+\begin{lstlisting}[style=in]
+istream &promptGet(istream &in, string &str)
+{
+  cout << "Enter a line or ^D\n";     // ^D signals end-of-input
+
+  return (getline(in, str));
+}
+\end{lstlisting}
+
+Now, the implicit operators as mentioned before are used in main to allow for their use in the while-statement.

@@ -1,11 +1,14 @@
+\lstinputlisting[style=cc]{../1/main.ih}
+\lstinputlisting[style=cc]{../1/main.cc}
+
 \textit{Why is First::fun called?} \\
-The namespace of the function that is called is determined by the argument used in the function call. In that case, this is First, and therefore First::fun() is called.
+The namespace of the function that is called is determined by the argument used in the function call. In that case, this is First, and therefore First::fun() is called. \\
 
 \textit{How would Second::fun be called?} \\
-By explicitly calling it using its namespace: Second::fun().
+By explicitly calling it using its namespace: \texttt{Second::fun()}. \\
 
-\textit{How is the << operator simplified by a Koenig lookup?} \\
-As the << operator from the standard library is the only defined or declared within the bounds of the program that takes the arguments as specified, there is no confusion as to what the intended use of the << operator is. Therefore, it can be used simply as is typically seen in programs, rather than its full form std::operator<<(std::cout, "string"). If there are multiple different possibilities as to the desired operator (i.e. function), then it would not work like this.
+\textit{How is the \texttt{<< operator} simplified by a Koenig lookup?} \\
+As the \texttt{<< operator} from the standard library is the only defined or declared within the bounds of the program that takes the arguments as specified, there is no confusion as to what the intended use of the \texttt{<< operator} is. Therefore, it can be used simply as is typically seen in programs, rather than its full form \texttt{std::operator<<(std::cout, "string")}. If there are multiple different possibilities as to the desired operator (i.e. function), then it would not work like this. \\
 
-\textit{What happens if another fun(First::Enum) is defined above main()?} \\
-This is an example of what was described before. The call to fun() is now ambiguous, because there are two functions that take an enum variable from the namespace First named fun. Hence, the compiler does not know which of the two to choose; it is not evident.
+\textit{What happens if another \texttt{fun(First::Enum)} is defined above \texttt{main()}?} \\
+This is an example of what was described before. The call to \texttt{fun()} is now ambiguous, because there are two functions that take an enum variable from the namespace First named fun. Hence, the compiler does not know which of the two to choose; it is not evident.  Put differently, while it is possible to define two functions with the same name within the same scope, the choice between them must be able to be made based on 'contextual clues', in this case the argument list.

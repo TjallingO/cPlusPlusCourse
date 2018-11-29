@@ -2,29 +2,30 @@
 
 char const* msgN[10] =
 {
-  "DEBUG",
-  "INFO",
-  "NOTICE",
-  "WARNING",
-  "ERR",
-  "CRIT",
-  "ALERT",
-  "EMERG",
-  "ALL",
+  "DEBUG",    // 1
+  "INFO",     // 2
+  "NOTICE",   // 4
+  "WARNING",  // 8
+  "ERR",      // 16
+  "CRIT",     // 32
+  "ALERT",    // 64
+  "EMERG",    // 128
+  "ALL",      // 255
   "NONE"
 };
 
 void show(Msg message)
 {
-  if (valueOf(message) == 0)
-    std::cout << msgN[9];
+  if (valueOf(message) == 0)            // Seperate case for NONE
+    std::cout << msgN[9] << ' ';
 
-  for (size_t idx = 0; idx != 9; ++idx)
+  for (size_t idx = 0; idx != 9; ++idx) // Loop to identify codes
   {
-    if (valueOf(message) == (1 << idx))
+    if (valueOf(message) == (1 << idx)) // Shift performed here to use idx in []
     {
-      std::cout << msgN[idx];
+      std::cout << msgN[idx] << ' ';
       break;
     }
   }
+  std::cout << '\n';
 }

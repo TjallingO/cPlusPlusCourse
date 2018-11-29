@@ -14,6 +14,8 @@
 
 \usepackage[usenames,dvipsnames]{color}  %% Allow color names
 
+\setlength\parindent{0pt}
+
 % New page for every section
 \let\stdsection\section
 \renewcommand\section{\newpage\stdsection}
@@ -64,7 +66,8 @@
   basicstyle=\small\ttfamily,
   showstringspaces=false,
   breakautoindent=true,
-  numbers=left
+  numbers=left,
+  showlines=true
 }
 
 %\newtoggle{aftersection}
@@ -76,31 +79,41 @@
 
 \begin{document}
 
-\section*{Week 1}
+\section*{Week 1: II}
 
 \subsection*{Exercise 1}
-
+\input{../1/1.tex}
 
 \newpage
-
 \subsection*{Exercise 2}
+\input{../2/2.tex}
 
 \newpage
-
 \subsection*{Exercise 3}
-\lstinputlisting[style=cc]{../4/main.cc}
-\lstinputlisting[style=cc]{../4/strings/strings.ih}
-\lstinputlisting[style=cc]{../4/strings/stringshandin.h}
-\lstinputlisting[style=cc]{../4/strings/operatorIndex.cc}
-\lstinputlisting[style=cc]{../4/strings/indexoperator1.cc}
-\lstinputlisting[style=cc]{../4/strings/indexoperator2.cc}
+\lstinputlisting[style=cc]{../3/main.cc}
+\lstinputlisting[style=cc]{../3/strings/strings.ih}
+\lstinputlisting[style=cc]{../3/strings/stringshandin.h}
+\lstinputlisting[style=cc]{../3/strings/operatorIndex.cc}
+\lstinputlisting[style=cc]{../3/strings/indexoperator1.cc}
+\lstinputlisting[style=cc]{../3/strings/indexoperator2.cc}
 
 \newpage
 \subsection*{Exercise 4}
-\lstinputlisting[style=cc]{../4/strings/main.cc}
+\lstinputlisting[style=cc]{../4/main.cc}
 \lstinputlisting[style=cc]{../4/strings/strings.h}
 \lstinputlisting[style=cc]{../4/strings/strings.ih}
 \lstinputlisting[style=cc]{../4/strings/extractFrom.cc}
 \lstinputlisting[style=cc]{../4/strings/insertInto.cc}
+
+\newpage
+.
+\newpage
+\subsection*{Exercise 6}
+\lstinputlisting[style=cc]{../6/msg.h}
+\lstinputlisting[style=cc]{../6/main.ih}
+\lstinputlisting[style=cc]{../6/main.cc}
+\lstinputlisting[style=cc]{../6/show.cc}
+\newpage
+\input{../6/6.tex}
 
 \end{document}

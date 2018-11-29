@@ -3,6 +3,5 @@
 #include <iostream>
 
 void show(Msg message);
-int valueOf(Msg message);
 
 using namespace std;
