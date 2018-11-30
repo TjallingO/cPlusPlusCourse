@@ -1,0 +1,8 @@
+#include "argoption.h"
+
+#include <string>
+#include <cstring>
+#include <getopt.h>
+
+using namespace std;
+

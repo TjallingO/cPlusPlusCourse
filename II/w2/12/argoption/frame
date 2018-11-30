@@ -1,0 +1,5 @@
+#include "argoption.ih"
+
+ArgOption::
+{
+}

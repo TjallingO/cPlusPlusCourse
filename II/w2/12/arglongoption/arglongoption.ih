@@ -1,0 +1,7 @@
+#include "arglongoption.h"
+
+#include <cstring>
+#include <getopt.h>
+
+using namespace std;
+
