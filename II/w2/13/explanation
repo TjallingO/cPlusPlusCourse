@@ -1,0 +1,2 @@
+using throw rethrows the existing exception object. So no new objects are made
+(Source https/en.cppreference.com/w/cpp/language/throw)

@@ -57,7 +57,7 @@ catch (char ch)
 {
   if (ch == 1)
     return 1;
-  throw(ch); //not the error we intended to catch so handle somewhere else
+  throw; //not the error we intended to catch so handle somewhere else
 }
 
 catch (...)
