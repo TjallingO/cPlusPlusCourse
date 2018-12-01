@@ -1,0 +1,26 @@
+\textit{Is the default constructor's implementation exception safe? If not, how would you change it so that it is exception safe?} \\
+It is not. It can be changed similar to the approach that is implemented in the class MaxFour (see exercise 14). In other words, as such: \\
+\begin{lstlisting}[style=in, caption=c\_strings.cc]
+#include "strings.ih"
+
+Strings::Strings()
+try
+:
+  d_str(rawPointers(1))
+{}
+catch (...)
+{
+  delete d_str;
+}
+\end{lstlisting}
+
+\textit{What happens if the default constructor is called from another constructor (using constructor delegation) in these cases:}
+
+\begin{itemize}
+  \item \textit{The default constructor fails and throws an exception} \\
+    The only thing that can fail is the allocation in the initialiser list. Hence, memory would be allocated, but the object is not constructed properly, and thus would not be deconstructed either, leading to memory leaks. However, because of the try/catch block, if an exception occurs, it is caught immediately and the memory subsequently deallocated again.
+  \item \textit{The constructor calling the default constructor using constructor delegation fails and throws an exception} \\
+    That depends on the contents of that second constructor. If it allocates some more memory, that will lead to memory leaks as well. However, if it does not, and does not reach the point where it calls the default constuctor, there is no problem. The exception that it throws can be caught elsewhere and perhaps displayed to the user, but essentially the situation before the constructor is called is restored either way (i.e. rolled back).
+\end{itemize}
+
+Note: these answers assume that the questions pertain to the situation \textit{after} the change suggested above.

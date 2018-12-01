@@ -1,0 +1,3 @@
+#include "maxfour.h"
+
+using namespace std;
