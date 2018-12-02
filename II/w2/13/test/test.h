@@ -12,6 +12,7 @@ class test
         test();
         test(int value);
         test(test &copy);
+        ~test();
 
         static int counter();
         int value();

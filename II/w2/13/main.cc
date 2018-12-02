@@ -14,7 +14,6 @@ try
                    //results in a counter of 2, so no more copies are made
 }
 
-
 catch (test object)
 {
     cout << object.counter() << '\n';
