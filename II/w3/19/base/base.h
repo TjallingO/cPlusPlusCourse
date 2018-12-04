@@ -4,11 +4,11 @@
 
 class Base
 {
-
       double d_data = 4;
 
     public:
       double value () const;
+      static void msg();
 
     protected:
       void halve();

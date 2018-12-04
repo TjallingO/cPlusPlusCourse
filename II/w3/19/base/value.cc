@@ -1,6 +1,6 @@
 #include "base.ih"
 
-double base::value() const
+double Base::value() const
 {
   return d_data;
 }

@@ -6,7 +6,12 @@ try
 
   Derived test1;
 
-  cout << test1.value2() << '\n';
+  test1.value();
+
+  //DDerived test2;
+
+  //test2.value2();
+
   //test1.halve();
   //test1.recompute();
 

@@ -3,6 +3,7 @@
 #include "base/base.ih"
 #include "derived/derived.ih"
 
+
 namespace Icmbuild
 {
     extern char version[];

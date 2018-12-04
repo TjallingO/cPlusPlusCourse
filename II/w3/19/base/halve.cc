@@ -1,6 +1,6 @@
 #include "base.ih"
 
-void base::halve()
+void Base::halve()
 {
   d_data = d_data/2;
 }
