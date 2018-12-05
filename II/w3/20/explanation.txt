@@ -1,0 +1,45 @@
+When just defining the Base default, copy and move constructor
+and the Derived default, copy and move constructor we get the following output:
+
+Derived test1:
+Base default constructor
+derived default constructor
+
+ Derived test2(test1):
+Base default constructor
+Derived copy constructor
+
+ Derived test3(move(test2)):
+Base default constructor
+Derived move constructor
+
+So in all three cases the Base default constructor is used. After which the
+Derived default, copy or move constructor is called. So first a Base object is
+created then this is turned into a Derived object slicing away all the extra
+information from the Base object. And the values of this new derived object
+are assigned according to the called constructor.
+
+Changing the code such that the copy and move Base constructors are used
+by not declaring any derived constructors but instead declaring
+using Base::Base
+causes the compiler to use the Base constructors instead. So now we have
+the following output:
+
+Derived test1:
+Base default constructor
+
+Derived test2(test1):
+Base copy constructor
+
+Derived test3(move(test2)):
+Base move constructor
+
+So now the Base copy constructor is used when we use copy a Derived object
+and the Base move constructor is used when we move a Derived object.
+
+By not declaring a Base move constructor but declaring a Base copy constructor
+the Base copy constructor is used when calling the move constructor for a
+Derived Object.
+
+By not declaring either a Base copy or move constructor the Base move
+constructor is called when calling a copy constructor for a Derived object.

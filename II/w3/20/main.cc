@@ -7,7 +7,7 @@ try
   Derived test1;
   cout << "\nDerived test2(test1):\n";
   Derived test2(test1);
-  cout << "\nDerived test3(&&test2):\n";
+  cout << "\nDerived test3(move(test2)):\n";
   Derived test3(move(test2));
 
 

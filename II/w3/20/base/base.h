@@ -8,8 +8,8 @@ class Base
 
     public:
       Base();
-      Base(Base const &other); //copy
-      Base(Base &&other); //move
+      //Base(Base const &other); //copy
+      //Base(Base &&other); //move
 
 
       double value () const;
