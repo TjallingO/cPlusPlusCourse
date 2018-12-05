@@ -1,0 +1,103 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[CO,CE]{
+                  Programming in C/C++ \\
+                  Tjalling Otter \& Emiel Krol
+                 }
+
+\usepackage{etoolbox}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{graphicx}
+
+\usepackage[usenames,dvipsnames]{color}  %% Allow color names
+
+\setlength\parindent{0pt}
+
+% New page for every section
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+
+% New page for every subsection
+%\let\stdsubsection\subsection
+%\renewcommand\subsection{\newpage\stdsubsection}
+
+% Use for source files
+\usepackage{listings}
+\lstdefinestyle{cc}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  language=C++,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{Gray},
+  stringstyle=\color{Black},
+  keywordstyle=\bfseries\color{OliveGreen},
+  identifierstyle=\color{blue},
+  numbers=left,
+  showstringspaces=false
+}
+
+% Use for inline code display in tex
+\usepackage{listings}
+\lstdefinestyle{in}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  language=C++,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{Gray},
+  stringstyle=\color{Black},
+  keywordstyle=\bfseries\color{OliveGreen},
+  identifierstyle=\color{blue},
+  numbers=left,
+  showstringspaces=false,
+  aboveskip=-0.5cm
+}
+
+% Use for inline display of output/code without highlighting
+
+\lstdefinestyle{text}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  showstringspaces=false,
+  breakautoindent=true,
+  numbers=left,
+  showlines=true
+}
+
+%\newtoggle{aftersection}
+%\preto{\lstinputlisting}{\filbreak\global\toggletrue{aftersection}}
+%\preto{\subsection}{\iftoggle{aftersection}{\global\togglefalse{aftersection}}{\filbreak}}
+%\newcommand{\clearpageafterfirst}{%
+%  \gdef\clearpageafterfirst{\clearpage}%
+%}
+
+\begin{document}
+
+\section*{Week 2 - II}
+
+\subsection*{Exercise 14}
+\input{../14/14.tex}
+\lstinputlisting[style=cc]{../14/maxfour/maxfour.h}
+\lstinputlisting[style=cc]{../14/maxfour/maxfour.ih}
+\lstinputlisting[style=cc]{../14/maxfour/c_maxfour.cc}
+\lstinputlisting[style=cc]{../14/maxfour/d_maxfour.cc}
+\lstinputlisting[style=cc]{../14/main.ih}
+\lstinputlisting[style=cc]{../14/main.cc}
+
+\newpage
+\subsection*{Exercise 16}
+\input{../16/16.tex}
+\lstinputlisting[style=cc]{../16/main.ih}
+\lstinputlisting[style=cc]{../16/main.cc}
+
+\newpage
+\subsection*{Exercise 17}
+\input{../17/17.tex}
+
+\end{document}

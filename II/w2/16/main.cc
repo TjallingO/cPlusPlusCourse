@@ -2,13 +2,10 @@
 
 int main(int argc, char const **argv)
 {
-  bool exceptionalCondition = true;
+  bool exceptionalCondition = false;
 
-  string *stringArray;
-  stringArray = new string{ "hello" };
+  string leakingString{ "feighsdefighsdlfghsidfgsidfgisdifgbdsfgbyusdfgh" };
 
   if (exceptionalCondition)
-    exit(1);
-
-  delete stringArray;
+    exit(3);
 }

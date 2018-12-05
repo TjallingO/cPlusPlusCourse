@@ -3,16 +3,17 @@
 
 #include <cstddef>
 #include <string>
+#include <iostream>
 
 class MaxFour
 {
+  private:
+    inline size_t static s_objCount = 0;
+    std::string *d_content;               // Example to allow for memory allocation
+
   public:
     MaxFour();
     ~MaxFour();
-
-  private:
-    inline size_t static objCount = 0;
-    std::string *d_content;
 };
 
 #endif
