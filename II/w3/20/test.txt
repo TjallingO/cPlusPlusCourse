@@ -1,0 +1,11 @@
+Users of a Derived object can use all public members of the Base Class.
+Designers of Derived can use all public and protected members of the
+ Base Class.
+
+In the case of protected inheritance all public members from the Base Class
+become protected instead.
+Users are now denied access to all base class members.
+When designing a class that is derived from Derived this new class access is
+allowed to the base class's public and protected members.
+Designers of Derived can still use all public and protected members of the Base
+Class.

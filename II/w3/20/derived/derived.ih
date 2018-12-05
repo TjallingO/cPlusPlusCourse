@@ -1,0 +1,6 @@
+#include "derived.h"
+#include <iostream>
+//#define CERR std::cerr << __FILE__": "
+#include <cstring>
+
+using namespace std;
