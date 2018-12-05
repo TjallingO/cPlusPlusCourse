@@ -2,13 +2,13 @@
 
 int main(int argc, char const **argv)
 {
-  bool exceptionalCondition = true;
+  //bool exceptionalCondition = true;
 
-  string *stringArray;
-  stringArray = new string{ "hello" };
+  string stringArray = "hegjckghckcg gykyt kkuty kt kty kykytki yytk ytkyllo";
+  //stringArray = new string{ "hello" };
 
-  if (exceptionalCondition)
+  //if (exceptionalCondition)
     exit(1);
 
-  delete stringArray;
+  //delete stringArray;
 }
