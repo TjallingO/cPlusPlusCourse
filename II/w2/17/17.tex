@@ -18,7 +18,7 @@ catch (...)
 
 \begin{itemize}
   \item \textit{The default constructor fails and throws an exception} \\
-    The only thing that can fail is the allocation in the initialiser list. Hence, memory would be allocated for the strings stored by the object by the \textt{rawPointers()} function, but the object is not constructed properly, and thus would not be destroyed either, leading to memory leaks. However, because of the try/catch block, if an exception occurs, it is caught immediately and the memory subsequently deallocated again.
+    The only thing that can fail is the allocation in the initialiser list. Hence, memory would be allocated for the strings stored by the object by the \texttt{rawPointers()} function, but the object is not constructed properly, and thus would not be destroyed either, leading to memory leaks. However, because of the try/catch block, if an exception occurs, it is caught immediately and the memory subsequently deallocated again.
   \item \textit{The constructor calling the default constructor using constructor delegation fails and throws an exception} \\
     That depends on the contents of that second constructor. If it allocates some more memory, that will lead to memory leaks as well, as the object has not been fully constructed and will therefore also not be destroyed, which would dealloate the memory. However, if it does not, and does not reach the point where it calls the default constuctor, no memory is allocated, and therefore the original situation is restored. The exception that it throws can be caught elsewhere and perhaps displayed to the user, but essentially the situation before the constructor is called is restored either way (i.e. rolled back).
 \end{itemize}
