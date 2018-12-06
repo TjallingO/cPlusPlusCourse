@@ -1,0 +1,24 @@
+What would be the problem when inheriting your class OpusMagnus from WIP
+(so:class OpusMagnum: private WIP)?
+
+This results in the strongest kind of coupling and should only be used when
+OpusMagnus is implemented in terms of WIP. But since these terms are still
+subject to change, performing operations on data_members that may not be
+there after a new release would result in errors.
+
+The same question, but now you're using
+
+class OpusMagnus
+{
+  WIP d_wip;
+  ...
+};
+
+Here composition is used and among other data members we define an object
+from class WIP as a data member. Once again when performing operations on
+data members that may not be there after a new release would results in errors.
+
+Show how the problem can be avoided by using a slightly different kind of
+composition.
+
+We can solve this by ???
