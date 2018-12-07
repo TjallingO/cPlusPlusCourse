@@ -1,0 +1,3 @@
+#include "extstring.h"
+
+using namespace std;
