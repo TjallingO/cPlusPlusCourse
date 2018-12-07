@@ -9,7 +9,8 @@ string *factory(string const &str, size_t count)
       tmp[idx] = str;
     return tmp;
     */
-    return new drstring(str);
+    cerr << "fac\n";
+    return new drstring(str, count);
 }
 
 
@@ -22,9 +23,9 @@ try
 {
 
   string str = " hello ";
-  string *str_ptr = factory(str, 10);
+  //string *str_ptr = factory(str, 10);
 
-  cout << *str_ptr << '\n';
+  cout << factory(str, 10) << '\n';
   /*
   string str = " hello ";
   string *str2 = factory(str ,10);

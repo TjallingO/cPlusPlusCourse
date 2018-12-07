@@ -3,13 +3,13 @@
 
 #include <string>
 
-class drstring
+class drstring : public std::string
 {
-    std::string d_str = 0;
+    std::string *d_str = 0;
 
   public:
     drstring();
-    drstring(std::string const &input);
+    drstring(std::string const &input, int count);
 
     std::string get_string();
 
