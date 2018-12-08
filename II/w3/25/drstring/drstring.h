@@ -9,9 +9,9 @@ class drstring : public std::string
 
   public:
     drstring();
-    drstring(std::string const &input, int count);
+    drstring(std::string const &input, size_t count);
 
-    std::string get_string();
+    std::string *get_string();
 
 
 };

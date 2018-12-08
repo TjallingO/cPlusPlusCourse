@@ -3,14 +3,10 @@
 
 string *factory(string const &str, size_t count)
 {
-  /*
-    string *tmp = new string[count];
-    for (size_t idx = 0; idx < count; ++idx)
-      tmp[idx] = str;
-    return tmp;
-    */
-    cerr << "fac\n";
-    return new drstring(str, count);
+  drstring o_dstr = drstring(str, count);
+  string tmp ;
+  //return new string = (o_dstr.get_string());
+  return new string tmp = o_dstr.get_string();
 }
 
 
@@ -23,20 +19,10 @@ try
 {
 
   string str = " hello ";
-  //string *str_ptr = factory(str, 10);
+  string *str2 = factory(str, 10);
 
-  cout << factory(str, 10) << '\n';
-  /*
-  string str = " hello ";
-  string *str2 = factory(str ,10);
-  for (size_t idx = 0; idx < 10; ++idx)
-    cout << str2[idx] << '\n';
+  cout << str2[2] << '\n';
 
-  for (size_t idx = 0; idx < 10; ++idx)
-    str2[idx].~string();
-
-  delete str2;
-  */
 
 
 }
