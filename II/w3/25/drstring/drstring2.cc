@@ -1,5 +1,5 @@
 #include "drstring.ih"
-
+/*
 drstring::drstring(string const &input, size_t count)
 :
 d_str(new string [count])
@@ -8,3 +8,4 @@ d_str(new string [count])
     d_str[idx] =  input;
 
 }
+*/

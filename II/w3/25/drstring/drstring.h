@@ -5,13 +5,15 @@
 
 class drstring : public std::string
 {
-    std::string *d_str = 0;
+    //std::string *d_str = 0;
 
   public:
-    drstring();
-    drstring(std::string const &input, size_t count);
+    //drstring();
+    //drstring(std::string const &input, size_t count);
 
-    std::string *get_string();
+    void* operator new(size_t count, std::string const &input);
+
+    //std::string *get_string();
 
 
 };
