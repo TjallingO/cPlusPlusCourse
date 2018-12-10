@@ -1,0 +1,30 @@
+Explain why, when Derived is derived from the Base the Base class is
+constructed before the Derived class, and the Base class is destroyed only
+after the Derived class has been destroyed.
+
+Since the derived class expands upon the base class first the base class has to
+be there and then extra can be added in the form of a derived class. Then when
+destroying the class, first the outer layer ( The derived class) has to be
+destroyed and then the center (The Base class) can be destroyed.
+
+An example:
+
+With the vehicle class as a base class, and car as a derived class. The derived
+class may add ,for example, more members. These members
+may use existing members from the base class. If the car class is constructed
+before the vehicle class, these members are not declared yet.
+
+When destroying the class, one first has to destroy the car class before
+one destroys the vehicle class since car class also contains the vehicle class
+so if the vehicle class is destroyed first, the pointer to where the car class
+"starts" is also gone, and where the rest of the class (The derived part) is
+stored is lost.
+
+
+When using placement new, or in the context of unrestricted unions, explicit
+destructor calls are encountered. Explain why code using such an explicit
+destructor calls for objects of a class Derived, which was derived from Base
+doesn't have to call explicitly the Base class's destructor.
+
+The base destructor is called by default by the compiler after the derived
+destructor has done its job.
