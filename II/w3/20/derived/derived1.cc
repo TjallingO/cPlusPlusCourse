@@ -1,7 +1,8 @@
 #include "derived.ih"
-/*
+
 Derived::Derived()
+:
+  Base::Base()
 {
-  cout << "derived default constructor\n";
+  cout << "Derived default constructor\n";
 }
-*/
