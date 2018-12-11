@@ -6,9 +6,13 @@
 
 class Derived: public Base
 {
+  size_t d_test = 0;
+
     public:
         Derived();
         void hello();
+
+        size_t test();
 
     private:
 };

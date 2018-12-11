@@ -1,23 +1,12 @@
 #include "main.ih"
 
-string *factory(string const &str, size_t size)
-{
-  static string tempString = str;
-
-  struct ExString: public string
-  {
-    ExString()
-    :
-      string(tempString)
-    {}
-  };
-  return new ExString[size];
-};
-
 int main(int argc, char const **argv)
 {
-  string const myString{ "goodbye" };
+  string const myString{ "test" };                // Testing
   string *myStringArray = factory(myString, 10);
-  cout << myStringArray[5];
-  delete[] myStringArray;
+  cout << myStringArray[5];                       // Testing
+  delete[] myStringArray;                         // Freeing memory
 }
+
+// Note: all this could be implemented in a proper class with a deconstructor,
+// this is just a proof of concept.
