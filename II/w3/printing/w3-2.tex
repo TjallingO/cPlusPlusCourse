@@ -1,0 +1,96 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[CO,CE]{
+                  Programming in C/C++ \\
+                  Tjalling Otter \& Emiel Krol
+                 }
+
+\usepackage{etoolbox}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{graphicx}
+
+\usepackage[usenames,dvipsnames]{color}  %% Allow color names
+
+\setlength\parindent{0pt}
+
+% New page for every section
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+
+% New page for every subsection
+%\let\stdsubsection\subsection
+%\renewcommand\subsection{\newpage\stdsubsection}
+
+% Use for source files
+\usepackage{listings}
+\lstdefinestyle{cc}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  language=C++,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{Gray},
+  stringstyle=\color{Black},
+  keywordstyle=\bfseries\color{OliveGreen},
+  identifierstyle=\color{blue},
+  numbers=left,
+  showstringspaces=false
+}
+
+% Use for inline code display in tex
+\usepackage{listings}
+\lstdefinestyle{in}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  language=C++,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{Gray},
+  stringstyle=\color{Black},
+  keywordstyle=\bfseries\color{OliveGreen},
+  identifierstyle=\color{blue},
+  numbers=left,
+  showstringspaces=false,
+  aboveskip=-0.5cm
+}
+
+% Use for inline display of output/code without highlighting
+
+\lstdefinestyle{text}{
+  title=\lstname,
+  belowcaptionskip=1\baselineskip,
+  breaklines=true, %% Wrap long lines
+  basicstyle=\small\ttfamily,
+  showstringspaces=false,
+  breakautoindent=true,
+  numbers=left,
+  showlines=true
+}
+
+%\newtoggle{aftersection}
+%\preto{\lstinputlisting}{\filbreak\global\toggletrue{aftersection}}
+%\preto{\subsection}{\iftoggle{aftersection}{\global\togglefalse{aftersection}}{\filbreak}}
+%\newcommand{\clearpageafterfirst}{%
+%  \gdef\clearpageafterfirst{\clearpage}%
+%}
+
+\begin{document}
+
+\section*{Week 3}
+
+\subsection*{Exercise 24}
+\input{../24-2/24-2.tex}
+
+\newpage
+\subsection*{Exercise 25}
+\lstinputlisting[style=cc]{../25-2/factory/factory.ih}
+\lstinputlisting[style=cc]{../25-2/factory/factory.cc}
+\lstinputlisting[style=cc]{../25-2/main.ih}
+\lstinputlisting[style=cc]{../25-2/main.cc}
+
+
+
+\end{document}
