@@ -4,18 +4,16 @@ void caller(Base &obj)
 {
   Derived &tmp = static_cast < Derived &> (obj);
   tmp.hello();
+  cout << tmp.test() << '\n';
 }
 
-//Bad practise since now we have a tmp derived class which has no members
-//other than the base members so when it needs to use members which a derived
-//object should have it gives an error. Which is unexpected behaviour.
+//Bad practise since now we have a tmp derived class which isnt properly
+//initialised, the derived test function should return zero since it should
+//have been intitialised to zero, it however returns a random size_t.
+
 
 int main(int argc, char const **argv)
 {
   Base myBase;
-  myBase.hello();
-  Derived myDerived;
-  myDerived.hello();
-  myDerived.Base::hello();
   caller(myBase);
 }

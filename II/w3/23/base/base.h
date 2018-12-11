@@ -7,6 +7,7 @@ class Base
 {
     public:
         Base();
+
         void hello()
         {
           std::cout << "Base says hello \n";
@@ -16,9 +17,3 @@ class Base
 };
 
 #endif
-/*
-inline void Base::hello()
-{
-  std::cout << "Base says hello \n";
-};
-*/
