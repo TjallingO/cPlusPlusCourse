@@ -3,7 +3,7 @@
 int main(int argc, char const **argv)   // Testing functionality of extString
 {
   string const myString("hello");
-  extString myExtString(15, myString);
-  cout << myExtString;
-  cout << myExtString.length();
+  ExtString myExtString(10, myString);
+  cout << myExtString << '\n'
+       << myExtString.length();
 }

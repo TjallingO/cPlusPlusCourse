@@ -3,10 +3,10 @@
 
 #include <string>
 
-class extString: public std::string
+class ExtString: public std::string
 {
     public:
-      extString(size_t count, std::string const &str);  // New fill constructor
+      ExtString(size_t count, std::string const &str);  // New fill constructor
 
     private:
 };
