@@ -2,7 +2,7 @@
 #define INCLUDED_DERIVED_
 
 
-class Derived
+class Derived: public Base
 {
     public:
         Derived();

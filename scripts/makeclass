@@ -18,7 +18,7 @@ sub makeDefaultConstructor
 {
     $defaultconstructor = 1;
 
-    local $file = "${dirname}1.cc";
+    local $file = "c_${dirname}.cc";
 
     return if existing $file;
 
@@ -198,9 +198,6 @@ sub makeInternalHeader
     open(FILE, ">$file") || die "Can't write $file: $!";
 
     print FILE "#include \"$dirname.h\"\n";
-
-    print FILE "//#include <iostream>\n";
-    print FILE "//#define CERR std::cerr << __FILE__\": \"\n";
 
     print FILE "#include <cstring>\n" if ($swap);
     print FILE "#include <utility>\n" if ($moveconstructor ||

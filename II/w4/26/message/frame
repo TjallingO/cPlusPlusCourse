@@ -1,5 +1,0 @@
-#include "message.ih"
-
-Message::
-{
-}
