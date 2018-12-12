@@ -7,19 +7,13 @@ class Base
 {
   public:
     Base();
-    void hello(std::ostream &out);
+    void hello(std::ostream &out)
+    {
+      vHello(out);
+    };
 
   private:
     virtual void vHello(std::ostream &out);
 };
 
 #endif
-
-inline void Base::hello(std::ostream &out)
-{
-  vHello(out);
-}
-inline void Base::vHello(std::ostream &out)
-{
-  out << "Hello from base \n";
-}

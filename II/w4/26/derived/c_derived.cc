@@ -1,6 +1,7 @@
 #include "derived.ih"
 
-Derived::Derived()
-//:
+Derived::Derived(string input)
+:
+  d_string(input)
 {
 }
