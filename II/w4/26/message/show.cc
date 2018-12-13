@@ -2,5 +2,5 @@
 
 void Message::show()
 {
-  d_base.hello(cout);
+  (*d_base).hello(cout);
 }

@@ -5,7 +5,7 @@
 
 class Message
 {
-        Base d_base;
+        Base *d_base;
     public:
         Message(Base &input);
         void show();
