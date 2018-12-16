@@ -1,0 +1,16 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "bistream/bistream.h"
+#include "bistreambuffer/bistreambuffer.h"
+
+namespace Icmbuild
+{
+    extern char version[];
+    extern char years[];
+    extern char author[];
+};
+
+void usage(std::string const &progname);
+
+using namespace std;

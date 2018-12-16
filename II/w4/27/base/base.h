@@ -7,8 +7,8 @@ class Base
 {
   public:
     Base();
-    virtual ~Base();
-    
+
+
     void hello(std::ostream &out)
     {
       vHello(out);

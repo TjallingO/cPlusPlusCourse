@@ -12,13 +12,10 @@ int main(int argc, char const **argv)
   o_message2.show();
 }
 
-//One Vtable per object per type that is used virtually for classes with
-//virtual functions. Base has a virtual function and derived has one
-//aswell.
-//Furthermore Base must have a virtual destructor. So since we have one base
-//object this one has 2 vtables and the 2 vpointers to these tables, we have
-//one 1 derived object with 3 pointers, of which 1 is to its own vtable and 2
-//to the vtables of base.
-//The other two objects are objects that are not virtual and their data member
-//is a reference to an already existing object so no new pointers or vtables
-//are created.
+//One Vtable per type that is used virtually for classes with
+//virtual functions. Base and Derived are both polymorphic.
+//So since we have one base object this one has 1 vtables with 1 vpointer
+//to this table, we have 1 derived object which has 1 vtable and 1 vpointer
+//to this vtable.The other two objects are objects that are not virtual and
+//their data member is a reference to an already existing object so no new
+//pointers or vtables are created.
