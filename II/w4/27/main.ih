@@ -11,6 +11,8 @@ namespace Icmbuild
     extern char author[];
 };
 
+Base **derivedFactory(size_t size);
+
 void usage(std::string const &progname);
 
 using namespace std;
