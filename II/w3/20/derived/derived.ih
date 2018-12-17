@@ -1,4 +1,5 @@
 #include "derived.h"
+#include "../base/base.ih"
 #include <iostream>
 //#define CERR std::cerr << __FILE__": "
 #include <cstring>

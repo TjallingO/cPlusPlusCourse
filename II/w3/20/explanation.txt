@@ -15,31 +15,33 @@ Derived move constructor
 
 So in all three cases the Base default constructor is used. After which the
 Derived default, copy or move constructor is called. So first a Base object is
-created then this is turned into a Derived object slicing away all the extra
-information from the Base object. And the values of this new derived object
-are assigned according to the called constructor.
+created then this is turned into a Derived object. And the values of this
+new derived object are assigned according to the called constructor.
 
-Changing the code such that the copy and move Base constructors are used
-by not declaring any derived constructors but instead declaring
-using Base::Base
-causes the compiler to use the Base constructors instead. So now we have
-the following output:
+Changing the code of derived constructors by adding :
+:Base::Base(), :Base::Base(other) and :Base::Base(tmp) before the function body
+of the default, copy and move constructors respectively makes the compiler use
+the desired Base constructors. So now we have the following output:
 
 Derived test1:
 Base default constructor
+Derived default constructor
 
 Derived test2(test1):
 Base copy constructor
+Derived copy constructor
 
 Derived test3(move(test2)):
 Base move constructor
+Derived move constructor
 
 So now the Base copy constructor is used when we use copy a Derived object
 and the Base move constructor is used when we move a Derived object.
 
-By not declaring a Base move constructor but declaring a Base copy constructor
-the Base copy constructor is used when calling the move constructor for a
-Derived Object.
+By removing the removing the const from the function parameter of the Derived
+copy constructor and calling the Base move constructor before the function body
+the derived copy constructor will call the Base move constructor when called.
 
-By not declaring either a Base copy or move constructor the Base move
-constructor is called when calling a copy constructor for a Derived object.
+By calling the Base copy constructor before the body of the Derived move
+constructor the compiler will use the Base copy constructor when the Derived
+move constructor is called.

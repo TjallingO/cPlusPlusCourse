@@ -1,0 +1,8 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+#include <iostream> // Just for testing correct initialisation of array
+#include <string>
+
+std::string *factory(std::string const &str, size_t size);
+
+using namespace std;

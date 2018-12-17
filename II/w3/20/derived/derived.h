@@ -6,12 +6,12 @@
 class Derived : public Base
 {
   public:
-    using Base::Base;
-/*
+  //using Base::Base;
+
     Derived();
-    Derived(Derived const &other);
+    Derived(Derived &other);
     Derived(Derived &&tmp);
-*/
+
     void value2() const;
 
 };
