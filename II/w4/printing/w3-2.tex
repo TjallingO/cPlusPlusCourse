@@ -1,5 +1,6 @@
 \documentclass[a4paper]{article}
 \usepackage[margin=2cm]{geometry}
+\usepackage[usenames,dvipsnames]{color}  %% Allow color names
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead[CO,CE]{
@@ -12,7 +13,7 @@
 \usepackage{float}
 \usepackage{graphicx}
 
-\usepackage[usenames,dvipsnames]{color}  %% Allow color names
+
 
 \setlength\parindent{0pt}
 
@@ -77,20 +78,40 @@
 %  \gdef\clearpageafterfirst{\clearpage}%
 %}
 
+\usepackage{tikz}
+\usepackage{tikz-qtree} % For hierarchy
+
 \begin{document}
 
-\section*{Week 3: III}
+\section*{Week 4}
 
-% Emiel: please check, is this everything?
-\subsection*{Exercise 20}
-\lstinputlisting[style=text]{../20/explanation.txt}
+\subsection*{Exercise 28}
+\input{../28/28.tex}
+
+\lstinputlisting[style=cc]{../28/handler/handler.h}
+
+\lstinputlisting[style=cc]{../28/msg/msg.h}
+\lstinputlisting[style=cc]{../28/msg/msg.ih}
+
+\lstinputlisting[style=cc]{../28/msg/show.cc}
+\lstinputlisting[style=cc]{../28/msg/valueof.cc}
+
+\lstinputlisting[style=cc]{../28/processor/processor.h}
+
+\lstinputlisting[style=cc]{../28/main.ih}
+\lstinputlisting[style=cc]{../28/main.cc}
 
 \newpage
-\subsection*{Exercise 22}
-\lstinputlisting[style=cc]{../22/extstring/extstring.h}
-\lstinputlisting[style=cc]{../22/extstring/extstring.ih}
-\lstinputlisting[style=cc]{../22/extstring/c_extstringFillS.cc}
-\lstinputlisting[style=cc]{../22/main.ih}
-\lstinputlisting[style=cc]{../22/main.cc}
+\subsection*{Exercise 30}
+\input{../30/30.tex}
+
+\newpage
+\subsection*{Exercise 32}
+\input{../32/fork.h}
+\input{../32/fork.ih}
+\input{../32/fork.cc}
+\input{../32/waitForChild.cc}
+
+\newpage
 
 \end{document}
