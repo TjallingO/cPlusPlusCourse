@@ -2,14 +2,11 @@
 
 Base **derivedFactory(size_t size)
 {
-/*
   Base **base = new Base *[size];
   //Derived *derived = new Derived [size];
 
   for (size_t idx = 0; idx < size; ++idx)
-      //base[idx] = new Derived;
-      base[idx] = newDerived(*base[idx]);
-
+      base[idx] = new Derived;
 
 
   //derived = 0;
@@ -18,9 +15,7 @@ Base **derivedFactory(size_t size)
 
 
   return base;
-*/
-  Derived **derived = new Derived *[size];
-  Base **base = dynamic_cast<Base **>(derived);
+
 
 }
 
