@@ -5,12 +5,12 @@
 
 class Message
 {
-        Base *d_base = 0;
-    public:
-        Message(Base &input);
-        void show();
+  private:
+    Base *d_base = 0;
 
-    private:
+  public:
+    Message(Base &input);
+    void show();
 };
 
 #endif
