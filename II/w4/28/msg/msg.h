@@ -5,8 +5,8 @@
 
 class Msg
 {
-  public:
-    enum message
+  private:
+    enum message                        // Original enum
     {
       NONE    = 0,
       DEBUG   = 1 << 0,
@@ -20,7 +20,7 @@ class Msg
       ALL     = (1 << 8) - 1
     };
 
-    size_t valueOf(message theEnum);
-    void show(message theEnum);
-};
+    size_t valueOf(message theEnum);  // Only these functions are implemented
+    void show(message theEnum);       // to illustrate the use of virtual
+};                                    // inheritance
 #endif

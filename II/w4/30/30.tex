@@ -6,7 +6,7 @@ Below is the class hierarchy of \texttt{Multi} at this point of the assignment. 
 \tikzstyle{every node}=[draw=black,thick]
 \tikzset{sibling distance=18pt}
 \begin{tikzpicture}[grow=up]
-\Tree [.Multi [.Deriv1 Basic ] [.Deriv2 Basic ] ]
+\Tree [.Multi [.Deriv2 Basic ] [.Deriv1 Basic ] ]
 \end{tikzpicture}
 
 \begin{itemize}
@@ -18,7 +18,7 @@ As can be seen from the illustration above, due to the way that \texttt{Deriv1} 
 \begin{itemize}
   \item Change the statement so that there is no compilation error
 \end{itemize}
-First, the cast can be done in a two-step fashion: first to either \texttt{Deriv1} or \texttt{Deriv2}, and then to its associated \texttt{Basic}. By doing so, the compiler knows which \texttt{Basic} parent is applicable. This is achieved as follows: \\
+First, the cast can be done in a two-step fashion: first to either \texttt{Deriv1} or \texttt{Deriv2}, and then to its associated \texttt{Basic}. By doing so, the compiler knows which \texttt{Basic} parent is applicable. This is achieved as follows: \\~\\
 
 \begin{lstlisting}[style=in, caption=c\_multi.cc]
 Multi::Multi()
@@ -27,7 +27,7 @@ Multi::Multi()
 }
 \end{lstlisting}
 
-Secondly, a \texttt{reinterpret\_cast} can be used instead, as follows. What this does is blindly interprets the \texttt{Multi} pointer (\texttt{this}) as a \texttt{Basic} pointer. Note that this is a very dangerous practice, and should be used with extreme caution, as there is a myriad of problems that can arise from this. \\
+Secondly, a \texttt{reinterpret\_cast} can be used instead, as follows. What this does is blindly interprets the \texttt{Multi} pointer (\texttt{this}) as a \texttt{Basic} pointer. Note that this is a very dangerous practice, and should be used with extreme caution, as there are a myriad of problems that can arise from this. \\~\\
 
 \begin{lstlisting}[style=in, caption=c\_multi.cc]
 Multi::Multi()
@@ -40,7 +40,7 @@ Multi::Multi()
   \item Show the required modifications to allow the compiler to compile the statement without errors
 \end{itemize}
 
-The best way to solve the compilation error without altering the statement would be to make use of virtual inheritance. As such, the class interface of \texttt{Deriv1} and \texttt{Deriv2} should be changed as follows: \\
+The best way to solve the compilation error without altering the statement would be to make use of virtual inheritance. As such, the class interface of \texttt{Deriv1} and \texttt{Deriv2} should be changed as follows: \\~\\
 
 \begin{lstlisting}[style=in, caption=deriv1.h]
 ...
@@ -60,7 +60,7 @@ class Deriv2: public virtual Basic
 \begin{itemize}
   \item How do you realize that this 2nd constructor is the only Basic constructor that's called
 \end{itemize}
-Without specifying otherwise, \texttt{Multi} directly calls the default constructor of \texttt{Basic}. To change this behaviour, explicitly calling the integer constructor in the initialisation list of \texttt{Multi}, as shown below, is the correct approach.
+Without specifying otherwise, \texttt{Multi} directly calls the default constructor of \texttt{Basic}. To change this behaviour, explicitly calling the integer constructor in the initialisation list of \texttt{Multi}, as shown below, is the correct approach. Of course the actual integer used here is just an example. \\~\\
 \begin{lstlisting}[style=in, caption=c\_multi.cc]
 #include "multi.ih"
 

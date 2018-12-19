@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+#include "base/base.h"
+#include "derived/derived.h"
+#include "message/message.h"
+
+namespace Icmbuild
+{
+    extern char version[];
+    extern char years[];
+    extern char author[];
+};
+
+Base **derivedFactory(size_t size);
+
+void usage(std::string const &progname);
+
+using namespace std;
