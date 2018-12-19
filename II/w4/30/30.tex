@@ -1,0 +1,56 @@
+\begin{itemize}
+  \item Draw \texttt{Multi}'s class hierarchy
+\end{itemize}
+Below is the class hierarchy of \texttt{Multi} at this point of the assignment. \\
+
+\tikzstyle{every node}=[draw=black,thick]
+\tikzset{sibling distance=18pt}
+\begin{tikzpicture}[grow=up]
+\Tree [.Multi [.Deriv1 Basic ] [.Deriv2 Basic ] ]
+\end{tikzpicture}
+
+\begin{itemize}
+  \item Explain the compiler's error message after the addition of the \texttt{static\_cast}
+\end{itemize}
+
+As can be seen from the illustration above, due to the way that \texttt{Deriv1} and \texttt{Deriv2} are constructed, \texttt{Basic} is included twice by the time \texttt{Multi} inherits from \texttt{Deriv1} and \texttt{Deriv2}. Hence, the compiler indicates that it does not know which \texttt{Basic} to cast to.
+
+\begin{itemize}
+  \item Change the statement so that there is no compilation error
+\end{itemize}
+First, the cast can be done in a two-step fashion: first to either \texttt{Deriv1} or \texttt{Deriv2}, and then to the associated \texttt{Basic}. This is achieved as follows:
+\begin{lstlisting}[style=in]
+Multi::Multi()
+{
+  cout << static_cast<Basic *>(static_cast<Deriv1 *>(this)) << '\n';
+}
+\end{lstlisting}
+
+Secondly, a \texttt{reinterpret\_cast} can be used instead, as follows. Note that this is a very dangerous practice, and should be used with extreme caution.
+\begin{lstlisting}[style=in]
+Multi::Multi()
+{
+  cout << reinterpret_cast<Basic *>(this) << '\n';
+}
+\end{lstlisting}
+
+\begin{itemize}
+  \item Show the required modifications to allow the compiler to compile the statement without errors
+\end{itemize}
+
+The best way to solve the compilation error without altering the statement would be to make use of virtual inheritance. As such, the class declaration of \texttt{Deriv1} and \texttt{Deriv2} should be changed as follows:
+
+\begin{lstlisting}[style=in]
+...
+class Deriv1: public virtual Basic
+{
+};
+...
+\end{lstlisting}
+\begin{lstlisting}[style=in]
+...
+class Deriv2: public virtual Basic
+{
+};
+...
+\end{lstlisting}

@@ -1,0 +1,8 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+#include "handler/handler.h"
+#include "processor/processor.h"
+
+#include <iostream>               // Just for testing
+
+using namespace std;
