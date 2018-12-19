@@ -1,7 +1,7 @@
 #ifndef INCLUDED_MSG_
 #define INCLUDED_MSG_
 
-#include <stddef.h>
+#include <cstddef>
 
 class Msg
 {
