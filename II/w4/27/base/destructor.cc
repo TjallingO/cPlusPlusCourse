@@ -2,4 +2,5 @@
 
 Base::~Base()
 {
+  //cout << "Base D\n";
 }

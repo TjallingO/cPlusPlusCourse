@@ -12,6 +12,8 @@ namespace Icmbuild
 };
 
 Base **derivedFactory(size_t size);
+Base *newDerived(Base obj);
+
 
 void usage(std::string const &progname);
 

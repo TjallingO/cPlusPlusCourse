@@ -11,6 +11,8 @@ class Derived: public Base
         Derived();
         Derived(std::string const &input);
 
+        ~Derived();
+
     private:
         void vHello(std::ostream &out) override
         {
