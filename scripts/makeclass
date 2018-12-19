@@ -265,40 +265,40 @@ H1
 
     print FILE <<H1;
 {
-    public:
+  public:
 H1
 
     print FILE <<H2 if $defaultconstructor;
-        $classname();
+    $classname();
 H2
 
     print FILE <<H3 if $copyconstructor;
-        $classname($classname const \&other);
+    $classname($classname const \&other);
 H3
 
     print FILE <<H3a if $moveconstructor;
-        $classname($classname \&\&tmp);
+    $classname($classname \&\&tmp);
 H3a
 
     print FILE <<H4 if $destructor;
-        ~$classname();
+    ~$classname();
 H4
 
     print FILE <<H5 if $assignmentoperator;
-        $classname \&operator=($classname const \&other);
+    $classname \&operator=($classname const \&other);
 H5
 
     print FILE <<H5a if $moveassignmentoperator;
-        $classname \&operator=($classname \&\&tmp);
+    $classname \&operator=($classname \&\&tmp);
 H5a
 
     print FILE <<H5 if $swap || $useBobcatSwap;
-        void swap($classname \&other);
+    void swap($classname \&other);
 H5
 
     print FILE <<HP;
 
-    private:
+  private:
 };
 HP
 
