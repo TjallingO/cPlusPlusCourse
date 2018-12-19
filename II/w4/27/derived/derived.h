@@ -5,11 +5,11 @@
 
 class Derived: public Base
 {
-        std::string d_string = 0;
+        std::string d_string = "";
 
     public:
         Derived();
-        Derived(std::string input);
+        Derived(std::string const &input);
 
     private:
         void vHello(std::ostream &out) override

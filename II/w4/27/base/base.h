@@ -5,17 +5,23 @@
 
 class Base
 {
-  public:
-    Base();
-    virtual ~Base();
+      std::string d_string = ""; //not used in Base but added here so that
+                                 //Derived can use it and we can still use
+                                 //the **Factory function without the strings
+                                 //becoming gibberish for the first half due
+                                 //to the classes having a different size.
 
-    void hello(std::ostream &out)
-    {
-      vHello(out);
-    };
+    public:
+      Base();
+      virtual ~Base();
 
-  private:
-    virtual void vHello(std::ostream &out);
+      void hello(std::ostream &out)
+      {
+        vHello(out);
+      };
+
+    private:
+      virtual void vHello(std::ostream &out);
 };
 
 #endif

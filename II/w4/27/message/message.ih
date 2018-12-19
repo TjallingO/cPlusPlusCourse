@@ -1,5 +1,4 @@
 #include "message.h"
-#include "../base/base.h"
 #include <iostream>
 
 using namespace std;
