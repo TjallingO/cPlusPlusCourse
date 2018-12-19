@@ -5,19 +5,18 @@
 
 class Derived: public Base
 {
-        std::string d_string = "";
+  private:
+    std::string d_string = "";
 
-    public:
-        Derived();
-        Derived(std::string const &input);
+  public:
+    Derived();
+    Derived(std::string const &input);
 
-    private:
-        void vHello(std::ostream &out) override
-        {
-          out << d_string << '\n';
-        }
+  private:
+    void vHello(std::ostream &out) override
+    {
+      out << d_string << '\n';
+    }
 };
-
-
 
 #endif
