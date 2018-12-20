@@ -8,39 +8,39 @@
 
 class Strings
 {
-    std::vector<std::string> d_vStrings;  // New container for strings
+  std::vector<std::string> d_vStrings;  // New container for strings
 
-    public:
-        Strings() = default;              // No need for another constructor
-        ~Strings() = default;             // or destructor
+  public:
+    Strings() = default;              // No need for another constructor
+    ~Strings() = default;             // or destructor
 
-        Strings(int argc, char *argv[]);  // Argc/argv constructor
-        Strings(char **environLike);      // Environ constructor
+    Strings(int argc, char *argv[]);  // Argc/argv constructor
+    Strings(char **environLike);      // Environ constructor
 
-        size_t size() const;
-        size_t capacity() const;
-        std::string const &at(size_t idx) const;  // Only const at
+    size_t size() const;
+    size_t capacity() const;
+    std::string const &at(size_t idx) const;  // Only const at
 
-        void add(std::string const &next);        // Adding
-        // Not private since it can be used by user as well
+    void add(std::string const &next);        // Adding
+    // Not private since it can be used by user as well
 
-        void resize(size_t newSize);
-        void reserve(size_t newCapacity);
+    void resize(size_t newSize);
+    void reserve(size_t newCapacity);
 
-        void operator+=(std::string const &next);         // Operators
-        std::string const &operator[](size_t idx) const;
+    void operator+=(std::string const &next);         // Operators
+    std::string const &operator[](size_t idx) const;
 
-        void print() const;                         // Just for testing
+    void print() const;                         // Just for testing
 };
 
-inline size_t Strings::size() const         // potentially dangerous practice:
-{                                           // inline accessors
-    return d_vStrings.size();
+inline size_t Strings::size() const
+{
+  return d_vStrings.size();
 }
 
-inline size_t Strings::capacity() const     // potentially dangerous practice:
-{                                           // inline accessors
-    return d_vStrings.capacity();
+inline size_t Strings::capacity() const
+{
+  return d_vStrings.capacity();
 }
 
 inline void Strings::resize(size_t newSize)
