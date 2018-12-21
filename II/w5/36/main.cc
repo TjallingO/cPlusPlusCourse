@@ -12,6 +12,6 @@ int main(int argc, char const **argv)
 
   cout << "\nSorted input: \n";
                                     // Output
-  for (auto idx = sortedStrings.begin(); idx != sortedStrings.end(); ++idx)
-  	std::cout << *idx << ' ';
+  for (const auto &word: sortedStrings)
+  	std::cout << word << ' ';
 }

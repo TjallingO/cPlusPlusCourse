@@ -13,6 +13,6 @@ int main(int argc, char const **argv)
   cout << "\nSorted input: \n"
        << "String \t\tCount \n";
                                     // Output
-  for (auto idx = sortedStrings.begin(); idx != sortedStrings.end(); ++idx)
-  	std::cout << *idx << "\t\t" << sortedStrings.count(*idx) << '\n';
+  for (const auto &word: sortedStrings)
+  	std::cout << word << "\t\t" << sortedStrings.count(word) << '\n';
 }
