@@ -1,7 +1,6 @@
 #define ERR(msg) printf("%s : %d", (msg), __LINE__)
 
+#include "vectorclass/vectorclass.h"
 #include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;

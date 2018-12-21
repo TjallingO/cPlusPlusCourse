@@ -1,0 +1,8 @@
+Size: 125
+Capacity: 125
+- Now adding one more word
+Size: 126
+Capacity: 250
+- Now shedding capacity
+Size: 126
+Capacity: 126

@@ -4,30 +4,34 @@
 
 int main(int argc, char const **argv)
 {
-  std::vector<std::string> words;
+  set<std::string> setWords;
   char const *filename = { "example.txt" };
-  std::ifstream input(filename);
+  ifstream input(filename);
 
   if ( input.is_open() )
   {
     std::string word;
     while (input >> word)
-    {
-      for (auto idx = words.begin(); idx != words.end(); ++idx)
-        if (word == *idx)
-          break;
-      
-    }
+      setWords.insert(word);
   }
+
+  vector words(setWords.begin(), setWords.end());
+
   cout << "Size: " << words.size() << '\n'
        << "Capacity: " << words.capacity() << '\n'
-       << "Now adding one more word \n";
+       << "- Now adding one more word \n";
 
   words.push_back("wsdfjasedfsdf");
 
   cout << "Size: " << words.size() << '\n'
+       << "Capacity: " << words.capacity() << '\n'
+       << "- Now shedding capacity \n";
+
+  words = vector(words);
+
+  cout << "Size: " << words.size() << '\n'
        << "Capacity: " << words.capacity() << '\n';
 
-  for (auto idx = words.begin(); idx != words.end(); ++idx)
-    std::cout << *idx << ' ';
+  //for (auto idx = words.begin(); idx != words.end(); ++idx)
+  //  cout << *idx << ' ';
 }
