@@ -8,11 +8,11 @@
 
 class Strings
 {
-  std::vector<std::string> d_vStrings;  // New container for strings
+  std::vector<std::string*> d_vStrings;  // New container for strings
 
   public:
     Strings() = default;              // No need for another constructor
-    ~Strings() = default;             // or destructor
+    ~Strings();                       // But a destructor is needed
 
     Strings(int argc, char *argv[]);  // Argc/argv constructor
     Strings(char **environLike);      // Environ constructor
@@ -33,14 +33,17 @@ class Strings
     void print() const;                         // Just for testing
 };
 
-#endif
-
 inline void Strings::operator+=(std::string const &next)
 {
   add(next);
 }
 
-// The following inline implementations were outside the scope of the assignment
+inline std::string const &Strings::operator[](size_t idx) const
+{
+  return at(idx);
+}
+
+// The following inline implementations were outside of the scope of the assignment
 
 inline size_t Strings::size() const
 {
@@ -62,13 +65,10 @@ inline void Strings::reserve(size_t newCapacity)
   d_vStrings.reserve(newCapacity);
 }
 
-inline std::string const &Strings::operator[](size_t idx) const
-{
-  return at(idx);
-}
-
 inline void Strings::print() const          // Testing
 {
   for (auto idx = d_vStrings.begin(); idx != d_vStrings.end(); ++idx)
-    std::cout << *idx << '\n';
+    std::cout << **idx << '\n';
 }
+
+#endif

@@ -1,0 +1,8 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+#include "strings/strings.h"
+
+#include <iostream>     // For testing functionality
+extern char **environ;  // Same
+
+using namespace std;
