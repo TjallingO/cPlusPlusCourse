@@ -12,6 +12,8 @@ int main(int argc, char **argv)
   for (size_t idx = 0; idx != container.bucket_count(); ++idx)
     if ( container.bucket_size(idx) != 0 )
       ++nUniqueKeys;
-
+  // Vector creates buckets to store pairs with unique and equal (hashed)
+  // keys together, but some are empty, so this 'filters' those out
+  
   cout << "There are " << nUniqueKeys << " unique keys in the container\n";
 }
