@@ -1,0 +1,12 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+#include <unordered_map>
+#include <string>
+#include <iostream> // For testing: print()
+#include <fstream>  // For testing: fill()
+
+using namespace std;
+
+// These are for my own benefit:
+void fill(unordered_multimap<string, string> &container);
+void print(unordered_multimap<string, string> const &container);
