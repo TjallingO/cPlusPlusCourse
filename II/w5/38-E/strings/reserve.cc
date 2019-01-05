@@ -1,6 +1,6 @@
 #include "strings.ih"
 
-void Strings::resize(size_t newsize)
+void Strings::reserve(size_t newsize)
 {
-  d_str.resize(newsize);
+  d_str.reserve(newsize);
 }

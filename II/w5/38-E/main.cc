@@ -2,6 +2,10 @@
 
 int main(int argc, char **argv)
 {
+  Strings zero(environ);
+  cout << zero.capacity() << '\n';
+
+
   Strings one("hello");
   one.add("bye");
   one += "ok";
@@ -12,10 +16,10 @@ int main(int argc, char **argv)
   << one.capacity() << '\n';
 
   Strings two(one);
-  cout << two[2] << '\n';
+  two.print();
   two.resize(1);
-  cout << two[2] << '\n'
-  << two.capacity() << '\n';
+  two.print();
   two.reserve(1);
-  cout << two.capacity() << '\n';
+  two.print();
+  cout << two[2] << '\n';
 }

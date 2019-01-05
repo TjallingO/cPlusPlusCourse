@@ -12,3 +12,4 @@ namespace Icmbuild
 void usage(std::string const &progname);
 
 using namespace std;
+extern char **environ; 

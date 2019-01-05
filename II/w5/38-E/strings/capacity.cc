@@ -2,5 +2,5 @@
 
 size_t Strings::capacity()
 {
-  return d_str.max_size();
+  return d_str.capacity();
 }
