@@ -17,6 +17,8 @@ class Strings
     Strings(int argc, char *argv[]);  // Argc/argv constructor
     Strings(char **environLike);      // Environ constructor
 
+    Strings(const Strings &ogStrings);  // Needs a novel copy constructor
+
     size_t size() const;
     size_t capacity() const;
     std::string const &at(size_t idx) const;  // Only const at
