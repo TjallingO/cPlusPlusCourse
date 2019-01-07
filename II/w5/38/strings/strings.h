@@ -40,6 +40,11 @@ inline void Strings::operator+=(std::string const &next)
   add(next);
 }
 
+inline std::string const &Strings::at(size_t idx) const
+{
+  return d_vStrings.at(idx);  // Already throws if out of range
+}
+
 // The following inline implementations were outside the scope of the assignment
 
 inline size_t Strings::size() const
