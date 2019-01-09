@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.14)  22 DEC 2018 00:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.14)  10 JAN 2019 00:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -281,35 +281,35 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 ] (../37/main.ih)
 (../37/main.cc) [2] (../38/strings/strings.h [3]) (../38/strings/strings.ih)
-(../38/strings/add.cc) (../38/strings/at.cc)
-(../38/strings/c_stringsArgcArgv.cc) (../38/strings/c_stringsEnv.cc) [4]
-(../39/strings/strings.h [5]) (../39/strings/strings.ih) (../39/strings/add.cc)
-(../39/strings/at.cc) (../39/strings/c_stringsArgcArgv.cc)
-(../39/strings/c_stringsEnv.cc) [6] (../40/40.tex) (../40/testing/main.ih)
-(../40/testing/main.cc) (../40/testing/output.txt) [7]
+(../38/strings/add.cc) (../38/strings/c_stringsArgcArgv.cc)
+(../38/strings/c_stringsEnv.cc) [4] (../39/strings/strings.h [5])
+(../39/strings/strings.ih) (../39/strings/add.cc) (../39/strings/at.cc)
+(../39/strings/c_stringsArgcArgv.cc) (../39/strings/c_stringsCopy.cc)
+(../39/strings/c_stringsEnv.cc [6]) [7] (../40/40.tex) (../40/testing/main.ih)
+(../40/testing/main.cc) (../40/testing/output.txt) [8]
 (../40/class/vectorclass/vectorclass.h) (../40/class/vectorclass/vectorclass.ih
 ) (../40/class/vectorclass/c_vectorclassFile.cc)
-(../40/class/vectorclass/swap.cc [8]) (../40/class/main.ih)
+(../40/class/vectorclass/swap.cc [9]) (../40/class/main.ih)
 (../40/class/main.cc) (../40/class/output.txt) (../40/class/explain.tex)
-[9] (../41/main.ih) (../41/main.cc) [10] (./w5.aux) ) 
+[10] (../41/main.ih) (../41/main.cc) [11] (./w5.aux) ) 
 Here is how much of TeX's memory you used:
- 4274 strings out of 494923
- 61135 string characters out of 6180741
- 275644 words of memory out of 5000000
- 7463 multiletter control sequences out of 15000+600000
+ 4279 strings out of 494923
+ 61216 string characters out of 6180741
+ 278644 words of memory out of 5000000
+ 7467 multiletter control sequences out of 15000+600000
  5837 words of font info for 22 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,12n,68p,826b,1624s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmtt9.pfb>
-Output written on w5.pdf (10 pages, 95555 bytes).
+</usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmtt9.pfb>
+Output written on w5.pdf (11 pages, 96810 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
