@@ -15,7 +15,9 @@ class Strings
       Strings(std::string const &input);
       Strings(int argc, char *argv[]);
       Strings(char **environLike);
+
       Strings(const Strings& input);
+    
 
       void add(std::string const &input);
       size_t size();

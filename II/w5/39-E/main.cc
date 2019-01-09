@@ -14,6 +14,7 @@ int main(int argc, char **argv)
   << one[1] << '\n'
   << one[2] << '\n'
   << one.capacity() << '\n';
+  one.print();
 
   Strings two(one);
   two.print();
@@ -22,5 +23,9 @@ int main(int argc, char **argv)
   two.reserve(1);
   two.print();
   //cout << two[2] << '\n';
-  
+
+  cout << "swaptest\n";
+  Strings three(move(two));
+  three.print();
+
 }

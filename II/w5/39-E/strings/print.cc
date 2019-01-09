@@ -7,5 +7,5 @@ void Strings::print() const          // Testing
     cout << *idx << '\n';
     */
   for (const auto &idx: d_str)
-    cout << idx << '\n';
+    cout << *idx << '\n';
 }
