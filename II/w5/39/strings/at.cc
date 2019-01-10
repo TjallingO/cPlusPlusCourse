@@ -7,3 +7,4 @@ string const &Strings::at(size_t idx) const
 
   return *d_vStrings[idx];
 }
+// A seperate at() function is necessary here because of the indirection
