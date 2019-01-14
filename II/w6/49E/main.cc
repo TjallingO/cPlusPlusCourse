@@ -5,7 +5,7 @@
 int main(int argc, char const **argv)
 {
   vector<Student> vStudents;
-  read(string("info.txt"), vStudents);
+  read(string(argv[1]), vStudents);
 
   writeNames(vStudents);
 
