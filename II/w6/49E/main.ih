@@ -1,0 +1,15 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+using namespace std;
+
+#include "student/student.h"
+
+#include <vector>
+#include <fstream>
+#include <iostream>
+#include <algorithm>
+
+void read(string fileName, vector<Student> &vStudents);
+string toLower(string toLowerCase);
+void writeNames(vector<Student> const &vStudents);
+void writeNrs(vector<Student> vStudents, vector<size_t> vIndices);
