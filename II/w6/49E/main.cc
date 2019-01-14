@@ -7,31 +7,14 @@ int main(int argc, char const **argv)
   vector<Student> vStudents;
   read(string(argv[1]), vStudents);
 
-  writeNames(vStudents);
-
-  sort(
-       vStudents.begin(),
-       vStudents.end(),
-       [](Student left, Student right)
-       {
-         return toLower(left.lastName()) < toLower(right.lastName());
-       }
-      );
+  sortByName(vStudents);
 
   writeNames(vStudents);
 
   vector<size_t> vIndices(vStudents.size());
   iota(vIndices.begin(), vIndices.end(), 0); //zou loopje moeten als numeric
                                              //niet mag
-
-  sort(
-       vIndices.begin(),
-       vIndices.end(),
-       [vStudents](int left, int right)
-       {
-         return vStudents[left].sNo() < vStudents[right].sNo();
-       }
-      );
+  sortByNr(vStudents, vIndices);
 
   writeNrs(vStudents, vIndices);
 }
