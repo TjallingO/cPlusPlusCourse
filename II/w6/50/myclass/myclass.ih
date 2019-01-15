@@ -1,0 +1,9 @@
+#include "myclass.h"
+//#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <istream>
+#include <iterator>
+//#define CERR std::cerr << __FILE__": "
+
+using namespace std;

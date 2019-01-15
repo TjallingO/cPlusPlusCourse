@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <istream>
+
+#include "myclass/myclass.ih"
+
+namespace Icmbuild
+{
+    extern char version[];
+    extern char years[];
+    extern char author[];
+};
+
+void usage(std::string const &progname);
+
+using namespace std;
+
+void read(istream &input, vector<string> &vs);
+//istream &operator>>(std::istream &istr, std::vector<std::string> &vs);
