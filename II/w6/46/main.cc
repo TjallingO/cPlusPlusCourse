@@ -20,7 +20,7 @@ int main(int argc, char **argv)
     cout << idx << '\t';
   cout << '\n';
 
-  auto it2 = find_if(
+  auto it = find_if(
                      numbers.begin(),
                      numbers.end(),
                      [lookupVal](const size_t & val)
@@ -31,9 +31,9 @@ int main(int argc, char **argv)
                      }
                     );
 
-  if (it2 != numbers.end())
+  if (it != numbers.end())
     cout << "The first value exceeding " << lookupVal << " is at index "
-         << distance(numbers.begin(), it2) << '\n';
+         << distance(numbers.begin(), it) << '\n';
   else
     cout << "No random value exceeds " << lookupVal << '\n';
 

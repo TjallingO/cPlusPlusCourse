@@ -16,3 +16,13 @@ int main(int argc, char **argv)
   for(auto it: vs)
     cout << it << '\n';
 }
+
+/*
+If we had used to use istream &operator>>(std::istream &istr, std::string &str)
+rather than std::istream &operator>>(std::istream & is, Line &line)
+(in line.h) Then we would have extracted individual words rather than lines.
+This is due to how istream_iterator<string> iterating works. It would use the
+extraction operator to a string which is coded this way. By instead using
+a istream_iterator<Line> we can create our own extraction operator which
+returns lines instead of words.
+*/

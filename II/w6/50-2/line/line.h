@@ -4,7 +4,7 @@
 
 class Line : public std::string
 {
-    friend std::istream &operator>>(std::istream & is, Line &line)
+    friend std::istream &operator>>(std::istream &is, Line &line)
     {
       return std::getline(is, line);
     }
