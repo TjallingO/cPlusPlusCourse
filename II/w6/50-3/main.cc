@@ -2,7 +2,7 @@
 
 void read_lines(std::istream &is, vector<string> &dest)
 {
-  std::copy(std::istream_iterator<Line>(is), std::istream_iterator<Line>(), dest.end());
+  std::copy(std::istream_iterator<Line>(is), std::istream_iterator<Line>(), back_inserter(dest));
 }
 
 int main(int argc, char **argv)
