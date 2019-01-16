@@ -33,7 +33,7 @@ int main(int argc, char const **argv)
   data.insert( data.end(), data2.begin(), data2.end() );
   // Insert data2 at the end of data
 
-  data.erase( unique(data.begin(), data.end()), data.end() );
+  data.erase( unique( data.begin(), data.end() ), data.end() );
   // Erase all non unique entries in data
 
   vector<string>(data).swap(data);

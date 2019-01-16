@@ -1,16 +1,7 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <iterator>
 #include "line/line.h"
-#include "vector"
-#include "iterator"
-
-namespace Icmbuild
-{
-    extern char version[];
-    extern char years[];
-    extern char author[];
-};
-
-void usage(std::string const &progname);
 
 using namespace std;

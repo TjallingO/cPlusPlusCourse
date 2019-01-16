@@ -15,7 +15,7 @@ int main(int argc, char const **argv)
   copy(
        istream_iterator<string>(cin),
        istream_iterator<string>(),
-       inserter(iStrings,iStrings.end())
+       inserter(iStrings, iStrings.end())
       );
 
   // Or: set<string> iStrings((istream_iterator<string>(cin)),
