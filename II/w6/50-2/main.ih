@@ -5,3 +5,5 @@
 #include "line/line.h"
 
 using namespace std;
+
+void operator>>(istream &istr, vector<string> &dest);
