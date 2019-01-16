@@ -1,18 +1,17 @@
-#include "main.ih"
 #include <vector>
 #include <algorithm>
-#include <functional>
-#include <iterator>
+#include <iostream>
+#include <string>
 
-
+using namespace std;
 
 int main(int argc, char **argv)
 {
-  int nrRvalues = stoi(argv[1]);
-  int maxRvalue = stoi(argv[2]);
-  int lookupVal = stoi(argv[3]);
+  size_t nrRvalues = stoi(argv[1]);
+  size_t maxRvalue = stoi(argv[2]);
+  size_t lookupVal = stoi(argv[3]);
 
-  vector<int> numbers;
+  vector<size_t> numbers;
 
   for (size_t idx = 0; idx < nrRvalues; ++idx)
     numbers.push_back(random() % (maxRvalue + 1)); //adding a random number
@@ -21,18 +20,10 @@ int main(int argc, char **argv)
     cout << idx << '\t';
   cout << '\n';
 
-//manier 1
-  int upbound = *find(numbers.begin(), numbers.end(), lookupVal + 1);
-  auto it =
-  find(numbers.begin(), numbers.end(), upbound);
-  cout << "The first value exceeding " << lookupVal << " is at index "
-  << distance(numbers.begin(), it)  << '\n';
-
-//manier 2, hier met lambda
   auto it2 = find_if(
                      numbers.begin(),
                      numbers.end(),
-                     [lookupVal](const int & val)
+                     [lookupVal](const size_t & val)
                      {
                        if (val > lookupVal)
                          return true;
