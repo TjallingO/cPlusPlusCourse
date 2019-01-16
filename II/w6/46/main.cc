@@ -25,22 +25,24 @@ int main(int argc, char **argv)
   int upbound = *find(numbers.begin(), numbers.end(), lookupVal + 1);
   auto it =
   find(numbers.begin(), numbers.end(), upbound);
-  cout << "The first value exceeding "  << lookupVal << " is at index "
+  cout << "The first value exceeding " << lookupVal << " is at index "
   << distance(numbers.begin(), it)  << '\n';
 
 //manier 2, hier met lambda
-  auto it2 = find_if(numbers.begin(), numbers.end(),
-    [lookupVal](const int & val)
-      {
-        if (val > lookupVal)
-          return true;
-        return false;
-      }
-  );
+  auto it2 = find_if(
+                     numbers.begin(),
+                     numbers.end(),
+                     [lookupVal](const int & val)
+                     {
+                       if (val > lookupVal)
+                         return true;
+                       return false;
+                     }
+                    );
 
-  if(it2 != numbers.end())
+  if (it2 != numbers.end())
     cout << "The first value exceeding " << lookupVal << " is at index "
-    << distance(numbers.begin(), it2) << '\n';
+         << distance(numbers.begin(), it2) << '\n';
   else
     cout << "No random value exceeds " << lookupVal << '\n';
 
