@@ -4,14 +4,20 @@ int main(int argc, char const **argv)
 {
   ifstream textFile(argv[1]); // Open file1
 
-  vector<string> data((istream_iterator<string>(textFile)), istream_iterator<string>());
+  vector<string> data(
+                      (istream_iterator<string>(textFile)),
+                      istream_iterator<string>()
+                     );
   // Construct vector data using istream iterator that goes through file1
 
   textFile.close(); // Close file1
   textFile.clear(); // Clear flags
   textFile.open(argv[2]); // Open file2
 
-  vector<string> data2((istream_iterator<string>(textFile)), istream_iterator<string>());
+  vector<string> data2(
+                       (istream_iterator<string>(textFile)),
+                       istream_iterator<string>()
+                      );
   // Construct vector data using istream iterator that goes through file2
 
   remove_if(

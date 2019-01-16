@@ -16,6 +16,7 @@ int main(int argc, char const **argv)
              cout << ++nO << '\n';
            }
           );
+
   // The same, but now the numbers are incremented in the vector, as well as
   // printed
   // This could not be accomplished with copy
