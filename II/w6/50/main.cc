@@ -5,7 +5,7 @@ int main(int argc, char **argv)
   myClass test;
   vector<string> vs;
   //read(cin, vs);
-
+/*
   cin >> test;
   vs = test;
 
@@ -14,4 +14,8 @@ int main(int argc, char **argv)
 
   for(auto it: test)
     cout << it << '\n';
+*/
+  cin >> test;
+  test.print();
+
 }

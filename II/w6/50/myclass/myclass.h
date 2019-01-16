@@ -2,13 +2,24 @@
 #define INCLUDED_MYCLASS_
 
 #include <vector>
-
+#include <set>
 #include <istream>
+#include <iterator>
 
-class myClass: public std::vector<std::string>
+class myClass
 {
-      friend std::istream &operator>>(std::istream &istr, std::vector<std::string> &vs);
+    std::vector<std::string> vs;
+
+    friend std::istream &operator>>(std::istream &istr, myClass &wrapper);
+
+    struct lines
+    {
+      std::string d_line;
+    };
+
     public:
+      void print();
+      //std::istream &operator>>(std::istream &istr);
 
       //virtual ~myClass();
     private:
