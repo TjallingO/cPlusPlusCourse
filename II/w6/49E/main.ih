@@ -8,6 +8,7 @@ using namespace std;
 #include <fstream>
 #include <iostream>
 #include <algorithm>
+#include <numeric>
 
 void read(string fileName, vector<Student> &vStudents);
 string toLower(string toLowerCase);

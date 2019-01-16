@@ -5,7 +5,7 @@
 
 class Student
 {
-  private:
+
     std::string d_name;
     std::string d_lastName;
     size_t      d_sNo;

@@ -1,6 +1,5 @@
 #include "student.ih"
 
-#include <iomanip> //magdatt??
 
 void Student::printName()
 {

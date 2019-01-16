@@ -1,20 +1,22 @@
 #include "main.ih"
 
-#include <numeric> //zal wel niet mogen?
 
 int main(int argc, char const **argv)
 {
   vector<Student> vStudents;
-  read(string(argv[1]), vStudents);
+  read(string(argv[1]), vStudents); //reading input from file
 
-  sortByName(vStudents);
+  sortByName(vStudents);            //sorting by name
 
-  writeNames(vStudents);
+  writeNames(vStudents);            //printing sorted vector with names
 
   vector<size_t> vIndices(vStudents.size());
-  iota(vIndices.begin(), vIndices.end(), 0); //zou loopje moeten als numeric
-                                             //niet mag
-  sortByNr(vStudents, vIndices);
+  iota(vIndices.begin(), vIndices.end(), 0); //filling indices with values
+                                             //0,1,...,n where n is the last
+                                             //element
 
-  writeNrs(vStudents, vIndices);
+  sortByNr(vStudents, vIndices);             //sorting by student number
+
+  writeNrs(vStudents, vIndices);             //printing student number and
+                                             //grade
 }
