@@ -1,19 +1,18 @@
 #include "main.ih"
 
-template<class Out>
-void read_lines(std::istream &is, Out dest)
-  {
-    typedef std::istream_iterator<Line> InIt;
-    std::copy(InIt(is), InIt(), dest);
-  }
+//#include <set>
 
+void read_lines(std::istream &is, vector<string> &dest)
+{
+  std::copy(std::istream_iterator<Line>(is), std::istream_iterator<Line>(),
+   inserter(dest, dest.begin()));
+}
 
 int main(int argc, char **argv)
 {
   vector<string> vs;
-  read_lines(cin, back_inserter(vs));
+  read_lines(cin, vs);
 
   for(auto it: vs)
     cout << it << '\n';
-
 }
