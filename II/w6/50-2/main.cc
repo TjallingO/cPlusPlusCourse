@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 
   cin >> vs;
 
-  for(auto it: vs)
+  for (auto it: vs)
     cout << it << '\n';
 }
 
