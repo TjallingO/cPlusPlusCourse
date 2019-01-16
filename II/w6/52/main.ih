@@ -1,8 +1,10 @@
 #define ERR(msg) printf("%s : %d", (msg), __LINE__)
 
-using namespace std;
-
 #include <vector>
+#include <string>
 #include <algorithm>
-#include <iterator>
 #include <iostream>
+#include <fstream>
+#include <iterator>
+
+using namespace std;
