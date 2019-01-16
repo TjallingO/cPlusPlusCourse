@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.14)  16 JAN 2019 22:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.14)  16 JAN 2019 23:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -285,11 +285,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 (../49E/student/printname.cc) (../49E/student/printnr.cc) (../49E/read.cc
 [6]) (../49E/sortbyname.cc) (../49E/sortbynr.cc) (../49E/strCaseCmp.cc)
 [7] (../49E/writeNames.cc) (../49E/writeNrs.cc) [8] (../50-2/main.ih)
-(../50-2/main.cc) (../50-2/line/line.h) (../50-2/extraction.cc) [9]
-(../52/main.ih) (../52/main.cc) [10] (./w6.aux) ) 
+(../50-2/main.cc) (../50-2/line/line.h) (../50-2/line/line.ih)
+(../50-2/line/lineextraction.cc [9]) (../50-2/extraction.cc) [10]
+(../52/main.ih) (../52/main.cc) [11] (./w6.aux) ) 
 Here is how much of TeX's memory you used:
- 4318 strings out of 494923
- 61106 string characters out of 6180741
+ 4323 strings out of 494923
+ 61220 string characters out of 6180741
  264644 words of memory out of 5000000
  7516 multiletter control sequences out of 15000+600000
  5837 words of font info for 22 fonts, out of 8000000 for 9000
@@ -301,10 +302,10 @@ Here is how much of TeX's memory you used:
 public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmtt9.pfb>
-Output written on w6.pdf (10 pages, 90253 bytes).
+Output written on w6.pdf (11 pages, 91243 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
