@@ -12,15 +12,15 @@ void calcPrimes(size_t noPrimes, bool &calcDone, vector<size_t> &primes)
 
   while (primes.size() < noPrimes)
   {
-    bool isPrime = any_of(
-                          primes.begin(),
-                          primes.end(),
-                          [&](auto el)
-                          {
-                            return next % el == 0;
-                          }
-                         );
-    if (!isPrime)
+    bool isPrime = none_of(
+                           primes.begin(),
+                           primes.end(),
+                           [&](auto el)
+                           {
+                             return next % el == 0;
+                           }
+                          );
+    if (isPrime)
       primes.push_back(next);
     ++next;
   }
