@@ -42,7 +42,7 @@ done >"$outfile"
 center "Linking" >> "$outfile"
 echo "g++ -o ./tmp/bin/binary ./tmp/o/*.o" >> "$outfile"
 mkdir ./tmp/bin/
-g++ -o ./tmp/bin/binary ./tmp/o/*.o
+g++ -o ./tmp/bin/binary ./tmp/o/*.o "$@"
 wait
 
 cat "$outfile"
