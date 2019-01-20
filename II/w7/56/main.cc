@@ -17,8 +17,8 @@ int main(int argc, char const **argv)
   chrono::minutes outputMinutesH = inputHours;
   chrono::minutes outputMinutesS = chrono::duration_cast<chrono::minutes>(inputSeconds);
 
-  cout << inputHours.count()   << " hours equals " 
+  cout << inputHours.count()   << " hours equals "
                                << outputMinutesH.count() << " minutes \n"
-       << inputSeconds.count() << " seconds equals "
+       << inputSeconds.count() << " seconds roughly equals "
                                << outputMinutesS.count() << " minutes";
 }
