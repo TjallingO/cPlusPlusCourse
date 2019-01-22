@@ -1,10 +1,10 @@
 #include "main.ih"
 
-void prime(bool done)
+void prime(bool &done)
 {
   vector<size_t> vs {2};
   size_t next = 3;
-  size_t nrPrimes = 15;
+  size_t nrPrimes = 30000;
 
   while(vs.size() < nrPrimes)
   {
@@ -30,15 +30,14 @@ void prime(bool done)
   done = true;
 }
 
-void dots(bool done)
+void dots(bool &done)
 {
   using namespace std::chrono_literals;
 
-  while(done)
+  while(!done)
   {
     std::this_thread::sleep_for(1s);
-    using namespace std;
-    cout << ".";
+    std::cout << ".";
   }
 }
 
