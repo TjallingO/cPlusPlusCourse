@@ -10,11 +10,13 @@ int main(int argc, char const **argv)
     return 1;
   }
 
+  cout << "Enter delimited words, end input with ^D \n";
+
   Storage myStorage(argv[1]);
+
+  thread runThread(&Storage::run, ref(myStorage));
+
   string inputString;
-
-  thread runThread(myStorage.run);
-
   while (cin >> inputString)
     myStorage.push(inputString);
 

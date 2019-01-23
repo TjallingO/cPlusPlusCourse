@@ -3,10 +3,10 @@
 void Storage::run()
 {
   ofstream outputStream(d_outputFile);
-  while (!d_finished)
+  while (!d_finished || !empty())
   {
-    if (!this->empty())
-      outputStream << this->next();
+    if (!empty())
+      outputStream << next() << '\n';
 
     this_thread::sleep_for(1s);
   }
