@@ -1,0 +1,6 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+using namespace std;
+
+#include <iostream>
+#include "handler/handler.h"
