@@ -11,17 +11,17 @@ int main(int argc, char const **argv)
     return 1;
   }
 
-  string mouse = argv[2];
-  
+  string inputString = argv[2];
+
   {
     Handler wordHandler;
     ofstream myfile (argv[1]);
-    thread thread1(execShift, ref(wordHandler), ref(myfile), ref(mouse));
+    thread thread1(execShift, ref(wordHandler), ref(myfile), ref(inputString));
     thread1.join();
   }
   {
     ofstream myfile (argv[1]);
-    thread thread2(defShift, ref(myfile), ref(mouse));
+    thread thread2(defShift, ref(myfile), ref(inputString));
     thread2.join();
   }
 }
