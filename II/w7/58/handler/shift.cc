@@ -1,6 +1,6 @@
 #include "handler.ih"
 
-void shift(std::ostream &out, string const &text)
+void Handler::shift(ostream &out, string const &text)
 {
   size_t counter = 0;
 

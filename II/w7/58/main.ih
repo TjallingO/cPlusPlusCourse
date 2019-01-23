@@ -4,3 +4,6 @@ using namespace std;
 
 #include <iostream>
 #include "handler/handler.h"
+
+void execShift(Handler &myHandler, std::ostream &out, string const &text);
+void defShift(ostream &out, string const &text);
