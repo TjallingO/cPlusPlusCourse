@@ -3,12 +3,13 @@
 void Handler::shift(ostream &out, string const &text)
 {
   size_t counter = 0;
+  size_t textLength = text.length();
 
-  for (size_t idx = 0; idx != text.length(); ++idx)
+  for (size_t idx = 0; idx != textLength; ++idx)
   {
-    for (size_t idx2 = 0; idx2 != text.length(); ++idx2)
+    for (size_t idx2 = 0; idx2 != textLength; ++idx2)
     {
-      out << text[counter % text.length()];
+      out << text[counter % textLength];
       ++counter;
     }
     out << '\n';
