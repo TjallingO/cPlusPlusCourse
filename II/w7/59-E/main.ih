@@ -6,3 +6,5 @@
 #include <condition_variable>
 
 using namespace std;
+
+void printlines(Storage &warehouse, istream &input);
