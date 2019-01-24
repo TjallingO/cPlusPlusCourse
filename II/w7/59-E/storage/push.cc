@@ -2,14 +2,14 @@
 
 void Storage::push(istream &input)
 {
-  while(d_finished)
+  d_finished = true;
+  string line;
+
+  while(getline(input, line) && d_finished)
   {
-    string line;
-    while(std::getline(input, line)){
-      lock_guard<mutex> lk(d_mutex);
-      d_queue.push(line);
-      d_condition.notify_all();
-    }
+    //cout << "push\n";  
+    this -> add(line);
     finished(input);
+    //cout << "push2\n";
   }
 }

@@ -21,8 +21,9 @@ class Storage
     std::string next();
     void push(std::istream &input);
     std::string &front();
-    std::string getline();
+    std::string getobject();
     void finished(std::istream &input);
+    void add(std::string);
 
 
   private:

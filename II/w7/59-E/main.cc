@@ -10,7 +10,7 @@ void getlines(istream& input, Storage &warehouse)
 void printlines(Storage &warehouse)
 {
   //cout << "3\n";
-  cout << warehouse.getline() << '\n';
+  cout << warehouse.getobject() << '\n';
   //cout << "4\n";
 }
 
