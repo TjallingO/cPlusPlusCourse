@@ -389,6 +389,6 @@ elsif (getYes("swap support"))
 
 makeHeader();
 makeInternalHeader();
-makeMemberFrame();
+# makeMemberFrame();
 
 exit(0);

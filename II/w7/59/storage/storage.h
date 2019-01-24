@@ -10,19 +10,20 @@ class Storage
 {
   public:
     Storage(std::string outputFile);
-    void push(std::string const string);
-    void pop();
+
+    bool        empty() const;
+    void        finished();
     std::string front();
-    bool empty() const;
     std::string next();
-    void finished();
-    void run();
+    void        pop();
+    void        push(std::string const string);
+    void        run();
 
   private:
     std::queue<std::string> d_stQueue;
-    std::mutex d_storageMutex;
-    std::atomic<bool> d_finished = false;
-    std::string d_outputFile;
+    std::mutex              d_storageMutex;
+    std::atomic<bool>       d_finished = false;
+    std::string             d_outputFile;
 };
 
 inline void Storage::push(std::string const string)
