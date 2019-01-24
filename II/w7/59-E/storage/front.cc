@@ -2,5 +2,5 @@
 
 string &Storage::front()
 {
-    return d_queue.front();
+  return d_queue.front();
 }

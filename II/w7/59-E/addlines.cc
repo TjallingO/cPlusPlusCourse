@@ -1,10 +1,10 @@
 #include "main.ih"
 
-void printlines(Storage &warehouse, istream &input)
+void addlines(Storage &warehouse, istream &input)
 {
   string inputString;
-  while (cin >> inputString)
-    warehouse.push(inputString);
+  while (cin >> inputString)      // While there is still user input
+    warehouse.push(inputString);  // Push that input to the queue
 
-  warehouse.finished();
+  warehouse.finished();           // When input is done, signal that
 }

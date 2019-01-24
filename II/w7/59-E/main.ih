@@ -1,10 +1,8 @@
 #include "storage/storage.h"
-#include <string>
-#include <iostream>
+
 #include <thread>
-#include <mutex>
-#include <condition_variable>
+#include <iostream>
 
 using namespace std;
 
-void printlines(Storage &warehouse, istream &input);
+void addlines(Storage &warehouse, istream &input);

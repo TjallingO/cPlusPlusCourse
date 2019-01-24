@@ -2,8 +2,11 @@
 
 using namespace std;
 
-#include <iostream>
 #include "handler/handler.h"
+
+#include <iostream>
+#include <thread>
+#include <fstream>
 
 void execShift(Handler &myHandler, std::ostream &out, string const &text);
 void defShift(ostream &out, string const &text);

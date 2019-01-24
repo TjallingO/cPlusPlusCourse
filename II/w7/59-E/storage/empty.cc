@@ -2,5 +2,5 @@
 
 bool Storage::empty()
 {
-    return d_queue.empty();
+  return d_queue.empty();
 }

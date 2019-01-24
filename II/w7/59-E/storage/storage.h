@@ -3,29 +3,24 @@
 
 #include <queue>
 #include <string>
-#include <condition_variable>
 #include <mutex>
-
 
 class Storage
 {
-  std::mutex d_mutex;
+  std::mutex              d_mutex;
   std::queue<std::string> d_queue;
-  bool d_finished = false;
-  std::string d_outputFile;
+  bool                    d_finished = false;
+  std::string             d_outputFile;
 
   public:
-    Storage(std::string outputFile);
+    Storage(std::string outputFile);  // Constructor based on filename
 
-    bool empty();
-    std::string next();
-    void push(std::string const line);
+    bool         empty();
+    std::string  next();
+    void         push(std::string const line);
     std::string &front();
-    void finished();
-    void run();
-
-
-  private:
+    void         finished();
+    void         run();
 };
 
 #endif

@@ -2,8 +2,8 @@
 
 string Storage::next()
 {
-  string front = d_queue.front();
-  lock_guard<std::mutex> mx(d_mutex);
-  d_queue.pop();
-  return front;
+  lock_guard<std::mutex> mx(d_mutex); // Lock queue
+  string front = d_queue.front();     // Get element from queue
+  d_queue.pop();                      // Remove that element
+  return front;                       // Return it
 }
