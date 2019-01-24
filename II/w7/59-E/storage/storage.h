@@ -22,7 +22,6 @@ class Storage
     std::string next();
     void push(std::string const line);
     std::string &front();
-    std::string getobject();
     void finished();
     void run();
 
