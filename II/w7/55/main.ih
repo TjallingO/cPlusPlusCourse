@@ -1,3 +1,12 @@
 #define ERR(msg) printf("%s : %d", (msg), __LINE__)
 
 using namespace std;
+
+#include <vector>
+#include <iostream>
+#include <chrono>
+#include <thread>
+#include <algorithm>
+
+void calcPrimes(size_t noPrimes, bool &calcDone, vector<size_t> &primes);
+void dotting(size_t seconds, bool &calcDone);
