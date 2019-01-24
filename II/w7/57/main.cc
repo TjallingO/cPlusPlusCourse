@@ -22,15 +22,18 @@ int main(int argc, char const **argv)
   switch (argvString.back())
   {
     case 's':
-      adjClockT = chrono::system_clock::to_time_t(adjClock + chrono::seconds{offset});
+      adjClockT =
+        chrono::system_clock::to_time_t(adjClock + chrono::seconds{offset});
       cout << put_time(localtime(&adjClockT), "%c");
       break;
     case 'm':
-      adjClockT = chrono::system_clock::to_time_t(adjClock + chrono::minutes{offset});
+      adjClockT =
+        chrono::system_clock::to_time_t(adjClock + chrono::minutes{offset});
       cout << put_time(localtime(&adjClockT), "%c");
       break;
     case 'h':
-      adjClockT = chrono::system_clock::to_time_t(adjClock + chrono::hours{offset});
+      adjClockT =
+        chrono::system_clock::to_time_t(adjClock + chrono::hours{offset});
       cout << put_time(localtime(&adjClockT), "%c");
       break;
     default:

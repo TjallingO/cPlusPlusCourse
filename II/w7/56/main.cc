@@ -15,7 +15,8 @@ int main(int argc, char const **argv)
 
   chrono::minutes outputMinutesH = inputHours;
   // Conversion from hours to minutes: more granular, no cast
-  chrono::minutes outputMinutesS = chrono::duration_cast<chrono::minutes>(inputSeconds);
+  chrono::minutes outputMinutesS =
+    chrono::duration_cast<chrono::minutes>(inputSeconds);
   // Conversion from seconds to minutes: less granular, loses precision, needs
   // cast
 
