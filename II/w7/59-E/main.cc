@@ -2,21 +2,16 @@
 
 void getlines(istream& input, Storage &warehouse)
 {
-
-  string line;
-  while(getline(input, line))
-    warehouse.push(line);
-
+  //cout << "1\n";
+  warehouse.push(input);
+  //cout << "2\n";
 }
 
-void printlines(istream& input, Storage &warehouse)
+void printlines(Storage &warehouse)
 {
-
-  while(!warehouse.empty())
-  {
-    cout << warehouse.getline() << '\n';
-  }
-
+  //cout << "3\n";
+  cout << warehouse.getline() << '\n';
+  //cout << "4\n";
 }
 
 int main(int argc, char const *argv[])
@@ -26,7 +21,10 @@ int main(int argc, char const *argv[])
   thread thr1(getlines, ref(cin), ref(warehouse));
   thread thr2(printlines, ref(warehouse));
 
+  //cout << "a\n";
   thr1.join();
+  //cout << "b\n";
   thr2.join();
+  //cout << "c\n";
 
 }
