@@ -2,8 +2,9 @@
 #include <iostream>
 #include <filesystem>
 #include <vector>
-#include <string>
 #include <algorithm>
+#include <mutex>
+#include <thread>
 
 using namespace std;
 
@@ -30,6 +31,19 @@ bool containsCC(string &path)
     return false;
 }
 
+void compile(string const filepath)
+{
+  mutex mx;
+  size_t slash = filepath.rfind('/') + 1;
+  size_t dot = filepath.rfind('.');
+  string const filename = filepath.substr(slash, dot - slash);
+  cout << "\e[1m- Compiling " << filepath << "\e[0m \n";
+  string const command = "g++ -fdiagnostics-color=always --std=c++17 -Wall -O2 -c -o ./tmp/o/117" + filename + string(".o ") + filepath;
+  string outputString = exec(command.c_str());
+  lock_guard<mutex> guard(mx);
+  cout << outputString;
+}
+
 vector<string> getFiles(string const path)
 {
   auto entry = fs::recursive_directory_iterator(path);
@@ -43,9 +57,22 @@ vector<string> getFiles(string const path)
 
 int main()
 {
-  vector<string> paths = getFiles(".");
-  for (auto el: paths)
-    cout << el << '\n';
+  cout << "\e[1m-- Cleaning \e[0m \n";
+  fs::remove_all("./tmp");
+  fs::create_directories("./tmp/o");
+  vector<string> const paths = getFiles(".");
 
-  cout << exec("grep");
+  vector<thread> threads;
+
+  cout << "\e[1m-- Compiling \e[0m \n";
+  for (auto el: paths)
+    threads.push_back(thread(compile, el));
+
+  for (auto &el: threads)
+    el.join();
+
+  fs::create_directories("./tmp/bin");
+  cout << "\e[1m-- Linking \e[0m";
+  cout << exec("g++ -o ./tmp/bin/binary ./tmp/o/*.o") << '\n';
+  fs::remove_all("./tmp/o");
 }
