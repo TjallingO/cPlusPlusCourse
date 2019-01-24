@@ -13,17 +13,18 @@ class Storage
   std::queue<std::string> d_queue;
   std::condition_variable d_condition;
   bool d_finished = false;
+  std::string d_outputFile;
 
   public:
-    Storage();
+    Storage(std::string outputFile);
 
     bool empty();
     std::string next();
-    void push(std::istream &input);
+    void push(std::string const line);
     std::string &front();
     std::string getobject();
-    void finished(std::istream &input);
-    void add(std::string);
+    void finished();
+    void run();
 
 
   private:

@@ -1,6 +1,6 @@
 #include "storage.ih"
 
-void Storage::finished(istream &input)
+void Storage::finished()
 {
-  d_finished = input.eof();
+  d_finished = true;
 }

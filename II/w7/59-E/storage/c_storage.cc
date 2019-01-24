@@ -1,5 +1,6 @@
 #include "storage.ih"
 
-Storage::Storage()
+Storage::Storage(string outputFile)
+  : d_outputFile(outputFile)
 {
 }
