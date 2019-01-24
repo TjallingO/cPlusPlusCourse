@@ -11,7 +11,6 @@ class Storage
 {
   std::mutex d_mutex;
   std::queue<std::string> d_queue;
-  std::condition_variable d_condition;
   bool d_finished = false;
   std::string d_outputFile;
 
