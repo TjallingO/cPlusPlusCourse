@@ -1,5 +1,5 @@
 #include "storage.ih"
 
-Storage::Storage(string outputFile)
+Storage::Storage()
 {
 }

@@ -22,8 +22,9 @@ class Storage
     void push(std::string const line);
     std::string &front();
     void finished();
-    void run();
+    void run(std::string file);
 
+    void mememe(std::string filename);
 
   private:
 };

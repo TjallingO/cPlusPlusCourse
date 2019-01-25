@@ -1,0 +1,10 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+#include "client/client.ih"
+#include "producer/producer.ih"
+#include "warehouse/warehouse.ih"
+
+#include <iostream>
+#include <string>
+
+using namespace std;

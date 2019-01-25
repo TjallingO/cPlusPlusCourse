@@ -1,6 +1,6 @@
 #include "client.ih"
 
-Client::add()
+void Client::add()
 {
   d_linenr += 1;
 }
