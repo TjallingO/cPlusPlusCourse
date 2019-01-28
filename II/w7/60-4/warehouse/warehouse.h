@@ -16,18 +16,21 @@ class Warehouse
   public:
     Warehouse();
 
-    void addProduct(std::string line);
-
     std::string &front();
-    std::string next();
 
     bool empty();
 
     std::string getProduct();
-    void finished();
+
     bool isitfinished();
 
+    void addlines();
+
   private:
+    std::string next();
+    void addProduct(std::string const &line);
+    void finished();
+
 };
 
 #endif

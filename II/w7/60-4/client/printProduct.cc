@@ -9,7 +9,7 @@ void Client::printProduct()
   {
     outputStream << d_warehouse -> getProduct() << '\n';
     d_nrlines += 1;
-
-    this_thread::sleep_for(1s); 
+    cout << size() << '\n';
+    this_thread::sleep_for(1s);
   }
 }

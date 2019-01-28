@@ -10,8 +10,9 @@ class Client
   size_t d_nrlines = 0;
 
   public:
-    Client(Warehouse *warehouse, std::string outputFile);
+    Client(Warehouse *warehouse, std::string const &outputFile);
 
+    size_t size();
     void printProduct();
   private:
 };
