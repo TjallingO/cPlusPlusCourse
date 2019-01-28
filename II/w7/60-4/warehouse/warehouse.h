@@ -11,6 +11,7 @@ class Warehouse
   std::queue<std::string> d_queue;
   std::mutex wMutex;
   std::condition_variable condition;
+  bool d_finished = false;
 
   public:
     Warehouse();
@@ -20,7 +21,11 @@ class Warehouse
     std::string &front();
     std::string next();
 
+    bool empty();
 
+    std::string getProduct();
+    void finished();
+    bool isitfinished();
 
   private:
 };

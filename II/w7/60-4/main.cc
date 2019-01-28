@@ -2,12 +2,30 @@
 
 int main(int argc, char const **argv)
 {
-  Warehouse w1;
-  Producer producer(&w1);
+  Warehouse warehouse;
 
-  producer.makeProduct("hello");
-  producer.makeProduct("bye");
+  vector<Client> clients;
 
-  cout << w1.next() << '\n';
-  cout << w1.front() << '\n';
+  for (size_t idx = 1; idx < argc; ++idx)
+    clients.push_back(Client(&warehouse, argv[idx]));
+
+  thread addThread(&addlines, ref(warehouse), ref(cin));
+
+  vector<thread> threads;
+/*
+  for (size_t idx = 0; idx < clients.size(); ++idx)
+    threads.push_back(thread(&Client::printProduct, clients[idx]));
+*/
+  for (auto client: clients)
+    threads.push_back(thread(&Client::printProduct, client));
+
+  for (auto &it: threads)
+    it.join();
+
+  addThread.join();
+
+  //printProduct.join();
+  //c2.printProduct();
+//  cout << w1.next() << '\n';
+//  cout << w1.front() << '\n';
 }

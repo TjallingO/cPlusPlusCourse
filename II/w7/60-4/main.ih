@@ -1,10 +1,14 @@
 #define ERR(msg) printf("%s : %d", (msg), __LINE__)
 
 #include "client/client.ih"
-#include "producer/producer.ih"
 #include "warehouse/warehouse.ih"
 
 #include <iostream>
 #include <string>
+#include <thread>
+
+
 
 using namespace std;
+
+void addlines(Warehouse &warehouse, istream &input);

@@ -1,6 +1,7 @@
 #include "client.ih"
 
-Client::Client()
-//:
+Client::Client(Warehouse *warehouse, string outputFile)
+: d_warehouse(warehouse),
+  d_outputFile(outputFile)
 {
 }
