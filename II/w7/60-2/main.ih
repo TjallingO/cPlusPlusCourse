@@ -1,0 +1,11 @@
+#include "storage/storage.h"
+#include "client/client.h"
+#include <string>
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+
+using namespace std;
+
+void printlines(Storage &warehouse, istream &input);

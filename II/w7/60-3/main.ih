@@ -1,0 +1,9 @@
+#include "storage/storage.h"
+
+
+#include <thread>
+#include <iostream>
+
+using namespace std;
+
+void addlines(Storage &warehouse, istream &input);
