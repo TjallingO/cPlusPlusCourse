@@ -3,7 +3,7 @@
 void Warehouse::addlines()
 {
   string inputString;
-  while (cin >> inputString)      // While there is still user input
+  while (getline(cin, inputString))      // While there is still user input
     addProduct(inputString);      // Push that input to the queue
 
   finished();                     // When input is done, signal that

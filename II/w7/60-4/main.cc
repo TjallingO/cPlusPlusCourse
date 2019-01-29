@@ -15,21 +15,19 @@ int main(int argc, char const **argv)
 
   vector<thread> threads;
 
-  for (auto client: clients)
-    threads.push_back(thread(&Client::printProduct, client));
+  for (auto &client: clients)
+    threads.push_back(thread(&Client::printProduct, ref(client)));
+
 //addings a thread that takes lines from the queue in the warehouse and prints
 //it in the file corresponding to the client.
 
-  for (auto &client: clients) //printing nr of lines per file
-    cout << client.size() << '\n';
 
   for (auto &it: threads)
     it.join();
 
   addThread.join();  //joining threads
 
-  for (auto &client: clients) //printing nr of lines per file
+  for (auto client: clients)  //printing nr of lines per file
     cout << client.size() << '\n';
-
 
 }
