@@ -1,0 +1,18 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+#include "semaphore/semaphore.h"
+#include <vector>
+#include <thread>
+#include <queue>
+#include <iostream>
+
+
+
+void process(size_t item);
+/*
+void consumer(Semaphore filled, Semaphore available,
+  std::queue<size_t> itemQueue, bool finished);
+void producer(Semaphore filled, Semaphore available,
+  std::queue<size_t> itemQueue, bool finished);
+*/
+using namespace std;
