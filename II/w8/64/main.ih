@@ -1,0 +1,10 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+#include <iostream>
+#include <array>
+#include <numeric>
+
+#include <future>
+#include <thread>
+
+using namespace std;
