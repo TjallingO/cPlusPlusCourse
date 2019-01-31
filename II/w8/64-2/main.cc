@@ -28,7 +28,7 @@ void innerProduct(promise<double> &ref, int row, int col)
 int main(int argc, char const **argv)
 {
 
-  promise<double> result[6][4];
+  promise<double> result[4][6];
 
   for (int row = 0; row != 4; ++row)
   {

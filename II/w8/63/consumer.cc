@@ -1,9 +1,9 @@
 #include "main.ih"
-/*
-void consumer(Semaphore filled, Semaphore available,
-  queue<size_t> itemQueue, bool finished)
+
+void consumer(Semaphore &filled, Semaphore &available,
+  queue<size_t> &itemQueue, bool &finished)
 {
-  while (!finished)
+  while (!finished || !itemQueue.empty())
   {
     filled.wait();
     size_t item = itemQueue.front();
@@ -12,4 +12,3 @@ void consumer(Semaphore filled, Semaphore available,
     process(item);
   }
 }
-*/

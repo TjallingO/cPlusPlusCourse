@@ -6,13 +6,11 @@
 #include <queue>
 #include <iostream>
 
-
+using namespace std;
 
 void process(size_t item);
-/*
-void consumer(Semaphore filled, Semaphore available,
-  std::queue<size_t> itemQueue, bool finished);
-void producer(Semaphore filled, Semaphore available,
-  std::queue<size_t> itemQueue, bool finished);
-*/
-using namespace std;
+
+void consumer(Semaphore &filled, Semaphore &available,
+  queue<size_t> &itemQueue, bool &finished);
+void producer(Semaphore &filled, Semaphore &available,
+  queue<size_t> &itemQueue, bool &finished);

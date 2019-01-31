@@ -1,41 +1,18 @@
 #include "main.ih"
 
-bool finished = 0;
-
-Semaphore available(10);
-Semaphore filled(0);
-
-std::queue<size_t> itemQueue;
-
-void consumer()
-{
-  while (!finished || !itemQueue.empty())
-  {
-    filled.wait();
-    size_t item = itemQueue.front();
-    itemQueue.pop();
-    available.notify_all();
-    process(item);
-  }
-}
-
-void producer()
-{
-  size_t item = 0;
-  while (item < 10)
-  {
-    ++item;
-    available.wait();
-    itemQueue.push(item);
-    filled.notify_all();
-  }
-  finished = true;
-}
-
 int main(int argc, char const **argv)
 {
-  thread consume(consumer);
-  thread produce(producer);
+  bool finished = 0;
+
+  Semaphore available(10);
+  Semaphore filled(0);
+
+  std::queue<size_t> itemQueue;
+
+  thread consume(consumer, ref(filled), ref(available), ref(itemQueue),
+                  ref(finished));
+  thread produce(producer, ref(filled), ref(available), ref(itemQueue),
+                  ref(finished));
 
   consume.join();
   produce.join();
