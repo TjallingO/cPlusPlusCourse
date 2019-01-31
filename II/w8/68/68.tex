@@ -1,0 +1,13 @@
+First, the files that are to be compiled should be collected into a container of some sort. The assumption is, to keep it simple, that all \texttt{.cc} files in or under the current working directory should be compiled, and thereafter linked. This can be accomplished using the \texttt{fs::recursive\_directory\_iterator} function, which searches a folder and its subfolders for any files, returning path iterators that can then be converted to strings for convenience.
+
+Of course, only the relevant files should be kept (i.e. the \texttt{.cc} files). A simple \texttt{remove\_if} algorithm solves this.
+
+Second, the relevant files should be compiled. A queue-like structure could be implemented here, but another possibility is to simply successively create vectors of threads, sized to the number of threads available to the OS, and then waiting until these threads have finished before starting the next group of threads. Specifically, \texttt{pipe} and \texttt{popen} can be used to execute a system command and catch its output. Here, it is especially important to catch any error (specifically run-time errors) that may result from using these commands. Now, there are two options. First, as the exercise specifies, any time there is any output at all, that would mean there has occurred some kind of error or warning, which should be output, and the loop of creating successive threads should halt. Second, and preferably, compilation could simply continue, outputting any kind of error that other files may exhibit, which would allow the user to correct more errors than simply the first one. Of course, the step thereafter, linking, is pointless if there are any errors and should be skipped entirely.
+
+Speaking of, the same \texttt{pipe} and \texttt{popen} process is then used to link the files together. Considering the fact that all \texttt{.cc} files in or under the current working directory were (ideally) compiled, the following command can be used to link the resulting \texttt{.o} files:
+
+\texttt{g++ -o ./tmp/bin/binary ./tmp/o/*.o}
+
+N.B.: That folder is chosen to ensure compatibility with Icmake.
+
+Of course, since sometimes static libraries must be specified (e.g. in the case of using the filesystem or pthread libraries), this is where any optional argv arguments should be appended.
