@@ -72,7 +72,7 @@ int main(int argc, char const **argv)
     el.join();
 
   fs::create_directories("./tmp/bin");
-  cout << "\e[1m-- Linking \e[0m";
+  cout << "\e[1m-- Linking \e[0m \n";
   string commandString = "g++ -o ./tmp/bin/binary ./tmp/o/*.o ";
   cout << argv[1];
   if (argc > 1)

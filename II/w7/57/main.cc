@@ -24,17 +24,14 @@ int main(int argc, char const **argv)
     case 's':
       adjClockT =
         chrono::system_clock::to_time_t(adjClock + chrono::seconds{offset});
-      cout << put_time(localtime(&adjClockT), "%c");
       break;
     case 'm':
       adjClockT =
         chrono::system_clock::to_time_t(adjClock + chrono::minutes{offset});
-      cout << put_time(localtime(&adjClockT), "%c");
       break;
     case 'h':
       adjClockT =
         chrono::system_clock::to_time_t(adjClock + chrono::hours{offset});
-      cout << put_time(localtime(&adjClockT), "%c");
       break;
     default:
       cout << "Invalid time offset."; // Invalid input
@@ -42,4 +39,5 @@ int main(int argc, char const **argv)
   }
   // Switch based on last letter of input string (s, m, h): determines offset
   // for adjusted time
+  cout << put_time(localtime(&adjClockT), "%c");
 }
