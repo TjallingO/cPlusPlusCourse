@@ -1,0 +1,1 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
