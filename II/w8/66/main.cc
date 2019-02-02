@@ -27,10 +27,13 @@ try
     // start all threads
 
     promise<bool> prom;
+    promise<bool> prom2;
 
     auto future = prom.get_future();
+    auto future2 = prom2.get_future();
 
-    thread thr(threadFun, ref(prom));
+    thread thr1(threadFun, ref(prom));
+    thread thr2(threadFun, ref(prom2));
 
     size_t idx = 0;
 
@@ -42,9 +45,10 @@ try
         this_thread::sleep_for(chrono::seconds(1));
 
         auto status = future.wait_for(chrono::seconds(0));
+        auto status2 = future2.wait_for(chrono::seconds(0));
 
-        if (status == future_status::ready)
-          return 0;
+        if (status == future_status::ready && status2 == future_status::ready )
+          break;
 
 
         cerr << "inspecting: " << ++idx << '\n';
@@ -53,7 +57,8 @@ try
         // to end the program. If so, end it.
     }
 
-    thr.join();
+    thr1.join();
+    thr2.join();
 }
 catch(...)
 {
