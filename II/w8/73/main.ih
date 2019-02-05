@@ -1,3 +1,19 @@
 #define ERR(msg) printf("%s : %d", (msg), __LINE__)
 
+#include <iostream>
+#include <map>
+#include <fstream>
+#include <thread>
+#include <algorithm>
+#include <numeric>
+#include <vector>
+#include <mutex>
+#include <iomanip>
+
 using namespace std;
+
+size_t collatz(__uint128_t value, __uint128_t &highest, size_t &length);
+bool powerfour(__uint128_t &fourtest);
+void run(map<size_t, size_t> &supermap, size_t start, size_t end, mutex &wMutex);
+void addtomap(map<size_t, size_t> &supermap, map<size_t, size_t> const &smallmap);
+void print(map<size_t, size_t> const &supermap);
