@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.14)  6 FEB 2019 22:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.19)  6 FEB 2019 23:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **w7-2.tex
 (./w7-2.tex
 LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 3 language(s) loaded.
+Babel <3.18> and hyphenation patterns for 5 language(s) loaded.
 (../../../scripts/preamble.tex
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
@@ -309,12 +309,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 (../60-4/warehouse/isitfinished.cc) (../60-4/warehouse/next.cc) [6] (./w7-2.aux
 ) ) 
 Here is how much of TeX's memory you used:
- 4368 strings out of 494923
- 62172 string characters out of 6180741
- 283369 words of memory out of 5000000
- 7576 multiletter control sequences out of 15000+600000
+ 4368 strings out of 494880
+ 62172 string characters out of 6179600
+ 283519 words of memory out of 5000000
+ 7583 multiletter control sequences out of 15000+600000
  5669 words of font info for 21 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
+ 36 hyphenation exceptions out of 8191
  41i,12n,68p,828b,1624s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/shar
