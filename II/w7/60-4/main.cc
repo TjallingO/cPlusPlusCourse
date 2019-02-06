@@ -13,7 +13,7 @@ int main(int argc, char const **argv)
   vector<thread> threads;
 
   for (auto &client: clients)
-    threads.push_back(thread(&Client::printProduct, ref(client)));
+    threads.emplace_back(&Client::printProduct, ref(client));
 
   thread addThread(&Warehouse::addlines, ref(warehouse));
   //thread that adds lines to the queue

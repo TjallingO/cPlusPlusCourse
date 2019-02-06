@@ -1,64 +1,74 @@
 #include "main.ih"
 
-#include <thread>
-#include <chrono>
-#include <iostream>
-#include <future>
-
-string threadFun(promise<bool> &prom)
-{
-    cerr << "entry\n";
-
-    this_thread::sleep_for(chrono::seconds(3));
-    cerr << "first cerr\n";
-
-    this_thread::sleep_for(chrono::seconds(3));
-    cerr << "second cerr\n";
-
-    prom.set_value(true);
-
-
-    return "end the program";
-}
-
-int main()
+int main(int argc, char const **argv)
 try
 {
     // start all threads
 
-    promise<bool> prom;
-    promise<bool> prom2;
 
-    auto future = prom.get_future();
-    auto future2 = prom2.get_future();
-
-    thread thr1(threadFun, ref(prom));
-    thread thr2(threadFun, ref(prom2));
-
-    size_t idx = 0;
-
-  //  auto status = future.wait_for(chrono::seconds(0));
-
-    while (idx < 10)
+    if (argc == 3)
     {
-        // do the main-task
-        this_thread::sleep_for(chrono::seconds(1));
+        vector<promise<bool>> promises;
+        vector<future<bool>> futures;
+        vector<thread> threads;
 
-        auto status = future.wait_for(chrono::seconds(0));
-        auto status2 = future2.wait_for(chrono::seconds(0));
+        size_t Promnr = stoul(argv[1]);
 
-        if (status == future_status::ready && status2 == future_status::ready )
-          break;
+        for (size_t idx = 0; idx < Promnr; ++idx)
+        {
+          promises.emplace_back();
+          futures.emplace_back(promises[idx].get_future());
+          threads.emplace_back(threadFun, ref(promises[idx]));
+        }
 
 
-        cerr << "inspecting: " << ++idx << '\n';
+        size_t idx = 0;
 
-        // inspect whether a thread indicates
-        // to end the program. If so, end it.
-    }
+        vector<future_status> status;
+        status.reserve(Promnr);
 
-    thr1.join();
-    thr2.join();
+        bool end = false;
+
+        while (idx < 10)
+        {
+            // do the main-task
+            this_thread::sleep_for(chrono::seconds(1));
+
+            for (size_t idx = 0; idx < Promnr; ++idx)
+              status[idx] = futures[idx].wait_for(chrono::seconds(0));
+
+
+            for_each(status.begin(), status.end(),
+              [&end](future_status &x)
+              {
+                cerr << "?";
+                if(x == future_status::ready)
+                {
+                  cerr << "!\n";
+                  end = true;
+                }
+              }
+            );
+
+            if (end == true)
+              break;
+
+
+
+            cerr << "inspecting: " << ++idx << '\n';
+
+            // inspect whether a thread indicates
+            // to end the program. If so, end it.
+        }
+
+        for (auto &it: threads)
+          it.join();
+      }
+      else
+      {
+        cout << "Please enter nr of desired threads and number of threads "
+             << "that have to be finished for the program to end\n";
+      }
 }
 catch(...)
 {
