@@ -1,6 +1,6 @@
 #include "warehouse.ih"
 
-string Warehouse::getProduct()
+string Warehouse::getProduct(bool &printit)
 {
   unique_lock<mutex> ul(wMutex);
   while (empty() && !d_finished)
@@ -8,6 +8,8 @@ string Warehouse::getProduct()
 
   if (!empty())
     return next();
- return {};  //return empty string, which can happen if no more strings
+
+  printit = false;
+  return {};  //return empty string, which can happen if no more strings
               //are going to be available
 }

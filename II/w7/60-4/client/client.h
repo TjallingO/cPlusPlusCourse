@@ -5,12 +5,12 @@
 
 class Client
 {
-  Warehouse *d_warehouse;
+  Warehouse &d_warehouse;
   std::string d_outputFile;
   size_t d_nrlines = 0;
 
   public:
-    Client(Warehouse *warehouse, std::string const &outputFile);
+    Client(Warehouse &warehouse, std::string const &outputFile);
 
     size_t size();       //returns nr of lines printed
     void printProduct(); //prints strings to file

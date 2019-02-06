@@ -20,7 +20,8 @@ class Warehouse
 
     bool empty(); //checks whether queue is empty
 
-    std::string getProduct(); //used by clients to retrieve a string from
+    std::string getProduct(bool &printit);
+                              //used by clients to retrieve a string from
                               // the queue
 
     bool isitfinished(); //checks if there is more input to come

@@ -4,11 +4,12 @@ void Client::printProduct()
 {
   ofstream outputStream(d_outputFile);
 
-  while(!d_warehouse -> empty() || !d_warehouse -> isitfinished())
+  while(!(d_warehouse.empty() && d_warehouse.isitfinished()))
   {
-    string tmp = d_warehouse -> getProduct();
+    bool printit = true;
+    string tmp = d_warehouse.getProduct(printit);
 
-    if(!tmp.empty())
+    if(printit)
     {
       outputStream << tmp << '\n';
       ++d_nrlines;
