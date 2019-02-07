@@ -5,29 +5,40 @@ try
 {
     // start all threads
 
-
     if (argc == 3)
     {
         vector<promise<bool>> promises;
         vector<future<bool>> futures;
-        vector<thread> threads;
+        //vector<thread> threads;
 
         size_t Promnr = stoul(argv[1]);
+
+        thread threads[Promnr];
 
         for (size_t idx = 0; idx < Promnr; ++idx)
         {
           promises.emplace_back();
           futures.emplace_back(promises[idx].get_future());
-          threads.emplace_back(threadFun, ref(promises[idx]));
+          //threads.emplace_back(threadFun, ref(promises[idx]));
+
+          threads[idx] = thread
+          {
+            [&, idx]()
+            {
+              threadFun(promises[idx]);
+            }
+          };
         }
 
+        future_status status[Promnr];
+        vector<future_status> vstatus(status, status + sizeof(status) / sizeof(status[0]) );
+        //status.reserve(Promnr);
 
         size_t idx = 0;
 
-        vector<future_status> status;
-        status.reserve(Promnr);
+        size_t end = 0;
 
-        bool end = false;
+        size_t stop = stoul(argv[2]);
 
         while (idx < 10)
         {
@@ -35,22 +46,29 @@ try
             this_thread::sleep_for(chrono::seconds(1));
 
             for (size_t idx = 0; idx < Promnr; ++idx)
-              status[idx] = futures[idx].wait_for(chrono::seconds(0));
-
-
-            for_each(status.begin(), status.end(),
-              [&end](future_status &x)
+              if (futures[idx].wait_for(chrono::seconds(0)) == future_status::ready)
               {
-                cerr << "?";
-                if(x == future_status::ready)
-                {
-                  cerr << "!\n";
-                  end = true;
-                }
+                if(++end == stop)
+                  break;
               }
-            );
 
-            if (end == true)
+            // for (size_t idx = 0; idx < Promnr; ++idx)
+            //   status[idx] = futures[idx].wait_for(chrono::seconds(0));
+            //
+            //
+            // for_each(vstatus.begin(), vstatus.end(),
+            //   [&end](future_status &status)
+            //   {
+            //     //cout << (int)status << '\n';
+            //     if(status == future_status::ready)
+            //     {
+            //       cerr << "!\n";
+            //       end = true;
+            //     }
+            //   }
+            // );
+
+            if (end == stop)
               break;
 
 

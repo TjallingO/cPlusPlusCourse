@@ -16,7 +16,7 @@ int main(int argc, char const **argv)
 
     for (size_t idx = 0; idx < threadnr; ++idx) {
       threads.push_back(thread(run, ref(supermap),
-              (totalIt/ threadnr * (0 + idx)) + 1, (totalIt/ threadnr * (1 + idx)), ref(wMutex)));
+              (totalIt / threadnr * (0 + idx)) + 1, (totalIt/ threadnr * (1 + idx)), ref(wMutex)));
     }
 
     for (auto &it: threads)
