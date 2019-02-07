@@ -72,12 +72,14 @@ int main(int argc, char const **argv)
     el.join();
 
   fs::create_directories("./tmp/bin");
-  cout << "\e[1m-- Linking \e[0m \n";
+  cout << "\e[1m-- Linking \e[0m";
   string commandString = "g++ -o ./tmp/bin/binary ./tmp/o/*.o ";
-  cout << argv[1];
   if (argc > 1)
     for (int idx = 1; idx != argc; ++idx)
+    {
+      cout << argv[idx] << ' ';
       commandString += string(argv[idx]) += ' ';
+    }
 
   cout << exec(commandString.c_str()) << '\n';
   fs::remove_all("./tmp/o");
