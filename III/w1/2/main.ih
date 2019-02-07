@@ -1,0 +1,6 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+#include "conversion.h"
+#include <iostream>
+
+using namespace std;
