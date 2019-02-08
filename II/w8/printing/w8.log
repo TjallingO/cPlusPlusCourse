@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.14)  6 FEB 2019 22:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.12.7)  8 FEB 2019 16:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **w8.tex
 (./w8.tex
 LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 3 language(s) loaded.
+Babel <3.18> and hyphenation patterns for 5 language(s) loaded.
 (../../../scripts/preamble.tex
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
@@ -303,8 +303,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ])
 (../63/semaphore/size.cc) (../63/semaphore/wait.cc) (../63/main.ih)
 (../63/main.cc [2]) (../63/consumer.cc) (../63/process.cc) (../63/producer.cc)
-[3] (../64-2/main.ih) (../64-2/main.cc) [4] [5] (../65/main.ih) (../65/main.cc)
-[6] (../66/main.ih) (../66/main.cc [7]) [8] (../68/68.tex
+[3] (../64-2/main.ih) (../64-2/main.cc) [4] (../65/main.ih) (../65/main.cc)
+(../65/qqsort.cc) [5] (../68/68.tex
 Underfull \hbox (badness 1112) in paragraph at lines 22--22
 []|\OT1/cmr/m/n/10 Compiles the files in d[]vFilepathsSub and
  []
@@ -315,29 +315,27 @@ Overfull \hbox (15.04878pt too wide) in paragraph at lines 29--30
 =c++17 -Wall -O2 -c -o ./tmp/o/117"
  []
 
-) [9] (../73/main.ih) (../73/main.cc) (../73/addtomap.cc [10])
-(../73/collatz.cc) (../73/powerfour.cc [11]) (../73/print.cc) (../73/run.cc
-[12]) [13] (./w8.aux) ) 
+) [6] (./w8.aux) ) 
 Here is how much of TeX's memory you used:
- 4477 strings out of 494923
- 63034 string characters out of 6180741
- 281436 words of memory out of 5000000
- 7663 multiletter control sequences out of 15000+600000
+ 4369 strings out of 494880
+ 61716 string characters out of 6179601
+ 274586 words of memory out of 5000000
+ 7584 multiletter control sequences out of 15000+600000
  6850 words of font info for 25 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
+ 36 hyphenation exceptions out of 8191
  41i,12n,68p,1231b,1649s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on w8.pdf (13 pages, 133056 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on w8.pdf (6 pages, 119819 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 55 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
