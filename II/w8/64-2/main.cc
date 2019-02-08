@@ -21,8 +21,8 @@ void innerProduct(promise<double> &ref, int row, int col)
   int sum = 0;
   for (int idx = 0; idx != 5; ++idx)
     sum += lhs[row][idx] * rhsT[col][idx]; //here for one would expect
-  cout << row << ' ' << col << '\n'; //rhsT[idx][col] but we instead transposed
-  ref.set_value(sum); //the matrix first thus rhsT[col][idx]
+                            //rhsT[idx][col] but we instead transposed
+  ref.set_value(sum);           //the matrix first thus rhsT[col][idx]
 }
 
 int main(int argc, char const **argv)
