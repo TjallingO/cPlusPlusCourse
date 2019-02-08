@@ -9,17 +9,19 @@ try
     {
         vector<promise<bool>> promises;
         vector<future<bool>> futures;
-        //vector<thread> threads;
+
 
         size_t Promnr = stoul(argv[1]);
 
         thread threads[Promnr];
+        vector<bool> done;
 
         for (size_t idx = 0; idx < Promnr; ++idx)
         {
           promises.emplace_back();
           futures.emplace_back(promises[idx].get_future());
-          //threads.emplace_back(threadFun, ref(promises[idx]));
+
+          done.emplace_back(false);
 
           threads[idx] = thread
           {
@@ -32,51 +34,43 @@ try
 
         future_status status[Promnr];
         vector<future_status> vstatus(status, status + sizeof(status) / sizeof(status[0]) );
-        //status.reserve(Promnr);
 
-        size_t idx = 0;
+
+        size_t count = 0;
 
         size_t end = 0;
 
         size_t stop = stoul(argv[2]);
 
-        while (idx < 10)
+
+        while (count < 10)
         {
             // do the main-task
             this_thread::sleep_for(chrono::seconds(1));
 
             for (size_t idx = 0; idx < Promnr; ++idx)
-              if (futures[idx].wait_for(chrono::seconds(0)) == future_status::ready)
+            {
+              if(done[idx] == false)
               {
-                if(++end == stop)
-                  break;
+                if (futures[idx].wait_for(chrono::seconds(0)) == future_status::ready)
+                {
+                  cout << idx << "\t is done!\n";
+                  done[idx] = true;
+                  if(++end == stop)
+                    break;
+                }else
+                cout << idx << " is not done!\n";
               }
-
-            // for (size_t idx = 0; idx < Promnr; ++idx)
-            //   status[idx] = futures[idx].wait_for(chrono::seconds(0));
-            //
-            //
-            // for_each(vstatus.begin(), vstatus.end(),
-            //   [&end](future_status &status)
-            //   {
-            //     //cout << (int)status << '\n';
-            //     if(status == future_status::ready)
-            //     {
-            //       cerr << "!\n";
-            //       end = true;
-            //     }
-            //   }
-            // );
+            }
+            cout << "end counter: " << end << '\n';
 
             if (end == stop)
               break;
 
 
 
-            cerr << "inspecting: " << ++idx << '\n';
+            cerr << "inspecting: " << ++count << '\n';
 
-            // inspect whether a thread indicates
-            // to end the program. If so, end it.
         }
 
         for (auto &it: threads)
