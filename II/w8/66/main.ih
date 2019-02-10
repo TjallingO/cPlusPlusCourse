@@ -9,4 +9,7 @@
 
 using namespace std;
 
-string threadFun(promise<bool> &prom);
+string threadFun(size_t idx);//, promise<bool> &prom);
+void threadstarter(size_t const &Promnr, size_t const &stopAt);
+void run(size_t const &Promnr
+                      , vector<future<bool>> &futures, size_t const &stop);

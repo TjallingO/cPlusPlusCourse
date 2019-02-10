@@ -5,10 +5,11 @@ try
 {
     if (argc == 3)
     {
-        size_t Promnr = stoul(argv[1]);
-        size_t stopAt = stoul(argv[2]);
+        size_t threadNr = stoul(argv[1]); //total number of threads
+        size_t stopAt = stoul(argv[2]); //number of threads that need to be
+        //done before the program is considered done.
 
-        threadstarter(Promnr, stopAt);    
+        threadstarter(threadNr, stopAt);
       }
       else
       {
