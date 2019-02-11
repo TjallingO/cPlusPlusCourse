@@ -1,0 +1,10 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+using namespace std;
+
+#include "forwarder.h"
+
+#include <iostream>
+
+void fun(int first, int second);
+void incrementer(int &one, int &two, int &three);
