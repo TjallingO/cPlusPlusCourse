@@ -1,0 +1,8 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+using namespace std;
+
+#include <iostream>
+
+#include "operator/operator.h"
+#include "smooth.h"
