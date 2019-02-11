@@ -1,5 +1,10 @@
-template <typename outputT, typename whateverT>
-outputT as(whateverT input)
+#ifndef _CONVERSIONT
+#define _CONVERSIONT
+
+template <typename outputT, typename inputT>
+outputT as(inputT inputVar)
 {
   return static_cast<outputT>(input);
 };
+
+#endif
