@@ -2,7 +2,7 @@
 
 int main(int argc, char const **argv)
 {
-  Operator one;
+  Operator one{ "yes, " };
   Operator two;
 
   Operator three{ one + two };
