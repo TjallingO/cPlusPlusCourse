@@ -10,6 +10,8 @@ try
         //done before the program is considered done.
 
         threadstarter(threadNr, stopAt);
+        
+        cout << "main done\n";
       }
       else
       {

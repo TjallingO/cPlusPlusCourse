@@ -25,9 +25,8 @@ void checking(size_t const &threadNr
         }
       }
 
-      if (doneCounter == stopAt)
-        throw("done");
-
+      if (doneCounter == 1)
+        return;
     }
   }
 

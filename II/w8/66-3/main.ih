@@ -1,0 +1,11 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+#include <thread>
+#include <chrono>
+#include <future>
+#include <iostream>
+#include <future>
+
+using namespace std;
+
+string threadFun();
