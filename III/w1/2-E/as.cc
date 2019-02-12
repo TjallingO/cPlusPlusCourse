@@ -1,11 +1,10 @@
 #ifndef _AST
 #define _AST
 
-
-template <typename T>
-T as(T value)
+template <typename outputT, typename inputT>
+outputT as(inputT value)
 {
-  return static_cast<int>(value);
-}
+  return static_cast<outputT>(value);
+};
 
 #endif
