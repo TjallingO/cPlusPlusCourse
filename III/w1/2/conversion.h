@@ -4,7 +4,7 @@
 template <typename outputT, typename inputT>
 outputT as(inputT inputVar)
 {
-  return static_cast<outputT>(input);
+  return static_cast<outputT>(inputVar);
 };
 
 #endif
