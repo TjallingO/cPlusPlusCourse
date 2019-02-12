@@ -1,0 +1,17 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+#include <thread>
+#include <chrono>
+#include <iostream>
+#include <future>
+#include <vector>
+#include <algorithm>
+#include <exception>
+
+
+using namespace std;
+
+void threadstarter(size_t const &threadNr, size_t const &stopAt);
+string threadFun();
+void checking(size_t const &threadNr, vector<future<string>> &futures
+              , size_t const &stopAt);
