@@ -24,4 +24,6 @@ int main(int argc, char const **argv)
 // If we were to run multiple threads we could have a vector of futures, then
 // rather than checking if our one future object is ready we check if any of
 // the futures is ready, if one (or however many is preferred) is/are ready
-// the program returns.
+// the program returns. We can keep track howmany are done with a simple
+// and keep track of which futures are done with a vector of bools so we dont
+// check futures that have already been counted.
