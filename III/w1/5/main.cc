@@ -2,8 +2,8 @@
 
 int main(int argc, char const **argv)
 {
-  Operator one{ "yes, " };
-  Operator two;
+  Operator one{ "yes, " };                // Added this to test whether
+  Operator two;                           // joining actually works
 
   Operator three{ one + two };
   Operator four{ one + 42 };

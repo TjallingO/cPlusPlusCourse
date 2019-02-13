@@ -1,8 +1,8 @@
 #ifndef _FORWARDER
 #define _FORWARDER
 
-template <typename funT, typename ...anyT>
-void forwarder(funT inputFun, anyT&& ...anyVars)
+template <typename funT, typename ...anyT>        // Function and par package
+void forwarder(funT inputFun, anyT&& ...anyVars)  // Needs forwarding
 {
   inputFun(anyVars...);
 };

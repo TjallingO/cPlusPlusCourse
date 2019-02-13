@@ -9,6 +9,8 @@ int main(int argc, char const **argv)
   cout << storage[Icmp::ID]         << '\n'
        << storage[TcpUdp::PROTOCOL] << '\n'
        << storage[12]               << '\n'
-       //<< storage['a']              << '\n' // Does work, but out of range
+       //<< storage['a']              << '\n' // Does compile, but out of range
        << storage[12.5]             << '\n';
 }
+// Note: the vector could be expanded so that 'a' would run (now it throws)
+// an out of bounds error, but it seemed a bit excessive for now.

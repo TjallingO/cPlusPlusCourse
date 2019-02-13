@@ -10,3 +10,4 @@ class Operator: public string
 };
 
 #endif
+// Just a barebones class that is basically a string
