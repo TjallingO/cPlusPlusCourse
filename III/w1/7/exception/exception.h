@@ -4,10 +4,7 @@
 #include <string>
 #include <sstream>
 #include <exception>
-<<<<<<< HEAD
 #include "optempl.h"
-=======
->>>>>>> ff624034a9214daa72c3847a8c5040f84fd3cbef
 
 class Exception: public std::exception
 {
@@ -16,7 +13,6 @@ class Exception: public std::exception
     public:
         Exception() = default;
 
-<<<<<<< HEAD
         char const *what() const noexcept(true) override;
 
         template <class Exception, typename inputT>
@@ -28,45 +24,3 @@ class Exception: public std::exception
 
 
 #endif
-=======
-        std::string &str();
-
-        char const *what() const noexcept(true) override;   
-};
-
-inline std::string &Exception::str()
-{
-    return d_what;
-}
-
-inline Exception &&operator<<(Exception &&in, char const *txt)
-{
-    in.str() += txt;
-    return std::move(in);
-}
-
-inline Exception &&operator<<(Exception &&in, char ch)
-{
-    in.str() += ch;
-    return std::move(in);
-}
-
-inline Exception &&operator<<(Exception &&in, std::string const &str)
-{
-    in.str() += str;
-    return std::move(in);
-}
-
-inline Exception &&operator<<(Exception &&in, size_t value)
-{
-    in.str() += std::to_string(value);
-    return std::move(in);
-}
-
-        
-#endif
-
-
-
-
->>>>>>> ff624034a9214daa72c3847a8c5040f84fd3cbef

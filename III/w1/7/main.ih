@@ -1,9 +1,8 @@
 #define ERR(msg) printf("%s : %d", (msg), __LINE__)
 
-<<<<<<< HEAD
+
 #include "exception/exception.h"
 #include <iostream>
 
-=======
->>>>>>> ff624034a9214daa72c3847a8c5040f84fd3cbef
+
 using namespace std;
