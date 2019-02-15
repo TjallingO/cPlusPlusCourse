@@ -1,0 +1,26 @@
+#ifndef INCLUDED_EXCEPTION_
+#define INCLUDED_EXCEPTION_
+
+#include <string>
+#include <sstream>
+#include <exception>
+#include "optempl.h"
+
+class Exception: public std::exception
+{
+    std::string d_what;
+
+    public:
+        Exception() = default;
+
+        char const *what() const noexcept(true) override;
+
+        template <class Exception, typename inputT>
+        friend Exception &&operator<<(Exception &&in, inputT input);
+
+        template <class Exception>
+        friend Exception &&operator<<(Exception &&in, int input);
+};
+
+
+#endif
