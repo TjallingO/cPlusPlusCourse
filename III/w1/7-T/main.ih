@@ -1,3 +1,6 @@
 #define ERR(msg) printf("%s : %d", (msg), __LINE__)
 
+#include "exception/exception.h"
+#include <iostream>
+
 using namespace std;
