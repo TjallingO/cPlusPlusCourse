@@ -6,7 +6,7 @@ Exception &&operator<<(Exception &&in, inputT anyT)
 {
   std::ostringstream ss;
   ss << anyT;
-  in.str() += ss.str();
+  in.d_what += ss.str();
   return std::move(in);
 }
 

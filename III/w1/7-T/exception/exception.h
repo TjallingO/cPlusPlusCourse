@@ -12,16 +12,19 @@ class Exception: public std::exception
   public:
     Exception() = default;
 
-    std::string &str();
+    // std::string &str();
 
     char const *what() const noexcept(true) override;
 
+    template <typename inputT>
+    friend Exception &&operator<<(Exception &&in, inputT anyT);
+
 };
 
-inline std::string &Exception::str()
-{
-    return d_what;
-}
+// inline std::string &Exception::str()
+// {
+//     return d_what;
+// }
 
 #include "inserterT.h"
 
