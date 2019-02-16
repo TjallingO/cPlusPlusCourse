@@ -1,0 +1,21 @@
+$\bullet$ Why is the scope resolution operator required when calling max()? \\
+Because there is a function called \texttt{std::max} in the standard namespace. Since we are specifying the use of that namespace, simply calling \texttt{max()} will result in the compiler assuming that we want to use that one. Instead, by using the operator \texttt{::} we instead force a call to the function in the global namespace. \\
+
+$\bullet$ When compiling this function the compiler complains (...) Why doesn't the compiler generate a max(double, double) function? \\
+Because the types of the two inputs (3.5 and 4) are different. The one is a double, and the other an int (as far as the compiler is concerned, at least). Hence, there are two different types input to the template, which is only constructed to take two inputs of the \textit{same} type.\\
+
+$\bullet$ Assume we add a function (...) to the source. Explain why this solves the problem. \\
+Now, this function is chosen over the template, as non-template functions are preferred if both are available. Then, though implicit conversion, the previously integer variable is 'forced' into being a double for use in the function. \\
+
+$\bullet$ Assume we would then call ::max('a', 12). Which max() function is then used and why? \\
+The non-template function, again. As before, the template is only designed to take in two arguments of the same type. The template would not even work in this case. Hence, the non-template version of \texttt{max()} is used, whereby 'a' is converted to a \texttt{double} with a value of 97. \\
+
+$\bullet$ Remove the additional max function. (...), how can we get the compiler to compile the source properly? \\
+One option is to allow for arguments of two different types in the template header and argument list, as shown below. Note that the parameters are passed by value, to avoid returning a reference to a temporary value. The return type can be either the type of the left or right argument, accomplished by using the \texttt{auto} specifier.
+\begin{lstlisting}[style=in]
+template <typename lTypeT, typename rTypeT>
+inline auto const max(lTypeT const left, rTypeT const right)
+\end{lstlisting}
+
+$\bullet$ Specify a general characteristic of the answer to the previous question (i.e., can the approach always be used or are there certain limitations?). \\
+This approach works as long as the two types can be compared using the \texttt{larger-than operator}. More generally, if the types used are compatible in the operations performed in the template, it should work. For example, a string will not work; the compiler will try all conversions it can think of to make the types compatible in this manner, but it cannot find a suitable conversion.
