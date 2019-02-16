@@ -4,23 +4,22 @@
 #include <string>
 #include <sstream>
 #include <exception>
-#include "optempl.h"
 
 class Exception: public std::exception
 {
-    std::string d_what;
+  std::string d_what;
 
-    public:
-        Exception() = default;
+  public:
+    Exception() = default;
 
-        char const *what() const noexcept(true) override;
+    char const *what() const noexcept(true) override;
 
-        template <class Exception, typename inputT>
-        friend Exception &&operator<<(Exception &&in, inputT input);
+    template <typename inputT>
+    friend Exception &&operator<<(Exception &&in, inputT input);
 
-        template <class Exception>
-        friend Exception &&operator<<(Exception &&in, int input);
 };
+
+#include "optempl.h"
 
 
 #endif
