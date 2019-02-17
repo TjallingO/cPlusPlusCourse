@@ -1,0 +1,5 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+#include "matrix/matrix.h"
+
+using namespace std;
