@@ -1,6 +1,9 @@
 #include "matrix.ih"
-
-Matrix::Matrix(Type input)
-//:
+/*
+template <typename data>
+Matrix<data>::Matrix(data const (&input))
+:
+  d_data(input)
 {
 }
+*/
