@@ -4,6 +4,7 @@
 #include <cstddef>
 #include <algorithm>
 #include <iterator>
+#include <sstream>
 
 template <typename data>
 class Matrix
@@ -21,7 +22,7 @@ class Matrix
     typedef data value_type;
     typedef value_type const &const_reference;
 
-    explicit Matrix(size_t maxSize = 0);
+    explicit Matrix(size_t rows, size_t columns);
     Matrix(Matrix<data> const &other); //copy
     Matrix(Matrix<data> &&tmp); //swap
 
@@ -32,6 +33,14 @@ class Matrix
 
     Matrix &operator=(Matrix<data> const &other);
     Matrix &operator=(Matrix<data> &&tmp);
+
+    friend std::ostream &operator<<(std::ostream &out, Matrix<data> &tmp);
+
+    template <typename input>
+    friend Matrix<data> &&operator<<(Matrix<data> &&tmp, input anyT);//??why not work
+
+
+    //Matrix<data> &operator+(Matrix<data> &other);
 
     void pop_front();
     void push_back(data const &object);
@@ -45,20 +54,26 @@ class Matrix
     size_t size() const;
     size_t maxSize() const;
 
+    size_t rows() const;
+    size_t columns() const;
+
   private:
     data *inc(data *ptr);
 };
 
 template<typename data>
-Matrix<data>::Matrix(size_t maxSize) //geen rows en cols moeten erbij
+Matrix<data>::Matrix(size_t rows, size_t columns)
 :
+  d_rows(rows),
+  d_columns(columns),
   d_size(0),
-  d_maxSize(maxSize),
+  d_maxSize(rows * columns),
   d_data(
-    maxSize == 0 ?
+    maxSize() == 0 ?
         0
     :
-           static_cast<data *> (operator new(maxSize * sizeof(data)))),
+           static_cast<data *> (operator new(rows * columns * sizeof(data)))
+         ),
   d_front(d_data),
   d_back(d_data)
 {
@@ -67,6 +82,8 @@ Matrix<data>::Matrix(size_t maxSize) //geen rows en cols moeten erbij
 template<typename data>
 Matrix<data>::Matrix(Matrix<data> const &other)//geen rows en cols moeten erbij
 :
+  d_rows(other.d_rows),
+  d_columns(other.d_columns),
   d_size(other.d_size),
   d_maxSize(other.d_maxSize),
   d_data(
@@ -108,7 +125,7 @@ Matrix<data>::Matrix(size_t rows, size_t columns, data const (&input)[Size])
   d_front(d_data),
   d_back(d_data)
 {
-  std::copy(input, input + Size, std::back_inserter(*this));
+  std::copy(input, input + rows * columns, std::back_inserter(*this));
 }
 
 template<typename data>
@@ -143,8 +160,40 @@ inline Matrix<data> &Matrix<data>::operator=(Matrix<data> &&tmp)
 enum Exception
 {
   EMPTY,
-  FULL
+  FULL,
+  INVALID_DIMENSIONS
 };
+
+template<typename data>
+std::ostream &operator<<(std::ostream &out, Matrix<data> &tmp)
+{
+  for (size_t idx = 0; idx < tmp.rows(); ++idx)
+  {
+    for (size_t idx2 = 0; idx2 < tmp.columns(); ++idx2) {
+      out << tmp.front() << '\t';
+      tmp.pop_front();
+    }
+    out << '\n';
+  }
+  return out; //dit emptied de matrix niet de bedoeling
+}
+
+/*
+template<typename data>
+Matrix<data> &Matrix<data>::operator+(Matrix<data> &other)
+{
+  Matrix tmp(this.rows, this.columns);
+  if(other.row == this.row && other.columns == this.columns)
+  {
+    for (size_t idx = 0; idx < this.maxSize; ++idx) {
+      //tmp[idx] = this[idx] + other[idx]; ///verbeteren
+    }
+  }else
+  throw INVALID_DIMENSIONS;
+}
+*/
+
+
 
 template<typename data>
 void Matrix<data>::pop_front()
@@ -211,6 +260,18 @@ template<typename data>
 inline size_t Matrix<data>::maxSize() const
 {
   return d_maxSize;
+}
+
+template<typename data>
+inline size_t Matrix<data>::rows() const
+{
+  return d_rows;
+}
+
+template<typename data>
+inline size_t Matrix<data>::columns() const
+{
+  return d_columns;
 }
 
 template<typename data>

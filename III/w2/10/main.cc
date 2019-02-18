@@ -23,6 +23,21 @@ int main(int argc, char const **argv)
   int input[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 
   Matrix<int> test ( 3, 4, input );
+  //Matrix<int> test(3,4);
+  //test << 3;
+
+  cout << test;
+/*
+  for (size_t idx = 0; idx < 3; ++idx)
+  {
+    for (size_t i = 0; i < 4; ++i) {
+      cerr << test.front() << '\t';
+      test.pop_front();
+    }
+
+    cout << '\n';
+  }
+*/
 
 
 }
