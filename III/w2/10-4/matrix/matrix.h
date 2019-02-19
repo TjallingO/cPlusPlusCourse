@@ -3,24 +3,24 @@
 #include <numeric>
 #include <iostream>
 
-template <size_t Rows, size_t Columns, typename DataType = double>
+template<size_t Rows, size_t Columns, typename DataType = double>
 class Matrix;
 
-template<size_t Rows, size_t Columns, typename DataType>
+template<size_t Rows, size_t Columns, typename DataType, typename DataType2 = double>
 bool operator==(Matrix<Rows, Columns,  DataType> const &lhs,
                 Matrix<Rows, Columns,  DataType> const &rhs);
 
-template<size_t Rows, size_t Columns, typename DataType>
+template<size_t Rows, size_t Columns, typename DataType, typename DataType2>
 Matrix<Rows, Columns,  DataType> operator+(
                 Matrix<Rows, Columns,  DataType> const &lhs,
                 Matrix<Rows, Columns,  DataType> const &rhs);
 
-template<size_t Rows, size_t Columns, typename DataType>
+template<size_t Rows, size_t Columns, typename DataType, typename DataType2>
 Matrix<Rows, Columns, DataType> operator+(
                     Matrix<Rows, Columns,  DataType> const &lhs,
                     DataType const &rhs);
 
-template<size_t Rows, size_t Columns, typename DataType>
+template<size_t Rows, size_t Columns, typename DataType, typename DataType2>
 Matrix<Rows, Columns, DataType> operator+(
                     DataType const &lhs,
                     Matrix<Rows, Columns,  DataType> const &rhs);
@@ -48,18 +48,18 @@ class Matrix
 
     private: //private?
         friend bool operator==<>(Matrix<Rows, Columns,  DataType> const &lhs,
-                                 Matrix<Rows, Columns,  DataType> const &rhs);
+                                 Matrix<Rows, Columns,  DataType2> const &rhs);
 
         friend Matrix<Rows, Columns,  DataType> operator+<>(
                                   Matrix<Rows, Columns,  DataType> const &lhs,
-                                  Matrix<Rows, Columns,  DataType> const &rhs);
+                                  Matrix<Rows, Columns,  DataType2> const &rhs);
 
         friend Matrix<Rows, Columns, DataType> operator+<>(
                               Matrix<Rows, Columns,  DataType> const &lhs,
-                              DataType const &rhs);
+                              DataType2 const &rhs);
 
         friend Matrix<Rows, Columns, DataType> operator+<>(
-                              DataType const &lhs,
+                              DataType2 const &lhs,
                               Matrix<Rows, Columns,  DataType> const &rhs);
 };
 
