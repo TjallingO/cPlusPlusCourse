@@ -1,8 +1,16 @@
 #include <istream>
 #include <algorithm>
 #include <numeric>
+#include <iostream>
 
 template <size_t Rows, size_t Columns, typename DataType = double>
+class Matrix;
+
+template<size_t Rows, size_t Columns, typename DataType>
+bool operator==(Matrix<Rows, Columns,  DataType> const &lhs,
+                Matrix<Rows, Columns,  DataType> const &rhs);
+
+template <size_t Rows, size_t Columns, typename DataType>
 class Matrix
 {
 //HEAD
@@ -19,6 +27,12 @@ class Matrix
         MatrixRow columnMarginals() const;
         MatrixColumn rowMarginals() const;
         DataType sum()  const;
+
+        void print();
+
+    private: //private?
+        friend bool operator==<>(Matrix<Rows, Columns,  DataType> const &lhs,
+                                 Matrix<Rows, Columns,  DataType> const &rhs);
 };
 
 //MATRIXROW
@@ -78,6 +92,23 @@ class Matrix<1, 1, DataType>
         DataType const &get() const;
 };
 
+//OPERATORS
+template<size_t Rows, size_t Columns, typename DataType = double>
+bool operator==(Matrix<Rows, Columns,  DataType> const &lhs,
+                Matrix<Rows, Columns,  DataType> const &rhs)
+{
+  //return lhs.d_matrix[] == rhs.d_matrix[];
+  for (size_t row = 0; row < Rows; ++row)
+  {
+    for (size_t col = 0; col < Columns; ++col)
+    {
+      if(lhs.d_matrix[row][col] != rhs.d_matrix[row][col])
+        return false;
+    }
+  }
+  return true;
+}
+
 //MARGINALS
 template <size_t Rows, size_t Columns, typename DataType>
 Matrix<1, Columns, DataType>
@@ -130,6 +161,18 @@ Matrix<1, Columns, DataType>
 const &Matrix<Rows, Columns, DataType>::operator[](size_t idx) const
 {
     return d_matrix[idx];
+}
+
+//printing
+template <size_t Rows, size_t Columns, typename DataType>
+void Matrix<Rows, Columns, DataType>::print()
+{
+  for (size_t row = 0; row < Rows; ++row)
+  {
+    for (size_t col = 0; col < Columns; ++col)
+      std::cout << d_matrix[row][col] << '\t';
+    std::cout << '\n';
+  }
 }
 
 //ROWCONS1
