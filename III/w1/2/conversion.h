@@ -1,10 +1,10 @@
 #ifndef _CONVERSIONT
 #define _CONVERSIONT
 
-template <typename outputT, typename inputT>  // Two types
-outputT as(inputT inputVar)                   // Return outT, input inT
+template <typename OutputT, typename InputT>  // Two types
+OutputT as(InputT &inputVar)                   // Return outT, input inT
 {
-  return static_cast<outputT>(inputVar);      // Cast inT to outT
+  return static_cast<OutputT>(inputVar);      // Cast inT to outT
 };
 
 #endif

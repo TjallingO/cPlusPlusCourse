@@ -3,10 +3,10 @@
 
 #include <cstddef>                // For size_t
 
-template <typename typeT>         // One var type
-typeT* rawCapacity(size_t noVars) // Return pointer to specified type
+template <typename TypeT>         // One var type
+TypeT* rawCapacity(size_t noVars) // Return pointer to specified type
 {
-  return new typeT[noVars];       // P to array of noVars var type
-};
+  return static_cast<TypeT*>( operator new(noVars * sizeof(TypeT)) );
+};                                   // P to array of noVars var type
 
 #endif
