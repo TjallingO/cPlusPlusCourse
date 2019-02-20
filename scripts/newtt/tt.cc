@@ -37,10 +37,10 @@ void compile(string const filepath)
   size_t slash = filepath.rfind('/') + 1;
   size_t dot = filepath.rfind('.');
   string const filename = filepath.substr(slash, dot - slash);
-  cout << "\e[1m" << filepath << "\e[0m \n";
   string const command = "g++ -fdiagnostics-color=always --std=c++17 -Wall -O2 -c -o ./tmp/o/117" + filename + string(".o ") + filepath;
   string outputString = exec(command.c_str());
   lock_guard<mutex> guard(mx);
+  cout << "\e[1m" << filepath << "\e[0m \n";
   cout << outputString;
 }
 
