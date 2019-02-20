@@ -11,9 +11,9 @@ class Data
   DataVector d_data;
 
   public:
-    typedef std::string value_type;
-    void push_back(std::string stringInput);
-    void print() const; // Just for testing
+    typedef std::string value_type;           // Needs to be public
+    void push_back(std::string stringInput);  // Custom push_back for back_ins.
+    void print() const;                       // Just for testing
 };
 
 #endif
