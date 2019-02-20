@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.14)  20 FEB 2019 22:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.14)  20 FEB 2019 22:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -299,54 +299,34 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ] (../3/rawCapacity.h)
-(../3/main.ih) (../3/main.cc) [2] (../7-T/exception/exception.h)
-(../7-T/exception/exception.ih) (../7-T/exception/inserterT.h)
-(../7-T/exception/what.cc) (../7-T/main.ih [3]) (../7-T/main.cc) [4]
-(../9/9.tex
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 1.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--3
+! Package Listings Error: File `../3/main(.ih)' not found.
 
- []
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: ih)
 
+Enter file name: x
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--6
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7--9
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--12
-
- []
-
-) [5] (./w1-2.aux) ) 
+ )
+(\end occurred when \ifx on line 15 was incomplete)
+(\end occurred when \ifx on line 15 was incomplete) 
 Here is how much of TeX's memory you used:
- 4285 strings out of 494923
- 60720 string characters out of 6180741
- 222388 words of memory out of 5000000
- 7509 multiletter control sequences out of 15000+600000
- 6183 words of font info for 23 fonts, out of 8000000 for 9000
+ 4189 strings out of 494923
+ 59517 string characters out of 6180741
+ 195388 words of memory out of 5000000
+ 7442 multiletter control sequences out of 15000+600000
+ 5669 words of font info for 21 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,12n,68p,828b,1624s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on w1-2.pdf (5 pages, 96459 bytes).
+ 41i,11n,68p,828b,1144s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmtt9.pfb>
+Output written on w1-2.pdf (1 page, 50875 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
+ 24 PDF objects out of 1000 (max. 8388607)
+ 16 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
