@@ -14,8 +14,8 @@ class Exception: public std::exception
 
     char const *what() const noexcept(true) override;
 
-    template <typename inputT>
-    friend Exception &&operator<<(Exception &&in, inputT anyT);
+    template <typename InputT>
+    friend Exception &&operator<<(Exception &&in, InputT anyT);
 
 };
 

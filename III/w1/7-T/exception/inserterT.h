@@ -1,8 +1,8 @@
 #ifndef INCLUDED_INSERTERT_
 #define INCLUDED_INSERTERT_
 
-template <typename inputT>
-Exception &&operator<<(Exception &&in, inputT anyT)
+template <typename InputT>
+Exception &&operator<<(Exception &&in, InputT anyT)
 {
   std::ostringstream ss;
   ss << anyT;
