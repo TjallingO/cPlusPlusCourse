@@ -2,18 +2,18 @@
 
 int main(int argc, char const **argv)
 {
-  Matrix<3, 2> matrix(cin);
+  Matrix<3, 2, int> matrix(cin);
 
 
 
-  //Matrix<3, 2> matrix2(cin);
+  Matrix<3, 2, double> matrix2(cin);
 
-  //cout << (matrix == matrix2) << '\n';
+  cout << (matrix == matrix2) << '\n';
 
-  Matrix<3, 2> matrixsum;
+  //Matrix<3, 2, int> matrixsum;
 
-  double doub = 1;
-  matrixsum = matrix + doub;
+  //double doub = 1;
+  //matrixsum = matrix + doub;
 
-  matrixsum.print();
+  //matrixsum.print();
 }

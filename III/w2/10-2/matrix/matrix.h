@@ -2,13 +2,13 @@
 #include <algorithm>
 #include <numeric>
 #include <iostream>
-
+/*
 template <size_t Rows, size_t Columns, typename DataType = double>
 class Matrix;
 
-template<size_t Rows, size_t Columns, typename DataType>
-bool operator==(Matrix<Rows, Columns,  DataType> const &lhs,
-                Matrix<Rows, Columns,  DataType> const &rhs);
+template<size_t Rows, size_t Columns, typename LhsType, typename RhsType>
+bool operator==(Matrix<Rows, Columns,  LhsType> const &lhs,
+                Matrix<Rows, Columns,  RhsType> const &rhs);
 
 template<size_t Rows, size_t Columns, typename DataType>
 Matrix<Rows, Columns,  DataType> operator+(
@@ -25,7 +25,7 @@ Matrix<Rows, Columns, DataType> operator+(
                     DataType const &lhs,
                     Matrix<Rows, Columns,  DataType> const &rhs);
 
-
+*/
 template <size_t Rows, size_t Columns, typename DataType>
 class Matrix
 {
@@ -47,20 +47,23 @@ class Matrix
         void print();
 
     private: //private?
-        friend bool operator==<>(Matrix<Rows, Columns,  DataType> const &lhs,
-                                 Matrix<Rows, Columns,  DataType> const &rhs);
 
-        friend Matrix<Rows, Columns,  DataType> operator+<>(
+        template<size_t Rows2, size_t Columns2, typename LhsType, typename RhsType>
+        friend bool operator==(Matrix<Rows2, Columns2,  LhsType> const &lhs,
+                               Matrix<Rows2, Columns2,  RhsType> const &rhs);
+/*
+        friend Matrix<Rows, Columns,  DataType> operator+(
                                   Matrix<Rows, Columns,  DataType> const &lhs,
                                   Matrix<Rows, Columns,  DataType> const &rhs);
 
-        friend Matrix<Rows, Columns, DataType> operator+<>(
+        friend Matrix<Rows, Columns, DataType> operator+(
                               Matrix<Rows, Columns,  DataType> const &lhs,
                               DataType const &rhs);
 
-        friend Matrix<Rows, Columns, DataType> operator+<>(
+        friend Matrix<Rows, Columns, DataType> operator+(
                               DataType const &lhs,
                               Matrix<Rows, Columns,  DataType> const &rhs);
+                              */
 };
 
 //MATRIXROW
@@ -121,9 +124,9 @@ class Matrix<1, 1, DataType>
 };
 
 //OPERATORS
-template<size_t Rows, size_t Columns, typename DataType = double>
-bool operator==(Matrix<Rows, Columns,  DataType> const &lhs,
-                Matrix<Rows, Columns,  DataType> const &rhs)
+template<size_t Rows, size_t Columns, typename LhsType, typename RhsType>
+bool operator==(Matrix<Rows, Columns,  LhsType> const &lhs,
+                Matrix<Rows, Columns,  RhsType> const &rhs)
 {
   for (size_t row = 0; row < Rows; ++row)
     for (size_t col = 0; col < Columns; ++col)
@@ -131,7 +134,7 @@ bool operator==(Matrix<Rows, Columns,  DataType> const &lhs,
         return false;
   return true;
 }
-
+/*
 template<size_t Rows, size_t Columns, typename DataType = double>
 Matrix<Rows, Columns, DataType> operator+(
                 Matrix<Rows, Columns,  DataType> const &lhs,
@@ -167,7 +170,7 @@ Matrix<Rows, Columns, DataType> operator+(
       tmp.d_matrix[row][col] = lhs + rhs.d_matrix[row][col];
   return tmp;
 }
-
+*/
 //MARGINALS
 template <size_t Rows, size_t Columns, typename DataType>
 Matrix<1, Columns, DataType>
