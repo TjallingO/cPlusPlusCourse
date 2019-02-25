@@ -20,6 +20,8 @@ class Matrix
 
     void print();
 
+    Matrix &operator=(Matrix &&) = default;
+
   private:
 
     template<size_t Rows2, size_t Columns2, typename LhsType, typename RhsType>
