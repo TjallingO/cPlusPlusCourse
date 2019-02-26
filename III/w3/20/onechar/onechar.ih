@@ -1,0 +1,4 @@
+#include "onechar.h"
+
+using namespace std;
+
