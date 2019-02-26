@@ -22,8 +22,8 @@ class Semaphore
     size_t size() const;
 
     bool check(size_t &nAvailable);
-    
-    void wait()
+
+    void wait() //for use by producer
     {
       std::unique_lock<std::mutex> lk(d_Mutex);
 
@@ -33,7 +33,7 @@ class Semaphore
       --d_nAvailable;
     }
 
-    template<typename Params>
+    template<typename Params> //for use by consumer
     bool wait(Params &&params)
     {
       std::unique_lock<std::mutex> lk(d_Mutex);
@@ -42,6 +42,7 @@ class Semaphore
         d_condition.wait(lk);
 
       bool result = params();
+
       if(result == false)
         return false;
       if(result == true && d_nAvailable != 0)
