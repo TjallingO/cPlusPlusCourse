@@ -1,0 +1,8 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+using namespace std;
+
+#include "base/base.h"
+#include "intvalue/intvalue.h"
+
+#include <iostream>
