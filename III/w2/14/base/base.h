@@ -6,8 +6,6 @@
 template<typename Derived>
 class Base
 {
-  public:
-
   private:
     std::ostream &insertInto(std::ostream &out);
 
