@@ -1,10 +1,6 @@
 #define ERR(msg) printf("%s : %d", (msg), __LINE__)
 
-#include "chars/chars.h"
-#include "onechar/onechar.h"
-#include "merge/merge.h"
-
+#include "matrix/matrix.h"
 #include <iostream>
-
 
 using namespace std;

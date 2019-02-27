@@ -33,7 +33,7 @@ class Semaphore
       --d_nAvailable;
     }
 
-    template<typename Params> //for use by consumer
+    template<typename Params> //for use by clients
     bool wait(Params &&params)
     {
       std::unique_lock<std::mutex> lk(d_Mutex);
