@@ -9,5 +9,5 @@ int main(int argc, char const **argv)
   //       >::CP() << '\n';
 
   Merge<Chars<'4', '5'>, OneChar<'6'>> test;
-  cout << test.CP();
+  //cout << test.CP();
 }
