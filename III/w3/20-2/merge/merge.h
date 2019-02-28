@@ -11,8 +11,9 @@
 
 // typedef OneChar<character> onechar;
 
-template <template<char ...ch> typename chars, template<char onechar> typename onech>
 //template <Chars<char...> chars, OneChar<typename character2> onechar>
+
+template <template<char ...ch> class chars, template<char onechar> class onech>
 class Merge
 {
   public:
