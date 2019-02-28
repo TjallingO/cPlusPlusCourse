@@ -7,7 +7,7 @@
 #include "../onechar/onechar.h"
 
 
-template<class Chars, class OneChar>
+template <Chars chars, OneChar onechar>
 class Merge
 {
   public:
@@ -15,19 +15,17 @@ class Merge
     // Chars d_chars;
     // OneChar d_onechar;
 
-    //template<class Chars2, class OneChar2>
-    template <char ...chars>
+
     std::ostream CP(); //moet Chars object returnenn
 
   private:
 };
 
-template <class Chars, class OneChar>
-template <char ...chars>
+template <Chars chars, OneChar onechar>
 std::ostream Merge<Chars, OneChar>::CP()
 {
   std::ostream out;
-  out << Chars<char ...chars>;
+  out << chars1;//<char ...chars>;
   return out;
 }
 

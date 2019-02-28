@@ -4,5 +4,6 @@ using namespace std;
 
 #include "base/base.h"
 #include "intvalue/intvalue.h"
+#include "doublevalue/doublevalue.h"
 
 #include <iostream>
