@@ -3,16 +3,6 @@
 
 template<char character>
 class OneChar
-{
-  char d_Cptr = character;
-
-
-  public:
-    char CP()
-    {
-      return d_Cptr;
-    }
-  private:
-};
+{};
 
 #endif
