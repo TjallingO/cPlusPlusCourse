@@ -13,8 +13,10 @@
 
 //template <Chars<char...> chars, OneChar<typename character2> onechar>
 
-template <template<char ...ch> class chars, template<char onechar> class onech>
-class Merge
+// template <template<char ...characters> class chars, template<char character> t onech>
+
+template <Chars chars, OneChar onechar>
+class Merge//<Chars, OneChar>
 {
   public:
 
