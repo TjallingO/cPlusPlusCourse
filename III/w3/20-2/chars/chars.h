@@ -1,29 +1,41 @@
 #ifndef INCLUDED_CHARS_
 #define INCLUDED_CHARS_
 
-//#include <tuple>
-//#include <vector>
-//#include <utility>
-//#include <cstdarg>
 #include <iostream>
 
-template <char ...chars>
+template <char ...CharsT>
 class Chars
-{
-  constexpr static char a[sizeof...(chars)] = { chars...};
+{};
 
+template <char First, char... CharsT>
+class Chars<First, CharsT...>
+{
   public:
 
-    friend std::ostream &operator<<(std::ostream &out,
-                                    Chars<chars...> const &rhs)
+    static std::string letters()
     {
-      for (size_t idx = 0; idx < sizeof(a); ++idx)
-        out << a[idx] << ' ';
-      return out;
+      return First + Chars<CharsT...>::letters();
     }
 
-  private:
-
+    friend std::ostream &operator<<(std::ostream &out,
+                                    Chars<First, CharsT...> const &rhs)
+    {
+        out << rhs.letters();
+      return out;
+    }
 };
+
+
+template <>
+class Chars<>
+{
+  public:
+
+    static std::string letters()
+    {
+      return "";
+    }
+};
+
 
 #endif

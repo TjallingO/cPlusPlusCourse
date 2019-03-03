@@ -1,43 +1,27 @@
 #ifndef INCLUDED_MERGE_
 #define INCLUDED_MERGE_
 
-#include <iostream>
-#include <cstdarg>
+template <class CharsT1, class CharsT2>
+class Merge
+{};
 
-#include "../chars/chars.h"
-#include "../onechar/onechar.h"
-
-//typedef Chars<char ...ch> chars;
-
-// typedef OneChar<character> onechar;
-
-//template <Chars<char...> chars, OneChar<typename character2> onechar>
-
-// template <template<char ...characters> class chars, template<char character> t onech>
-
-template <Chars chars, OneChar onechar>
-class Merge//<Chars, OneChar>
+template <char ...CharsT1, char CharT2>
+class Merge <Chars<CharsT1...>, OneChar<CharT2>>
 {
   public:
 
-    // void CP()
-    // {
-    //     std::cout << chars;
-    // }
+    typedef Chars<CharsT1..., CharT2> CP;
 
-    // template <char ...ch>
-    // std::ostream CP(); //moet Chars object returnenn
-
-  private:
 };
 
-// template <Chars chars<...ch>, OneChar onechar>
-// std::ostream Merge<chars<ch...>, onechar>::CP()
-// {
-//   std::ostream out;
-//   out << chars1;//<char ...chars>;
-//   return out;
-// }
+template <char ...CharsT1, char ...CharsT2>
+class Merge <Chars<CharsT1...>, Chars<CharsT2...>>
+{
+  public:
+
+    typedef Chars<CharsT1..., CharsT2...> CP;
+};
+
 
 
 #endif
