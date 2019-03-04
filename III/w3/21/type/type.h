@@ -10,7 +10,7 @@ class Type
 
     enum
     {
-      located = 0 + TypeIdx<0, NeedleT, HayStackT...>::located
+      located = 0 + TypeIdx<1, NeedleT, HayStackT...>::located
     };
 
   private:
