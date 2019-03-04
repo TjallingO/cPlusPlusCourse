@@ -3,4 +3,6 @@
 #include "type/type.h"
 #include "typeidx/typeidx.h"
 
+#include <iostream>
+
 using namespace std;

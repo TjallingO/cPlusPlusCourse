@@ -1,9 +1,13 @@
 #include "main.ih"
 
-int main(int argc, char const **argv)
+int main()
 {
-  Type<int> a;
-  Type<int, double, int> b;
-  Type<int, double, int> c;
-
+    cout <<
+        Type<int>::located << ' ' <<
+        Type<int, double>::located << ' ' <<
+        Type<int, int>::located << ' ' <<
+        Type<int, double, int>::located << ' ' <<
+        Type<int, double, int>::located << ' ' <<
+        Type<int, double, int, int, int>::located <<
+        '\n';
 }

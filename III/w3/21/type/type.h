@@ -10,10 +10,20 @@ class Type
 
     enum
     {
-      value = 0 + TypeIdx<NeedleT, HayStackT...>::value
+      located = 0 + TypeIdx<0, NeedleT, HayStackT...>::located
     };
 
   private:
+};
+
+template<typename NeedleT>
+class Type<NeedleT>
+{
+  public:
+    enum
+    {
+      located = 0
+    };
 };
 
 
