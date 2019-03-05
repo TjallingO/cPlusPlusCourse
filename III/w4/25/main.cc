@@ -1,10 +1,5 @@
 #include "main.ih"
 
-#include <vector>
-#include <iostream>
-#include <iterator>
-#include <algorithm>
-
 int main(int argc, char const **argv)
 {
   typedef Insertable<int, std::vector> InsertableVector;

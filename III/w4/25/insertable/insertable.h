@@ -7,10 +7,7 @@
 #define CONT_ Container<Data, AllocationPolicy<Data>>
 #define INS_  Insertable<Data, Container, AllocationPolicy>
 
-
-#include <ostream>
 #include <vector>
-#include <iostream>
 #include <memory>
 #include <iterator>
 
@@ -34,16 +31,20 @@ class Insertable: public Container<Data, AllocationPolicy<Data>>
 };
 
 HDR_
-INS_::Insertable(const CONT_ &RHS) : CONT_(RHS)
+INS_::Insertable(const CONT_ &RHS)
+  : CONT_(RHS)
 {};
 HDR_
-INS_::Insertable(const Insertable &RHS) : CONT_(RHS)
+INS_::Insertable(const Insertable &RHS)
+  : CONT_(RHS)
 {};
 HDR_
-INS_::Insertable() : CONT_()
+INS_::Insertable()
+  : CONT_()
 {};
 HDR_
-INS_::Insertable(Data RHS): CONT_(RHS)
+INS_::Insertable(Data RHS)
+  : CONT_(RHS)
 {};
 
 #undef HDR_
