@@ -18,9 +18,9 @@ class Insertable: public Container<Data, AllocationPolicy<Data>>
 {
   public:
 
+    Insertable();
     Insertable(const CONT_ &RHS);
     Insertable(const Insertable &RHS);
-    Insertable();
     Insertable(Data RHS);
 
     friend std::ostream &operator<<(std::ostream &out, const Insertable &ins)
@@ -31,16 +31,16 @@ class Insertable: public Container<Data, AllocationPolicy<Data>>
 };
 
 HDR_
+INS_::Insertable()
+: CONT_()
+{};
+HDR_
 INS_::Insertable(const CONT_ &RHS)
   : CONT_(RHS)
 {};
 HDR_
 INS_::Insertable(const Insertable &RHS)
   : CONT_(RHS)
-{};
-HDR_
-INS_::Insertable()
-  : CONT_()
 {};
 HDR_
 INS_::Insertable(Data RHS)
