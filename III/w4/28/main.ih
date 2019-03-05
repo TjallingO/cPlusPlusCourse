@@ -1,0 +1,7 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+#include "basic/basic.h"
+
+#include <iostream>
+
+using namespace std;
