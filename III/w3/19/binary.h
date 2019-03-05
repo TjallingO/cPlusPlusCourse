@@ -8,7 +8,7 @@ struct Bin
 {
   enum
   {
-    value = Bin<nO / 2>::value * 10 + (nO % 2)
+    value = Bin<(nO >> 1)>::value * 10 + (nO & 1)
   };
 };
 
