@@ -1,6 +1,7 @@
 #ifndef INCLUDED_INSERTABLE_
 #define INCLUDED_INSERTABLE_
 
+
 #include <ostream>
 #include <vector>
 #include <iostream>
@@ -19,7 +20,7 @@ class Insertable: public Container<Data, AllocationPolicy<Data>>
     Insertable(const Insertable &RHS) : MyContainer(RHS) {};
     Insertable() : MyContainer() {};
     Insertable(Data RHS): MyContainer(RHS) {};
-    
+
     friend std::ostream &operator<<(std::ostream &out, const Insertable &ins)
     {
       std::copy (ins.begin(), ins.end(), std::ostream_iterator<Data>(out, "\n"));
@@ -29,6 +30,15 @@ class Insertable: public Container<Data, AllocationPolicy<Data>>
 
 };
 
+// template <>
+// inline Insertable::Insertable(const MyContainer &RHS) : MyContainer(RHS)
+// {};
+// inline Insertable::Insertable(const Insertable &RHS) : MyContainer(RHS)
+// {};
+// inline Insertable::Insertable() : MyContainer()
+// {};
+// inline Insertable::Insertable(Data RHS): MyContainer(RHS)
+// {};
 
 
 #endif
