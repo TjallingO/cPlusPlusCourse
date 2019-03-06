@@ -12,7 +12,8 @@ class Chars<First, CharsT...>
 {
   public:
 
-    static std::string letters();
+    constexpr static std::string letters();
+
     //returns the first character and keeps appending letters from the param
     //pack by calling itself without the the First char. Then once there is
     //no more input the other letters() function from the <> specialization is
@@ -36,10 +37,17 @@ class Chars<>
 };
 
 template <char First, char... CharsT>
-std::string Chars<First, CharsT...>::letters()
+constexpr std::string Chars<First, CharsT...>::letters()
 {
-  return First + Chars<CharsT...>::letters();
+  return std::string{ First, CharsT... };
+  //return First + Chars<CharsT...>::letters();
 }
+
+// template <char Next, char... CharsT>
+// char Chars<Next, CharsT...>::letter()
+// {
+//   return Next;
+// }
 
 
 template <char First, char... CharsT>
