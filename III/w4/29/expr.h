@@ -33,7 +33,6 @@ struct Expr
   RHS const &d_rhs;
 
   Expr(LHS const &lhs, RHS const &rhs);
-  size_t size() const;
 
   value_type operator[](size_t ix) const
   {
@@ -45,15 +44,9 @@ struct Expr
   {
     ObjType retVal;
     for (size_t ix = 0; ix != d_lhs.size(); ++ix)
-        retVal.push_back((*this)[ix]);
+      retVal.push_back((*this)[ix]);
     return retVal;
   }
-};
-
-EXPR_
-size_t Expr<LHS, RHS, Operation>::size() const
-{
-  return d_lhs.size();
 };
 
 EXPR_
@@ -63,22 +56,11 @@ Expr<LHS, RHS, Operation>::Expr(LHS const &lhs, RHS const &rhs)
   d_rhs(rhs)
 {};
 
+#include "plusdeluxe.h"
 template<typename LHS, typename RHS>
-Expr<LHS, RHS, std::multiplies> operator*(LHS const &lhs, RHS const &rhs)
+Expr<LHS, RHS, plusdeluxe> operator+(LHS const &lhs, RHS const &rhs)
 {
-  return Expr<LHS, RHS, std::multiplies>(lhs, rhs);
-}
-
-template<typename LHS, typename RHS>
-Expr<LHS, RHS, std::plus> operator+(LHS const &lhs, RHS const &rhs)
-{
-  return Expr<LHS, RHS, std::plus>(lhs, rhs);
-}
-
-template<typename LHS, typename RHS>
-Expr<LHS, RHS, std::divides> operator/(LHS const &lhs, RHS const &rhs)
-{
-  return Expr<LHS, RHS, std::divides>(lhs, rhs);
+  return Expr<LHS, RHS, plusdeluxe>(lhs, rhs);
 }
 
 #undef EXPR_

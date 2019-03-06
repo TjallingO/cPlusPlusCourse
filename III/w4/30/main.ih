@@ -1,8 +1,11 @@
 #define ERR(msg) printf("%s : %d", (msg), __LINE__)
 
 #include "expr.h"
+#include "printvector.h"
 
-#include <iostream>
 #include <vector>
+
+template <typename T>
+void print(T inputVector);
 
 using namespace std;

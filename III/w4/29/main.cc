@@ -2,5 +2,8 @@
 
 int main(int argc, char const **argv)
 {
-  /* code */
+  vector<int> a {1, 2, 3};
+  vector<int> b {4, 5, 6};
+
+  vector<int> iResult { a + b };
 }
