@@ -6,6 +6,7 @@
               template <typename> class AllocationPolicy>
 #define CONT_ Container<Data, AllocationPolicy<Data>>
 #define INS_  Insertable<Data, Container, AllocationPolicy>
+// Too many #defines?
 
 #include <vector>
 #include <memory>
@@ -28,8 +29,11 @@ class Insertable: public Container<Data, AllocationPolicy<Data>>
       std::copy (ins.begin(), ins.end(), std::ostream_iterator<Data>(out, "\n"));
       return out;
     };
+    // Don't yet know how to implmenent this without friend decl.
 };
 
+
+// Constructors just call constructor of underlying type
 HDR_
 INS_::Insertable()
 : CONT_()

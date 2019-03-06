@@ -19,4 +19,7 @@ int main()
   DVect dv4(10, 1.1);
 
   DVect dResult { dv1 * (dv2 + dv3) / dv4 };
+
+  print(dv1);
+  print(dResult);
 }
