@@ -66,7 +66,7 @@ Expr<LHS, RHS, Operation>::Expr(LHS const &lhs, RHS const &rhs)
 template<typename LHS, typename RHS>
 Expr<LHS, RHS, std::multiplies> operator*(LHS const &lhs, RHS const &rhs)
 {
-  return Expr<LHS, RHS, std::multiply>(lhs, rhs);
+  return Expr<LHS, RHS, std::multiplies>(lhs, rhs);
 }
 
 template<typename LHS, typename RHS>
