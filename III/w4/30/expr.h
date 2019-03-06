@@ -45,7 +45,7 @@ struct Expr
   {
     ObjType retVal;
     for (size_t ix = 0; ix != d_lhs.size(); ++ix)
-        retVal.push_back((*this)[ix]);
+      retVal.push_back((*this)[ix]);
     return retVal;
   }
 };
