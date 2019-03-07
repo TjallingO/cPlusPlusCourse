@@ -1,0 +1,4 @@
+#include "insertable.h"
+
+using namespace std;
+
