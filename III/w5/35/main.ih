@@ -1,0 +1,11 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+using namespace std;
+
+#include <set>
+#include "Scanner.h"
+#include <iostream>
+#include <string>
+#include <fstream>
+
+bool file_exists(const char *fileName);
