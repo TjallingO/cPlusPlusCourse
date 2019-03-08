@@ -20,6 +20,6 @@ int main()
 
   DVect dResult { dv1 * (dv2 + dv3) / dv4 };
 
-  print(dv1);
+  print(dv1);       // Just for testing
   print(dResult);
 }

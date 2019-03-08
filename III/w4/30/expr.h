@@ -11,6 +11,7 @@
 EXPR_
 struct Expr;
 
+// Trait class
 template<typename RHS>
 struct BasicType
 {
