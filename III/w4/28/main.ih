@@ -1,6 +1,6 @@
 #define ERR(msg) printf("%s : %d", (msg), __LINE__)
 
-#include "basic/basic.h"
+#include "basictraits/basictraits.h"
 
 #include <iostream>
 
