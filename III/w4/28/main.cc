@@ -2,8 +2,13 @@
 
 int main(int argc, char const **argv)
 {
-  cout << "plain :" << Basic<int>::value << '\n'
-       << "pointer :" << Basic<int*>::value << '\n'
-       << "reference :" << Basic<int&>::value << '\n'
-       << "rvalue reference :" << Basic<int&&>::value << '\n';
+
+
+  cout << "plain :" << BasicTraits<int>::isPlainType << '\n'
+       << "pointer :" << BasicTraits<int*>::isPointerType << '\n'
+       << "reference :" << BasicTraits<int&>::isRefType << '\n';
+       // << "rvalue reference :" << BasicTraits<int&&>::isRRefType << '\n';
+
+   BasicTraits<int *>::ValueType value = 12; //why?
+   cout << value << '\n';
 }
