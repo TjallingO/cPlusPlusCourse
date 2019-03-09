@@ -1,0 +1,9 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__)
+
+#include <iostream>
+#include <string>
+
+
+#include "flexcpp/Scanner.h"
+
+using namespace std;

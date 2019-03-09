@@ -3,7 +3,7 @@
 using namespace std;
 
 #include <set>
-#include "Scanner.h"
+#include "flexcpp/Scanner.h"
 #include <iostream>
 #include <string>
 #include <fstream>

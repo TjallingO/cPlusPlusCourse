@@ -1,0 +1,182 @@
+Chapter 5: Exercises set five: Lexical Scanners (Deadline: Mar 21).
+In this set of exercises, several scanners/tokenizers should be constructed. Never `roll your own', but always use flexc++ to generate your scanner from a lexer-specification.
+
+For those who do not have the flex(1) documentation available (at points this documentation is still useful), it can be found here. Much of this can also be used for flexc++; more information about flexc++ can be found at https://fbb-git.gitlab.io/flexcpp/.
+
+Where applicable, provide at least the flex specification file and the scanner.h header file.
+
+Implementations can often be very simple if generic algorithms and/or abstract containers are used. Use these facilities where possible, to prevent TC-marks.
+
+FLEXC++ BY MAIL
+
+If somehow you cannot use or install flexc++ then an escape route using e-mail is available. If you depend on this escape route then contact Frank or Jurjen for details. If you want to install flexc++ on the Mac, Jean-Paul van Oosten's blog-page may come in handy. If you're using Debian or Ubuntu and possibly other Linux distributions then install flexc++ as a binary package.
+
+Realize that this is merely an escape route, which may no longer be available after this course. If at all possible, install your own flexc++(1) program.
+
+
+
+Exercise 35.
+Basic exercise
+Purpose: learn to recognize embedded patterns
+Construct a program that prints a sorted list of all (different) words found in a piece of text. This time a word is defined as any consecutive series of letters, not just a sequence obtained using ostream's string-extraction.
+
+The program must be able to read its information from the standard input, unless command line arguments were provided. In the latter case these arguments are considered file names and the program should process all these files.
+
+
+
+Exercise 36.
+Basic exercise
+tPurpose of this exercise: design a small tokenizer
+Design a scanner which line-wise tokenizes its (textual) input. Its output consists of a list of token values followed by the actual text that resulted in the matched tokens. When single characters are matched, their token values should be equal to the characters' ASCII value.
+
+The scanner should detect:
+
+words (defined as C++ identifiers)
+integral numbers (as C++ int constants)
+real numbers (as C++ double constants)
+all C++ operators. Formally there are also words used as operators: and, or, sizeof, new, delete, etc. In this exercise named operators may be considered words.
+C++ strings (string concatenation on one line results in one string token, strings separated by white space and at least one line delimiter are considered as separate strings).
+C++ character constants
+Blanks should be ignored, and a newline should be returned after all tokens on a line have been processed.
+
+The scanner does not have to be an interactive scanner.
+
+
+
+Exercise 37.
+Basic exercise
+Purpose: construct a scanner using mini-scanners
+Construct a scanner producing `trimmed lines'. A `trimmed line' is any non-blank line, from which al initial and trailing blanks were removed.
+
+Comment (end-of-line and standard C comment between /* and */ as well as any text on lines starting at the hash-mark (#) up to the line's end should be considered blank, unless occurring in strings (defined as a C-string constant, like "hello /* no comment */ world").
+
+A standard C style comment within a line is simply removed, and if preceded and followed by a blank one of these blanks should be dropped. E.g., hello /* comment */ world must result in hello world.
+
+Multi-line comment extending over multiple lines should result in one single line-break. So, text like:
+
+
+    This is a line /* containing
+        multi line
+    comment */ and this is more
+
+should produce the following two lines (using quotes to indicate the begining, and end of the lines, they should not be part of the lines your program produces):
+
+    "This is a line"
+    "and this is more"
+
+Two lines, because:
+
+    This is a line /* containing
+        multi line
+    comment */
+
+results in one single line, terminated in a newline. Following this the next line continues on a line of its own. All other line delimiters (e.g., line delimiters of empty lines) should be kept.
+
+
+Exercise 38.
+Basic exercise
+Purpose: learn to design a scanner scanning a piece of text
+Consider a program (a basic string-grabber) scanning a C or C++ source file, replacing all strings by calls to a function grabbed(<number>, <filename>) where <number> is the sequence number (1, 2, ...) of the grabbed string and <filename> is the name of the file containing the strings, each line holding one string (matching the <number>s used with grabbed. The filename should be the name of the source file, using extension gsl (grabbed string lines).
+
+Strings in comment must be ignored, string concatenation should be supported, supporting raw string literals is not required: if you also want your string-grabber to recognize raw string literals, consider completing ex. 40. When submitting ex. 40 the current exercise (38) does not have to be submitted: if 40's rating will then also be applied to 38.
+
+Develop the scanner for this program, submit the class interface and the scanner specification file.
+
+Additional explanation: Assume you have a file which is a C/C++ source file. The program reads the source, and changes the source so that all strings (outside of comment) are replaced by a function call.
+
+E.g., assume the filename is 'main.cc', containing a stmnt like:
+
+
+    cout << "hello world";
+
+Then, following the command
+
+    grab main.cc
+
+the above stmnt has become:
+
+    cout << grabbed(1, "main.gsl");
+
+Likewise, if the next statement is:
+
+    cout << "This is a long text\n"
+            "Displayed over multiple lines\n"
+            "But stored in one (concatenated) string\n";
+
+then this statement becomes:
+
+    cout << grabbed(2, "main.gsl");
+
+Furthermore, the exercise asks you to:
+Develop the scanner for this program, submit the class interface and the scanner specification file.
+So: scanner.h and lexer should be submitted. Consider adding a brief explanation of what the scanner does.
+
+Subtlety:
+
+It's clear that the program modifies an existing file. Although this exercise doesn't ask you to implement the scanner's members, there are things to consider here:
+
+In-file replacement is out of the question. It's too difficult because of different lengths of strings and 'grabbed(...)' function calls
+So a temporary file is your best option, renaming the temp. filename to the original file when done.
+Using a temp. file isn't trivial. The easy solution is to add some extension to the original filename (e.g., 'main.cc.tmp'), but such a filename might already exist, so you run the risk of inadvertently rewriting the existing file
+However, mkstemp(3) creates a file and its tmp name for you. It returns a file descriptor, which can immediately be closed after the call (e.g., close(mkstemp(tmpName))). Now you have your temporary filename in tmpName and it can be opened by ofstream, receiving the modified source text.
+But now you experience a potential problem of changed access rights: mkstemp opens the file rw for only the user, but the original file may be world-readable. Solve this by:
+using stat(2) to obtain the access rights of the original file
+using chmod(2) to set the access rights of the new file to the original file's access rights.
+Do you think this is a complication that goes well beyond the purpose of the exercise? You're probably right, so using the 'main.cc.tmp' approach is fine for now.
+
+But a better approach is to encapsulate all this in a small class that simply returns a temporary stream for you, and on request renames it to another name with appropriate access rights.
+
+
+
+Exercise 39.
+Advanced exercise
+Purpose: learn to perform a non-greedy match
+The flex scanner performs greedy matches. Programs like Perl also offer facilities to perform minimal matches. Why is a minimal match feature not required for flex?
+
+Hint: don't make life hard on yourself: don't reinvent the wheel, but (this time) read the flex manual (there's no specific information about this in flexc++'s manual. This week's slides may also provide an answer.
+
+Provide a small scanner specification file showing how you could match, e.g., house if it is part of the word houseboat or household but matching all other words (either or not starting with the word house, e.g., brick-house, houseboats, housebreaking, houses, house's or any other word) as individual, unit words.
+
+The `houseboat' and `household' words should be recognized as -first- `house' and -then- the trailer, be it `boat' or `hold'.
+
+All matched words should be written to the standard output stream.
+
+Words are defined as any consecutive series of non-blank characters.
+
+Your main function should look like this:
+
+#include "main.ih"
+
+int main()
+try
+{
+    Scanner scanner;
+
+    while (scanner.lex())
+        ;
+}
+catch (...)
+{
+    return 1;
+}
+
+
+Exercise 40.
+Advanced exercise
+Purpose of this exercise: learn to design a scanner scanning a piece of text (part II)
+Same exercise as ex. 38, but this string grabber must also recognize raw string literals (if you submit this exercise, then you do not have to submit 38. In that case this exercise's rating will also be applied to 38.
+
+
+
+Exercise 41.
+Advanced exercise
+Purpose of this exercise: learn to handle #include directives.
+Write a program (using a flexc++(1) based scanner class that copies a file to the standard output stream. The file to copy may contain
+
+
+    #include "pathname"
+
+directives on separate lines. In addition to the #include directive the lines may contain white space and/or comment.
+The file specified at pathname (which may be a relative path) is written to the standard output stream at exactly the location of the #include statement. So, anything on the line preceding the #include directive must precede the contents of pathname, and after pathname has been included any additional characters beyond the #include directive follow.
+
+The program must stop with an error message if a file to include doesn't exist, or if (direct or indirect, irrespective of the nesting depth) recursive includes are encountered.
