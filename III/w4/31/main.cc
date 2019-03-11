@@ -8,7 +8,6 @@ enum
 {
     ADD,
     SUB,
-    MUL
 };
 
 template<typename LHS, typename RHS, int operation>
@@ -75,9 +74,9 @@ struct BinExpr<LHS, RHS, operation>::BasicType<BinExpr<LH, RH, oper>>
 
 template<typename LHS, typename RHS, int operation>
 template <typename LH, typename RH>
-struct BinExpr<LHS, RHS, operation>::Operation<LH, RH, MUL>
+struct BinExpr<LHS, RHS, operation>::Operation<LH, RH, ADD>
 {
-    static value_type cpt(value_type const &lhs, value_type const &rhs)
+    static  BinExpr<LHS, RHS, operation>::value_type cpt(  BinExpr<LHS, RHS, operation>::value_type const &lhs,  BinExpr<LHS, RHS, operation>::value_type const &rhs)
     {
         return lhs + rhs;
     };
@@ -87,7 +86,7 @@ template<typename LHS, typename RHS, int operation>
 template <typename LH, typename RH>
 struct BinExpr<LHS, RHS, operation>::Operation<LH, RH, SUB>
 {
-    static value_type cpt(value_type const &lhs, value_type const &rhs)
+    static  BinExpr<LHS, RHS, operation>::value_type cpt( BinExpr<LHS, RHS, operation>::value_type const &lhs,  BinExpr<LHS, RHS, operation>::value_type const &rhs)
     {
         return lhs - rhs;
     };
@@ -122,5 +121,4 @@ int main()
 
     d = a + b + c;
 
-    // cout << d;
 }
