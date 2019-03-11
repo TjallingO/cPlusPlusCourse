@@ -12,7 +12,8 @@ In this case we would have (4-1) * 2 * N = 6N index operations.
 
 
 However, by using an expression template, the result is obtained, without
-storing tmps between each addition of another VI object:
+computing the result after addition of another VI object, it simply passes the
+ addresses of the indexes, nothing is actually computed until the end:
 (((v1 + v2)  + v3) + v4)
 This results in the number of index computations being 4N.
 
