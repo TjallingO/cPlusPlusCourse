@@ -1,0 +1,15 @@
+With an expression template to add VI objects the resulting expression is still a temp object whose elements are the sums of the elements of the four VI objects.
+
+Let N be the number of elements in each VI object, of which we have 4.
+
+Without using an expression template the result would be obtained as follows:
+First v1 + v2 would be computed and stored as a tmp (lets call it v12)
+Then v12 + v3 would be computed as stored as a tmp (v123)
+Then finally v123 + v4 would be computed and stored as the resulting tmp.
+In this case we would have (4-1) * 2 * N = 6N index operations.
+
+However, by using an expression template, the result is obtained, without creating tmps between each step, instead it simply passes on the  addresses of the indexes, nothing is actually computed until the expression v1 + v2 + v3 + v4 is converted to a new vector: result.
+result = (((v1 + v2)  + v3) + v4), where the sum of the of each index of the separate vectors is assigned to the corresponding index of result.
+So here we need to look up the values in the VI objects and assign the results in the result vector, which gives us a total number of 5N index computations.
+
+Clearly 5N < 6N, so by using an expression template we can reduce the number of index computations.
