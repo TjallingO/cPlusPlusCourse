@@ -34,3 +34,5 @@ int main(int argc, char const **argv)
   for (auto el: words)    // Print output
     cout << el << '\n';
 }
+//loop niet ni nmain, vector argumenten doorgeven aan functie
+//liever geen dev null

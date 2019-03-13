@@ -46,7 +46,7 @@ class BasicTraits
   template<typename T2>
   struct Basic<T2 &&> //rvalue ref to a type
   {
-    typedef T Type;
+    typedef T2 Type;
     enum
     {
       isPlain = 0,
@@ -63,7 +63,18 @@ class BasicTraits
    typedef typename Basic<T>::Type ValueType;
    typedef ValueType *PtrType;
    typedef ValueType &RefType;
-   typedef ValueType &&RvalueRefType; //werkt niet met pointer templ argument
+   typedef ValueType &&RvalueRefType;
+
+   //template<typename T2>
+   BasicTraits(ValueType input);
+   BasicTraits(ValueType *input);
+
+
+
+   ValueType value()
+   {
+     return d_value;
+   }
 
    enum
    {
@@ -72,7 +83,24 @@ class BasicTraits
      isRefType = Basic<T>::isRef,
      isRRefType = Basic<T>::isRRef
    };
+
+  private:
+
+    ValueType d_value;
 };
+
+template<typename T>
+BasicTraits<T>::BasicTraits(ValueType input)
+{
+    d_value = input;
+}
+template<typename T>
+BasicTraits<T>::BasicTraits(ValueType *input)
+{
+    d_value = *input;
+}
+
+
 
 
 

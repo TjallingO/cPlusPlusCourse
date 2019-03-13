@@ -12,10 +12,13 @@ In this case we would have (4-1) * 2 * N = 6N index operations.
 
 
 However, by using an expression template, the result is obtained, without
-computing the result after addition of another VI object, it simply passes the
- addresses of the indexes, nothing is actually computed until the end:
-(((v1 + v2)  + v3) + v4)
-This results in the number of index computations being 4N.
+creating tmps between each step, instead it simply passes on the
+ addresses of the indexes, nothing is actually computed until the expression
+ v1 + v2 + v3 + v4 is converted to a new vector: result.
+result = (((v1 + v2)  + v3) + v4), where the sum of the of each index of the
+separate vectors is assigned to the corresponding index of result.
+So here we need to look up the values in the VI objects and assign the results
+ in the result vector, which gives us a total number of 5N index computations.
 
-Clearly 4N < 6N, so by using an expression template we can reduce the number
+Clearly 5N < 6N, so by using an expression template we can reduce the number
 of index computations.
