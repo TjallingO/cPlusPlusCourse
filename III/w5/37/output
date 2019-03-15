@@ -1,2 +1,5 @@
-
-multiin /* multilineout 
+multiin multiin
+String text
+#should stay
+in in.
+in

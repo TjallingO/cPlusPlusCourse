@@ -4,7 +4,14 @@ multiin /* multilineout */ multiin
 
 #out out
 
-     in /*out*/ in.
+
+    "String text"
+    "#should stay"
+     in /*out
+out
+     */ in.
+
+//outoutout
 
 #out out
 in

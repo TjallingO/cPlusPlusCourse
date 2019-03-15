@@ -1,0 +1,29 @@
+
+%x multiline
+%x hash
+%x ccomment
+%x string
+
+%%
+
+"\""                        begin(StartCondition__::string);
+<string>["][ ]*             begin(StartCondition__::INITIAL);
+<string>.|\n                echo();
+
+"/*"                        begin(StartCondition__::multiline);
+<multiline>"*/"[ ]*         begin(StartCondition__::INITIAL);
+<multiline>.|\n
+
+"#"                         begin(StartCondition__::hash);
+<hash>"\n"                  begin(StartCondition__::INITIAL);
+<hash>.|\n
+
+//ccomment miniscanner beter leesbaar dan normale lexer code
+"//"                        begin(StartCondition__::ccomment);
+<ccomment>"\n"              begin(StartCondition__::INITIAL);
+<ccomment>.|\n
+
+
+^\n
+^(\ )+
+^(\t)+

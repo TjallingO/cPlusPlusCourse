@@ -1,5 +1,5 @@
 #include "main.ih"
-#include "flexcpp/Scanner.h"
+#include "Scanner.h"
 
 int main(int argc, char const **argv)
 {
