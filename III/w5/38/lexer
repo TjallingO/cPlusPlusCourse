@@ -3,13 +3,22 @@
 
 %%
 
-"\""                        {
+"\{"                        {
                               begin(StartCondition__::string);
                               setMatched("grabbed(" + counter() + ", " + \
                                filename() + ".gsl);");
                               echo();
                             }
+"\""                        {
+                              begin(StartCondition__::string);
+                              setMatched("grabbed(" + counter() + ", " + \
+                              filename() + ".gsl);");
+                              echo();
+                            }
 <string>["][;]              {
+                              begin(StartCondition__::INITIAL);
+                            }
+<string>[}][;]              {
                               begin(StartCondition__::INITIAL);
                             }
 <string>.|\n
