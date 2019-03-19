@@ -10,13 +10,22 @@ int main(int argc, char const **argv)
   Scanner scanner("input", "output");
   scanner.lex();
 
-   string a = "hello ";
-   string b = "world";
-   string c = a + b;
+   // string a = "hello ";
+   // string b = "world";
+   // string c = a + b;
+   //
+   // cout << "a\n"
+   // "b\n"
+   // "c\n";
 
-   cout << "a\n"
-   "b\n"
-   "c\n";
-  //programma dat grabber om strings heenzeet met counter uit static class?
-  //moet ook deze class maken + grabber functie neem ik aan
+   cout << R"R(
+     *********************************
+     ^\\s+Encryption key:(\\w+)
+     ^\\s+Quality=(\\d+)
+     ^\\s+E?SSID:\"([[:print:]]+)\"
+     ^\\s+ssid=\"([[:print:]]+)\"
+     *********************************
+   )R" << '\n';
+
+  //dit is een raw string literal
 }
