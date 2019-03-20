@@ -1,0 +1,7 @@
+int main(int argc, char const **argv)
+{
+  cout << grabbed(1, input.gsl);
+
+  cout << grabbed(2, input.gsl);
+
+}
