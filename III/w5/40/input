@@ -1,0 +1,28 @@
+int main(int argc, char const **argv)
+{
+  cout << "hello world\n";
+
+  cout << "hello world\n"
+          "hello world\n"
+          "hello world\n";
+
+  cout << R"(
+    *********************************
+    ^\\s+Encryption key:(\\w+)
+    ^\\s+Quality=(\\d+)
+    ^\\s+E?SSID:\"([[:print:]]+)\"
+    ^\\s+ssid=\"([[:print:]]+)\"
+    *********************************
+  )" << '\n';
+
+  cout << R"T(
+    *********************************
+    ^\\s+Encryption key:(\\w+)
+    ^\\s+Quality=(\\d+)
+    ^\\s+E?SSID:\"([[:print:]]+)\"
+    ^\\s+ssid=\"([[:print:]]+)\"
+    *********************************
+  )T" << '\n';
+
+  teststays?
+}

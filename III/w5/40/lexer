@@ -1,0 +1,27 @@
+%x string
+%x Rstring
+%x Rstringplus
+RLITp [_a-zA-Z]+
+
+
+%%
+
+R"T("(RLITp)"))T"     {
+                              setMatched("grabbed(" + counter() + ", " + \
+                              filename() + ".gsl)");
+                              echo();
+                            }
+
+
+
+
+[R]["][(]                   {
+                              begin(StartCondition__::Rstring);
+                              setMatched("grabbed(" + counter() + ", " + \
+                              filename() + ".gsl)");
+                              echo();
+                            }
+<Rstring>[)]["]             {
+                              begin(StartCondition__::INITIAL);
+                            }
+<Rstring>.|\n
