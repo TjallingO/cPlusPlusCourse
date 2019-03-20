@@ -6,5 +6,4 @@ int main(int argc, char const **argv)
           "hello world\n"
           "hello world\n";
 
-  cout << {1, 2, 3, 4};
 }

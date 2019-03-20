@@ -17,6 +17,7 @@ class Scanner: public ScannerBase
         explicit Scanner(std::istream &in = std::cin,
                                 std::ostream &out = std::cout);
 
+        Scanner(std::string const &infile);
         Scanner(std::string const &infile, std::string const &outfile);
 
         // $insert lexFunctionDecl
@@ -42,6 +43,11 @@ inline Scanner::Scanner(std::istream &in, std::ostream &out)
 :
     ScannerBase(in, out)
 {}
+
+inline Scanner::Scanner(std::string const &infile)
+:   ScannerBase(infile, infile + ".tmp")
+{}
+
 
 inline Scanner::Scanner(std::string const &infile, std::string const &outfile)
 :

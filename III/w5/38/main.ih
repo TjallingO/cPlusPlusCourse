@@ -1,5 +1,6 @@
 #define ERR(msg) printf("%s : %d", (msg), __LINE__)
 
 #include "Scanner.h"
+#include <iostream>
 
 using namespace std;
