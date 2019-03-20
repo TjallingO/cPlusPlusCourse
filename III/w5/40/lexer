@@ -6,7 +6,7 @@ RLITp [_a-zA-Z]+
 
 %%
 
-R"T("(RLITp)"))T"     {
+R"label("(\w+)"))\1(label)" {
                               setMatched("grabbed(" + counter() + ", " + \
                               filename() + ".gsl)");
                               echo();
