@@ -1,4 +1,4 @@
-operators       [\/\+\-\*\%]
+operators       [\/\+\-\*\%\=\!\&\|\~\^\<\>]
 %%
 
 [ \t\n]         // Ignored
@@ -7,4 +7,4 @@ operators       [\/\+\-\*\%]
 [0-9]+\.[0-9]+  return FLOAT;
 [0-9]+          return INT;
 \".*            return STRING;
-{operators}     return OP;
+{operators}+    return OP;

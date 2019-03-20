@@ -7,5 +7,8 @@ using namespace std;
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <cstring>
 
 bool file_exists(const char *fileName);
+multiset<string> processfiles(int argc, char **argv);
+multiset<string> processcin();

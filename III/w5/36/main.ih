@@ -2,8 +2,12 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 
 
 #include "flexcpp/Scanner.h"
 
 using namespace std;
+
+bool file_exists(const char *fileName);
+int processfile(const char *file);
