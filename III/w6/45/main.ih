@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+
+#include "parser/parser.h"
+#include "scanner/scanner.h"
+
+namespace Icmbuild
+{
+    extern char version[];
+    extern char years[];
+    extern char author[];
+};
+
+void usage(std::string const &progname);
+
+using namespace std;
