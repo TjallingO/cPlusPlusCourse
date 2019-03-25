@@ -1,0 +1,97 @@
+//%default-actions quiet
+%filenames parser
+%scanner ../scanner/scanner.h
+
+//%baseclass-preinclude      x.h or <x.h>
+
+
+//    Semantic values used by the parser.
+//    Two often used types are predefined, extend or alter as seems fit.
+//    When %union is not used, use:
+//%stype   struct-name/class-name
+//%union
+//{
+//      //  define union fields here. The fields shown are for demo-use only
+//    int          i;
+//    unsigned     u;
+//    std::string *s;
+//};
+//  Typed nonterminals indicate the union-value that's returned:
+//%type<i>
+//    rule1 or TOKEN
+//    rule2
+
+// lowest precedence
+//%token
+//%nonassoc
+//%left
+//%right
+// highest precedence
+
+%baseclass-preinclude cmath
+
+%token NR
+%stype double
+%left '-' '+'
+%left '*' '/'
+
+%right '&' //sqrt
+%right 'n' //n = not, unary minus
+
+
+
+%%
+
+input:
+      //empty
+|
+    input line
+;
+
+line:
+    '\n'
+|
+    expr '\n'
+    {
+      std::cout << "\t" << $1 << std::endl;
+    }
+;
+
+
+expr:
+    NR
+|
+    'n' expr
+    //n = not, unary minus
+    {
+      $$ = -$2;
+    }
+|
+    expr '+' expr
+    {
+      $$ = $1 + $3;
+    }
+|
+    expr '-' expr
+    {
+      $$ = $1 - $3;
+    }
+|
+    expr '*' expr
+    {
+      $$ = $1 * $3;
+    }
+|
+    expr '/' expr
+    {
+      $$ = $1 / $3;
+    }
+|
+    //sqrt
+    '&' expr
+    {
+      sqrt($2);
+    }
+|
+    '(' expr ')'
+;
