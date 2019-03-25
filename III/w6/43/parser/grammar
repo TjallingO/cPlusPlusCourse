@@ -35,8 +35,8 @@
 %left '-' '+'
 %left '*' '/'
 
-%right '&' //sqrt
-%right 'n' //n = not, unary minus
+%right '$' //sqrt
+%left NEG //unary minus
 
 
 
@@ -61,8 +61,7 @@ line:
 expr:
     NR
 |
-    'n' expr
-    //n = not, unary minus
+    '-' expr %prec NEG  //unary minus
     {
       $$ = -$2;
     }
@@ -88,10 +87,13 @@ expr:
     }
 |
     //sqrt
-    '&' expr
+    '$' expr
     {
-      sqrt($2);
+      $$ = sqrt($2);
     }
 |
     '(' expr ')'
+    {
+      $$ = $2;
+    }
 ;
