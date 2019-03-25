@@ -1,0 +1,47 @@
+
+%filenames parser
+%scanner ../scanner/scanner.h
+
+
+// lowest precedence
+//%token
+//%nonassoc
+//%left
+//%right
+// highest precedence
+
+%%
+
+variable_list:
+    variable_list
+    ','
+    IDENT
+|
+    variable_list
+    ','
+    NUMBER
+|
+    IDENT
+|
+    NUMBER
+;
+
+//ik wil WRITE als start rule zoals hieronder maar dat is een terminal symbol
+//ipv nonterminal?
+
+if (WRITE)
+{
+  variable_list:
+      variable_list
+      ','
+      IDENT
+  |
+      variable_list
+      ','
+      NUMBER
+  |
+      IDENT
+  |
+      NUMBER
+  ;
+}
