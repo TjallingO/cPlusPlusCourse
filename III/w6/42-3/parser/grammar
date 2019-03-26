@@ -17,10 +17,6 @@
 %%
 
 
-
-//ik wil WRITE als start rule zoals hieronder maar dat is een terminal symbol
-//ipv nonterminal?
-
 function:
   //nothing
 |
