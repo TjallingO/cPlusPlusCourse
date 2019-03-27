@@ -84,7 +84,7 @@ expr:
       $$ = ($1 == $4);
     }
 |
-    expr '^' expr //wordt dit op binary exponent manier gedaan?
+    expr '^' expr //wordt dit wel op binary exponent manier gedaan?
     {
       $$ = pow($1, $3);
     }

@@ -2,36 +2,7 @@
 %filenames parser
 %scanner ../scanner/scanner.h
 
-//%baseclass-preinclude      x.h or <x.h>
-
-
-//    Semantic values used by the parser.
-//    Two often used types are predefined, extend or alter as seems fit.
-//    When %union is not used, use:
-//%stype   struct-name/class-name
-//%union
-//{
-//      //  define union fields here. The fields shown are for demo-use only
-//    int          i;
-//    unsigned     u;
-//    std::string *s;
-//};
-//  Typed nonterminals indicate the union-value that's returned:
-//%type<i>
-//    rule1 or TOKEN
-//    rule2
-
-// lowest precedence
-//%token
-//%nonassoc
-//%left
-//%right
-// highest precedence
-
 %baseclass-preinclude cmath
-
-
-//%stype std::size_t
 
 %token VAR
 %token NR
@@ -58,9 +29,7 @@ line:
 
 
 expr:
-    NR
-|
-    VAR
+    varornr
 |
     '-' expr
     {
@@ -81,11 +50,13 @@ expr:
 ;
 
 array:
-    array '[' VAR ']'
+    array '[' varornr ']'
     |
-    VAR '[' VAR ']'
+    VAR '[' varornr ']'
+;
+
+varornr:
+    VAR
     |
-    array '[' NR ']'
-    |
-    VAR '[' NR ']'
+    NR
 ;

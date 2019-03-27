@@ -15,27 +15,39 @@
 %token NUMBER
 
 %%
+input:
+      //empty
+|
+    input line
+;
+
+line:
+    '\n'
+|
+    function '\n'
+    {
+      std::cout << "\t" << $1 << std::endl;
+    }
+;
 
 
 function:
-  //nothing
-|
-  WRITE
-  '('
-  variable_list
-  ')'
+      WRITE
+      '('
+      variable_list
+      ')'
 ;
 
 
 variable_list:
     variable_list
     ','
-    IDENT
+    var
 |
-    variable_list
-    ','
-    NUMBER
-|
+    var
+;
+
+var:
     IDENT
 |
     NUMBER
