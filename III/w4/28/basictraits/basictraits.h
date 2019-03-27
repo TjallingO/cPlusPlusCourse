@@ -81,7 +81,7 @@ class BasicTraits
      isPlainType = Basic<T>::isPlain,
      isPointerType = Basic<T>::isPointer,
      isRefType = Basic<T>::isRef,
-     isRRefType = Basic<T>::isRRef
+     isRRefType = Basic<T>::isRRef 
    };
 
   private:
