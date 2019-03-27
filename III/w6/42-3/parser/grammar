@@ -2,14 +2,6 @@
 %filenames parser
 %scanner ../scanner/scanner.h
 
-
-// lowest precedence
-//%token
-//%nonassoc
-//%left
-//%right
-// highest precedence
-
 %token WRITE
 %token IDENT
 %token NUMBER

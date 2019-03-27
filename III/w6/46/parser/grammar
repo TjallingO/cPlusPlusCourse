@@ -29,8 +29,16 @@ line:
 
 
 expr:
-    varornr
+    VAR
 |
+    NR
+|
+    math
+|
+    array
+;
+
+math:
     '-' expr
     {
       $$ = - $2;
@@ -45,18 +53,10 @@ expr:
     {
       $$ = $1 * $3;
     }
-|
-    array
 ;
 
-array:
-    array '[' varornr ']'
+array:  //var[idx].. is allowed whereas NR[idx] is not
+    array '[' expr ']'
     |
-    VAR '[' varornr ']'
-;
-
-varornr:
-    VAR
-    |
-    NR
+    VAR '[' expr ']'
 ;
