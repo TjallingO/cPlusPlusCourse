@@ -1,0 +1,45 @@
+%scanner ../scanner/scanner.h
+
+%token WRITE
+%token IDENT
+%token NUMBER
+
+%%
+input:
+  //empty
+|
+  input line
+;
+
+line:
+  '\n'
+|
+  function '\n'
+  {
+    std::cout << "\t" << $1 << std::endl;
+  }
+;
+
+function:
+  WRITE
+  '('
+  arg_list
+  ')'
+  {
+    std::cout << $1 << " WRITE FUNCTION() \n";
+  }
+;
+
+arg_list:
+  arg_list
+  ','
+  variable
+|
+  variable
+;
+
+variable:
+  IDENT
+|
+  NUMBER
+;

@@ -1,0 +1,4 @@
+%%
+
+^[ \t]+                         // skip initial blanks
+[ \t]+$                         // skip trailing blanks

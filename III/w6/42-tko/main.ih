@@ -1,0 +1,5 @@
+#define ERR(msg) printf("%s : %d", (msg), __LINE__) 
+
+#include "parser/parser.h" 
+#include "scanner/scanner.h" 
+using namespace std;
