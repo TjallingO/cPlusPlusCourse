@@ -2,6 +2,6 @@
 
 void Parser::list() const
 {
-  for (auto el: d_symtab)
-    cout << el.first << '\n';
+  for (auto const &el: d_symtab)
+    cout << el.first << '\t' << d_value[el.second] << '\n';
 }
