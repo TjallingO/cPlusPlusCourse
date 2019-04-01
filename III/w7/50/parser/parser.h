@@ -21,51 +21,58 @@
 
 class Parser: public ParserBase
 {
-    // $insert scannerobject
-    Scanner d_scanner;
+  // $insert scannerobject
+  Scanner d_scanner;
 
-    std::vector<double> d_value;
-    std::unordered_map<std::string, unsigned> d_symtab;
+  std::vector<double> d_value;
+  std::unordered_map<std::string, unsigned> d_symtab;
 
-    bool d_display;
+  bool d_display;
 
-    public:
-        Parser() = default;
-        Parser(bool run);
-        int parse();
+  public:
+    enum direction
+    {
+      LEFT = 0,
+      RIGHT
+    };
+    Parser() = default;
+    Parser(bool run);
+    int parse();
 
-    private:
-        void error();                   // called on (syntax) errors
-        int lex();                      // returns the next token from the
-                                        // lexical scanner.
-        void print();                   // use, e.g., d_token, d_loc
-        void exceptionHandler(std::exception const &exc);
+  private:
+    void error();                   // called on (syntax) errors
+    int lex();                      // returns the next token from the
+                                    // lexical scanner.
+    void print();                   // use, e.g., d_token, d_loc
+    void exceptionHandler(std::exception const &exc);
 
-    // support functions for parse():
-        void executeAction_(int ruleNr);
-        void errorRecovery_();
-        void nextCycle_();
-        void nextToken_();
-        void print_();
+// support functions for parse():
+    void executeAction_(int ruleNr);
+    void errorRecovery_();
+    void nextCycle_();
+    void nextToken_();
+    void print_();
 
-        void error(char const *msg);
+    void error(char const *msg);
 
-    // added functions for the calculator:
+// added functions for the calculator:
 
-        void display(RuleValue &e);
-        void done();
-        void prompt();
-        void list() const;
+    void display(RuleValue &e);
+    void done();
+    void prompt();
+    void list() const;
 
-        RuleValue &add(RuleValue &lvalue, RuleValue &rvalue);
-        RuleValue &assign(RuleValue &lvalue, RuleValue &rvalue);
-        RuleValue &negate(RuleValue &e);
-        RuleValue &sub(RuleValue &lvalue, RuleValue &rvalue);
-        RuleValue &multiply(RuleValue &lvalue, RuleValue &rvalue);
-        RuleValue value();
-        RuleValue variable();
+    RuleValue &add(RuleValue &lvalue, RuleValue &rvalue);
+    RuleValue &assign(RuleValue &lvalue, RuleValue &rvalue);
+    RuleValue &negate(RuleValue &e);
+    RuleValue &sub(RuleValue &lvalue, RuleValue &rvalue);
+    RuleValue &multiply(RuleValue &lvalue, RuleValue &rvalue);
+    RuleValue &divide(RuleValue &lvalue, RuleValue &rvalue);
+    RuleValue &shift(RuleValue &lvalue, size_t shiftBy, enum direction);
+    RuleValue value();
+    RuleValue variable();
 
-        double valueOf(RuleValue const &e);
+    double valueOf(RuleValue const &e);
 
 };
 
