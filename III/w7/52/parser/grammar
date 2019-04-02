@@ -4,20 +4,26 @@
 %parsefun-source parse.cc
 
 %baseclass-preinclude rulevalue.h
+
 %stype RuleValue
 
 %scanner ../scanner/scanner.h
 
+
 %token  NUMBER
         IDENT
         QUIT
+        LIST
+        FNCT
 
-%right  uMinus
-%right  '='
-%left   '+'
-%right  '*'
-%left   '/'
+//%type   exp
+
 %right  '-'
+%left   '/'
+%right  '*'
+%left   '+'
+%right  '='
+%right  uMinus
 
 // %debug
 
@@ -41,6 +47,11 @@ line:
         done();
     }
 |
+    LIST
+    {
+      list();
+    }
+|
     '\n'
     {
         prompt();
@@ -62,6 +73,11 @@ expr:
     IDENT
     {
         $$ = variable();
+    }
+|
+    FNCT '(' expr ')'
+    {
+      $$ =(*$1)($3);
     }
 |
     '-' expr            %prec uMinus
