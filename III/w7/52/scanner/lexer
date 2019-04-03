@@ -18,6 +18,9 @@ exp         [eE][-+]?{digits}
 
 (list)                                  return Parser::LIST;
 
+(sin)                                   return Parser::SIN;
+[[:alpha:]]+                            return Parser::FNCT;
+
 [[:alpha:]_][[:alnum:]_]*               return Parser::IDENT;
 
 \n|.                                    return matched()[0];

@@ -14,7 +14,8 @@
         IDENT
         QUIT
         LIST
-        FNCT
+        SIN
+%token  FNCT
 
 //%type   exp
 
@@ -75,14 +76,19 @@ expr:
         $$ = variable();
     }
 |
-    FNCT '(' expr ')'
-    {
-      $$ =(*$1)($3);
-    }
-|
     '-' expr            %prec uMinus
     {
         $$ = negate($2);
+    }
+|
+    SIN '(' expr ')'
+    {
+        $$ = sinfun($3);
+    }
+|
+    FNCT '(' expr ')'
+    {
+        functions(d_scanner.matched(), $3);
     }
 |
     expr '+' expr
@@ -115,4 +121,9 @@ expr:
     {
         $$ = sub($1, $3);
     }
+//|
+//    FNCT '(' expr ')'
+//    {
+//      $$ =(*$1)($3);
+//    }
 ;

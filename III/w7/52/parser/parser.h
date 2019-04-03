@@ -63,7 +63,10 @@ class Parser: public ParserBase
     void prompt();
     void list() const;
 
+    RuleValue &sinfun(RuleValue &input);
     RuleValue &expo(RuleValue &input);
+
+    void functions(const std::string &text, RuleValue &input);
 
     RuleValue &add(RuleValue &lvalue, RuleValue &rvalue);
     RuleValue &assign(RuleValue &lvalue, RuleValue &rvalue);

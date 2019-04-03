@@ -12,6 +12,7 @@ struct RuleValue
     Type        d_type;
     double      d_number;
     unsigned    d_idx;
+    double      (*d_fnct)(double);
 
     public:
         RuleValue();
