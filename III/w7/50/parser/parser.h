@@ -68,7 +68,21 @@ class Parser: public ParserBase
     RuleValue &sub(RuleValue &lvalue, RuleValue &rvalue);
     RuleValue &multiply(RuleValue &lvalue, RuleValue &rvalue);
     RuleValue &divide(RuleValue &lvalue, RuleValue &rvalue);
-    RuleValue &shift(RuleValue &lvalue, size_t shiftBy, enum direction);
+    RuleValue &shiftLeft(RuleValue &lvalue, RuleValue &shiftby);
+    RuleValue &shiftRight(RuleValue &lvalue, RuleValue &shiftby);
+    RuleValue &complement(RuleValue &e);
+    RuleValue &Bxor(RuleValue &lvalue, RuleValue &shiftby);
+    RuleValue &Bor(RuleValue &lvalue, RuleValue &shiftby);
+    RuleValue &Band(RuleValue &lvalue, RuleValue &shiftby);
+    RuleValue &mulassignment(RuleValue &lvalue, RuleValue &shiftby);
+    RuleValue &divassignment(RuleValue &lvalue, RuleValue &shiftby);
+    RuleValue &modassignment(RuleValue &lvalue, RuleValue &shiftby);
+    RuleValue &addassignment(RuleValue &lvalue, RuleValue &shiftby);
+    RuleValue &subassignment(RuleValue &lvalue, RuleValue &shiftby);
+    RuleValue &mod(RuleValue &lvalue, RuleValue &shiftby);
+
+
+    int round(RuleValue &toRound);
     RuleValue value();
     RuleValue variable();
 
