@@ -1,0 +1,2 @@
+Source for the operator precedence in C++
+https://github.com/MicrosoftDocs/cpp-docs/blob/master/docs/cpp/cpp-built-in-operators-precedence-and-associativity.md
